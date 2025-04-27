@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
+    <title>WTP | Home</title>
+    <link rel="stylesheet" href="/css/bootstrap.css" />
+    <link rel="stylesheet" href="/css/print.css" />
+    <link rel="stylesheet" href="/css/screen.css" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <link
+      rel="shortcut icon"
+      href="https://wtpregister.com/images/tpm/LOGO-light.png"
+      type="image/x-icon"
+    />
+    <link
+      rel="icon"
+      href="https://wtpregister.com/images/tpm/LOGO-light.png"
+      type="image/x-icon"
+    />
+    <!-- Responsive -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const navLinks = document.querySelectorAll(".navbar-nav .nav-link");
+        const navbarCollapse = document.querySelector(".navbar-collapse");
+        const navbarToggler = document.querySelector(".navbar-toggler");
+        const togglerIcon = document.querySelector(".navbar-toggler-icon");
+
+        // Paths to icons
+        const menuIcon = "../images/tpm/icons/hamburger.svg"; // Path to your menu icon
+        const closeIcon = "../images/tpm/icons/close-light.svg"; // Path to your close icon
+
+        // Update the icon based on the collapse state
+        function updateIcon(isOpen) {
+          if (isOpen) {
+            togglerIcon.style.backgroundImage = `url(${closeIcon})`; // Close icon
+          } else {
+            togglerIcon.style.backgroundImage = `url(${menuIcon})`; // Menu icon
+          }
+        }
+
+        // Listen for Bootstrap collapse events
+        navbarCollapse.addEventListener("shown.bs.collapse", function () {
+          updateIcon(true); // Menu is open
+        });
+
+        navbarCollapse.addEventListener("hidden.bs.collapse", function () {
+          updateIcon(false); // Menu is closed
+        });
+
+        // Toggle menu on button click and sync icon state
+        navbarToggler.addEventListener("click", function () {
+          const isCollapsed = navbarCollapse.classList.contains("show");
+
+          updateIcon(!isCollapsed); // Update icon based on the new state
+        });
+
+        // Close menu and update icon on link click (mobile view)
+        navLinks.forEach((link) => {
+          link.addEventListener("click", function () {
+            if (window.getComputedStyle(navbarCollapse).display !== "none") {
+              navbarCollapse.classList.remove("show"); // Close menu
+
+              updateIcon(false); // Update icon to menu
+            }
+          });
+        });
+
+        // Initial icon state on page load
+        updateIcon(navbarCollapse.classList.contains("show"));
+      });
+    </script>
+
+    <script>
+      window.addEventListener("scroll", function () {
+        let header = document.querySelector("header");
+        if (window.scrollY > 50) {
+          header.classList.add("scrolled");
+        } else {
+          header.classList.remove("scrolled");
+        }
+      });
+
+      function navbarBgColor() {
+        document.querySelector(".nav-div").classList.toggle("navbar-bg-dark");
+      }
+    </script>
+
+    <style>
+      .main-header {
+        background-color: #2c5ca403;
+        /* box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25); */
+      }
+
+      /* .nav-item:hover .dropdown-content {
+            display: block;
+        } */
+
+      .dropdown-content {
+        display: none;
+        position: absolute;
+        width: 100%;
+        padding-top: 30px;
+      }
+
+      .services-sub-menu {
+        background-color: #2c5ca4;
+        text-align: center;
+        /* min-width: 200px; */
+      }
+
+      .services-sub-menu ul li {
+        /* border: 1px solid red; */
+        border-bottom: 1px solid white;
+        padding: 5px 0;
+      }
+
+      .services-sub-menu ul li a {
+        color: #fff;
+        font-size: 16px;
+        line-height: 25px;
+        font-weight: 500;
+        margin: auto;
+      }
+
+      /* .services-menu::after {
+            content: " +";
+        } */
+
+      @media (min-width: 992px) {
+        .services-sub-menu li:hover {
+          background-color: #2365c8;
+        }
+      }
+
+      @media (max-width: 992px) {
+        .dropdown-content {
+          position: relative;
+          padding-top: 5px;
+        }
+
+        .services-sub-menu {
+          background-color: #2c5ca480;
+          padding-right: 35px;
+          text-align: end;
+        }
+
+        .services-sub-menu ul li {
+          /* border: none; */
+          border-top: 1px solid #ffffff2e;
+          border-bottom: none !important;
+        }
+
+        .services-dropdown-menu {
+          padding: 10px 0 5px;
+        }
+
+        .bottom-mobile-line-menu {
+          border-bottom: 1px solid #ffffff2e;
+          /* background-color: #ffffff2e; */
+        }
+
+        /* .nav-item a{
+                margin: 0;
+            } */
+      }
+
+      .show-dropdown {
+        display: block !important;
+      }
+    </style>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const servicesMenu = document.querySelector(".services-menu"); // Select the menu item
+        const dropdownContent = document.querySelector(".dropdown-content"); // Select the dropdown
+
+        if (!servicesMenu || !dropdownContent) return; // Prevent errors if elements are missing
+
+        servicesMenu.addEventListener("click", function (event) {
+          event.preventDefault(); // Prevent default action
+          dropdownContent.classList.toggle("show-dropdown"); // Toggle class to show/hide
+        });
+
+        // ✅ Close dropdown when clicking outside
+        document.addEventListener("click", function (event) {
+          if (
+            !servicesMenu.contains(event.target) &&
+            !dropdownContent.contains(event.target)
+          ) {
+            dropdownContent.classList.remove("show-dropdown");
+          }
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+    <script src="/js/jquery.js"></script>
+    <script src="/js/popper.min.js"></script>
+    <script src="/js/chosen.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/jquery.fancybox.js"></script>
+    <script src="/js/jquery.modal.min.js"></script>
+    <script src="/js/mmenu.polyfills.js"></script>
+    <script src="/js/mmenu.js"></script>
+    <script src="/js/appear.js"></script>
+    <script src="/js/anm.min.js"></script>
+    <script src="/js/ScrollMagic.min.js"></script>
+    <script src="/js/rellax.min.js"></script>
+    <script src="/js/owl.js"></script>
+    <script src="/js/wow.js"></script>
+    <script src="/js/script.js"></script>
+    <script src="/js/custom.js"></script>
+  </body>
+</html>
