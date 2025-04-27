@@ -33,10 +33,10 @@ const Header = () => {
 
   return (
     <header className="main-header">
-      <div className="col-md-12 nav-div" style={{}}>
+      <div className="col-md-12 nav-div">
         <nav className="navbar navbar-expand-lg navbar-light">
           <div className="container-fluid">
-            <a className="navbar-brand" href="/home">
+            <a className="navbar-brand" href="/">
               <img src="/images/tpm/LOGO-light.png" alt="" />
             </a>
             <button
