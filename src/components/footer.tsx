@@ -1,121 +1,79 @@
-const Footer = () => {
+import { Link } from "react-router-dom";
+
+export const Footer = () => {
+  const currentYear = new Date().getFullYear();
+
   return (
-    <footer className="main-footer alternate5 screen">
-      <div className="auto-container">
-        {/*Widgets Section*/}
-        <div className="widgets-section">
-          <div className="row">
-            <div className="big-column col-md-6 col-lg-8 col-12">
-              <div className="row">
-                <div className="footer-column about-widget logo-column">
-                  <img
-                    src="/images/tpm/LOGO-light.png"
-                    alt=""
-                    width="133px"
-                    height="70px"
-                    style={{ width: "auto" }}
-                  />
-                  <h6>Contact:</h6>
-                  <a href="mailto:info@wtpregister.com">
-                    <p style={{ textDecoration: "underline" }}>
-                      info@wtpregister.com
-                    </p>
-                  </a>
-                </div>
-              </div>
+    <footer className="bg-[#005ea2] text-white py-10 px-4">
+      <div className="max-w-[85rem] mx-auto flex flex-col space-y-12">
+        {/* Main footer content */}
+        <div className="flex flex-col lg:flex-row justify-between gap-12">
+          {/* Logo and contact section */}
+          <div className="flex flex-col">
+            <div className="mb-6">
+              <img
+                src="/images/mainLogo.svg"
+                alt="WTP Logo"
+                className="w-44 h-auto"
+              />
             </div>
-            <div className="col-md-3 col-lg-2 col-6">
-              <div className="footer-column about-widget links-widget">
-                {/* <p class="phone-num"><span>Home</span></p> */}
-                <a href="/services">
-                  <p>Our Services</p>
-                </a>
-                <a href="/contact">
-                  <p>Contact Us</p>
-                </a>
-                <a href="/seo">
-                  <p>Trademark Info</p>
-                </a>
-                <a href="/contact">
-                  <p>FAQs</p>
-                </a>
-                <a href="/company">
-                  <p>About Us</p>
-                </a>
-                <p>
-                  <a href="/company"></a>
-                </p>
-              </div>
-            </div>
-            {/* <div class="col-md-3 col-6">
-                    <div class="footer-column about-widget">
-                        <p class="phone-num"><span>About us </span> </p>
-                        <p style="color: white !important">
-                            We’re dedicated to simplifying your trademark management, giving you peace of mind while you focus on growing your business. 
-                        </p>
-  
-                    </div>
-                </div> */}
-            <div className="col-md-3 col-lg-2 col-6">
-              <div className="footer-column about-widget links-widget">
-                {/* <p class="phone-num"><span>Company Links</span></p> */}
-                <a href="/publication">
-                  <p>Trademark Publication</p>
-                </a>
-                <a href="/search">
-                  <p>Search</p>
-                </a>
-                <a href="/register">
-                  <p>Request Publication</p>
-                </a>
-                <a href="/article">
-                  <p>General Information</p>
-                </a>
-              </div>
-            </div>
-            {/* <div class="big-column col-md-2 mobile-hide"></div> */}
-            <div className="col-md-12 footer-bottom-div">
-              <hr />
-              <div className="row">
-                <div className="col-md-6">
-                  <p>© 2025 WTP. All rights reserved.</p>
-                </div>
-                <div className="col-md-6 text-end policy-links">
-                  <a href="/policy">
-                    <p style={{ textDecoration: "underline" }}>
-                      Privacy Policy
-                    </p>
-                  </a>
-                  <a href="/terms">
-                    <p style={{ textDecoration: "underline" }}>
-                      Terms and Conditions
-                    </p>
-                  </a>
-                </div>
-              </div>
+            <div>
+              <p className="font-medium mb-2">Contact:</p>
+              <a
+                href="mailto:info@natp-trademark.com"
+                className="text-white break-words">
+                info@natp-trademark.com
+              </a>
             </div>
           </div>
+
+          {/* Services links */}
+          <div>
+            <Link to="/services" className="font-medium hover:underline">
+              <h4 className="font-medium mb-4 text-lg">Our Services</h4>
+            </Link>
+            <ul className="space-y-3">
+              <li>
+                <Link to="/contact" className="font-medium hover:underline">
+                  Contact Us
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/apply"
+                  className="font-medium hover:underline">
+                  Request Publication
+                </Link>
+              </li>
+              <li>
+                <Link to="/#faqs" className="font-medium hover:underline">
+                  FAQs
+                </Link>
+              </li>
+              <li>
+                <Link to="/about" className="font-medium hover:underline">
+                  About Us
+                </Link>
+              </li>
+            </ul>
+          </div>
         </div>
-      </div>
-      {/* Scroll To Top */}
-      <div
-        style={{
-          backgroundColor: "white",
-          height: 35,
-          width: 100,
-          position: "fixed",
-        }}
-      >
-        <div
-          className="scroll-to-top scroll-to-target"
-          data-target="html"
-          style={{ display: "none" }}
-        >
-          <span className="fa fa-angle-up" />
+
+        {/* Divider and copyright */}
+        <div className="border-t border-white/20 pt-4">
+          <div className="flex flex-col md:flex-row justify-between items-center text-sm gap-4 text-center md:text-left">
+            <p>© {currentYear} NATP. All rights reserved.</p>
+            <div className="flex gap-6">
+              <Link to="/privacy" className="hover:underline">
+                Privacy Policy
+              </Link>
+              <Link to="/terms" className="hover:underline">
+                Terms and Conditions
+              </Link>
+            </div>
+          </div>
         </div>
       </div>
     </footer>
   );
 };
-
-export default Footer;

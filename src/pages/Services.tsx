@@ -1,250 +1,224 @@
-import Footer from "../components/footer";
-import Header from "../components/header";
-
-const Services = () => {
+import { Navbar } from "@/components/Navbar";
+import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
+import { Database, Users, BarChart } from "lucide-react";
+import { Footer } from "@/components/Footer";
+export default function Services() {
   return (
-    <div className="services-page page-wrapper">
-      <Header />
-      <section className="service-sec-1">
-        <div className="container">
-          <div className="row">
-            <div className="col-lg-6 ">
-              <h3 className="sec-title-56">
-                Strategies Designed to Showcase Your Brand
-              </h3>
-            </div>
-            <div className="col-lg-6 ">
-              <p>
-                Our services are designed to elevate new brands, ensuring they
-                gain the visibility they deserve in today's competitive market.
-                With a dedicated team of marketing experts and professional
-                content creators, we are committed to helping you navigate the
-                trademark landscape and enhance your brand's presence.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-      <section className="service-sec-2">
-        <div className="container">
-          <div className="row">
-            <div className="col-lg-8 ">
-              <h4 className="sec-title-40">
-                Trademark Publication: Unlock Your Brand's Potential
-              </h4>
-              <p>
-                Our trademark publication process is designed to elevate your
-                brand's visibility and credibility. By showcasing your
-                trademark, we help you build awareness and trust among your
-                target audience.
-              </p>
-            </div>
-            <div className="col-lg-4 ">
-              <img src="/images/tpm/Services-TRADEMARK-PUBLICATION.png" />
-            </div>
-          </div>
-          <div className="row-btn">
-            {" "}
-            <a href="/publication">
-              {" "}
-              <button className="teal-btn">Learn More</button>
-            </a>
-          </div>
-          <div className="row reverse">
-            <div className="col-lg-4 ">
-              <img src="/images/tpm/Services-Article-picture.png" />
-            </div>
-            <div className="col-lg-8 ">
-              <h4 className="sec-title-40">
-                Article Creation. Enhance Your Brand's Exposure and Recognition.
-              </h4>
-              <p>
-                Our team of professional content creators specializes in
-                producing high-quality articles that showcase your brand and
-                trademark. By enhancing your visibility, we help you connect
-                with your audience and establish a strong market presence.
-              </p>
-            </div>
-          </div>
-          <div className="row-btn reverse">
-            {" "}
-            <a href="/article">
-              {" "}
-              <button className="teal-btn">Learn More</button>
-            </a>
-          </div>
-          <div className="row">
-            <div className="col-lg-8 ">
-              <h4 className="sec-title-40">
-                Tailored SEO Solutions Designed Specifically for Your Needs.
-              </h4>
-              <p>
-                Our SEO strategies are designed to elevate your search engine
-                rankings and enhance brand visibility. With a dedicated team of
-                experts, we ensure your trademark and brand receive the
-                attention they deserve.
-              </p>
-            </div>
-            <div className="col-lg-4 ">
-              <img src="/images/tpm/Services-seo-PICTURE.png" />
-            </div>
-          </div>
-          <div className="row-btn">
-            {" "}
-            <a href="/seo">
-              {" "}
-              <button className="teal-btn">Learn More</button>
-            </a>
-          </div>
-        </div>
-      </section>
-      <section className="service-sec-3">
-        <div className="container">
-          <div className="row discover-services">
-            <div className="col-lg-6">
-              <h3 className="subhead">Services</h3>
-              <h3 className="sec-title-48">
-                Discover the Complete Power of Your Brand
-              </h3>
-            </div>
-            <div className="col-lg-6">
-              <p>
-                Our services are designed to elevate your brand's visibility in
-                the marketplace. With daily updates to our trademark database,
-                we ensure that your brand remains relevant and easily
-                discoverable. Trust our dedicated team to provide you with the
-                support and expertise you need to thrive.
-              </p>
-            </div>
-          </div>
-          <div className="box-sec row">
-            <div className="col-lg-4 col-md-6">
-              <img src="/images/tpm/icons/box.svg" alt="" className="box-img" />
-              <h3>Stay Ahead with Daily Database Updates</h3>
-              <p className="box-para">
-                We update our database every day to keep your brand information
-                current.
-              </p>
-            </div>
-            <div className="col-lg-4 col-md-6">
-              <img src="/images/tpm/icons/box.svg" alt="" className="box-img" />
-              <h3>Experience Exceptional Support Every Step of the Way</h3>
-              <p className="box-para">
-                Our dedicated customer support team is always available to
-                assist you.
-              </p>
-            </div>
-            <div className="col-lg-4 col-md-6">
-              <img src="/images/tpm/icons/box.svg" alt="" className="box-img" />
-              <h3>Commitment to Continuous Improvement and Quality</h3>
-              <p className="box-para">
-                We continually enhance our articles and website for better user
-                experience.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-      <section className="service-sec-4">
-        <div className="container">
-          <h3 className="sec-title-48">Start Your Brand Journey Today</h3>
-          <p>
-            Discover your brand's potential through our professional trademark
-            publication services. Together, we can enhance your visibility.
+    <div className="min-h-screen">
+      <Navbar />
+
+      {/* Hero Section */}
+      {/* <div className="hero-waves min-h-[200px] flex items-center justify-center">
+        <div className="text-center max-w-3xl mx-auto px-4">
+          <h1 className="text-3xl md:text-4xl font-bold text-white mb-4">
+            Our Services
+          </h1>
+          <p className="text-white/90">
+            Comprehensive solutions designed to elevate your brand's visibility and recognition
           </p>
-          <a href="/register">
-            {" "}
-            <button className="teal-btn">Apply Now</button>
-          </a>
         </div>
-      </section>
+      </div> */}
+
+      {/* Main Content */}
+      <div className="max-w-5xl mx-auto pb-4 py-12">
+        {/* Intro Section */}
+        <div className="flex flex-col md:flex-row gap-12 mb-28 items-start md:items-center px-4">
+          {/* Left Column */}
+          <div className="md:w-1/2">
+            <h2 className="text-3xl md:text-[45px] font-semibold text-[#333747] leading-tight mb-4">
+              Strategic Brand Visibility Services
+            </h2>
+          </div>
+
+          {/* Right Column */}
+          <div className="md:w-1/2">
+            <p className="text-[#333747] font-medium md:font-semibold text-base md:text-lg leading-relaxed">
+              We support emerging brands by improving their market presence
+              through targeted visibility measures. Our team of marketing
+              professionals and content specialists ensures effective
+              positioning within the trademark landscape.
+            </p>
+          </div>
+        </div>
+
+        {/* Trademark Publication Section */}
+        <div className="flex flex-col md:flex-row gap-8 mb-16 items-start px-4">
+          {/* Text Content */}
+          <div className="md:w-2/3 mb-12 md:mb-0">
+            <h3 className="text-2xl md:text-3xl font-semibold text-[#333747] mb-4 md:mb-6 leading-tight">
+              Trademark Publication for Brand Advancement
+            </h3>
+            <p className="text-[#333747] text-base md:text-lg font-medium mb-4 md:mb-6 leading-relaxed">
+              Our process enhances visibility and credibility by publicly
+              presenting your trademark, supporting recognition and trust within
+              your target market.
+            </p>
+            <Button
+              asChild
+              className="bg-[#207ea0] hover:bg-[#1a6d8e] text-white py-3 px-5 md:py-4 md:px-6 shadow-lg rounded-md transition-all duration-300">
+              <Link to="/services/publication" className="inline-block">
+                More Info
+              </Link>
+            </Button>
+          </div>
+
+          {/* Image Content */}
+          <div className="md:w-1/3 w-full">
+            <img
+              src="/images/trademark-publication.jpg"
+              alt="Illustration representing trademark publication"
+              className="w-full h-auto rounded-md object-cover"
+              onError={(e) => {
+                const target = e.target as HTMLImageElement;
+                target.src = "/images/Trademark Publication.svg";
+              }}
+            />
+          </div>
+        </div>
+
+        {/* Article Creation Section */}
+        <div className="flex flex-col md:flex-row-reverse gap-8 mb-32 items-start">
+          <div className="md:w-2/3 w-full">
+            <h3 className="text-2xl md:text-3xl font-semibold text-[#333747] mb-4 md:mb-6">
+              Article Creation for Brand Visibility
+            </h3>
+            <p className="text-[#333747] text-base md:text-lg mb-6 md:mb-8 font-semibold">
+              We produce tailored, high-quality articles to present your brand
+              and trademark, strengthening recognition and audience engagement.
+            </p>
+            <Button
+              asChild
+              className="bg-[#207ea0] hover:bg-[#1a6d8e] text-white py-3 px-5 md:py-4 md:px-6 shadow-xl rounded-md transition-all duration-300">
+              <Link to="/services/article" className="inline-block">
+                More Info
+              </Link>
+            </Button>
+          </div>
+          <div className="md:w-1/3 w-full">
+            <img
+              src="/images/article-creation.jpg"
+              alt="Article Creation"
+              className="w-full max-h-[300px] object-cover rounded-md"
+              onError={(e) => {
+                const target = e.target as HTMLImageElement;
+                target.src = "/images/Article Creation.svg";
+              }}
+            />
+          </div>
+        </div>
+
+        {/* SEO Solutions Section */}
+        <div className="flex flex-col md:flex-row gap-8 mb-32 items-start">
+          <div className="md:w-2/3 w-full">
+            <h3 className="text-2xl md:text-3xl font-semibold text-[#333747] mb-4 md:mb-6">
+              Customized SEO for Targeted Visibility
+            </h3>
+            <p className="text-[#333747] text-base md:text-lg font-semibold mb-6 md:mb-8">
+              Our expert-driven strategies improve search rankings and ensure
+              focused exposure for your brand and trademark.
+            </p>
+            <Button
+              asChild
+              className="bg-[#207ea0] hover:bg-[#1a6d8e] text-white py-3 px-5 md:py-4 md:px-6 shadow-xl rounded-md transition-all duration-300">
+              <Link to="/services/seo" className="inline-block">
+                More Info
+              </Link>
+            </Button>
+          </div>
+          <div className="md:w-1/3 w-full">
+            <img
+              src="/images/seo-solutions.jpg"
+              alt="SEO Solutions"
+              className="w-full max-h-[300px] object-cover rounded-md"
+              onError={(e) => {
+                const target = e.target as HTMLImageElement;
+                target.src = "/images/Customized SEO.svg";
+              }}
+            />
+          </div>
+        </div>
+
+        {/* Complete Power Section */}
+        <div className="p-8 mb-16 max-w-5xl mx-auto">
+          {/* Top section: heading + description side by side */}
+          <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-8 mb-12">
+            <div className="md:w-1/2 mb-6">
+              <h3 className="text-4xl font-semibold text-[#333747] leading-snug">
+                Unlock Your Brand’s Full Market Potential
+              </h3>
+            </div>
+            <div className="md:w-1/2">
+              <p className="text-[#333747] text-base font-semibold leading-relaxed">
+                We enhance brand visibility through ongoing database updates and
+                strategic support, ensuring relevance and discoverability in a
+                competitive environment.
+              </p>
+            </div>
+          </div>
+
+          {/* Feature cards */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div>
+              <div className="mb-4">
+                <img src="/images/1.svg" alt="" className="w-10 h-10" />
+              </div>
+              <h4 className="font-semibold text-[#333747] text-2xl mb-6">
+                Daily Updates for Current Brand Data
+              </h4>
+              <p className="text-[#333747] text-sm font-semibold">
+                Our system ensures your trademark information remains accurate
+                and up to date.
+              </p>
+            </div>
+
+            <div>
+              <div className="mb-4">
+                <img src="/images/1.svg" alt="" className="w-10 h-10" />
+              </div>
+              <h4 className="font-semibold text-[#333747] text-2xl mb-6">
+                Consistent Support Throughout the Process
+              </h4>
+              <p className="text-[#333747] text-sm font-semibold">
+                Our support team is available to assist you at all times.
+              </p>
+            </div>
+
+            <div>
+              <div className="mb-4">
+                <img src="/images/1.svg" alt="" className="w-10 h-10" />
+              </div>
+              <h4 className="font-semibold text-[#333747] text-2xl mb-6">
+                Ongoing Enhancement for Quality and Usability
+              </h4>
+              <p className="text-[#333747] text-sm font-semibold">
+                We regularly improve content and platform functionality to
+                ensure an optimal user experience.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* CTA Section */}
+        <div className="p-8 rounded-lg ">
+          <h3 className="text-5xl font-semibold text-[#333747] mb-8">
+            Begin Building Your Brand Presence Today
+          </h3>
+          <p className="text-[#333747] text-[18px] font-semibold mb-8 max-w-5xl text-center ">
+            Leverage our trademark publication services to strengthen visibility
+            and unlock brand potential.
+          </p>
+          <div className="flex justify-center">
+            <Button
+              asChild
+              className="bg-[#207ea0] text-white hover:bg-[#207ea0] py-6 px-8 shadow-xl ">
+              <Link to="/apply">Apply Now</Link>
+            </Button>
+          </div>
+        </div>
+      </div>
+
       <Footer />
-      <style>
-        {`
-        .main-header {
-        background-color: #2c5ca4;
-        box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-        }
-
-        /* .nav-item:hover .dropdown-content {
-            display: block;
-        } */
-
-        .dropdown-content {
-        display: none;
-        position: absolute;
-        width: 100%;
-        padding-top: 30px;
-        }
-
-        .services-sub-menu {
-        background-color: #2c5ca4;
-        text-align: center;
-        /* min-width: 200px; */
-        }
-
-        .services-sub-menu ul li {
-        /* border: 1px solid red; */
-        border-bottom: 1px solid white;
-        padding: 5px 0;
-        }
-
-        .services-sub-menu ul li a {
-        color: #fff;
-        font-size: 16px;
-        line-height: 25px;
-        font-weight: 500;
-        margin: auto;
-        }
-
-        /* .services-menu::after {
-            content: " +";
-        } */
-
-        @media (min-width: 992px) {
-        .services-sub-menu li:hover {
-            background-color: #2365c8;
-        }
-        }
-
-        @media (max-width: 992px) {
-        .dropdown-content {
-            position: relative;
-            padding-top: 5px;
-        }
-
-        .services-sub-menu {
-            background-color: #2c5ca480;
-            padding-right: 35px;
-            text-align: end;
-        }
-
-        .services-sub-menu ul li {
-            /* border: none; */
-            border-top: 1px solid #ffffff2e;
-            border-bottom: none !important;
-        }
-
-        .services-dropdown-menu {
-            padding: 10px 0 5px;
-        }
-
-        .bottom-mobile-line-menu {
-            border-bottom: 1px solid #ffffff2e;
-            /* background-color: #ffffff2e; */
-        }
-
-        /* .nav-item a{
-                margin: 0;
-            } */
-        }
-
-        .show-dropdown {
-        display: block !important;
-        }
-      `}
-      </style>
     </div>
   );
-};
-export default Services;
+}
