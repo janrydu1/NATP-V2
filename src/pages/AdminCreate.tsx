@@ -15,8 +15,6 @@ export default function AdminCreate() {
         return <ArticleForm />;
       case "trademarks":
         return <TrademarkForm />;
-      case "admins":
-        return <AdminForm />;
       default:
         return <p>Select a type to create</p>;
     }

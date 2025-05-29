@@ -49,7 +49,6 @@ export const AdminLayout = ({ children, title }: AdminLayoutProps) => {
     { title: "Contacts", icon: MessageSquare, path: "/admin?tab=contacts" },
     { title: "Articles", icon: FileText, path: "/admin?tab=articles" },
     { title: "Newsletter", icon: MessageSquare, path: "/admin?tab=newsletter_subscriptions" },
-    { title: "Admins", icon: Users, path: "/admin?tab=admins" },
   ];
 
   return (

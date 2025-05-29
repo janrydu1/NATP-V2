@@ -199,9 +199,6 @@ export default function Admin() {
               <TabsTrigger value="newsletter_subscriptions" className="data-[state=active]:bg-primary-blue data-[state=active]:text-white">
                 Newsletter Subscriptions
               </TabsTrigger>
-              <TabsTrigger value="admins" className="data-[state=active]:bg-primary-blue data-[state=active]:text-white">
-                Admin Users
-              </TabsTrigger>
             </TabsList>
 
             <div className="flex gap-2">

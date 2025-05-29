@@ -1,16 +1,26 @@
-
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 import { AdminLayout } from "@/components/AdminLayout";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
-import { Separator } from "@/components/ui/separator";
-import { Edit, Trash2, Key } from "lucide-react";
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
+import { Edit, Trash2, Key, UserPlus } from "lucide-react";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table";
 import {
   Dialog,
   DialogContent,
@@ -21,49 +31,53 @@ import {
 } from "@/components/ui/dialog";
 
 export default function AdminSettings() {
-  const navigate = useNavigate();
   const [oldPassword, setOldPassword] = useState("");
   const [newPassword, setNewPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const [adminUsers, setAdminUsers] = useState<any[]>([]);
   const [currentAdminEmail, setCurrentAdminEmail] = useState("");
-  
+
   // Dialog states
   const [isResetOpen, setIsResetOpen] = useState(false);
   const [isEditOpen, setIsEditOpen] = useState(false);
   const [isDeleteOpen, setIsDeleteOpen] = useState(false);
+  const [isCreateOpen, setIsCreateOpen] = useState(false);
   const [selectedAdmin, setSelectedAdmin] = useState<any>(null);
   const [newEmail, setNewEmail] = useState("");
   const [newAdminPassword, setNewAdminPassword] = useState("");
   const [confirmAdminPassword, setConfirmAdminPassword] = useState("");
+  const [createAdminData, setCreateAdminData] = useState({
+    email: "",
+    password: "",
+    confirmPassword: "",
+  });
 
   useEffect(() => {
-    // Get current admin email from localStorage (in a real app, this would come from the session)
     const email = localStorage.getItem("adminEmail");
     if (email) setCurrentAdminEmail(email);
-    
+
     fetchAdminUsers();
   }, []);
 
   const fetchAdminUsers = async () => {
     try {
       const { data, error } = await supabase
-        .from('admin_users')
-        .select('*')
-        .order('email');
-      
+        .from("admin_users")
+        .select("*")
+        .order("email");
+
       if (error) throw error;
       setAdminUsers(data || []);
     } catch (error) {
-      console.error('Error fetching admin users:', error);
+      console.error("Error fetching admin users:", error);
       toast.error("Failed to load admin users");
     }
   };
 
   const handlePasswordChange = async (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     if (newPassword !== confirmPassword) {
       toast.error("New passwords don't match");
       return;
@@ -71,15 +85,13 @@ export default function AdminSettings() {
 
     setLoading(true);
     try {
-      // In a real application, verify the old password first
-      // Here we'll just update the password
-      const { error } = await supabase
-        .from('admin_users')
-        .update({ password_hash: newPassword })
-        .eq('email', currentAdminEmail);
-      
-      if (error) throw error;
-      
+      // Update password in Supabase Auth
+      const { error: authError } = await supabase.auth.updateUser({
+        password: newPassword,
+      });
+
+      if (authError) throw authError;
+
       toast.success("Password updated successfully");
       setOldPassword("");
       setNewPassword("");
@@ -99,13 +111,14 @@ export default function AdminSettings() {
     }
 
     try {
-      const { error } = await supabase
-        .from('admin_users')
-        .update({ password_hash: newAdminPassword })
-        .eq('id', selectedAdmin.id);
-      
-      if (error) throw error;
-      
+      // Update password in Supabase Auth
+      const { error: authError } = await supabase.auth.admin.updateUserById(
+        selectedAdmin.id,
+        { password: newAdminPassword }
+      );
+
+      if (authError) throw authError;
+
       toast.success(`Password reset for ${selectedAdmin.email}`);
       setIsResetOpen(false);
       setNewAdminPassword("");
@@ -118,13 +131,22 @@ export default function AdminSettings() {
 
   const handleEditAdmin = async () => {
     try {
-      const { error } = await supabase
-        .from('admin_users')
+      // Update email in Supabase Auth
+      const { error: authError } = await supabase.auth.admin.updateUserById(
+        selectedAdmin.id,
+        { email: newEmail }
+      );
+
+      if (authError) throw authError;
+
+      // Update email in admin_users table
+      const { error: dbError } = await supabase
+        .from("admin_users")
         .update({ email: newEmail })
-        .eq('id', selectedAdmin.id);
-      
-      if (error) throw error;
-      
+        .eq("id", selectedAdmin.id);
+
+      if (dbError) throw dbError;
+
       toast.success("Admin user updated");
       setIsEditOpen(false);
       fetchAdminUsers();
@@ -136,13 +158,21 @@ export default function AdminSettings() {
 
   const handleDeleteAdmin = async () => {
     try {
-      const { error } = await supabase
-        .from('admin_users')
+      // Delete user from Supabase Auth
+      const { error: authError } = await supabase.auth.admin.deleteUser(
+        selectedAdmin.id
+      );
+
+      if (authError) throw authError;
+
+      // Delete from admin_users table
+      const { error: dbError } = await supabase
+        .from("admin_users")
         .delete()
-        .eq('id', selectedAdmin.id);
-      
-      if (error) throw error;
-      
+        .eq("id", selectedAdmin.id);
+
+      if (dbError) throw dbError;
+
       toast.success("Admin user deleted");
       setIsDeleteOpen(false);
       fetchAdminUsers();
@@ -152,15 +182,64 @@ export default function AdminSettings() {
     }
   };
 
+  const handleCreateAdmin = async () => {
+    if (createAdminData.password !== createAdminData.confirmPassword) {
+      toast.error("Passwords don't match");
+      return;
+    }
+
+    if (createAdminData.password.length < 6) {
+      toast.error("Password must be at least 6 characters");
+      return;
+    }
+
+    setLoading(true);
+    try {
+      // Create user in Supabase Auth
+      const { data: authData, error: authError } =
+        await supabase.auth.admin.createUser({
+          email: createAdminData.email,
+          password: createAdminData.password,
+          email_confirm: true,
+        });
+
+      if (authError) throw authError;
+
+      // Add user to admin_users table
+      const { error: dbError } = await supabase.from("admin_users").insert([
+        {
+          id: authData.user.id,
+          email: createAdminData.email,
+          created_at: new Date().toISOString(),
+          updated_at: new Date().toISOString(),
+        },
+      ]);
+
+      if (dbError) throw dbError;
+
+      toast.success("Admin user created successfully!");
+      setIsCreateOpen(false);
+      setCreateAdminData({
+        email: "",
+        password: "",
+        confirmPassword: "",
+      });
+      fetchAdminUsers();
+    } catch (error: any) {
+      console.error("Error creating admin:", error);
+      toast.error(error.message || "Failed to create admin user");
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <AdminLayout title="Settings">
       <div className="p-6 max-w-4xl mx-auto space-y-6">
         <Card className="shadow-md">
           <CardHeader className="bg-gray-50">
             <CardTitle>Change Your Password</CardTitle>
-            <CardDescription>
-              Update your account password
-            </CardDescription>
+            <CardDescription>Update your account password</CardDescription>
           </CardHeader>
           <CardContent className="pt-6 bg-white">
             <form onSubmit={handlePasswordChange} className="space-y-4">
@@ -175,7 +254,7 @@ export default function AdminSettings() {
                   className="bg-white border border-gray-300"
                 />
               </div>
-              
+
               <div className="space-y-2">
                 <Label htmlFor="newPassword">New Password</Label>
                 <Input
@@ -187,7 +266,7 @@ export default function AdminSettings() {
                   className="bg-white border border-gray-300"
                 />
               </div>
-              
+
               <div className="space-y-2">
                 <Label htmlFor="confirmPassword">Confirm New Password</Label>
                 <Input
@@ -199,9 +278,9 @@ export default function AdminSettings() {
                   className="bg-white border border-gray-300"
                 />
               </div>
-              
-              <Button 
-                type="submit" 
+
+              <Button
+                type="submit"
                 disabled={loading}
                 className="bg-[#005ea2] hover:bg-[#004d86] text-white"
               >
@@ -256,18 +335,6 @@ export default function AdminSettings() {
                             <Key className="h-4 w-4 mr-1" />
                             Reset Password
                           </Button>
-                          <Button
-                            variant="outline"
-                            size="sm"
-                            className="text-red-600 hover:text-red-700 hover:bg-red-50"
-                            onClick={() => {
-                              setSelectedAdmin(admin);
-                              setIsDeleteOpen(true);
-                            }}
-                          >
-                            <Trash2 className="h-4 w-4 mr-1" />
-                            Delete
-                          </Button>
                         </div>
                       </TableCell>
                     </TableRow>
@@ -276,14 +343,6 @@ export default function AdminSettings() {
               </Table>
             </div>
 
-            <div className="mt-6">
-              <Button
-                onClick={() => navigate("/admin/create?type=admins")}
-                className="bg-[#005ea2] hover:bg-[#004d86] text-white"
-              >
-                Add New Admin User
-              </Button>
-            </div>
           </CardContent>
         </Card>
 
@@ -319,8 +378,12 @@ export default function AdminSettings() {
               </div>
             </div>
             <DialogFooter>
-              <Button variant="outline" onClick={() => setIsResetOpen(false)}>Cancel</Button>
-              <Button onClick={handleResetPassword} className="bg-[#005ea2]">Reset Password</Button>
+              <Button variant="outline" onClick={() => setIsResetOpen(false)}>
+                Cancel
+              </Button>
+              <Button onClick={handleResetPassword} className="bg-[#005ea2]">
+                Reset Password
+              </Button>
             </DialogFooter>
           </DialogContent>
         </Dialog>
@@ -347,32 +410,16 @@ export default function AdminSettings() {
               </div>
             </div>
             <DialogFooter>
-              <Button variant="outline" onClick={() => setIsEditOpen(false)}>Cancel</Button>
-              <Button onClick={handleEditAdmin} className="bg-[#005ea2]">Update</Button>
-            </DialogFooter>
-          </DialogContent>
-        </Dialog>
-
-        {/* Delete Admin Dialog */}
-        <Dialog open={isDeleteOpen} onOpenChange={setIsDeleteOpen}>
-          <DialogContent className="sm:max-w-[425px]">
-            <DialogHeader>
-              <DialogTitle>Delete Admin User</DialogTitle>
-              <DialogDescription>
-                Are you sure you want to delete {selectedAdmin?.email}? This action cannot be undone.
-              </DialogDescription>
-            </DialogHeader>
-            <DialogFooter>
-              <Button variant="outline" onClick={() => setIsDeleteOpen(false)}>Cancel</Button>
-              <Button 
-                variant="destructive" 
-                onClick={handleDeleteAdmin}
-              >
-                Delete
+              <Button variant="outline" onClick={() => setIsEditOpen(false)}>
+                Cancel
+              </Button>
+              <Button onClick={handleEditAdmin} className="bg-[#005ea2]">
+                Update
               </Button>
             </DialogFooter>
           </DialogContent>
         </Dialog>
+
       </div>
     </AdminLayout>
   );

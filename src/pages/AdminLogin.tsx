@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { Input } from "@/components/ui/input";
@@ -8,10 +7,7 @@ import { toast } from "sonner";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { ChevronLeft } from "lucide-react";
-
-// Admin credentials - in a real application, this would be handled securely
-const ADMIN_EMAIL = "admin@example.com";
-const ADMIN_PASSWORD = "admin123";
+import { supabase } from "@/integrations/supabase/client";
 
 export default function AdminLogin() {
   const [email, setEmail] = useState("");
@@ -19,7 +15,7 @@ export default function AdminLogin() {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
-  const handleLogin = (e: React.FormEvent) => {
+  const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
 
@@ -30,17 +26,54 @@ export default function AdminLogin() {
       return;
     }
 
-    // Check credentials
-    if (email === ADMIN_EMAIL && password === ADMIN_PASSWORD) {
-      // Set admin session in localStorage
+    try {
+      // Sign in with Supabase Auth
+      const { data: authData, error: authError } = await supabase.auth.signInWithPassword({
+        email,
+        password,
+      });
+
+      if (authError) {
+        if (authError.message === "Invalid login credentials") {
+          toast.error("Invalid email or password");
+        } else {
+          toast.error(authError.message);
+        }
+        return;
+      }
+
+      if (!authData.user) {
+        toast.error("Login failed. Please try again.");
+        return;
+      }
+
+      // Check if user is an admin
+      const { data: adminData, error: adminError } = await supabase
+        .from('admin_users')
+        .select('*')
+        .eq('id', authData.user.id)
+        .single();
+
+      if (adminError || !adminData) {
+        // If not an admin, sign them out
+        await supabase.auth.signOut();
+        toast.error("You are not authorized to access the admin area");
+        return;
+      }
+
+      // Store admin info in localStorage
+      localStorage.setItem("adminEmail", email);
+      localStorage.setItem("adminId", adminData.id);
       localStorage.setItem("adminLoggedIn", "true");
+      
       toast.success("Login successful!");
       navigate("/admin");
-    } else {
-      toast.error("Invalid email or password");
+    } catch (error: any) {
+      console.error("Login error:", error);
+      toast.error(error.message || "An error occurred during login");
+    } finally {
+      setLoading(false);
     }
-
-    setLoading(false);
   };
 
   return (
@@ -73,7 +106,7 @@ export default function AdminLogin() {
                   <Input
                     id="email"
                     type="email"
-                    placeholder="admin@example.com"
+                    placeholder="Enter your email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     className="w-full"
@@ -99,10 +132,10 @@ export default function AdminLogin() {
                 >
                   {loading ? "Logging in..." : "Login"}
                 </Button>
-                <div className="text-center">
+                <div className="text-center space-y-2">
                   <Link 
                     to="/"
-                    className="text-sm text-[#005ea2] hover:underline"
+                    className="text-sm text-[#005ea2] hover:underline block"
                   >
                     Return to homepage
                   </Link>
