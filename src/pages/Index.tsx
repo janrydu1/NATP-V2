@@ -1,254 +1,318 @@
 import { Navbar } from "@/components/Navbar";
 import Hero from "@/components/Hero";
-import { Services } from "@/components/Services";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
-import { useState, useEffect } from "react";
-import { Footer } from "@/components/Footer";
+import { useState } from "react";
+import { Footer } from "@/components/footer";
 import { ChevronUp, ChevronDown } from "lucide-react";
 import { useHashScroll } from "@/hooks/use-hash-scroll";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 
 export default function Index() {
-  // Use the hash scroll hook to handle scrolling to sections
   useHashScroll();
 
   const faqs = [
     {
-      question: "What is trademark publication?",
+      question: "What does trademark publication involve?",
       answer:
-        "Trademark publication refers to the official disclosure of a trademark application to the public. This step enables public awareness and provides an opportunity for potential objections. Our service ensures that your trademark is properly published and positioned for market visibility.",
+        "It’s the step where we publicly announce your trademark in a recognized registry so others can see it and raise objections if needed. This builds legal visibility.",
     },
     {
-      question: "How are articles created?",
+      question: "Who crafts the content / articles?",
       answer:
-        "Articles are prepared by qualified content specialists and are specifically designed to highlight your trademark. Each text is customized to improve brand visibility and audience engagement, with a focus on quality, relevance, and strategic impact.",
+        "Our content team researches your brand and domain and writes custom pieces that reflect your voice and help your SEO. We don’t reuse templates.",
     },
     {
-      question: "What SEO services offered?",
+      question: "What SEO services are included?",
       answer:
-        "We offer a full range of SEO services, including keyword optimization, content strategy, and link building. These measures improve your brand’s online discoverability and support targeted trademark visibility.",
+        "Keyword planning, on-page optimization, outreach, internal linking, and monitoring. We aim for sustainable organic growth, not just quick wins.",
     },
     {
-      question: "How can I apply?",
+      question: "How to initiate the process?",
       answer:
-        "You may submit your application through our online form by providing the required trademark details. Our team will assist you throughout the process to ensure efficient and accurate submission.",
+        "Fill a simple form with your trademark details. We review and send you a proposal. Once approved, we begin publication + content creation.",
     },
     {
-      question: "Can I update my article?",
+      question: "Can I request edits later?",
       answer:
-        "Yes. Article revisions may be requested at any time. Our team ensures that all content remains current and aligned with your brand. Please contact us with the necessary adjustments.",
+        "Yes. Brands evolve. You can request updates or new content anytime, and we’ll iterate with you.",
     },
   ];
 
   const [openIndex, setOpenIndex] = useState<number | null>(null);
-
-  const toggleFAQ = (index: number) => {
-    setOpenIndex(openIndex === index ? null : index);
+  const toggleFAQ = (i: number) => {
+    setOpenIndex(openIndex === i ? null : i);
   };
 
   return (
-    <div className="min-h-screen font-inter relative">
+    <motion.div
+      className="min-h-screen bg-gray-50 text-slate-900"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.6 }}>
       <Navbar />
-      <Hero />
 
-      {/* Main content starts immediately after Hero */}
-      <div className="max-w-5xl mx-auto flex flex-col md:flex-row justify-between gap-10 items-center my-16 px-4">
-        <div className="w-full md:w-1/2 text-center md:text-left">
-          <h2 className="text-[#333747] text-[28px] md:text-[35px] font-semibold my-4 leading-snug">
-            You focus on your business, we manage your brand visibility.
-          </h2>
-          <p className="text-base md:text-lg font-semibold text-[#333747] mb-5">
-            Our team handles brand visibility, enabling you to focus on growth.
-            Through professional trademark publication and marketing, we
-            position your brand effectively in a competitive environment.
+      {/* Hero / Introduction */}
+      <section className="relative overflow-hidden bg-white">
+        <Hero />
+        {/* You can overlay a subtle pattern or gradient if desired */}
+      </section>
+
+      {/* What We Do / Core Value */}
+      <motion.section
+        className="py-20 px-6 max-w-6xl mx-auto text-center"
+        initial={{ y: 50, opacity: 0 }}
+        whileInView={{ y: 0, opacity: 1 }}
+        viewport={{ once: true, amount: 0.3 }}
+        transition={{ duration: 0.6 }}>
+        <motion.h2
+          className="text-3xl lg:text-4xl font-bold mb-4"
+          initial={{ y: 30, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.2 }}>
+          Empowering Brands with Visibility & Protection
+        </motion.h2>
+        <motion.p
+          className="text-lg text-slate-600 mb-12"
+          initial={{ y: 20, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.3 }}>
+          We seamlessly manage trademark publication, brand-focused content, and
+          SEO so you can lead your business confidently.
+        </motion.p>
+        <motion.div
+          initial={{ y: 20, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}>
+          <Link
+            to="/services"
+            className="inline-block bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-xl font-semibold transition">
+            View Services
+          </Link>
+        </motion.div>
+      </motion.section>
+
+      {/* Services / Features */}
+      <motion.section
+        className="py-20 px-6 bg-white"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true, amount: 0.2 }}
+        transition={{ duration: 0.8 }}>
+        <div className="max-w-6xl mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+          <motion.div
+            className="p-8 border rounded-xl hover:shadow-md transition"
+            initial={{ y: 50, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            whileHover={{ y: -5, scale: 1.02 }}>
+            <motion.img
+              src="https://img.icons8.com/?size=100&id=MsrzM5rZvKYs&format=png&color=000000"
+              className="w-16 mx-auto mb-6"
+              alt="Content"
+              initial={{ scale: 0 }}
+              whileInView={{ scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: 0.3 }}
+            />
+            <h3 className="text-xl font-bold mb-3">Brand-aware Content</h3>
+            <p className="text-slate-600 mb-4">
+              Tailored articles and blog pieces that align with your voice and
+              audience.
+            </p>
+            <motion.div whileHover={{ x: 5 }}>
+              <Link
+                to="/services"
+                className="text-blue-600 hover:underline font-medium">
+                Learn More →
+              </Link>
+            </motion.div>
+          </motion.div>
+
+          <motion.div
+            className="p-8 border rounded-xl hover:shadow-md transition"
+            initial={{ y: 50, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            whileHover={{ y: -5, scale: 1.02 }}>
+            <motion.img
+              src="https://img.icons8.com/?size=100&id=114214&format=png&color=000000"
+              className="w-16 mx-auto mb-6"
+              alt="SEO"
+              initial={{ scale: 0 }}
+              whileInView={{ scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: 0.4 }}
+            />
+            <h3 className="text-xl font-bold mb-3">Strategic SEO Growth</h3>
+            <p className="text-slate-600 mb-4">
+              We optimize content + structure + outreach so your brand gets
+              found.
+            </p>
+            <motion.div whileHover={{ x: 5 }}>
+              <Link
+                to="/services/seo"
+                className="text-blue-600 hover:underline font-medium">
+                Learn More →
+              </Link>
+            </motion.div>
+          </motion.div>
+
+          <motion.div
+            className="p-8 border rounded-xl hover:shadow-md transition"
+            initial={{ y: 50, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            whileHover={{ y: -5, scale: 1.02 }}>
+            <motion.img
+              src="https://img.icons8.com/?size=100&id=EeRabdM4bHJn&format=png&color=000000"
+              className="w-16 mx-auto mb-6"
+              alt="Trademark"
+              initial={{ scale: 0 }}
+              whileInView={{ scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: 0.5 }}
+            />
+            <h3 className="text-xl font-bold mb-3">Trademark Publishing</h3>
+            <p className="text-slate-600 mb-4">
+              We manage registry publication so your brand gains formal
+              visibility.
+            </p>
+            <motion.div whileHover={{ x: 5 }}>
+              <Link
+                to="/services/publication"
+                className="text-blue-600 hover:underline font-medium">
+                Learn More →
+              </Link>
+            </motion.div>
+          </motion.div>
+        </div>
+      </motion.section>
+
+      {/* How It Works / Process Flow */}
+      <section className="py-20 px-6 bg-blue-50">
+        <div className="max-w-5xl mx-auto text-center mb-12">
+          <h2 className="text-3xl lg:text-4xl font-bold mb-4">How It Works</h2>
+          <p className="text-slate-600 text-lg">
+            A four-step process to bring your trademark into public view—and
+            back it with content.
           </p>
-          <Link to="/about" className="bg-[#207ea0] shadow-xl text-white px-6 py-3 my-4">
-            More Info
+        </div>
+        <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div className="text-center">
+            <div className="w-16 h-16 bg-blue-600 text-white rounded-full mx-auto mb-4 flex items-center justify-center">
+              1
+            </div>
+            <h4 className="font-semibold mb-2">Submit Info</h4>
+            <p className="text-slate-600 text-sm">
+              Send us your trademark and brand details.
+            </p>
+          </div>
+          <div className="text-center">
+            <div className="w-16 h-16 bg-blue-600 text-white rounded-full mx-auto mb-4 flex items-center justify-center">
+              2
+            </div>
+            <h4 className="font-semibold mb-2">Proposal & Approval</h4>
+            <p className="text-slate-600 text-sm">
+              We send you a proposal. On approval, we start work.
+            </p>
+          </div>
+          <div className="text-center">
+            <div className="w-16 h-16 bg-blue-600 text-white rounded-full mx-auto mb-4 flex items-center justify-center">
+              3
+            </div>
+            <h4 className="font-semibold mb-2">Publish + Content</h4>
+            <p className="text-slate-600 text-sm">
+              We publish your trademark and produce branded content.
+            </p>
+          </div>
+          <div className="text-center">
+            <div className="w-16 h-16 bg-blue-600 text-white rounded-full mx-auto mb-4 flex items-center justify-center">
+              4
+            </div>
+            <h4 className="font-semibold mb-2">Optimization & Updates</h4>
+            <p className="text-slate-600 text-sm">
+              Ongoing SEO, edits, and support to keep your brand visible.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials / Stats */}
+      <section className="py-20 px-6 bg-white">
+        <div className="max-w-6xl mx-auto text-center mb-12">
+          <h2 className="text-3xl lg:text-4xl font-bold mb-4">
+            Results That Speak
+          </h2>
+          <p className="text-slate-600 text-lg">
+            We believe in measurable impact.
+          </p>
+        </div>
+        <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          <div className="p-8 bg-blue-600 text-white rounded-xl">
+            <p className="text-5xl font-bold mb-3">97%</p>
+            <p>Client satisfaction</p>
+          </div>
+          <div className="p-8 bg-blue-600 text-white rounded-xl">
+            <p className="text-5xl font-bold mb-3">100%</p>
+            <p>Trademarks published with precision</p>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQs */}
+      <section id="faqs" className="py-20 px-6 bg-gray-50">
+        <div className="max-w-4xl mx-auto text-center mb-8">
+          <h2 className="text-3xl lg:text-4xl font-bold">
+            Frequently Asked Questions
+          </h2>
+        </div>
+        <div className="max-w-4xl mx-auto space-y-4">
+          {faqs.map((faq, i) => (
+            <div key={i} className="bg-white border rounded-lg overflow-hidden">
+              <div
+                className="flex justify-between items-center p-5 cursor-pointer hover:bg-slate-100 transition"
+                onClick={() => toggleFAQ(i)}>
+                <h3 className="font-medium">{faq.question}</h3>
+                <span className="text-blue-600">
+                  {openIndex === i ? <ChevronUp /> : <ChevronDown />}
+                </span>
+              </div>
+              {openIndex === i && (
+                <div className="p-5 border-t">
+                  <p className="text-slate-600">{faq.answer}</p>
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Final CTA */}
+      <section className="py-20 px-6 bg-blue-600 text-white text-center">
+        <div className="max-w-3xl mx-auto">
+          <h2 className="text-3xl lg:text-4xl font-bold mb-4">
+            Ready to Elevate Your Brand?
+          </h2>
+          <p className="mb-8 text-lg">
+            Let’s start your trademark journey and build long-term visibility.
+          </p>
+          <Link
+            to="/contact"
+            className="inline-block bg-white text-blue-700 hover:bg-slate-100 transition px-8 py-3 rounded-xl font-semibold">
+            Get In Touch
           </Link>
         </div>
-        <img
-          src="/images/Icon_You_focus_on_your_business,_we_manage_your_brand_visibility.svg"
-          className="rounded-md shadow w-full md:w-[55%]"
-          alt="Business Illustration"
-        />
-      </div>
-
-      {/* Stats Section */}
-      <section className="py-16 px-6">
-        <div className="max-w-5xl font-inter mx-auto p-2">
-          <h2 className="text-[38px] w-[70%] leading-tight font-semibold text-[#333747] mb-12">
-            Integrated Services for Brand Visibility and Trademark Recognition
-          </h2>
-
-          {/* Cards */}
-          <div className="grid md:grid-cols-3 gap-10">
-            {/* Card 1 */}
-            <div className="flex flex-col shadow-sm h-full">
-              <div className="flex flex-col justify-between h-full">
-                <div>
-                  <img
-                    src="/images/Content Service.svg"
-                    alt="Article Creation"
-                    className="w-[220px] mx-auto mb-8"
-                  />
-                  <h3 className="text-2xl font-semibold text-[#333747] -mt-5 leading-tight mb-6">
-                    Professional Content Services for Trademark Promotion
-                  </h3>
-                  <p className="text-[#333747] text-[16px] font-semibold mb-6">
-                    We provide trademark publication, expert article
-                    development, and SEO-focused visibility enhancement.
-                  </p>
-                </div>
-                <Link to="/services" className="bg-[#207ea0] text-white py-3 px-6 shadow-xl mt-auto mr-auto">
-                  More Info
-                </Link>
-              </div>
-            </div>
-
-            {/* Card 2 */}
-            <div className="flex flex-col shadow-sm h-full">
-              <div className="flex flex-col justify-between h-full">
-                <div>
-                  <img
-                    src="/images/Targeted SEO.svg"
-                    alt="SEO Strategies"
-                    className="w-[220px] mx-auto mb-8"
-                  />
-                  <h3 className="text-2xl font-semibold text-[#333747] -mt-5 leading-tight mb-[3.4rem]">
-                    Targeted SEO Measures for Improved Online Visibility
-                  </h3>
-                  <p className="text-[#333747] text-[16px] font-semibold mb-6">
-                    We apply proven strategies to strengthen your brand’s
-                    presence in search rankings.
-                  </p>
-                </div>
-                <Link to="/services/seo" className="bg-[#207ea0] text-white py-3 px-6 shadow-xl mt-auto mr-auto">
-                  More Info
-                </Link>
-              </div>
-            </div>
-
-            {/* Card 3 */}
-            <div className="flex flex-col shadow-sm h-full">
-              <div className="flex flex-col justify-between h-full">
-                <div>
-                  <img
-                    src="/images/Brand Recognition and Protection.svg"
-                    alt="Trademark Services"
-                    className="w-[220px] mx-auto mb-8"
-                  />
-                  <h3 className="text-2xl font-semibold text-[#333747] -mt-5 leading-tight mb-6">
-                    Trademark Publication for Brand Recognition and Protection
-                  </h3>
-                  <p className="text-[#333747] text-[16px] font-semibold mb-6">
-                    We publish your trademark to support brand visibility and
-                    legal security.
-                  </p>
-                </div>
-                <Link to="/services/publication" className="bg-[#207ea0] text-white py-3 px-6 shadow-xl mt-auto mr-auto">
-                  More Info
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
       </section>
 
-      <div className="flex flex-col md:flex-row items-start justify-between gap-10 py-20 px-4 bg-white max-w-5xl mx-auto">
-        {/* Left Section */}
-        <div className="w-full md:w-1/2 mb-8 md:mb-0">
-          <h2 className="text-2xl sm:text-3xl md:text-[35px] leading-snug font-bold text-[#333747] text-center md:text-left">
-            Explore our track record in effective brand visibility and
-            registration support.
-          </h2>
-        </div>
-
-        {/* Right Section */}
-        <div className="w-full md:w-1/2 space-y-6">
-          <p className="text-[#333747] text-base sm:text-lg font-semibold leading-relaxed text-center md:text-left">
-            Our services achieve consistently high success rates, securing the
-            visibility your brand requires. Numerous clients have relied on our
-            expertise to strengthen their market presence.
-          </p>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-            <div className="text-center sm:text-left">
-              <p className="text-4xl sm:text-5xl font-semibold text-[#333747] mb-3">
-                95%
-              </p>
-              <p className="text-sm sm:text-base text-[#333747]">
-                Client satisfaction remains our core commitment.
-              </p>
-            </div>
-            <div className="text-center sm:text-left">
-              <p className="text-4xl sm:text-5xl font-semibold text-[#333747] mb-3">
-                100%
-              </p>
-              <p className="text-sm sm:text-base text-[#333747]">
-                All trademark publications adhere to strict quality standards.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* FAQs Section */}
-      <section id="faqs" className="py-16 px-4 sm:px-6">
-        <div className="max-w-5xl mx-auto text-center sm:px-10 lg:px-20">
-          {/* Heading */}
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-[#333747] mb-6">
-            Frequently Asked Questions (FAQs)
-          </h2>
-          <p className="text-[#333747] mb-12 text-base sm:text-lg font-semibold">
-            Information on trademark publication, content services, and SEO
-            support.
-          </p>
-
-          {/* FAQs */}
-          <div className="space-y-4 text-left">
-            {faqs.map((faq, index) => (
-              <div key={index} className="border-t border-[#207ea0] py-4">
-                <div
-                  className="flex justify-between items-center cursor-pointer"
-                  onClick={() => toggleFAQ(index)}>
-                  <h3 className="text-[#333747] text-lg sm:text-xl font-semibold">
-                    {faq.question}
-                  </h3>
-                  <span className="text-[#207ea0] text-xl">
-                    {openIndex === index ? <ChevronUp /> : <ChevronDown />}
-                  </span>
-                </div>
-                {openIndex === index && (
-                  <p className="text-[#333747] text-sm sm:text-base mt-4 font-medium">
-                    {faq.answer}
-                  </p>
-                )}
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Hiring Section */}
-      <div className="pt-12 pb-20 px-4  text-center">
-        <h2 className="text-4xl font-semibol text-gary-600 mb-4 text-[#333747]">
-          Join Our Team
-        </h2>
-        <p className="mb-6 text-lg font-semibold text-[#333747]">
-          We’re hiring qualified professionals now.
-        </p>
-        <Link to="/contact" className="bg-[#207ea0]  text-white  py-3 px-6  shadow-xl mr-auto">
-          Contact Us
-        </Link>
-      </div>
-
-      {/* Footer */}
       <Footer />
-    </div>
+    </motion.div>
   );
 }

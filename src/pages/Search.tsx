@@ -1,345 +1,276 @@
+import type React from "react";
 import { useState, useEffect, useCallback } from "react";
 import { Navbar } from "@/components/Navbar";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { ChevronUp, ChevronDown } from "lucide-react";
-import {
-  TrademarkCard,
-  type TrademarkResult,
-} from "@/components/TrademarkCard";
+import type { TrademarkResult } from "@/components/TrademarkCard";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
 import { debounce } from "lodash";
 import { SearchResults } from "@/components/SearchResults";
-import { Footer } from "@/components/Footer";
-import { useSearchParams, useNavigate, Link } from "react-router-dom";
+import { Footer } from "@/components/footer";
+import { useSearchParams, Link } from "react-router-dom";
+import { motion } from "framer-motion";
 
 export default function Search() {
   const [searchParams, setSearchParams] = useSearchParams();
-  const navigate = useNavigate();
   const searchQuery = searchParams.get("q") || "";
   const [inputValue, setInputValue] = useState(searchQuery);
-
-  // Log whenever component renders to debug
-  console.log("Search component rendering with query:", searchQuery);
-
   const [results, setResults] = useState<TrademarkResult[]>([]);
   const [loading, setLoading] = useState(false);
   const [searchSubmitted, setSearchSubmitted] = useState(false);
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
 
-  // Define performSearch function first, before any useEffect that uses it
-  const performSearch = useCallback(async (query: string) => {
-    if (!query.trim()) {
-      setResults([]);
-      return;
-    }
+  const toggleFAQ = (index: number) =>
+    setOpenIndex(openIndex === index ? null : index);
 
-    setLoading(true);
+  const performSearch = useCallback(
+    async (query: string) => {
+      if (!query.trim()) {
+        setResults([]);
+        return;
+      }
+      setLoading(true);
+      try {
+        const { data: allTrademarks, error } = await supabase
+          .from("trademarks")
+          .select("*")
+          .order("created_at", { ascending: false });
+        if (error) throw error;
 
-    try {
-      // Get all trademarks first
-      const { data: allTrademarks, error } = await supabase
-        .from("trademarks")
-        .select("*")
-        .order("created_at", { ascending: false });
+        const EXCLUDED_TERMS = [
+          "llc",
+          "inc",
+          "corporation",
+          "corp",
+          "incorporated",
+        ];
 
-      if (error) throw error;
+        const filteredResults = allTrademarks.filter((trademark) => {
+          let matchFound = false;
 
-      console.log("Searching for:", query);
-
-      // Define business entity terms that should not be searchable
-      const EXCLUDED_TERMS = ["llc", "inc", "corporation", "corp", "incorporated"];
-
-      // Filter the results based on our specific criteria with case sensitivity
-      const filteredResults = allTrademarks.filter(trademark => {
-        // Track if we found a match for debugging
-        let matchFound = false;
-        let matchReason = "";
-
-        // 1. Exact match for application number (case insensitive)
-        if (trademark.application_number && trademark.application_number.toLowerCase() === query.toLowerCase()) {
-          matchFound = true;
-          matchReason = `Match found by application number: ${trademark.application_number}`;
-        }
-
-        // 2. Exact word match for mark words (case insensitive)
-        if (!matchFound && trademark.mark) {
-          // Split by whitespace to get individual words
-          const markWords = trademark.mark.split(/\s+/);
           const queryLower = query.toLowerCase();
 
-          // Check if the query is not one of the excluded terms
-          if (!EXCLUDED_TERMS.includes(queryLower)) {
-            // Check if any word matches the query (case insensitive)
-            if (markWords.some(word => word.toLowerCase() === queryLower)) {
+          if (trademark.application_number?.toLowerCase() === queryLower)
+            matchFound = true;
+
+          if (!matchFound && trademark.mark) {
+            const markWords = trademark.mark.split(/\s+/);
+            if (
+              !EXCLUDED_TERMS.includes(queryLower) &&
+              markWords.some((w) => w.toLowerCase() === queryLower)
+            )
               matchFound = true;
-              matchReason = `Match found by mark word: ${query} in ${trademark.mark}`;
-            }
           }
-        }
 
-        // 3. Exact word match for owner name words (except "LLC", "INC", "Corporation") (case insensitive for owner names)
-        if (!matchFound && trademark.owner_name) {
-          // Split by whitespace to get individual words
-          const ownerWords = trademark.owner_name.split(/\s+/);
-
-          // Convert query to lowercase for case-insensitive comparison with owner names
-          const queryLower = query.toLowerCase();
-
-          // Check if the query is not one of the excluded terms
-          if (!EXCLUDED_TERMS.includes(queryLower)) {
-            // Check if any word matches the query (case insensitive) and is not one of the excluded terms
-            if (ownerWords.some(word => {
-              const wordLower = word.toLowerCase();
-              return wordLower === queryLower && !EXCLUDED_TERMS.includes(wordLower);
-            })) {
+          if (!matchFound && trademark.owner_name) {
+            const ownerWords = trademark.owner_name.split(/\s+/);
+            if (
+              !EXCLUDED_TERMS.includes(queryLower) &&
+              ownerWords.some(
+                (w) =>
+                  w.toLowerCase() === queryLower &&
+                  !EXCLUDED_TERMS.includes(w.toLowerCase())
+              )
+            )
               matchFound = true;
-              matchReason = `Match found by owner word: ${query} in ${trademark.owner_name}`;
-            }
           }
-        }
 
-        // Log the result for this trademark
-        if (matchFound) {
-          console.log(matchReason);
-          console.log("Full trademark data:", {
-            id: trademark.id,
-            application_number: trademark.application_number,
-            mark: trademark.mark,
-            owner_name: trademark.owner_name
-          });
-        }
+          return matchFound;
+        });
 
-        return matchFound;
-      });
-
-      if (filteredResults.length > 0) {
         setResults(filteredResults);
         if (searchSubmitted) {
-          toast.success(`Found ${filteredResults.length} results`);
+          filteredResults.length
+            ? toast.success(`Found ${filteredResults.length} results`)
+            : toast.info("No results found for your search");
         }
-      } else {
+      } catch (error) {
+        console.error(error);
+        if (searchSubmitted) toast.error("Search failed. Try again.");
         setResults([]);
-        if (searchSubmitted) {
-          toast.info("No results found for your search");
-        }
+      } finally {
+        setLoading(false);
       }
-    } catch (error) {
-      console.error("Search error:", error);
-      if (searchSubmitted) {
-        toast.error("Failed to perform search. Please try again.");
-      }
-      setResults([]);
-    } finally {
-      setLoading(false);
-    }
-  }, [searchSubmitted]);
+    },
+    [searchSubmitted]
+  );
 
-  // Debug info
   useEffect(() => {
-    console.log("Search page loaded with query:", searchQuery);
-  }, [searchQuery]);
-
-  // Update inputValue whenever searchQuery (from URL) changes
-  useEffect(() => {
-    console.log("URL query param changed to:", searchQuery);
     setInputValue(searchQuery);
-    // If there's a search query in the URL, consider it as submitted
     if (searchQuery) {
       setSearchSubmitted(true);
       performSearch(searchQuery);
     }
   }, [searchQuery, performSearch]);
 
-  // Effect to trigger search when query changes
-  useEffect(() => {
-    if (!searchQuery) return;
-
-    // Create a debounced function inside the effect
-    const debouncedFn = debounce(() => {
-      performSearch(searchQuery);
-    }, 300);
-
-    // Execute the debounced function
-    debouncedFn();
-
-    // Clean up
-    return () => {
-      debouncedFn.cancel();
-    };
-  }, [searchQuery, performSearch]);
-
-  // Handle form submission for explicit search
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
-
-    if (!inputValue.trim()) {
-      toast.error("Please enter a search term");
-      return;
-    }
-
-    setSearchParams({ q: inputValue }); // Update URL
+    if (!inputValue.trim()) return toast.error("Please enter a search term");
+    setSearchParams({ q: inputValue });
     setSearchSubmitted(true);
   };
 
   const features = [
     {
-      title: "Instant Access to Publication Status",
+      title: "Instant Trademark Lookup",
       description:
-        "Use the Quick Search tool to locate published trademarks by application number or owner name - find the same trademark with either search method.",
+        "Search by application number or owner name and instantly see published trademarks.",
     },
     {
-      title: "Reliable, Up-to-Date Search Results",
+      title: "Updated Daily",
       description:
-        "With daily database updates, you receive accurate and current trademark registration information every time you search.",
+        "Our database is refreshed every day to provide the latest trademark information.",
     },
     {
-      title: "Direct Access to Trademark Articles",
+      title: "Detailed Insights",
       description:
-        "Efficient navigation allows quick access to detailed content, supporting greater insight and brand awareness.",
+        "Each result links to comprehensive articles with full trademark details.",
     },
   ];
+
   const faqs = [
     {
-      question: "What Information Is Provided?",
+      question: "What info is included?",
       answer:
-        "Each trademark entry includes an article with image, owner details, and application date. General trademark guidance is also available to support new brand owners.",
+        "Detailed articles, images, owner info, and filing dates for each trademark.",
     },
     {
-      question: "How to Search for Trademarks?",
+      question: "How to search?",
       answer:
-        "Enter the application number, owner, or company name into the search field and select “Search” to view registered trademarks. Each result links to a detailed article with further information.",
+        "Enter application number, owner, or company name and select Search. Each result links to more info.",
     },
     {
-      question: "Can I Update My Search?",
-      answer:
-        "Yes. You may revise your search at any time by entering a new application number or company name and initiating a new query. This ensures access to the most current trademark status.",
+      question: "Can I search multiple times?",
+      answer: "Yes, try different terms to get the latest data anytime.",
     },
     {
-      question: "How to Contact Support?",
+      question: "Need help?",
       answer:
-        "For further assistance, use the 'Contact' button to reach our support team. We are available to address inquiries and ensure reliable guidance on trademark-related matters.",
+        "Click Contact to reach our support team for guidance on trademark searches.",
     },
   ];
 
-  const [openIndex, setOpenIndex] = useState<number | null>(null);
-
-  const toggleFAQ = (index: number) => {
-    setOpenIndex(openIndex === index ? null : index);
-  };
-
   return (
-    <div className="min-h-screen bg-gray-50">
+    <motion.div
+      className="min-h-screen bg-white"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.6 }}>
       <Navbar />
 
-      {/* Search Hero Section */}
-      <div className="min-h-[300px] flex items-center justify-center text-center px-4">
-        <div className="max-w-3xl mx-auto">
-          <h1 className="text-4xl sm:text-5xl font-semibold text-[#333747] mb-6">
-            Access Our Private Trademark Database
-          </h1>
-          <p className="text-lg sm:text-xl mb-8 text-[#333747]">
-            Utilize expert services to strengthen brand visibility and explore
-            trademark opportunities.
-          </p>
-          <form
-            onSubmit={handleSearch}
-            className="max-w-3xl mx-auto flex flex-col sm:flex-row gap-4 relative">
-            <div className="relative w-full">
-              <Input
-                type="text"
-                placeholder="Enter application number, owner, or company name."
-                className="bg-white w-full sm:w-[600px] h-[60px] text-gray-600 z-10 relative pr-4 py-3 border-[#207ea0] !text-xl font-semibold"
-                value={inputValue}
-                onChange={(e) => setInputValue(e.target.value)}
-                autoComplete="off"
-              />
-            </div>
+      {/* Hero Section */}
+      <motion.div
+        className="relative bg-gradient-to-b from-blue-50 to-white py-24 px-4 text-center"
+        initial={{ y: 50, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.8, delay: 0.2 }}>
+        <motion.h1
+          className="text-5xl font-bold text-blue-900 mb-6 max-w-3xl mx-auto leading-tight"
+          initial={{ y: 30, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.6, delay: 0.4 }}>
+          Explore Our Trademark Database
+        </motion.h1>
+        <motion.p
+          className="text-xl text-blue-700 mb-12 max-w-2xl mx-auto"
+          initial={{ y: 20, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.6, delay: 0.5 }}>
+          Instantly find trademarks and discover opportunities to protect and
+          grow your brand.
+        </motion.p>
+        <motion.form
+          onSubmit={handleSearch}
+          className="flex flex-col sm:flex-row gap-4 justify-center max-w-4xl mx-auto"
+          initial={{ y: 30, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.6, delay: 0.6 }}>
+          <Input
+            type="text"
+            placeholder="Enter application number, owner, or company name..."
+            className="flex-1 h-14 text-blue-900 border-2 border-blue-200 focus:border-blue-500 rounded-xl px-4 shadow-sm"
+            value={inputValue}
+            onChange={(e) => setInputValue(e.target.value)}
+          />
+          <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
             <Button
               type="submit"
-              className="bg-[#207ea0] hover:bg-[#207ea0] min-w-[120px] h-[60px] text-white text-lg"
+              className="h-14 bg-blue-600 hover:bg-blue-700 text-white px-6 rounded-xl shadow-sm"
               disabled={loading}>
-              {loading ? "Searching..." : <>Search</>}
+              {loading ? "Searching..." : "Search"}
             </Button>
-          </form>
-        </div>
-      </div>
+          </motion.div>
+        </motion.form>
+      </motion.div>
 
       {/* Search Results */}
-      <div className="max-w-4xl mx-auto px-4 py-8">
+      <motion.div
+        className="max-w-6xl mx-auto px-4 py-12"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.6, delay: 0.8 }}>
         <SearchResults
           results={results}
           loading={loading}
           searchSubmitted={searchSubmitted}
           searchQuery={searchQuery}
         />
-      </div>
+      </motion.div>
 
-      <section className="py-16">
-        <div className="max-w-6xl mx-auto px-2 text-center">
-          <h2 className="text-4xl sm:text-5xl md:text-[50px] font-semibold text-[#333747] mb-4 px-2 sm:px-10 md:px-20">
-            Find Your Trademark Using the Quick Search Tool
+      {/* Features */}
+      <section className="py-20 bg-blue-50">
+        <div className="max-w-7xl mx-auto px-4 text-center">
+          <h2 className="text-4xl font-bold text-blue-900 mb-16">
+            Why Our Search Stands Out
           </h2>
-
-          <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 sm:gap-10 md:gap-15">
-            {features.map((feature, index) => (
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {features.map((feature, idx) => (
               <div
-                key={index}
-                className="flex flex-col items-center text-center">
-                <div className="mb-4">
-                  <div className="w-14 h-14 mb-4 flex items-center justify-center">
-                    <img src="/images/1.svg" alt="" />
-                  </div>
-                </div>
-                <h3 className="text-xl sm:text-2xl md:text-[24px] font-semibold text-[#333747] mb-2">
+                key={idx}
+                className="bg-white p-8 rounded-2xl shadow-sm hover:shadow-md border border-blue-100 transition-all">
+                <h3 className="text-xl font-semibold text-blue-900 mb-3">
                   {feature.title}
                 </h3>
-                <p className="text-[#333747] text-base sm:text-lg font-semibold">
-                  {feature.description}
-                </p>
+                <p className="text-blue-700 text-base">{feature.description}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="py-16">
-        <div className="max-w-6xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8">
-          {/* Left Section */}
-          <div className="md:col-span-1 mb-8 md:mb-0">
-            <h2 className="text-4xl sm:text-5xl font-semibold text-[#333747] mb-6">
-              FAQs
+      {/* FAQ Section */}
+      <section className="py-20">
+        <div className="max-w-7xl mx-auto px-4 gap-12">
+          {/* Intro */}
+          <div>
+            <h2 className="text-4xl font-bold text-blue-900 mb-6">
+              Frequently Asked Questions
             </h2>
-            <p className="text-[#333747] text-lg sm:text-xl font-semibold mb-6">
-            Get clear answers to key questions about our trademark search and data access tools.
+            <p className="text-blue-700 mb-8">
+              Quick answers to common questions about searching trademarks.
             </p>
-            <button className="bg-[#207ea0] text-white px-6 py-3 shadow-md hover:bg-[#207ea0] transition-colors text-lg font-semibold">
-              <Link to="/contact">Contact</Link>
-            </button>
           </div>
 
-          {/* Right Section */}
-          <div className="md:col-span-2 space-y-6">
-            {faqs.map((faq, index) => (
+          {/* FAQ Items */}
+          <div className="space-y-4">
+            {faqs.map((faq, idx) => (
               <div
-                key={index}
-                className="border-t border-[#207ea0] py-6 last:border-b">
+                key={idx}
+                className="border border-blue-100 rounded-xl shadow-sm hover:shadow-md transition-all">
                 <button
-                  className="w-full text-left flex justify-between items-center"
-                  onClick={() => toggleFAQ(index)}>
-                  <span className="text-xl sm:text-2xl font-medium text-[#333747]">
+                  className="w-full p-6 flex justify-between items-center text-left hover:bg-blue-50 transition-colors"
+                  onClick={() => toggleFAQ(idx)}>
+                  <span className="text-lg font-medium text-blue-900">
                     {faq.question}
                   </span>
-                  <span className="text-[#207ea0]">
-                    {openIndex === index ? (
-                      <ChevronUp size={24} />
-                    ) : (
-                      <ChevronDown size={24} />
-                    )}
+                  <span className="text-blue-600">
+                    {openIndex === idx ? <ChevronUp /> : <ChevronDown />}
                   </span>
                 </button>
-                {openIndex === index && (
-                  <div className="mt-4 text-[#333747] text-lg sm:text-xl">
+                {openIndex === idx && (
+                  <div className="px-6 pb-6 text-blue-700 text-base">
                     {faq.answer}
                   </div>
                 )}
@@ -350,6 +281,6 @@ export default function Search() {
       </section>
 
       <Footer />
-    </div>
+    </motion.div>
   );
 }

@@ -1,3 +1,5 @@
+"use client";
+
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import {
@@ -8,34 +10,27 @@ import {
 } from "@/components/ui/navigation-menu";
 import * as NavigationMenuPrimitive from "@radix-ui/react-navigation-menu";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 
 export const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const [scrollPosition, setScrollPosition] = useState(0);
   const location = useLocation();
 
-  // Check if we're on the index page
   const isIndexPage =
     location.pathname === "/" || location.pathname === "/index";
 
-  // Handle scroll events
   useEffect(() => {
     const handleScroll = () => {
       const position = window.scrollY;
-      setScrollPosition(position);
-      setIsScrolled(position > 50); // Consider "scrolled" when scrolled more than 50px
+      setIsScrolled(position > 20);
     };
 
-    // Only add scroll listener if we're on the index page
     if (isIndexPage) {
       window.addEventListener("scroll", handleScroll, { passive: true });
-
-      // Initial check - force navbar to be transparent initially on index page
       setIsScrolled(false);
     } else {
-      // On other pages, always show the navbar with background
       setIsScrolled(true);
     }
 
@@ -46,55 +41,105 @@ export const Navbar = () => {
     };
   }, [isIndexPage]);
 
+  const desktopLinkClasses = isScrolled
+    ? "text-sm font-medium tracking-tight text-foreground/80 transition-colors hover:text-primary"
+    : "text-sm font-medium tracking-tight text-white transition-colors hover:text-white/70";
+
+  const triggerClasses = isScrolled
+    ? "flex items-center gap-1 text-sm font-medium tracking-tight text-foreground/80 transition-colors hover:text-primary"
+    : "flex items-center gap-1 text-sm font-medium tracking-tight text-white transition-colors hover:text-white/70";
+
+  const ctaClasses = isScrolled
+    ? "px-4 py-2 text-sm font-semibold rounded-full bg-primary text-primary-foreground transition-colors hover:bg-primary/90 border border-black"
+    : "px-4 py-2 text-sm font-semibold rounded-full border border-white text-white transition-colors hover:border-white/70 hover:text-white/70";
+
+  const mobileLinkClasses =
+    "text-base font-medium text-foreground transition-colors hover:text-primary";
+
+  const mobileSubLinkClasses =
+    "block text-sm text-foreground/65 transition-colors hover:text-primary";
+
   return (
-    <nav
+    <motion.nav
+      initial={{ y: -100, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
       className={`${
         isScrolled
-          ? "sticky top-0 bg-[#005ea2] shadow-md"
-          : "absolute top-0 left-0 bg-transparent"
-      } z-50 w-full py-4 px-6 md:py-[50px] md:px-12 font-inter transition-all duration-300`}>
-      <div className="max-w-[90vw] mx-auto flex justify-between items-center">
-        <Link to="/" className="text-white text-xl font-bold flex items-center">
-          <img src="/images/mainLogo.svg" className="w-44 h-55" alt="Logo" />
-        </Link>
-
-        {/* Desktop Navigation */}
-        <div className="hidden md:flex gap-16 items-center">
-          <Link
-            to="/about"
-            className="text-white hover:text-white/80 transition-colors duration-200 text-xl font-medium
-            ">
-            About Us
+          ? "sticky top-0 inset-x-0 bg-background/90 backdrop-blur-md border-b border-white/60 shadow-sm "
+          : "absolute top-0 inset-x-0 bg-transparent"
+      } z-50 w-full transition-all duration-300`}>
+      <div className="mx-auto flex h-16 w-full max-w-6xl items-center justify-between px-4 sm:px-6 lg:px-8">
+        <motion.div
+          initial={{ x: -50, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.2 }}>
+          <Link to="/" className="flex items-center gap-2">
+            logo
           </Link>
+        </motion.div>
+
+        <motion.div
+          className="hidden items-center gap-6 md:flex"
+          initial={{ x: 50, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.3 }}>
+          <motion.div
+            whileHover={{ scale: 1.05 }}
+            transition={{ duration: 0.2 }}>
+            <Link to="/about" className={desktopLinkClasses}>
+              About
+            </Link>
+          </motion.div>
 
           <NavigationMenu>
             <NavigationMenuList>
               <NavigationMenuItem>
-                {/* Custom trigger without the dropdown icon */}
-                <NavigationMenuPrimitive.Trigger className="text-white hover:text-white/80 transition-colors duration-200 text-xl font-medium">
-                  Services
+                <NavigationMenuPrimitive.Trigger className={triggerClasses}>
+                  Capabilities
+                  <ChevronDown className="h-3 w-3" />
                 </NavigationMenuPrimitive.Trigger>
-                <NavigationMenuContent className="mt-0 p-0">
-                  <div className="flex flex-col w-30 shadow-lg">
+                <NavigationMenuContent className="left-0 top-0 w-full data-[motion^=from-]:animate-in data-[motion^=to-]:animate-out data-[motion^=from-]:fade-in data-[motion^=to-]:fade-out data-[motion=from-end]:slide-in-from-right-52 data-[motion=from-start]:slide-in-from-left-52 data-[motion=to-end]:slide-out-to-right-52 data-[motion=to-start]:slide-out-to-left-52 md:absolute md:w-auto">
+                  <div className="w-full min-w-[220px] max-w-[280px] rounded-xl border border-border bg-background shadow-lg p-1">
                     <Link
                       to="/services"
-                      className="block px-4 py-3 bg-[#005ea2] hover:bg-[#2365c8] text-center text-base text-white font-medium border-b border-white">
-                      Overview
+                      className="flex flex-col gap-1 px-4 py-3 rounded-lg transition-colors hover:bg-secondary">
+                      <span className="text-sm font-semibold text-foreground">
+                        Service Index
+                      </span>
+                      <span className="text-xs text-foreground/65">
+                        A high-level snapshot of our blueprints.
+                      </span>
                     </Link>
                     <Link
                       to="/services/publication"
-                      className="block px-4 py-3 bg-[#005ea2] hover:bg-[#2365c8] text-center text-base text-white font-medium border-b border-white">
-                      Publication
+                      className="flex flex-col gap-1 px-4 py-3 rounded-lg transition-colors hover:bg-secondary">
+                      <span className="text-sm font-semibold text-foreground">
+                        Editorial Programs
+                      </span>
+                      <span className="text-xs text-foreground/65">
+                        Long-form narratives for digital journals.
+                      </span>
                     </Link>
                     <Link
                       to="/services/article"
-                      className="block px-4 py-3 bg-[#005ea2] hover:bg-[#2365c8] text-center text-base text-white font-medium border-b border-white">
-                      Article
+                      className="flex flex-col gap-1 px-4 py-3 rounded-lg transition-colors hover:bg-secondary">
+                      <span className="text-sm font-semibold text-foreground">
+                        Thought Pieces
+                      </span>
+                      {/* <span className="text-xs text-foreground/65">
+                        Sharp storytelling for product launches.
+                      </span> */}
                     </Link>
                     <Link
                       to="/services/seo"
-                      className="block px-4 py-3 bg-[#005ea2] hover:bg-[#2365c8] text-center text-base text-white font-medium">
-                      SEO
+                      className="flex flex-col gap-1 px-4 py-3 rounded-lg transition-colors hover:bg-secondary">
+                      <span className="text-sm font-semibold text-foreground">
+                        Findability
+                      </span>
+                      {/* <span className="text-xs text-foreground/65">
+                        Precision optimisation for search visibility.
+                      </span> */}
                     </Link>
                   </div>
                 </NavigationMenuContent>
@@ -102,130 +147,123 @@ export const Navbar = () => {
             </NavigationMenuList>
           </NavigationMenu>
 
-          <Link
-            to="/search"
-            className="text-white text-xl hover:text-white/80 transition-colors duration-200 font-semibold">
-            Database
-          </Link>
-          <Link
-            to="/contact"
-            className="text-white text-xl hover:text-white/80 font-medium transition-colors duration-200">
-            Contact Us
-          </Link>
-          {/* <Link
-            to="/terms"
-            className="text-white hover:text-white/80 transition-colors duration-200 text-xl font-medium"
+          <motion.div
+            whileHover={{ scale: 1.05 }}
+            transition={{ duration: 0.2 }}>
+            <Link to="/search" className={desktopLinkClasses}>
+              Resource Hub
+            </Link>
+          </motion.div>
 
-          >
-            Terms and Conditions
-          </Link> */}
-          <Link
-            to="/apply"
-            className={`font-medium px-5 py-2 text-xl transition-all duration-200 hover:shadow-md ${
-              isScrolled
-                ? "bg-white text-[#005ea2]" // On scroll
-                : "bg-transparent text-white" // Before scroll
-            }`}>
-            Apply Now
-          </Link>
-        </div>
+          <motion.div
+            whileHover={{ scale: 1.05 }}
+            transition={{ duration: 0.2 }}>
+            <Link to="/contact" className={desktopLinkClasses}>
+              Connect
+            </Link>
+          </motion.div>
 
-        {/* Mobile Menu Button */}
+          <motion.div
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            transition={{ duration: 0.2 }}>
+            <Link to="/apply" className={ctaClasses}>
+              Join Now
+            </Link>
+          </motion.div>
+        </motion.div>
+
         <Sheet open={isMenuOpen} onOpenChange={setIsMenuOpen}>
           <SheetTrigger asChild className="md:hidden">
-            <button className="text-white p-2 focus:outline-none">
-              <Menu size={24} />
+            <button
+              className={`inline-flex items-center justify-center rounded-full border p-2 transition-colors ${
+                isScrolled
+                  ? "border-secondary text-foreground hover:bg-secondary"
+                  : "border-primary-foreground/40 text-primary-foreground hover:bg-primary-foreground/10"
+              }`}>
+              <Menu className="h-5 w-5" />
             </button>
           </SheetTrigger>
           <SheetContent
             side="right"
-            className="w-[80%] bg-[#005ea2] text-[#f0f0f0] p-0 border-none">
-            <div className="flex flex-col h-full p-6">
-              <div className="flex justify-between items-center mb-8">
-                <Link
-                  to="/"
-                  className="text-[#f0f0f0] text-xl font-bold"
-                  onClick={() => setIsMenuOpen(false)}>
-                  <img src="/images/mainLogo.svg" className="w-20" alt="Logo" />
+            className="w-80 border-l border-border bg-background p-0">
+            <div className="flex h-full flex-col">
+              <div className="flex items-center justify-between border-b border-border px-6 py-5">
+                <Link to="/" onClick={() => setIsMenuOpen(false)}>
+                  <div className="flex flex-col leading-tight">logo</div>
                 </Link>
                 <button
                   onClick={() => setIsMenuOpen(false)}
-                  className="text-[#f0f0f0] p-2 focus:outline-none">
-                  <X size={24} />
+                  className="rounded-full border border-transparent p-2 text-foreground/70 transition-colors hover:border-border hover:text-foreground">
+                  <X className="h-5 w-5" />
                 </button>
               </div>
 
-              <div className="flex flex-col gap-6">
+              <div className="flex flex-col gap-6 px-6 py-6">
                 <Link
                   to="/about"
-                  className="text-[#f0f0f0] hover:text-[#f0f0f0]/80 font-medium text-lg py-2"
+                  className={mobileLinkClasses}
                   onClick={() => setIsMenuOpen(false)}>
-                  About Us
+                  Studio
                 </Link>
 
-                <div className="flex flex-col gap-3">
-                  <p className="text-[#f0f0f0] font-medium text-xl mb-2">
-                    Services
+                <div className="space-y-3">
+                  <p className="text-sm font-semibold uppercase tracking-[0.32em] text-foreground/60">
+                    Capabilities
                   </p>
-                  <div className="flex flex-col w-full max-w-[200px]">
+                  <div className="space-y-3 pl-3">
                     <Link
                       to="/services"
-                      className="block px-4 py-3 bg-[#005ea2] text-center text-base text-white font-medium border-b border-[#1a4c96]"
+                      className={mobileSubLinkClasses}
                       onClick={() => setIsMenuOpen(false)}>
-                      Overview
+                      Service Index
                     </Link>
                     <Link
                       to="/services/publication"
-                      className="block px-4 py-3 bg-[#005ea2] text-center text-base text-white font-medium border-b border-[#1a4c96]"
+                      className={mobileSubLinkClasses}
                       onClick={() => setIsMenuOpen(false)}>
-                      Publication
+                      Editorial Programs
                     </Link>
                     <Link
                       to="/services/article"
-                      className="block px-4 py-3 bg-[#005ea2] text-center text-base text-white font-medium border-b border-[#1a4c96]"
+                      className={mobileSubLinkClasses}
                       onClick={() => setIsMenuOpen(false)}>
-                      Article
+                      Thought Pieces
                     </Link>
                     <Link
                       to="/services/seo"
-                      className="block px-4 py-3 bg-[#005ea2] text-center text-base text-white font-medium"
+                      className={mobileSubLinkClasses}
                       onClick={() => setIsMenuOpen(false)}>
-                      SEO
+                      Findability
                     </Link>
                   </div>
                 </div>
 
                 <Link
                   to="/search"
-                  className="text-[#f0f0f0] hover:text-[#f0f0f0]/80 font-medium text-lg py-2"
+                  className={mobileLinkClasses}
                   onClick={() => setIsMenuOpen(false)}>
-                  Database
+                  Resource Hub
                 </Link>
+
                 <Link
                   to="/contact"
-                  className="text-[#f0f0f0] hover:text-[#f0f0f0]/80 font-medium text-lg py-2"
+                  className={mobileLinkClasses}
                   onClick={() => setIsMenuOpen(false)}>
-                  Contact Us
+                  Connect
                 </Link>
-                {/* <Link
-                  to="/terms"
-                  className="text-[#f0f0f0] hover:text-[#f0f0f0]/80 font-medium text-lg py-2"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  Terms and Conditions
-                </Link> */}
 
                 <Link
                   to="/apply"
-                  className="bg-white text-[#005ea2]  text-center px-5 py-3 mt-4 font-medium"
+                  className="mt-2 rounded-full bg-primary px-6 py-3 text-center text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
                   onClick={() => setIsMenuOpen(false)}>
-                  Apply Now
+                  Join Now
                 </Link>
               </div>
             </div>
           </SheetContent>
         </Sheet>
       </div>
-    </nav>
+    </motion.nav>
   );
 };

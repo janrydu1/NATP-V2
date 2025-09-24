@@ -1,4 +1,3 @@
-
 import { ReactNode, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import {
@@ -17,8 +16,14 @@ import {
 } from "@/components/ui/sidebar";
 import { Button } from "@/components/ui/button";
 import {
-  LayoutDashboard, Users, FileText, MessageSquare, LogOut,
-  Bookmark, Settings, PlusCircle
+  LayoutDashboard,
+  Users,
+  FileText,
+  MessageSquare,
+  LogOut,
+  Bookmark,
+  Settings,
+  PlusCircle,
 } from "lucide-react";
 import { toast } from "sonner";
 
@@ -29,7 +34,7 @@ type AdminLayoutProps = {
 
 export const AdminLayout = ({ children, title }: AdminLayoutProps) => {
   const navigate = useNavigate();
-  const [isAdmin, setIsAdmin] = useState(localStorage.getItem("adminLoggedIn") === "true");
+  const [isAdmin] = useState(localStorage.getItem("adminLoggedIn") === "true");
 
   if (!isAdmin) {
     navigate("/admin-login");
@@ -39,36 +44,41 @@ export const AdminLayout = ({ children, title }: AdminLayoutProps) => {
   const handleLogout = () => {
     localStorage.removeItem("adminLoggedIn");
     navigate("/admin-login");
-    toast.info("Logged out successfully");
+    toast.info("You have been signed out");
   };
 
   const menuItems = [
-    { title: "Dashboard", icon: LayoutDashboard, path: "/admin" },
-    { title: "Trademarks", icon: Bookmark, path: "/admin?tab=trademarks" },
-    { title: "Applications", icon: FileText, path: "/admin?tab=applications" },
-    { title: "Contacts", icon: MessageSquare, path: "/admin?tab=contacts" },
-    { title: "Articles", icon: FileText, path: "/admin?tab=articles" },
-    { title: "Newsletter", icon: MessageSquare, path: "/admin?tab=newsletter_subscriptions" },
+    { title: "Overview", icon: LayoutDashboard, path: "/admin" },
+    { title: "Marks", icon: Bookmark, path: "/admin?tab=trademarks" },
+    { title: "Requests", icon: FileText, path: "/admin?tab=applications" },
+    { title: "Inbox", icon: MessageSquare, path: "/admin?tab=contacts" },
+    { title: "Knowledge Hub", icon: FileText, path: "/admin?tab=articles" },
+    {
+      title: "Subscribers",
+      icon: Users,
+      path: "/admin?tab=newsletter_subscriptions",
+    },
   ];
 
   return (
     <SidebarProvider>
-      <div className="h-screen w-full flex bg-gray-100">
-        <Sidebar className="border-r border-gray-200 bg-[rgb(0,94,162)] text-white">
-          <SidebarHeader className="p-4 border-b border-[rgba(255,255,255,0.1)]">
+      <div className="h-screen w-full flex bg-gradient-to-r from-blue-50 to-blue-100">
+        {/* Sidebar */}
+        <Sidebar className="border-r border-blue-200 bg-gradient-to-b from-blue-800 to-blue-600 text-white shadow-lg">
+          <SidebarHeader className="p-6 border-b border-blue-500/30">
             <div className="flex items-center justify-center">
               <img
-                src="/images/Logo.png"
+                src=""
                 alt="Logo"
-                className="h-14 max-w-full object-contain drop-shadow-md"
+                className="h-12 object-contain drop-shadow-md"
               />
             </div>
           </SidebarHeader>
 
           <SidebarContent>
             <SidebarGroup>
-              <SidebarGroupLabel className="text-white/70 font-semibold px-4 mt-6 mb-3 uppercase text-xs tracking-wider">
-                Main
+              <SidebarGroupLabel className="text-blue-100 font-semibold px-4 mt-6 mb-3 uppercase text-xs tracking-wider">
+                Navigation
               </SidebarGroupLabel>
               <SidebarGroupContent>
                 <SidebarMenu>
@@ -77,14 +87,18 @@ export const AdminLayout = ({ children, title }: AdminLayoutProps) => {
                       <SidebarMenuButton asChild>
                         <button
                           onClick={() => {
-                            const tabParam = new URLSearchParams(item.path.split('?')[1]);
-                            const tab = tabParam.get('tab') || 'trademarks';
+                            const tabParam = new URLSearchParams(
+                              item.path.split("?")[1]
+                            );
+                            const tab = tabParam.get("tab") || "trademarks";
                             navigate(item.path);
-                            // Dispatch a custom event to notify Admin component
-                            window.dispatchEvent(new CustomEvent('adminTabChange', { detail: tab }));
+                            window.dispatchEvent(
+                              new CustomEvent("adminTabChange", {
+                                detail: tab,
+                              })
+                            );
                           }}
-                          className="flex items-center gap-3 text-white hover:bg-[rgba(255,255,255,0.1)] px-4 py-3 w-full rounded-md transition-colors"
-                        >
+                          className="flex items-center gap-3 text-blue-50 hover:bg-blue-500/30 px-4 py-3 w-full rounded-lg transition-colors">
                           <item.icon className="w-5 h-5" />
                           <span className="font-medium">{item.title}</span>
                         </button>
@@ -96,8 +110,8 @@ export const AdminLayout = ({ children, title }: AdminLayoutProps) => {
             </SidebarGroup>
 
             <SidebarGroup>
-              <SidebarGroupLabel className="text-white/70 font-semibold px-4 mt-8 mb-3 uppercase text-xs tracking-wider">
-                Actions
+              <SidebarGroupLabel className="text-blue-100 font-semibold px-4 mt-8 mb-3 uppercase text-xs tracking-wider">
+                Quick Actions
               </SidebarGroupLabel>
               <SidebarGroupContent>
                 <SidebarMenu>
@@ -105,10 +119,9 @@ export const AdminLayout = ({ children, title }: AdminLayoutProps) => {
                     <SidebarMenuButton asChild>
                       <button
                         onClick={() => navigate("/admin/create")}
-                        className="flex items-center gap-3 text-white hover:bg-[rgba(255,255,255,0.1)] px-4 py-3 w-full rounded-md transition-colors"
-                      >
+                        className="flex items-center gap-3 text-blue-50 hover:bg-blue-500/30 px-4 py-3 w-full rounded-lg transition-colors">
                         <PlusCircle className="w-5 h-5" />
-                        <span className="font-medium">Create New</span>
+                        <span className="font-medium">Add Record</span>
                       </button>
                     </SidebarMenuButton>
                   </SidebarMenuItem>
@@ -116,10 +129,9 @@ export const AdminLayout = ({ children, title }: AdminLayoutProps) => {
                     <SidebarMenuButton asChild>
                       <button
                         onClick={() => navigate("/admin/settings")}
-                        className="flex items-center gap-3 text-white hover:bg-[rgba(255,255,255,0.1)] px-4 py-3 w-full rounded-md transition-colors"
-                      >
+                        className="flex items-center gap-3 text-blue-50 hover:bg-blue-500/30 px-4 py-3 w-full rounded-lg transition-colors">
                         <Settings className="w-5 h-5" />
-                        <span className="font-medium">Settings</span>
+                        <span className="font-medium">Preferences</span>
                       </button>
                     </SidebarMenuButton>
                   </SidebarMenuItem>
@@ -128,36 +140,35 @@ export const AdminLayout = ({ children, title }: AdminLayoutProps) => {
             </SidebarGroup>
           </SidebarContent>
 
-          <SidebarFooter className="border-t border-[rgba(255,255,255,0.1)] p-6 mt-auto">
+          <SidebarFooter className="border-t border-blue-500/30 p-6 mt-auto">
             <Button
               variant="ghost"
-              className="w-full justify-start text-white hover:text-white hover:bg-[rgba(255,255,255,0.1)] transition-colors"
-              onClick={handleLogout}
-            >
+              className="w-full justify-start text-blue-100 hover:bg-blue-500/30 transition-colors"
+              onClick={handleLogout}>
               <LogOut className="mr-2 h-4 w-4" />
-              Logout
+              Sign Out
             </Button>
           </SidebarFooter>
         </Sidebar>
 
+        {/* Main area */}
         <div className="flex-1 flex flex-col overflow-hidden">
-          <header className="bg-white border-b border-gray-200 px-6 py-4 flex items-center justify-between shadow-sm">
+          <header className="bg-white/90 backdrop-blur border-b border-blue-200 px-6 py-4 flex items-center justify-between shadow-sm">
             <div className="flex items-center gap-4">
-              <SidebarTrigger className="text-[rgb(0,94,162)]" />
-              <h1 className="text-2xl font-bold text-[rgb(0,94,162)]">{title}</h1>
+              <SidebarTrigger className="text-blue-700" />
+              <h1 className="text-2xl font-bold text-blue-700">{title}</h1>
             </div>
             <div className="flex items-center gap-4">
               <Button
                 variant="outline"
-                className="border-[rgb(0,94,162)] text-[rgb(0,94,162)] hover:bg-[rgb(0,94,162)] hover:text-white transition-colors"
-                onClick={() => navigate("/")}
-              >
-                View Website
+                className="border-blue-600 text-blue-700 hover:bg-blue-600 hover:text-white transition-colors"
+                onClick={() => navigate("/")}>
+                Go to Site
               </Button>
             </div>
           </header>
 
-          <main className="flex-1 overflow-auto p-6 bg-gray-50">
+          <main className="flex-1 overflow-auto p-8 bg-gradient-to-b from-blue-50 to-white">
             {children}
           </main>
         </div>

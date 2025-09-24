@@ -1,6 +1,6 @@
 import { Navbar } from "@/components/Navbar";
 import { useEffect, useRef, useState } from "react";
-import { Footer } from "@/components/Footer";
+import { Footer } from "@/components/footer";
 
 export default function PrivacyPolicy() {
   const sections = [
@@ -73,7 +73,8 @@ export default function PrivacyPolicy() {
     title: sections[0].title,
     content: sections[0].content,
   });
-  const sectionRefs = useRef({});
+
+  const sectionRefs = useRef<{ [key: string]: HTMLElement | null }>({});
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -111,7 +112,7 @@ export default function PrivacyPolicy() {
     };
   }, []);
 
-  const handleClick = (sectionTitle) => {
+  const handleClick = (sectionTitle: string) => {
     const element = sectionRefs.current[sectionTitle];
     if (element) {
       element.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -119,34 +120,38 @@ export default function PrivacyPolicy() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-blue-100 to-blue-200">
       <Navbar />
 
-      <div className="max-w-5xl mx-auto min-h-screen py-8">
-        <div>
-          <h2 className="text-5xl font-semibold mb-4 text-[#333747]">
+      <div className="max-w-7xl mx-auto py-12 px-6 lg:px-12">
+        {/* Header */}
+        <div className="text-center max-w-3xl mx-auto">
+          <h1 className="text-5xl md:text-6xl font-bold text-blue-900 tracking-tight">
             Privacy Policy
-          </h2>
-          <p className="font-semibold text-lg text-[#333747]">
-          NATP is committed to ensuring the protection of your personal data. This policy explains the methods by which personal information is collected, processed, and secured in connection with the use of our services.
+          </h1>
+          <p className="mt-4 text-lg text-blue-700 leading-relaxed">
+            Learn how we safeguard your personal data and respect your privacy
+            across our services.
           </p>
         </div>
-        <div className="max-w-[1200px] mx-auto grid grid-cols-12 gap-8 px-6 mt-32">
+
+        {/* Layout */}
+        <div className="mt-20 grid grid-cols-1 md:grid-cols-12 gap-10">
           {/* Sidebar */}
-          <div className="col-span-12 md:col-span-4 lg:col-span-4">
-            <div className="sticky top-24 space-y-4">
-              <h2 className="text-text-[#333747] font-semibold text-[22px] mb-4">
-                Contents Overview
+          <aside className="md:col-span-4 lg:col-span-3">
+            <div className="sticky top-28 bg-white/70 backdrop-blur-md border border-blue-200 rounded-2xl shadow-md p-6">
+              <h2 className="text-blue-900 font-semibold text-lg mb-4">
+                Quick Navigation
               </h2>
-              <ul className="space-y-1">
+              <ul className="space-y-2">
                 {sections.map((section, idx) => (
                   <li key={idx}>
                     <button
                       onClick={() => handleClick(section.title)}
-                      className={`w-full text-left p-2 rounded-md text-[16px] transition-all duration-300 font-medium ${
+                      className={`w-full text-left px-4 py-2 rounded-lg transition-all duration-300 text-sm font-medium ${
                         activeSection.title === section.title
-                          ? "bg-[#005ea2] text-white"
-                          : "text-gray-800 hover:bg-gray-100"
+                          ? "bg-blue-600 text-white shadow"
+                          : "text-blue-700 hover:bg-blue-100"
                       }`}>
                       {section.title}
                     </button>
@@ -154,27 +159,27 @@ export default function PrivacyPolicy() {
                 ))}
               </ul>
             </div>
-          </div>
+          </aside>
 
           {/* Content */}
-          <div className="col-span-12 md:col-span-8 lg:col-span-8 space-y-6">
+          <main className="md:col-span-8 lg:col-span-9 space-y-12">
             {sections.map((section, idx) => (
-              <div
+              <section
                 key={idx}
                 id={section.title.replace(/\s+/g, "-").toLowerCase()}
                 data-section={section.title}
                 ref={(el) => (sectionRefs.current[section.title] = el)}
-                className="scroll-mt-32">
-                <h2 className="text-[28px] font-semibold text-[#333747] mb-4 font-sans">
+                className="scroll-mt-32 bg-white rounded-2xl shadow-lg p-8 border border-blue-100">
+                <h2 className="text-2xl md:text-3xl font-semibold text-blue-900 mb-3">
                   {idx + 1}. {section.title}
                 </h2>
                 <div
-                  className="text-[#333747] text-[15px] leading-7 font-semibold"
+                  className="text-blue-700 text-base leading-7"
                   dangerouslySetInnerHTML={{ __html: section.content }}
                 />
-              </div>
+              </section>
             ))}
-          </div>
+          </main>
         </div>
       </div>
 

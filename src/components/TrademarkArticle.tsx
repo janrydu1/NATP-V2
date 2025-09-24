@@ -1,16 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link, useSearchParams, useLocation } from "react-router-dom";
 import { format } from "date-fns";
-import {
-  Share2,
-  Printer,
-  Copy,
-  Facebook,
-  Edit,
-  Save,
-  X,
-  ArrowLeft,
-} from "lucide-react";
+import { Save, X, ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
 import {
@@ -50,7 +41,7 @@ export function TrademarkArticle({
   const location = useLocation();
   const query = searchQuery || searchParams.get("q") || "";
 
-  // For debugging
+  // Debug
   useEffect(() => {
     console.log("Current query param:", query);
     console.log("Current location:", location);
@@ -60,142 +51,116 @@ export function TrademarkArticle({
     return name ? name.charAt(0).toUpperCase() : "A";
   };
 
-  // Get available keywords from utility
   const availableKeywords = getAvailableKeywords();
-
-  // State for managing keywords
   const [keywords, setKeywords] = useState<string[]>(trademark.keywords || []);
   const [isEditingKeywords, setIsEditingKeywords] = useState(false);
 
-  // Toggle keyword selection using utility function
   const toggleKeyword = (keyword: string) => {
     const result = toggleKeywordUtil(keywords, keyword);
     setKeywords(result.keywords);
-
-    // Show message if provided (e.g., max keywords reached)
-    if (result.message) {
-      toast.error(result.message);
-    }
+    if (result.message) toast.error(result.message);
   };
 
-  // Save keywords to database using utility function
   const saveKeywords = async () => {
     try {
-      // Show loading toast
-      const loadingToast = toast.loading("Updating keywords...");
-
-      // Use the utility function to update keywords
+      const loadingToast = toast.loading("Saving your changes...");
       const result = await updateTrademarkKeywords(trademark.id, keywords);
-
-      // Dismiss loading toast
       toast.dismiss(loadingToast);
 
       if (result.success) {
-        // Update the trademark object with the new keywords
         trademark.keywords = [...keywords];
-        toast.success("Keywords updated successfully");
+        toast.success("Tags updated successfully");
         setIsEditingKeywords(false);
       } else {
-        // Show error message
-        toast.error(result.error || "Failed to update keywords");
+        toast.error(result.error || "Failed to update tags");
       }
     } catch (error) {
       console.error("Error updating keywords:", error);
-      toast.error("Failed to update keywords. Please try again.");
+      toast.error("Something went wrong. Please try again.");
     }
   };
 
   return (
-    <article className="max-w-4xl mx-auto bg-white p-8 rounded-lg shadow-sm">
-      {/* Article Header */}
-      <div className="mb-8">
-        <div className="flex items-center gap-2 text-blue-600">
-          {onBack ? (
-            <button
-              onClick={onBack}
-              className="text-sm hover:underline flex items-center gap-1">
-              <ArrowLeft size={16} /> Back to Results
-            </button>
-          ) : (
-            <Link
-              to={query ? `/search?q=${encodeURIComponent(query)}` : "/search"}
-              className="text-sm hover:underline flex items-center gap-1">
-              <ArrowLeft size={16} /> Back to Results
-            </Link>
-          )}
-        </div>
-        <h1 className="text-3xl font-bold text-gray-800 mb-6 px-2 py-1 inline-block">
-          {trademark.mark || trademark.owner_name}
-        </h1>
+    <article className="max-w-4xl mx-auto bg-white rounded-2xl shadow-md p-8">
+      {/* Back Button */}
+      <div className="mb-6">
+        {onBack ? (
+          <button
+            onClick={onBack}
+            className="text-blue-700 text-sm flex items-center gap-1 hover:underline">
+            <ArrowLeft size={16} /> Return to Search
+          </button>
+        ) : (
+          <Link
+            to={query ? `/search?q=${encodeURIComponent(query)}` : "/search"}
+            className="text-blue-700 text-sm flex items-center gap-1 hover:underline">
+            <ArrowLeft size={16} /> Return to Search
+          </Link>
+        )}
+      </div>
 
-        {/* Trademark Logo Box */}
-        <div className="w-full h-[240px] border border-blue-200 rounded-lg flex items-center justify-center mb-6 overflow-hidden">
-          {trademark.logo_url ? (
-            <img
-              src={trademark.logo_url}
-              alt={`${trademark.mark || trademark.owner_name} logo`}
-              className="max-w-full max-h-full object-contain"
-              onError={(e) => {
-                const target = e.target as HTMLImageElement;
-                target.style.display = "none";
-                const parent = target.parentElement;
-                if (parent) {
-                  const fallback = document.createElement("div");
-                  fallback.className = "text-[150px] text-gray-700 font-bold";
-                  fallback.textContent = trademark.mark
-                    ? trademark.mark.charAt(0).toUpperCase()
-                    : getFirstLetter(trademark.owner_name);
-                  parent.appendChild(fallback);
-                }
-              }}
-            />
-          ) : (
-            <div className="text-[80px] text-gray-700 font-bold text-center">
-              {trademark.mark || getFirstLetter(trademark.owner_name)}
-            </div>
-          )}
-        </div>
+      {/* Title */}
+      <h1 className="text-4xl font-semibold text-blue-900 mb-6">
+        {trademark.mark || trademark.owner_name}
+      </h1>
 
-        {/* Trademark Details */}
-        <div className="flex flex-wrap gap-y-2 text-sm border-b border-gray-200 pb-4">
-          <div className="w-full md:w-1/2 flex">
-            <span className="font-semibold text-gray-700 mr-2">Owner:</span>
-            <span>{trademark.owner_name}</span>
+      {/* Logo Box */}
+      <div className="w-full h-[220px] bg-blue-50 border border-blue-100 rounded-lg flex items-center justify-center mb-8 overflow-hidden">
+        {trademark.logo_url ? (
+          <img
+            src={trademark.logo_url}
+            alt={`${trademark.mark || trademark.owner_name} logo`}
+            className="max-w-full max-h-full object-contain p-4"
+            onError={(e) => {
+              const target = e.target as HTMLImageElement;
+              target.style.display = "none";
+              const parent = target.parentElement;
+              if (parent) {
+                const fallback = document.createElement("div");
+                fallback.className = "text-[120px] text-blue-400 font-bold";
+                fallback.textContent = trademark.mark
+                  ? trademark.mark.charAt(0).toUpperCase()
+                  : getFirstLetter(trademark.owner_name);
+                parent.appendChild(fallback);
+              }
+            }}
+          />
+        ) : (
+          <div className="text-[100px] text-blue-400 font-bold">
+            {trademark.mark || getFirstLetter(trademark.owner_name)}
           </div>
-          <div className="w-full md:w-1/2 flex">
-            <span className="font-semibold text-gray-700 mr-2">
-              International Class(es):
-            </span>
-            <span>{trademark.national_classes || "N/A"}</span>
-          </div>
-          <div className="w-full md:w-1/2 flex">
-            <span className="font-semibold text-gray-700 mr-2">
-              US Class(es):
-            </span>
-            <span>{trademark.us_classes || "N/A"}</span>
-          </div>
-          <div className="w-full md:w-1/2 flex">
-            <span className="font-semibold text-gray-700 mr-2">
-              Application Number:
-            </span>
-            <span>{trademark.application_number}</span>
-          </div>
-          <div className="w-full md:w-1/2 flex">
-            <span className="font-semibold text-gray-700 mr-2">
-              Application Date:
-            </span>
-            <span>
-              {trademark.application_date
-                ? format(new Date(trademark.application_date), "MMM d, yyyy")
-                : "N/A"}
-            </span>
-          </div>
+        )}
+      </div>
+
+      {/* Info Grid */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-y-3 gap-x-8 text-blue-800 border-b border-blue-100 pb-6 mb-8 text-sm">
+        <div>
+          <span className="font-semibold text-blue-700">Owner: </span>
+          {trademark.owner_name}
+        </div>
+        <div>
+          <span className="font-semibold text-blue-700">Category: </span>
+          {trademark.national_classes || "—"}
+        </div>
+        <div>
+          <span className="font-semibold text-blue-700">US Classes: </span>
+          {trademark.us_classes || "—"}
+        </div>
+        <div>
+          <span className="font-semibold text-blue-700">Application ID: </span>
+          {trademark.application_number}
+        </div>
+        <div>
+          <span className="font-semibold text-blue-700">Filed On: </span>
+          {trademark.application_date
+            ? format(new Date(trademark.application_date), "MMM d, yyyy")
+            : "—"}
         </div>
       </div>
 
-      {/* Article Content */}
-      <div className="prose max-w-none">
-        <h2 className="text-2xl font-bold text-center mb-6">
+      {/* Article Body */}
+      <div className="prose max-w-none text-blue-900">
+        <h2 className="text-2xl font-semibold text-center mb-6">
           {trademark.articleTitle}
         </h2>
         {trademark.articleContent ? (
@@ -203,23 +168,22 @@ export function TrademarkArticle({
         ) : trademark.description ? (
           <div dangerouslySetInnerHTML={{ __html: trademark.description }} />
         ) : (
-          <p className="text-gray-500 italic">
-            No content available for this trademark.
+          <p className="text-blue-500 italic">
+            No description or article available.
           </p>
         )}
       </div>
 
-      {/* Article Tags */}
-      <div className="mt-12 pt-6 border-t border-gray-200">
-        <div className="flex justify-between items-center mb-3">
-
+      {/* Keywords / Tags */}
+      <div className="mt-12 pt-6 border-t border-blue-100">
+        <div className="flex justify-between items-center mb-4">
           {isEditingKeywords && (
             <div className="flex gap-2">
               <Button
                 variant="outline"
                 size="sm"
                 onClick={saveKeywords}
-                className="flex items-center gap-1">
+                className="flex items-center gap-1 text-blue-700 border-blue-300">
                 <Save className="h-4 w-4" /> Save
               </Button>
               <Button
@@ -229,7 +193,7 @@ export function TrademarkArticle({
                   setKeywords(trademark.keywords || []);
                   setIsEditingKeywords(false);
                 }}
-                className="flex items-center gap-1">
+                className="flex items-center gap-1 text-blue-700 border-blue-300">
                 <X className="h-4 w-4" /> Cancel
               </Button>
             </div>
@@ -237,7 +201,6 @@ export function TrademarkArticle({
         </div>
 
         {isEditingKeywords ? (
-          // Editable keywords
           <div className="mb-4">
             <div className="flex flex-wrap gap-2 mb-2">
               {availableKeywords.map((keyword) => (
@@ -245,48 +208,48 @@ export function TrademarkArticle({
                   key={keyword}
                   type="button"
                   variant={keywords.includes(keyword) ? "default" : "outline"}
-                  className={`rounded-full text-xs px-4 py-1 h-auto  ${
-                    keywords.includes(keyword) ? "bg-blue-600" : ""
+                  className={`rounded-full text-xs px-4 py-1 h-auto ${
+                    keywords.includes(keyword)
+                      ? "bg-blue-600 text-white"
+                      : "text-blue-700 border-blue-300"
                   }`}
                   onClick={() => toggleKeyword(keyword)}>
                   {keyword}
                 </Button>
               ))}
             </div>
-            <p className="text-sm text-gray-500">
+            <p className="text-xs text-blue-500">
               Selected: {keywords.length}/5
             </p>
           </div>
         ) : (
-          // Display-only keywords
           <div className="flex flex-wrap gap-2 mb-4">
             {keywords.length > 0 ? (
               keywords.map((keyword, index) => (
-                <Button
+                <span
                   key={index}
-                  className="rounded-full text-xs px-4 py-1 h-auto bg-[#005ea2] text-white hover:bg-[#005ea2] hover:text-white">
+                  className="rounded-full text-xs px-4 py-1 h-auto bg-blue-600 text-white">
                   {keyword}
-                </Button>
+                </span>
               ))
             ) : (
-              <p className="text-sm text-gray-500 italic">
-                No keywords selected
-              </p>
+              <p className="text-sm text-blue-500 italic">No tags chosen</p>
             )}
           </div>
         )}
 
-        <div className="max-w-5xl mx-auto pt-36 px-4 text-center text-[#333747]">
-          <h3 className="text-3xl md:text-4xl font-semibold mb-3">
-            Boost your brand visibility today.
+        {/* CTA Section */}
+        <div className="max-w-4xl mx-auto mt-16 text-center text-blue-900">
+          <h3 className="text-2xl md:text-3xl font-bold mb-3">
+            Strengthen your trademark presence.
           </h3>
-          <p className="font-semibold text-lg mb-6">
-            Reach out now and let's take your brand to the next level.
+          <p className="text-base mb-6">
+            Let’s make your brand stand out with tailored solutions.
           </p>
           <Link
             to="/contact"
-            className="bg-[#207ea0] hover:bg-[#207ea0] transition text-white py-3 px-6 rounded shadow">
-            Contact Us
+            className="bg-blue-600 hover:bg-blue-700 transition text-white py-3 px-6 rounded-xl shadow">
+            Get in Touch
           </Link>
         </div>
       </div>

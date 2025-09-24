@@ -1,12 +1,15 @@
+"use client";
+
+import type React from "react";
 import { useState } from "react";
 import { Navbar } from "@/components/Navbar";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { Checkbox } from "@/components/ui/checkbox";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { handleApplicationSubmit } from "@/lib/form-handlers";
-import { Footer } from "@/components/Footer";
+import { motion } from "framer-motion";
+import { Footer } from "@/components/footer";
 
 export default function Apply() {
   const [formData, setFormData] = useState({
@@ -53,83 +56,158 @@ export default function Apply() {
   };
 
   return (
-    <div className="min-h-screen">
+    <motion.div
+      className="min-h-screen bg-background"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.6 }}>
       <Navbar />
 
-      {/* Hero Section */}
-      <div className=" min-h-[200px] flex items-center justify-center">
-        <div className="text-center">
-          <h1 className="text-3xl md:text-6xl font-semibold  mb-6 text-[#333747]">
-            Application To Publish Your Trademark
-          </h1>
-          <p className="text-[20px] text-[#333747]">
-            Submit your trademark to our exclusive database and enhance brand
-            visibility today.
-          </p>
+      <motion.div
+        className="min-h-[60vh] flex items-center justify-center bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 relative overflow-hidden"
+        initial={{ y: 50, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.8, delay: 0.2 }}>
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-600/5 via-indigo-600/10 to-slate-600/5"></div>
+        <div className="text-center max-w-5xl mx-auto px-6 relative z-10">
+          <motion.h1
+            className="text-4xl md:text-6xl lg:text-7xl font-light mb-8 text-slate-900 text-balance leading-tight"
+            initial={{ y: 30, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.8, delay: 0.4 }}>
+            Elevate Your Brand
+          </motion.h1>
+          <motion.p
+            className="text-xl md:text-2xl text-slate-600 font-light leading-relaxed max-w-3xl mx-auto"
+            initial={{ y: 20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.6 }}>
+            Transform your trademark into a powerful asset with our exclusive
+            publication platform
+          </motion.p>
         </div>
-      </div>
+      </motion.div>
 
-      <div className="max-w-6xl mx-auto py-12 px-4">
-        <div className="mb-12">
-          <h2 className="text-5xl font-semibold mb-6 text-[#333747]">
-            Strengthen Brand Visibility Through Trademark Publication
-          </h2>
-          <p className="text-[#333747] text-lg mb-10 font-semibold">
-            The publication of a trademark is a key measure for establishing
-            brand recognition and building credibility. By making your trademark
-            publicly accessible, you position your brand for increased
-            distinction within a competitive market environment.
-          </p>
-          <ul className="space-y-2">
-            <li className="flex items-center gap-2">
-              <div className="w-7 h-7 flex items-center justify-center">
-                <img src="/images/1.svg" alt="" />
+      <motion.div
+        className="max-w-7xl mx-auto py-20 px-6"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8 }}>
+        <div className="mb-24">
+          <motion.div
+            className="text-center mb-16"
+            initial={{ y: 50, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}>
+            <h2 className="text-3xl md:text-5xl font-light mb-6 text-slate-900 text-balance">
+              Why Publication Matters
+            </h2>
+            <p className="text-slate-600 text-lg font-light leading-relaxed max-w-3xl mx-auto">
+              Strategic trademark publication amplifies your brand's market
+              presence and establishes unparalleled credibility
+            </p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
+              <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mb-6">
+                <svg
+                  className="w-6 h-6 text-blue-600"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24">
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M13 10V3L4 14h7v7l9-11h-7z"
+                  />
+                </svg>
               </div>
-              <span className="font-semibold text-[#333747]">
-                Enhance recognition and strengthen your brand’s position in the
-                market.
-              </span>
-            </li>
-            <li className="flex items-center gap-2">
-              <div className="w-7 h-7 flex items-center justify-center">
-                <img src="/images/1.svg" alt="" />
+              <h3 className="text-xl font-medium text-slate-900 mb-4">
+                Market Visibility
+              </h3>
+              <p className="text-slate-600 font-light leading-relaxed">
+                Maximize your brand's discoverability and establish a commanding
+                presence in your industry
+              </p>
+            </div>
+
+            <div className="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
+              <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mb-6">
+                <svg
+                  className="w-6 h-6 text-blue-600"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24">
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                  />
+                </svg>
               </div>
-              <span className="font-semibold text-[#333747]">
-                Enhance recognition and strengthen your brand’s position in the
-                market.
-              </span>
-            </li>
-            <li className="flex items-center gap-2">
-              <div className="w-7 h-7 flex items-center justify-center">
-                <img src="/images/1.svg" alt="" />
+              <h3 className="text-xl font-medium text-slate-900 mb-4">
+                Trust & Authority
+              </h3>
+              <p className="text-slate-600 font-light leading-relaxed">
+                Demonstrate professional legitimacy and build confidence with
+                potential clients and partners
+              </p>
+            </div>
+
+            <div className="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
+              <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mb-6">
+                <svg
+                  className="w-6 h-6 text-blue-600"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24">
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
+                  />
+                </svg>
               </div>
-              <span className="font-semibold text-[#333747]">
-                Appeal to prospective clients by presenting a clearly defined
-                and protected trademark.
-              </span>
-            </li>
-          </ul>
+              <h3 className="text-xl font-medium text-slate-900 mb-4">
+                Client Acquisition
+              </h3>
+              <p className="text-slate-600 font-light leading-relaxed">
+                Attract high-quality prospects through enhanced brand
+                recognition and market positioning
+              </p>
+            </div>
+          </div>
         </div>
 
-        <div className=" p-8 rounded-lg shadow-sm">
-          <h3 className="text-4xl font-semibold mb-6 text-center text-[#333747]">
-            Trademark Inquiry
-          </h3>
-          <p className="text-[#333747] mb-8 text-center text-xl">
-            Please fill out the form to initiate your trademark publication
-            request.
-          </p>
+        <div className="bg-gradient-to-br from-slate-50 to-blue-50 p-8 md:p-16 rounded-3xl border border-slate-200">
+          <div className="text-center mb-12">
+            <h3 className="text-3xl md:text-4xl font-light mb-6 text-slate-900">
+              Begin Your Publication Journey
+            </h3>
+            <p className="text-slate-600 text-lg font-light leading-relaxed max-w-2xl mx-auto">
+              Complete our streamlined application to initiate your trademark
+              publication process
+            </p>
+          </div>
 
-          <form onSubmit={handleSubmit} className="max-w-2xl mx-auto space-y-6">
+          <form onSubmit={handleSubmit} className="max-w-4xl mx-auto space-y-8">
             <div className="grid md:grid-cols-2 gap-6">
-              <div className="space-y-2">
-                <Label htmlFor="firstName" className="text-[#333747]">
+              <div className="space-y-3">
+                <Label
+                  htmlFor="firstName"
+                  className="text-slate-700 font-medium">
                   First Name
                 </Label>
                 <Input
                   id="firstName"
                   value={formData.first_name}
-                  className="h-[48px] text-[#333747] border border-[#207ea0]"
+                  className="h-12 text-slate-900 border-slate-300 focus:border-blue-500 focus:ring-blue-500 rounded-xl bg-white"
                   onChange={(e) =>
                     setFormData((prev) => ({
                       ...prev,
@@ -139,13 +217,15 @@ export default function Apply() {
                   required
                 />
               </div>
-              <div className="space-y-2">
-                <Label htmlFor="lastName" className="text-[#333747]">
+              <div className="space-y-3">
+                <Label
+                  htmlFor="lastName"
+                  className="text-slate-700 font-medium">
                   Last Name
                 </Label>
                 <Input
                   id="lastName"
-                  className="h-[48px] text-[#333747] border border-[#207ea0]"
+                  className="h-12 text-slate-900 border-slate-300 focus:border-blue-500 focus:ring-blue-500 rounded-xl bg-white"
                   value={formData.last_name}
                   onChange={(e) =>
                     setFormData((prev) => ({
@@ -159,13 +239,13 @@ export default function Apply() {
             </div>
 
             <div className="grid md:grid-cols-2 gap-6">
-              <div className="space-y-2">
-                <Label htmlFor="email" className="text-[#333747]">
-                  Email
+              <div className="space-y-3">
+                <Label htmlFor="email" className="text-slate-700 font-medium">
+                  Email Address
                 </Label>
                 <Input
                   id="email"
-                  className="h-[48px] text-[#333747] border border-[#207ea0]"
+                  className="h-12 text-slate-900 border-slate-300 focus:border-blue-500 focus:ring-blue-500 rounded-xl bg-white"
                   type="email"
                   value={formData.email}
                   onChange={(e) =>
@@ -174,13 +254,13 @@ export default function Apply() {
                   required
                 />
               </div>
-              <div className="space-y-2">
-                <Label htmlFor="phone" className="text-[#333747]">
+              <div className="space-y-3">
+                <Label htmlFor="phone" className="text-slate-700 font-medium">
                   Phone Number
                 </Label>
                 <Input
                   id="phone"
-                  className="h-[48px] text-[#333747] border border-[#207ea0]"
+                  className="h-12 text-slate-900 border-slate-300 focus:border-blue-500 focus:ring-blue-500 rounded-xl bg-white"
                   type="tel"
                   value={formData.phone}
                   onChange={(e) =>
@@ -191,13 +271,13 @@ export default function Apply() {
               </div>
             </div>
 
-            <div className="space-y-2">
-              <Label htmlFor="company" className="text-[#333747]">
-                Owner
+            <div className="space-y-3">
+              <Label htmlFor="company" className="text-slate-700 font-medium">
+                Trademark Owner
               </Label>
               <Input
                 id="company"
-                className="h-[48px] text-[#333747] border border-[#207ea0]"
+                className="h-12 text-slate-900 border-slate-300 focus:border-blue-500 focus:ring-blue-500 rounded-xl bg-white"
                 value={formData.company}
                 onChange={(e) =>
                   setFormData((prev) => ({ ...prev, company: e.target.value }))
@@ -206,13 +286,13 @@ export default function Apply() {
               />
             </div>
 
-            <div className="space-y-2">
-              <Label htmlFor="trademark" className="text-[#333747]">
-                Mark
+            <div className="space-y-3">
+              <Label htmlFor="trademark" className="text-slate-700 font-medium">
+                Trademark Name
               </Label>
               <Input
                 id="trademark"
-                className="h-[48px] text-[#333747] border border-[#207ea0]"
+                className="h-12 text-slate-900 border-slate-300 focus:border-blue-500 focus:ring-blue-500 rounded-xl bg-white"
                 value={formData.trademark}
                 onChange={(e) =>
                   setFormData((prev) => ({
@@ -225,13 +305,15 @@ export default function Apply() {
             </div>
 
             <div className="grid md:grid-cols-2 gap-6">
-              <div className="space-y-2">
-                <Label htmlFor="application-number" className="text-[#333747]">
-                  Application Number
+              <div className="space-y-3">
+                <Label
+                  htmlFor="application-number"
+                  className="text-slate-700 font-medium">
+                  Application Number (Optional)
                 </Label>
                 <Input
                   id="application-number"
-                  className="h-[48px] text-[#333747] border border-[#207ea0]"
+                  className="h-12 text-slate-900 border-slate-300 focus:border-blue-500 focus:ring-blue-500 rounded-xl bg-white"
                   value={formData.application_number}
                   onChange={(e) =>
                     setFormData((prev) => ({
@@ -241,13 +323,15 @@ export default function Apply() {
                   }
                 />
               </div>
-              <div className="space-y-2">
-                <Label htmlFor="application-date" className="text-[#333747]">
+              <div className="space-y-3">
+                <Label
+                  htmlFor="application-date"
+                  className="text-slate-700 font-medium">
                   Application Date
                 </Label>
                 <Input
                   id="application-date"
-                  className="h-[48px] text-[#333747] border border-[#207ea0]"
+                  className="h-12 text-slate-900 border-slate-300 focus:border-blue-500 focus:ring-blue-500 rounded-xl bg-white"
                   type="date"
                   value={formData.application_date}
                   onChange={(e) =>
@@ -260,29 +344,29 @@ export default function Apply() {
               </div>
             </div>
 
-            <div className="space-y-2">
-              <Label htmlFor="class" className="text-[#333747]">
-                International Class(es)
+            <div className="space-y-3">
+              <Label htmlFor="class" className="text-slate-700 font-medium">
+                International Classes (Optional)
               </Label>
               <Input
                 id="class"
-                className="h-[48px] text-[#333747] border border-[#207ea0]"
+                className="h-12 text-slate-900 border-slate-300 focus:border-blue-500 focus:ring-blue-500 rounded-xl bg-white"
                 value={formData.class}
-                placeholder=""
+                placeholder="e.g., 35, 42"
                 onChange={(e) =>
                   setFormData((prev) => ({ ...prev, class: e.target.value }))
                 }
               />
             </div>
 
-            <div className="space-y-2">
-              <Label htmlFor="us_class" className="text-[#333747]">
-                US Class(es)
+            <div className="space-y-3">
+              <Label htmlFor="us_class" className="text-slate-700 font-medium">
+                US Classes (Optional)
               </Label>
               <Input
                 id="us_class"
-                className="h-[48px] text-[#333747] border border-[#207ea0]"
-                placeholder=""
+                className="h-12 text-slate-900 border-slate-300 focus:border-blue-500 focus:ring-blue-500 rounded-xl bg-white"
+                placeholder="e.g., 100, 101"
                 value={formData.us_class}
                 onChange={(e) =>
                   setFormData((prev) => ({ ...prev, us_class: e.target.value }))
@@ -290,68 +374,69 @@ export default function Apply() {
               />
             </div>
 
-            <div className="grid md:grid-cols-2 gap-6">
-              <div className="space-y-2">
-                <Label htmlFor="zip" className="text-[#333747]">
-                  ZIP
+            <div className="grid md:grid-cols-3 gap-6">
+              <div className="space-y-3">
+                <Label htmlFor="zip" className="text-slate-700 font-medium">
+                  ZIP Code
                 </Label>
                 <Input
                   id="zip"
-                  className="h-[48px] text-[#333747] border border-[#207ea0]"
+                  className="h-12 text-slate-900 border-slate-300 focus:border-blue-500 focus:ring-blue-500 rounded-xl bg-white"
                   value={formData.zip}
                   onChange={(e) =>
                     setFormData((prev) => ({ ...prev, zip: e.target.value }))
                   }
                 />
               </div>
-              <div className="space-y-2">
-                <Label htmlFor="city" className="text-[#333747]">
+              <div className="space-y-3">
+                <Label htmlFor="city" className="text-slate-700 font-medium">
                   City
                 </Label>
                 <Input
                   id="city"
                   value={formData.city}
-                  className="h-[48px] text-[#333747] border border-[#207ea0]"
-                  placeholder=""
+                  className="h-12 text-slate-900 border-slate-300 focus:border-blue-500 focus:ring-blue-500 rounded-xl bg-white"
                   onChange={(e) =>
                     setFormData((prev) => ({ ...prev, city: e.target.value }))
                   }
                 />
               </div>
+              <div className="space-y-3">
+                <Label htmlFor="country" className="text-slate-700 font-medium">
+                  Country
+                </Label>
+                <Input
+                  id="country"
+                  value={formData.country}
+                  className="h-12 text-slate-900 border-slate-300 focus:border-blue-500 focus:ring-blue-500 rounded-xl bg-white"
+                  onChange={(e) =>
+                    setFormData((prev) => ({
+                      ...prev,
+                      country: e.target.value,
+                    }))
+                  }
+                />
+              </div>
             </div>
 
-            <div className="space-y-2">
-              <Label htmlFor="country" className="text-[#333747]">
-                Country
-              </Label>
-              <Input
-                id="country"
-                value={formData.country}
-                className="h-[48px] text-[#333747] border border-[#207ea0]"
-                onChange={(e) =>
-                  setFormData((prev) => ({ ...prev, country: e.target.value }))
-                }
-              />
-            </div>
-
-            <div className="space-y-2">
-              <Label className="text-[#333747]">Your Role in Business</Label>
-              <div className="grid grid-cols-2 gap-2 md:grid-cols-3">
+            <div className="space-y-4">
+              <Label className="text-slate-700 font-medium">Your Role</Label>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 {[
                   "Business Owner",
-                  "Legal Advisor",
-                  "Other Role",
-                  "Trademark Agent",
+                  "Legal Counsel",
                   "Brand Manager",
+                  "Trademark Agent",
+                  "Other",
                 ].map((role) => (
                   <label
                     key={role}
-                    className="flex items-center space-x-2 text-[#333747]">
+                    className="flex items-center space-x-3 text-slate-700 p-4 rounded-xl border border-slate-300 hover:bg-white hover:border-blue-300 transition-colors cursor-pointer bg-white/50">
                     <input
                       type="radio"
                       name="role"
                       value={role}
-                      className="text-[#333747] "
+                      className="text-blue-600 focus:ring-blue-500"
                       checked={formData.role === role}
                       onChange={(e) =>
                         setFormData((prev) => ({
@@ -360,20 +445,20 @@ export default function Apply() {
                         }))
                       }
                     />
-                    <span>{role}</span>
+                    <span className="font-light">{role}</span>
                   </label>
                 ))}
               </div>
             </div>
 
-            <div className="space-y-2">
-              <Label htmlFor="message" className="text-[#333747]">
-                Message
+            <div className="space-y-3">
+              <Label htmlFor="message" className="text-slate-700 font-medium">
+                Additional Information (Optional)
               </Label>
               <Textarea
                 id="message"
-                className="h-[180px] text-[#333747] border border-[#207ea0]"
-                placeholder="Enter your message..."
+                className="min-h-[120px] text-slate-900 border-slate-300 focus:border-blue-500 focus:ring-blue-500 rounded-xl bg-white"
+                placeholder="Share any additional details about your trademark or specific requirements..."
                 value={formData.message}
                 onChange={(e) =>
                   setFormData((prev) => ({ ...prev, message: e.target.value }))
@@ -381,95 +466,122 @@ export default function Apply() {
               />
             </div>
 
-            <div className="flex items-center space-x-2">
+            <div className="flex items-center space-x-3 p-4 bg-white/70 rounded-xl border border-slate-300">
               <input
                 type="checkbox"
                 id="agree"
+                className="text-blue-600 focus:ring-blue-500 rounded"
                 checked={formData.agree}
                 onChange={(e) =>
                   setFormData((prev) => ({ ...prev, agree: e.target.checked }))
                 }
               />
-              <Label htmlFor="terms" className="text-sm text-[#212529]">
+              <Label htmlFor="terms" className="text-slate-700 font-light">
                 I agree to the{" "}
-                <a href="/terms" className="underline text-blue-600">
-                  terms.
+                <a
+                  href="/terms"
+                  className="underline text-blue-600 hover:text-blue-700 font-medium">
+                  Terms of Service
                 </a>
               </Label>
-
-              {/* <Label htmlFor="agree" className="font-normal text-lg text-[#333747]">I agree to the terms.</Label> */}
             </div>
-            <div className="flex justify-center items-center">
+
+            <div className="flex justify-center items-center pt-6">
               <Button
                 type="submit"
-                className=" bg-[#207ea0] text-white hover:bg-[#207ea0] px-7 py-6 shadow-xl">
-                Submit
+                className="bg-blue-600 text-white hover:bg-blue-700 px-12 py-4 rounded-xl font-medium transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
+                Submit Application
               </Button>
             </div>
           </form>
         </div>
 
-        <section className="py-20">
-          <div className="max-w-7xl mx-auto px-4 text-center">
-            {/* Title */}
-            <h2 className="text-3xl md:text-5xl font-semibold text-[#333747] mb-14 leading-snug text-center">
-              Step-by-Step Instructions for Effective Trademark Publication
+        <section className="py-24">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-light text-slate-900 mb-6 text-balance">
+              Our Streamlined Process
             </h2>
+            <p className="text-slate-600 text-lg font-light leading-relaxed max-w-2xl mx-auto">
+              Three simple steps to elevate your trademark's market presence
+            </p>
+          </div>
 
-            {/* Values */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-              {/* Item 1 */}
-              <div className="flex flex-col items-center text-center">
-                <img
-                  src="/images/Step 1.svg"
-                  alt="Professionalism Icon"
-                  className="w-[120px] h-[120px] mb-6"
-                />
-                <h4 className="text-3xl font-semibold text-[#333747] mb-6">
-                  Step 1: Application Submission
-                </h4>
-                <p className="text-[#333747] font-semibold text-[15px]">
-                  Initiate the process by completing our online trademark
-                  application form.
-                </p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+            <div className="text-center">
+              <div className="w-20 h-20 bg-blue-100 rounded-2xl flex items-center justify-center mx-auto mb-8">
+                <svg
+                  className="w-10 h-10 text-blue-600"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24">
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                  />
+                </svg>
               </div>
+              <h4 className="text-2xl font-medium text-slate-900 mb-6">
+                Submit Application
+              </h4>
+              <p className="text-slate-600 font-light leading-relaxed">
+                Complete our comprehensive form with your trademark details and
+                business information
+              </p>
+            </div>
 
-              {/* Item 2 */}
-              <div className="flex flex-col items-center text-center">
-                <img
-                  src="/images/Step 2.svg"
-                  alt="Client-Centric Icon"
-                  className="w-[120px] h-[120px] mb-6"
-                />
-                <h4 className="text-3xl font-semibold text-[#333747] mb-6">
-                  Step 2: Application Review
-                </h4>
-                <p className="text-[#333747] font-semibold text-[15px]">
-                  We examine your submission to ensure completeness and
-                  readiness for publication.
-                </p>
+            <div className="text-center">
+              <div className="w-20 h-20 bg-blue-100 rounded-2xl flex items-center justify-center mx-auto mb-8">
+                <svg
+                  className="w-10 h-10 text-blue-600"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24">
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"
+                  />
+                </svg>
               </div>
+              <h4 className="text-2xl font-medium text-slate-900 mb-6">
+                Expert Review
+              </h4>
+              <p className="text-slate-600 font-light leading-relaxed">
+                Our specialists verify all information and optimize your
+                submission for maximum impact
+              </p>
+            </div>
 
-              {/* Item 3 */}
-              <div className="flex flex-col items-center text-center">
-                <img
-                  src="/images/Step 3.svg"
-                  alt="Improvement Icon"
-                  className="w-[120px] h-[120px] mb-6"
-                />
-                <h4 className="text-3xl font-semibold text-[#333747] mb-6">
-                  Step 3: Trademark Publication
-                </h4>
-                <p className="text-[#333747] font-semibold text-[15px]">
-                  Upon approval, your trademark is officially published in our
-                  database.
-                </p>
+            <div className="text-center">
+              <div className="w-20 h-20 bg-blue-100 rounded-2xl flex items-center justify-center mx-auto mb-8">
+                <svg
+                  className="w-10 h-10 text-blue-600"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24">
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M13 10V3L4 14h7v7l9-11h-7z"
+                  />
+                </svg>
               </div>
+              <h4 className="text-2xl font-medium text-slate-900 mb-6">
+                Live Publication
+              </h4>
+              <p className="text-slate-600 font-light leading-relaxed">
+                Your trademark goes live in our premium database, instantly
+                boosting your brand visibility
+              </p>
             </div>
           </div>
         </section>
-      </div>
+      </motion.div>
       <Footer />
-    </div>
+    </motion.div>
   );
 }

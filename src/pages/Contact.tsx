@@ -1,14 +1,14 @@
+"use client";
+
+import type React from "react";
 import { useState } from "react";
 import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
 import { Navbar } from "@/components/Navbar";
-import { Footer } from "@/components/Footer";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
+import { Footer } from "@/components/footer";
 import { Label } from "@/components/ui/label";
-import { Textarea } from "@/components/ui/textarea";
 import { Checkbox } from "@/components/ui/checkbox";
-import { Mail } from "lucide-react";
+import { Mail, Send, ArrowRight } from "lucide-react";
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -42,7 +42,7 @@ export default function Contact() {
     e.preventDefault();
 
     if (!formData.agreedToTerms) {
-      toast.error("You must agree to the terms and conditions");
+      toast.error("Please accept our terms to continue");
       return;
     }
 
@@ -58,7 +58,7 @@ export default function Contact() {
 
       if (error) throw error;
 
-      toast.success("Your message has been sent successfully!");
+      toast.success("Thanks for reaching out! We'll reply soon.");
       setFormData({
         name: "",
         email: "",
@@ -67,70 +67,78 @@ export default function Contact() {
       });
     } catch (error) {
       console.error("Error submitting form:", error);
-      toast.error("Failed to send message. Please try again later.");
+      toast.error("Something went wrong. Please try again.");
     } finally {
       setIsSubmitting(false);
     }
   };
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen bg-gradient-to-b from-blue-50 via-white to-blue-50 text-slate-800">
       <Navbar />
 
-      <main className="flex-1 flex flex-col items-center justify-center max-w-6xl mx-auto px-6 py-16">
-        <div className="flex flex-col items-center text-[#333747] mb-16">
-          <h3 className="text-5xl font-semibold text-center mb-12">
-            Get in Touch with Our Team
-          </h3>
-          <div className="flex flex-col md:flex-row gap-12 w-full">
-            <div className="w-full md:w-1/2 space-y-4 text-[22px] leading-7">
-              <h4 className="font-bold">Disclaimer</h4>
-              <p className="font-semibold text-[18px]">
-                This website may include links to third-party external websites.
-                As we do not control the content of these sites, we assume no
-                responsibility for the accuracy, completeness, or legality of
-                the information provided therein. Responsibility for external
-                content lies solely with the respective site operators. At the
-                time of linking, no legal infringements were identified. If
-                unlawful content becomes known to us, the respective link will
-                be removed without delay.
-              </p>
-            </div>
-            <div className="w-full md:w-1/2 space-y-4 text-[22px] leading-7">
-              <h4 className="font-bold">Copyright Notice</h4>
-              <p className="font-semibold text-[18px]">
-                All texts, images, and other content presented on this website
-                are protected under United States copyright law. Any
-                reproduction, modification, distribution, or commercial use
-                beyond the scope permitted by applicable law requires prior
-                written authorization from the respective rights holder.
-              </p>
-            </div>
-          </div>
-        </div>
+      {/* Hero Section */}
+      <section className="relative text-center py-28 px-6">
+        <h1 className="text-5xl md:text-6xl font-bold text-blue-700 mb-6">
+          Let’s Connect
+        </h1>
+        <p className="text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed">
+          Have a project in mind or simply want to chat? Drop us a message and
+          we’ll get back to you shortly.
+        </p>
+      </section>
 
-        <div className="pt-20 px-6">
-          <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 items-center">
-            {/* Left Section */}
-            <div className="md:pr-16">
-              <h2 className="text-3xl sm:text-4xl font-semibold mb-4 text-[#333747]">
-                Get in Touch
-              </h2>
-              <p className="text-gray-700 mb-6">
-                Assistance is available for all inquiries.
-              </p>
-              <div className="flex items-center space-x-3">
-                <Mail className="text-[#207ea0] w-6 h-6" />
-                <p className="text-[#333747]">info@natp-trademark.com</p>
+      {/* Contact + Info */}
+      <section className="py-20 px-6">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16">
+          {/* Info */}
+          <div className="space-y-10">
+            <div className="bg-white shadow-md rounded-2xl p-6 border border-blue-100">
+              <div className="flex items-center gap-4">
+                <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center">
+                  <Mail className="w-6 h-6 text-blue-600" />
+                </div>
+                <div>
+                  <p className="text-sm text-slate-500">Email us at</p>
+                  <p className="text-lg font-semibold text-blue-700">
+                    support@yourbrand.com
+                  </p>
+                </div>
               </div>
             </div>
 
-            {/* Right Section - Contact Form */}
             <div>
-              <form onSubmit={handleSubmit} className="space-y-6">
+              <h3 className="text-xl font-semibold text-blue-700 mb-3">
+                Transparency
+              </h3>
+              <p className="text-slate-600 leading-relaxed">
+                We may share external resources for your benefit, but we are not
+                responsible for their content. Reach out if you ever find
+                something inaccurate or outdated.
+              </p>
+            </div>
+
+            <div>
+              <h3 className="text-xl font-semibold text-blue-700 mb-3">
+                Our Work
+              </h3>
+              <p className="text-slate-600 leading-relaxed">
+                All materials, including visuals and content on this site, are
+                protected. If you’d like to collaborate or request usage
+                permissions, just get in touch.
+              </p>
+            </div>
+          </div>
+
+          {/* Contact Form */}
+          <div className="bg-white border border-blue-100 rounded-2xl shadow-md p-8">
+            <form onSubmit={handleSubmit} className="space-y-8">
+              <div className="space-y-6">
                 <div>
-                  <Label htmlFor="name" className="block mb-1 text-[#212529]">
-                    Name
+                  <Label
+                    htmlFor="name"
+                    className="text-slate-700 font-medium mb-2 block">
+                    Full Name
                   </Label>
                   <input
                     id="name"
@@ -139,13 +147,16 @@ export default function Contact() {
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className="w-full border border-[#207ea0] p-3 rounded focus:outline-none focus:ring-2 focus:ring-[#207ea0]"
+                    className="w-full bg-slate-50 border border-blue-200 rounded-xl px-4 py-3 focus:ring-2 focus:ring-blue-500 outline-none"
+                    placeholder="Jane Doe"
                   />
                 </div>
 
                 <div>
-                  <Label htmlFor="email" className="block mb-1 text-[#212529]">
-                    Email address
+                  <Label
+                    htmlFor="email"
+                    className="text-slate-700 font-medium mb-2 block">
+                    Email Address
                   </Label>
                   <input
                     id="email"
@@ -154,63 +165,75 @@ export default function Contact() {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="w-full border border-[#207ea0] p-3 rounded focus:outline-none focus:ring-2 focus:ring-[#207ea0]"
+                    className="w-full bg-slate-50 border border-blue-200 rounded-xl px-4 py-3 focus:ring-2 focus:ring-blue-500 outline-none"
+                    placeholder="your@email.com"
                   />
                 </div>
 
                 <div>
                   <Label
                     htmlFor="message"
-                    className="block mb-1 text-[#212529]">
-                    Message
+                    className="text-slate-700 font-medium mb-2 block">
+                    Your Message
                   </Label>
                   <textarea
                     id="message"
                     name="message"
-                    placeholder="Enter your message"
                     rows={6}
                     value={formData.message}
                     onChange={handleChange}
                     required
-                    className="w-full border border-[#207ea0] p-3 rounded focus:outline-none focus:ring-2 focus:ring-[#207ea0] resize-none"
+                    className="w-full bg-slate-50 border border-blue-200 rounded-xl px-4 py-3 focus:ring-2 focus:ring-blue-500 outline-none resize-none"
+                    placeholder="Tell us how we can help..."
                   />
                 </div>
+              </div>
 
-                <div className="flex items-center space-x-2">
-                  <Checkbox
-                    id="terms"
-                    checked={formData.agreedToTerms}
-                    onCheckedChange={handleCheckboxChange}
-                  />
-                  <Label htmlFor="terms" className="text-sm text-[#212529]">
-                    I agree to the{" "}
-                    <a href="/terms" className="underline text-blue-600">
-                      terms.
-                    </a>
-                  </Label>
-                </div>
+              <div className="flex items-start gap-3">
+                <Checkbox
+                  id="terms"
+                  checked={formData.agreedToTerms}
+                  onCheckedChange={handleCheckboxChange}
+                  className="mt-1 border-blue-400"
+                />
+                <Label
+                  htmlFor="terms"
+                  className="text-sm text-slate-600 leading-relaxed">
+                  I accept the{" "}
+                  <a href="/terms" className="text-blue-600 hover:underline">
+                    terms & privacy policy
+                  </a>
+                  .
+                </Label>
+              </div>
 
-                <button
-                  type="submit"
-                  disabled={isSubmitting}
-                  className="bg-[#207ea0] text-white px-6 py-3 rounded shadow-sm hover:bg-[#1a6b89] transition-colors duration-200">
-                  {isSubmitting ? "Sending..." : "Send"}
-                </button>
-              </form>
-            </div>
+              <button
+                type="submit"
+                disabled={isSubmitting}
+                className="w-full bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-xl font-medium transition disabled:opacity-50 flex items-center justify-center gap-2">
+                {isSubmitting ? (
+                  "Sending..."
+                ) : (
+                  <>
+                    Send Message
+                    <Send className="w-4 h-4" />
+                  </>
+                )}
+              </button>
+            </form>
           </div>
         </div>
-      </main>
+      </section>
 
-      {/* Newsletter Section */}
-      <div className="pt-10 pb-16 text-center">
-        <div className="max-w-3xl mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-semibold text-[#212529] mb-6">
-            Latest Information on Trademark Publications
+      {/* Newsletter */}
+      <section className="py-20 bg-blue-50">
+        <div className="max-w-3xl mx-auto px-6 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold text-blue-700 mb-4">
+            Stay Updated
           </h2>
-          <p className="text-gray-700 mb-8 font-semibold text-lg">
-            Subscribe to receive updates on new trademark publications and
-            relevant marketing insights.
+          <p className="text-slate-600 mb-10">
+            Subscribe for the latest updates, insights, and resources directly
+            in your inbox.
           </p>
 
           <form
@@ -218,7 +241,7 @@ export default function Contact() {
               e.preventDefault();
 
               if (!newsletterEmail) {
-                toast.error("Please enter an email address.");
+                toast.error("Please enter your email address");
                 return;
               }
 
@@ -231,39 +254,47 @@ export default function Contact() {
 
                 if (error) throw error;
 
-                toast.success("Successfully subscribed to the newsletter!");
+                toast.success("You're subscribed!");
                 setNewsletterEmail("");
               } catch (error) {
                 console.error("Newsletter subscription failed:", error);
-                toast.error("Subscription failed. Please try again.");
+                toast.error("Something went wrong. Please try again.");
               } finally {
                 setIsNewsletterSubmitting(false);
               }
             }}
-            className="flex flex-col sm:flex-row justify-center items-center gap-4">
+            className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
             <input
               type="email"
               placeholder="Enter your email"
               value={newsletterEmail}
               onChange={(e) => setNewsletterEmail(e.target.value)}
-              className="border border-[#207ea0] px-4 py-3 w-full sm:w-[300px] rounded h-[48px] focus:outline-none text-[#212529]"
+              className="flex-1 bg-white border border-blue-200 rounded-xl px-6 py-4 text-slate-700 focus:ring-2 focus:ring-blue-500 outline-none"
             />
             <button
               type="submit"
               disabled={isNewsletterSubmitting}
-              className="bg-[#207ea0] text-white px-6 py-3 rounded shadow-sm hover:bg-[#1a6b89] transition-colors duration-200">
-              {isNewsletterSubmitting ? "Signing Up..." : "Sign Up"}
+              className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-xl font-medium transition disabled:opacity-50 flex items-center justify-center gap-2">
+              {isNewsletterSubmitting ? (
+                "Subscribing..."
+              ) : (
+                <>
+                  Subscribe
+                  <ArrowRight className="w-4 h-4" />
+                </>
+              )}
             </button>
           </form>
 
-          <p className="text-[10px] text-gray-500 mt-4">
-            By selecting "Sign Up", you confirm your agreement to our
-            <a href="/terms" className="underline ml-1">
-              Terms and Conditions.
+          <p className="text-xs text-slate-500 mt-6">
+            You can unsubscribe anytime. See our{" "}
+            <a href="/terms" className="text-blue-600 hover:underline">
+              terms & privacy policy
             </a>
+            .
           </p>
         </div>
-      </div>
+      </section>
 
       <Footer />
     </div>

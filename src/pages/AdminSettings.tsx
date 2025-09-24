@@ -1,3 +1,4 @@
+import type React from "react";
 import { useState, useEffect } from "react";
 import { AdminLayout } from "@/components/AdminLayout";
 import {
@@ -12,7 +13,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
-import { Edit, Trash2, Key, UserPlus } from "lucide-react";
+import { Edit, Key } from "lucide-react";
 import {
   Table,
   TableBody,
@@ -114,7 +115,9 @@ export default function AdminSettings() {
       // Update password in Supabase Auth
       const { error: authError } = await supabase.auth.admin.updateUserById(
         selectedAdmin.id,
-        { password: newAdminPassword }
+        {
+          password: newAdminPassword,
+        }
       );
 
       if (authError) throw authError;
@@ -236,80 +239,105 @@ export default function AdminSettings() {
   return (
     <AdminLayout title="Settings">
       <div className="p-6 max-w-4xl mx-auto space-y-6">
-        <Card className="shadow-md">
-          <CardHeader className="bg-gray-50">
-            <CardTitle>Change Your Password</CardTitle>
-            <CardDescription>Update your account password</CardDescription>
+        <Card className="shadow-lg border-blue-100">
+          <CardHeader className="bg-blue-50 border-b border-blue-100">
+            <CardTitle className="text-blue-900 font-medium">
+              Change Your Password
+            </CardTitle>
+            <CardDescription className="text-blue-600">
+              Update your account password
+            </CardDescription>
           </CardHeader>
           <CardContent className="pt-6 bg-white">
             <form onSubmit={handlePasswordChange} className="space-y-4">
               <div className="space-y-2">
-                <Label htmlFor="currentPassword">Current Password</Label>
+                <Label
+                  htmlFor="currentPassword"
+                  className="text-blue-700 font-medium">
+                  Current Password
+                </Label>
                 <Input
                   id="currentPassword"
                   type="password"
                   value={oldPassword}
                   onChange={(e) => setOldPassword(e.target.value)}
                   required
-                  className="bg-white border border-gray-300"
+                  className="bg-white border-blue-200 focus:border-blue-500 focus:ring-blue-500 rounded-lg"
                 />
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="newPassword">New Password</Label>
+                <Label
+                  htmlFor="newPassword"
+                  className="text-blue-700 font-medium">
+                  New Password
+                </Label>
                 <Input
                   id="newPassword"
                   type="password"
                   value={newPassword}
                   onChange={(e) => setNewPassword(e.target.value)}
                   required
-                  className="bg-white border border-gray-300"
+                  className="bg-white border-blue-200 focus:border-blue-500 focus:ring-blue-500 rounded-lg"
                 />
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="confirmPassword">Confirm New Password</Label>
+                <Label
+                  htmlFor="confirmPassword"
+                  className="text-blue-700 font-medium">
+                  Confirm New Password
+                </Label>
                 <Input
                   id="confirmPassword"
                   type="password"
                   value={confirmPassword}
                   onChange={(e) => setConfirmPassword(e.target.value)}
                   required
-                  className="bg-white border border-gray-300"
+                  className="bg-white border-blue-200 focus:border-blue-500 focus:ring-blue-500 rounded-lg"
                 />
               </div>
 
               <Button
                 type="submit"
                 disabled={loading}
-                className="bg-[#005ea2] hover:bg-[#004d86] text-white"
-              >
+                className="bg-blue-600 hover:bg-blue-700 text-white rounded-lg shadow-md transition-all duration-200">
                 {loading ? "Updating..." : "Update Password"}
               </Button>
             </form>
           </CardContent>
         </Card>
 
-        <Card className="shadow-md">
-          <CardHeader className="bg-gray-50">
-            <CardTitle>Manage Admin Users</CardTitle>
-            <CardDescription>
+        <Card className="shadow-lg border-blue-100">
+          <CardHeader className="bg-blue-50 border-b border-blue-100">
+            <CardTitle className="text-blue-900 font-medium">
+              Manage Admin Users
+            </CardTitle>
+            <CardDescription className="text-blue-600">
               Edit, reset passwords, or remove admin users
             </CardDescription>
           </CardHeader>
           <CardContent className="pt-6 bg-white">
-            <div className="rounded-md border">
+            <div className="rounded-lg border border-blue-200 overflow-hidden">
               <Table>
                 <TableHeader>
-                  <TableRow>
-                    <TableHead>Email</TableHead>
-                    <TableHead className="text-right">Actions</TableHead>
+                  <TableRow className="bg-blue-50 border-blue-200">
+                    <TableHead className="text-blue-700 font-medium">
+                      Email
+                    </TableHead>
+                    <TableHead className="text-right text-blue-700 font-medium">
+                      Actions
+                    </TableHead>
                   </TableRow>
                 </TableHeader>
                 <TableBody>
                   {adminUsers.map((admin) => (
-                    <TableRow key={admin.id}>
-                      <TableCell>{admin.email}</TableCell>
+                    <TableRow
+                      key={admin.id}
+                      className="hover:bg-blue-50 transition-colors">
+                      <TableCell className="text-blue-900">
+                        {admin.email}
+                      </TableCell>
                       <TableCell className="text-right">
                         <div className="flex justify-end gap-2">
                           <Button
@@ -320,7 +348,7 @@ export default function AdminSettings() {
                               setNewEmail(admin.email);
                               setIsEditOpen(true);
                             }}
-                          >
+                            className="border-blue-200 text-blue-600 hover:bg-blue-50 hover:border-blue-300 rounded-lg">
                             <Edit className="h-4 w-4 mr-1" />
                             Edit
                           </Button>
@@ -331,7 +359,7 @@ export default function AdminSettings() {
                               setSelectedAdmin(admin);
                               setIsResetOpen(true);
                             }}
-                          >
+                            className="border-blue-200 text-blue-600 hover:bg-blue-50 hover:border-blue-300 rounded-lg">
                             <Key className="h-4 w-4 mr-1" />
                             Reset Password
                           </Button>
@@ -342,84 +370,106 @@ export default function AdminSettings() {
                 </TableBody>
               </Table>
             </div>
-
           </CardContent>
         </Card>
 
-        {/* Reset Password Dialog */}
         <Dialog open={isResetOpen} onOpenChange={setIsResetOpen}>
-          <DialogContent className="sm:max-w-[425px]">
+          <DialogContent className="sm:max-w-[425px] rounded-lg border-blue-200">
             <DialogHeader>
-              <DialogTitle>Reset Password</DialogTitle>
-              <DialogDescription>
+              <DialogTitle className="text-blue-900 font-medium">
+                Reset Password
+              </DialogTitle>
+              <DialogDescription className="text-blue-600">
                 Set a new password for {selectedAdmin?.email}
               </DialogDescription>
             </DialogHeader>
             <div className="space-y-4 py-4">
               <div className="space-y-2">
-                <Label htmlFor="newAdminPassword">New Password</Label>
+                <Label
+                  htmlFor="newAdminPassword"
+                  className="text-blue-700 font-medium">
+                  New Password
+                </Label>
                 <Input
                   id="newAdminPassword"
                   type="password"
                   value={newAdminPassword}
                   onChange={(e) => setNewAdminPassword(e.target.value)}
-                  className="bg-white border border-gray-300"
+                  className="bg-white border-blue-200 focus:border-blue-500 focus:ring-blue-500 rounded-lg"
                 />
               </div>
               <div className="space-y-2">
-                <Label htmlFor="confirmAdminPassword">Confirm Password</Label>
+                <Label
+                  htmlFor="confirmAdminPassword"
+                  className="text-blue-700 font-medium">
+                  Confirm Password
+                </Label>
                 <Input
                   id="confirmAdminPassword"
                   type="password"
                   value={confirmAdminPassword}
                   onChange={(e) => setConfirmAdminPassword(e.target.value)}
-                  className="bg-white border border-gray-300"
+                  className="bg-white border-blue-200 focus:border-blue-500 focus:ring-blue-500 rounded-lg"
                 />
               </div>
             </div>
             <DialogFooter>
-              <Button variant="outline" onClick={() => setIsResetOpen(false)}>
+              <Button
+                variant="outline"
+                onClick={() => setIsResetOpen(false)}
+                className="border-blue-200 text-blue-600 hover:bg-blue-50 rounded-lg">
                 Cancel
               </Button>
-              <Button onClick={handleResetPassword} className="bg-[#005ea2]">
+              <Button
+                onClick={handleResetPassword}
+                className="bg-blue-600 hover:bg-blue-700 text-white rounded-lg">
                 Reset Password
               </Button>
             </DialogFooter>
           </DialogContent>
         </Dialog>
 
-        {/* Edit Admin Dialog */}
         <Dialog open={isEditOpen} onOpenChange={setIsEditOpen}>
-          <DialogContent className="sm:max-w-[425px]">
+          <DialogContent className="sm:max-w-[425px] rounded-lg border-blue-200">
             <DialogHeader>
-              <DialogTitle>Edit Admin User</DialogTitle>
-              <DialogDescription>
+              <DialogTitle className="text-blue-900 font-medium">
+                Edit Admin User
+              </DialogTitle>
+              <DialogDescription className="text-blue-600">
                 Update details for this admin user
               </DialogDescription>
             </DialogHeader>
             <div className="space-y-4 py-4">
               <div className="space-y-2">
-                <Label htmlFor="adminEmail">Email</Label>
+                <Label
+                  htmlFor="adminEmail"
+                  className="text-blue-700 font-medium">
+                  Email
+                </Label>
                 <Input
                   id="adminEmail"
                   type="email"
                   value={newEmail}
                   onChange={(e) => setNewEmail(e.target.value)}
-                  className="bg-white border border-gray-300"
+                  className="bg-white border-blue-200 focus:border-blue-500 focus:ring-blue-500 rounded-lg"
                 />
               </div>
             </div>
             <DialogFooter>
-              <Button variant="outline" onClick={() => setIsEditOpen(false)}>
+              <Button
+                variant="outline"
+                onClick={() => setIsEditOpen(false)}
+                className="border-blue-200 text-blue-600 hover:bg-blue-50 rounded-lg">
                 Cancel
               </Button>
-              <Button onClick={handleEditAdmin} className="bg-[#005ea2]">
+              <Button
+                onClick={handleEditAdmin}
+                className="bg-blue-600 hover:bg-blue-700 text-white rounded-lg">
                 Update
               </Button>
             </DialogFooter>
           </DialogContent>
         </Dialog>
-
       </div>
     </AdminLayout>
   );

@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { toast } from "sonner";
 import { Navbar } from "@/components/Navbar";
-import { Footer } from "@/components/Footer";
+import { Footer } from "@/components/footer";
 import { ChevronLeft } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 
@@ -19,125 +19,128 @@ export default function AdminLogin() {
     e.preventDefault();
     setLoading(true);
 
-    // Simple validation
     if (!email || !password) {
-      toast.error("Please enter both email and password");
+      toast.error("Please provide both email and password");
       setLoading(false);
       return;
     }
 
     try {
-      // Sign in with Supabase Auth
-      const { data: authData, error: authError } = await supabase.auth.signInWithPassword({
-        email,
-        password,
-      });
+      const { data: authData, error: authError } =
+        await supabase.auth.signInWithPassword({
+          email,
+          password,
+        });
 
       if (authError) {
-        if (authError.message === "Invalid login credentials") {
-          toast.error("Invalid email or password");
-        } else {
-          toast.error(authError.message);
-        }
+        toast.error(
+          authError.message === "Invalid login credentials"
+            ? "Email or password is incorrect"
+            : authError.message
+        );
         return;
       }
 
       if (!authData.user) {
-        toast.error("Login failed. Please try again.");
+        toast.error("Login failed. Try again.");
         return;
       }
 
-      // Check if user is an admin
       const { data: adminData, error: adminError } = await supabase
-        .from('admin_users')
-        .select('*')
-        .eq('id', authData.user.id)
+        .from("admin_users")
+        .select("*")
+        .eq("id", authData.user.id)
         .single();
 
       if (adminError || !adminData) {
-        // If not an admin, sign them out
         await supabase.auth.signOut();
-        toast.error("You are not authorized to access the admin area");
+        toast.error("Access denied: Admins only");
         return;
       }
 
-      // Store admin info in localStorage
       localStorage.setItem("adminEmail", email);
       localStorage.setItem("adminId", adminData.id);
       localStorage.setItem("adminLoggedIn", "true");
-      
-      toast.success("Login successful!");
+
+      toast.success("Welcome back, Admin!");
       navigate("/admin");
     } catch (error: any) {
       console.error("Login error:", error);
-      toast.error(error.message || "An error occurred during login");
+      toast.error(error.message || "Unexpected error occurred");
     } finally {
       setLoading(false);
     }
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-gray-50">
+    <div className="min-h-screen flex flex-col bg-blue-50">
       <Navbar />
-      <div className="flex-1 flex items-center justify-center p-4">
-        <div className="w-full max-w-md space-y-4">
+      <div className="flex-1 flex items-center justify-center px-4 py-8">
+        <div className="w-full max-w-md">
+          {/* Back button */}
           <Button
             variant="ghost"
-            className="mb-4"
             onClick={() => navigate("/")}
-          >
-            <ChevronLeft className="mr-2 h-4 w-4" />
+            className="mb-6 flex items-center gap-2 text-blue-700 hover:text-blue-800">
+            <ChevronLeft size={16} />
             Back to Home
           </Button>
-          
-          <Card className="w-full">
-            <CardHeader className="space-y-1">
-              <CardTitle className="text-2xl text-center">Admin Login</CardTitle>
-              <p className="text-center text-sm text-muted-foreground">
-                Enter your credentials to access the admin dashboard
+
+          {/* Login Card */}
+          <Card className="w-full rounded-2xl shadow-lg border border-blue-100 bg-white">
+            <CardHeader className="space-y-2 text-center">
+              <CardTitle className="text-3xl font-bold text-blue-900">
+                Admin Portal
+              </CardTitle>
+              <p className="text-sm text-blue-700">
+                Sign in to manage the dashboard and content
               </p>
             </CardHeader>
             <CardContent>
               <form onSubmit={handleLogin} className="space-y-4">
-                <div className="space-y-2">
-                  <label htmlFor="email" className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
-                    Email
+                <div className="flex flex-col space-y-1">
+                  <label
+                    htmlFor="email"
+                    className="text-sm font-medium text-blue-800">
+                    Email Address
                   </label>
                   <Input
                     id="email"
                     type="email"
-                    placeholder="Enter your email"
+                    placeholder="your@company.com"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    className="w-full"
+                    className="w-full border-blue-200 focus:border-blue-400 focus:ring-blue-200"
                   />
                 </div>
-                <div className="space-y-2">
-                  <label htmlFor="password" className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
+                <div className="flex flex-col space-y-1">
+                  <label
+                    htmlFor="password"
+                    className="text-sm font-medium text-blue-800">
                     Password
                   </label>
                   <Input
                     id="password"
                     type="password"
-                    placeholder="•••••••"
+                    placeholder="Enter password"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
-                    className="w-full"
+                    className="w-full border-blue-200 focus:border-blue-400 focus:ring-blue-200"
                   />
                 </div>
+
                 <Button
                   type="submit"
-                  className="w-full bg-[#005ea2] hover:bg-[#004d87]"
-                  disabled={loading}
-                >
-                  {loading ? "Logging in..." : "Login"}
+                  className="w-full bg-blue-700 hover:bg-blue-800 text-white font-semibold py-2 rounded-lg"
+                  disabled={loading}>
+                  {loading ? "Signing in..." : "Sign In"}
                 </Button>
-                <div className="text-center space-y-2">
-                  <Link 
+
+                <div className="text-center mt-2">
+                  <Link
                     to="/"
-                    className="text-sm text-[#005ea2] hover:underline block"
-                  >
-                    Return to homepage
+                    className="text-sm text-blue-600 hover:text-blue-700 hover:underline">
+                    Go back to homepage
                   </Link>
                 </div>
               </form>

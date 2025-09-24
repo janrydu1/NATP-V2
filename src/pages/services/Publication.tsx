@@ -1,91 +1,111 @@
-
 import { Navbar } from "@/components/Navbar";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { Footer } from "@/components/Footer";
+import { Footer } from "@/components/footer";
+
 export default function Publication() {
   const steps = [
     {
       id: 1,
-      title: "Step 1: Application Submission",
-      description: "Initiate the process by completing our online trademark application form.",
-      icon: "/images/Step 1.svg",
+      title: "Fill Out the Quick Form",
+      description:
+        "Share your trademark details in just a few clicks — it’s fast, simple, and secure.",
+      icon: "https://plus.unsplash.com/premium_vector-1682301631594-eb2572c47bd5?fm=jpg&q=60&w=1200",
     },
     {
       id: 2,
-      title: "Step 2: Application Review",
-      description: "We examine your submission to ensure completeness and readiness for publication.",
-      icon: "/images/Step 2.svg",
+      title: "We Verify Your Info",
+      description:
+        "Our team reviews everything carefully to make sure your details are accurate and ready.",
+      icon: "https://plus.unsplash.com/premium_vector-1721256358643-00015e00b18d?fm=jpg&q=60&w=1200",
     },
     {
       id: 3,
-      title: "Step 3: Trademark Publication",
-      description: "Upon approval, your trademark is officially published in our database.",
-      icon: "/images/Step 3.svg",
+      title: "Your Trademark Goes Live",
+      description:
+        "Once approved, your trademark is published and visible for clients and partners worldwide.",
+      icon: "https://plus.unsplash.com/premium_vector-1682310922955-ea5e6f791471?fm=jpg&q=60&w=1200",
     },
   ];
+
   return (
-    <div className="min-h-screen bg-gray-50 font-inter">
+    <div className="min-h-screen bg-gradient-to-b from-blue-50 via-white to-blue-50 font-inter">
       <Navbar />
-      
-      <div className="min-h-[200px] mt-10">
-  <div className="max-w-6xl mx-auto px-4 flex flex-col md:flex-row justify-between gap-4">
-    <h1 className="text-4xl md:text-5xl font-semibold mb-4 text-[#333747]">
-      Trademark Publication
-    </h1>
-    <p className="w-full md:w-1/2 text-xl text-[#333747]">
-      Publishing your trademark strengthens brand visibility, safeguards identity, and supports outreach to potential clients and partners.
-    </p>
-  </div>
-</div>
 
-<div className="flex items-center justify-center p-6">
-  <div className="text-center max-w-6xl mx-auto">
-    <h1 className="text-3xl md:text-[40px] font-semibold mb-8 text-[#333747]">
-      Trademark Publication Explained
-    </h1>
-    <p className="text-[#333747] text-lg mb-12 max-w-2xl mx-auto">
-      Our publication process follows a clear and efficient structure. From submission to final release, we provide guidance at each stage.
-    </p>
+      {/* Hero Section */}
+      <section className="max-w-6xl mx-auto px-6 py-20 text-center">
+        <h1 className="text-4xl md:text-6xl font-semibold text-blue-900 mb-6">
+          Publish Your Trademark with Ease
+        </h1>
+        <p className="text-blue-700 text-lg md:text-xl max-w-2xl mx-auto font-light leading-relaxed">
+          Make your brand official, boost visibility, and protect your identity
+          with our seamless trademark publication service.
+        </p>
+      </section>
 
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-10">
-      {steps.map((step) => (
-        <div key={step.id} className="flex flex-col items-center">
-          <img src={step.icon} alt={step.title} className="h-[120px] mb-8" />
-          <h2 className="text-3xl md:text-4xl font-semibold text-[#333747] mb-6 text-center">
-            {step.title}
+      {/* Steps Section */}
+      <section className="bg-blue-50 py-20 px-6">
+        <div className="max-w-6xl mx-auto text-center">
+          <h2 className="text-3xl md:text-4xl font-semibold text-blue-900 mb-6">
+            Three Simple Steps
           </h2>
-          <p className="text-[#0C0C0C] text-[16px] font-semibold text-center">{step.description}</p>
+          <p className="text-blue-700 text-lg mb-12 max-w-xl mx-auto font-light">
+            We’ve simplified the process so you can publish your trademark
+            without any hassle.
+          </p>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+            {steps.map((step) => (
+              <div
+                key={step.id}
+                className="flex flex-col items-center bg-white p-8 rounded-2xl shadow-sm hover:shadow-lg transition duration-300">
+                <img
+                  src={step.icon || "/placeholder.svg"}
+                  alt={step.title}
+                  className="h-[100px] mb-6"
+                />
+                <h3 className="text-xl md:text-2xl font-medium text-blue-900 mb-4">
+                  {step.title}
+                </h3>
+                <p className="text-blue-600 text-base font-light leading-relaxed">
+                  {step.description}
+                </p>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-12">
+            <Button
+              asChild
+              className="bg-blue-700 hover:bg-blue-800 text-white px-8 py-6 rounded-xl shadow-md transition">
+              <Link to="/apply">Start Your Application</Link>
+            </Button>
+          </div>
         </div>
-      ))}
-    </div>
+      </section>
 
-    <Button asChild className="bg-[#207ea0] hover:bg-[#207ea0] mt-5 text-white shadow-md py-6 px-8">
-      <Link to="/apply" className="inline-block">Apply Now</Link>
-    </Button>
-  </div>
-</div>
+      {/* Info Section */}
+      <section className="py-20 px-6">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+          <div>
+            <h2 className="text-3xl md:text-4xl font-semibold text-blue-900 leading-snug mb-6">
+              Stay Ahead with Accurate, Updated Data
+            </h2>
+            <p className="text-blue-700 text-lg md:text-xl font-light leading-relaxed">
+              We refresh trademark records daily, keeping your brand visible,
+              reliable, and competitive in today’s fast-changing marketplace.
+            </p>
+          </div>
+          <div className="bg-blue-100 rounded-2xl p-10 shadow-inner">
+            <p className="text-blue-800 font-medium text-lg leading-relaxed">
+              “Up-to-date trademark information means your brand is always ready
+              to be discovered. We make sure nothing slips through the cracks.”
+            </p>
+          </div>
+        </div>
+      </section>
 
-<div className="py-10 px-6 flex items-center justify-center">
-  <div className="max-w-6xl w-full grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
-    {/* Left side: Heading */}
-    <div>
-      <h2 className="text-[28px] md:text-[34px] font-semibold text-[#333747] leading-snug">
-        Up-to-Date Trademark Data to Keep You Informed and Competitive
-      </h2>
-    </div>
-
-    {/* Right side: Paragraph */}
-    <div>
-      <p className="text-[#333747] text-lg md:text-xl leading-relaxed mb-10">
-        We maintain up-to-date trademark records through daily updates, ensuring accurate, relevant information and sustained brand visibility in a dynamic market environment.
-      </p>
-    </div>
-  </div>
-</div>
-
-
-    <Footer />
+      <Footer />
     </div>
   );
 }

@@ -1,104 +1,117 @@
 import { Navbar } from "@/components/Navbar";
-import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { Footer } from "@/components/Footer";
+import { Footer } from "@/components/footer";
+import { motion } from "framer-motion";
+
 export default function SEO() {
   return (
-    <div className="min-h-screen font-inter">
+    <div className="min-h-screen font-inter bg-gradient-to-b from-blue-50 to-white">
       <Navbar />
 
-      <div className="min-h-[200px] flex items-center justify-center px-6">
-        <div className="max-w-5xl flex flex-col md:flex-row gap-5">
-          <h1 className="text-3xl md:text-5xl font-semibold text-[#333747] mb-4">
-            Search Engine Optimization (SEO)
-          </h1>
-          <p className="w-full md:w-1/2 text-[#333747] text-lg font-semibold">
-            We improve your brand’s search engine visibility through targeted
-            keyword strategies and optimized content, enabling sustained organic
-            reach and audience trust.
-          </p>
+      {/* Hero Section */}
+      <section className="py-20 px-6">
+        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+          {/* Left - Heading */}
+          <div>
+            <h1 className="text-5xl md:text-6xl font-extrabold text-blue-900 leading-tight">
+              Be Seen. <br />
+              Be Chosen.
+            </h1>
+            <p className="mt-6 text-lg text-blue-700 max-w-md">
+              We make sure your business shows up at the exact moment people are
+              searching for what you do best. No fluff — just results that
+              matter.
+            </p>
+          </div>
+
+          {/* Right - Illustration */}
+          <div className="flex justify-center">
+            <img
+              src="https://img.icons8.com/?size=200&id=qd6vC0Bepozz&format=png&color=1E3A8A"
+              alt="SEO Visibility"
+              className="w-64 h-64"
+            />
+          </div>
         </div>
-      </div>
+      </section>
 
-      <section className="py-16 my-10">
-        <div className="max-w-5xl mx-auto px-6">
-          <h2 className="text-3xl md:text-4xl font-semibold text-[#333747] mb-6">
-            Strengthen Brand Visibility Through SEO
+      {/* What We Do Section */}
+      <section className="py-20 px-6 bg-gradient-to-r from-blue-100 via-white to-blue-50">
+        <div className="max-w-6xl mx-auto text-center">
+          <h2 className="text-4xl font-semibold text-blue-900 mb-6">
+            SEO Made Simple (And Powerful)
           </h2>
-          <p className="text-[#333747] font-semibold text-lg max-w-5xl mb-16">
-            Effective SEO supports emerging brands in building a strong online
-            presence. We optimize content, apply targeted keywords, and improve
-            site structure to increase search rankings, attract qualified
-            traffic, and establish credibility.
+          <p className="text-blue-700 max-w-2xl mx-auto text-lg mb-16">
+            Forget confusing jargon. We focus on strategies that drive real
+            visibility, traffic, and trust — helping you climb rankings without
+            the guesswork.
           </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+          <div className="grid md:grid-cols-3 gap-10">
             {/* Card 1 */}
-            <div className="flex flex-col">
+            <div className="bg-white shadow-md rounded-2xl p-8 hover:shadow-xl transition">
               <img
-                src="/images/1.svg"
-                className="w-10 h-10 mb-4"
-                alt="Targeted Content"
+                src="https://img.icons8.com/?size=100&id=8t7rj5pQpWnT&format=png&color=1E3A8A"
+                alt="Content Strategy"
+                className="w-12 h-12 mb-6"
               />
-              <h3 className="text-[26px] font-semibold text-[#333747] mb-6">
-                Targeted Content Optimization
+              <h3 className="text-2xl font-semibold text-blue-900 mb-4">
+                Smart Content
               </h3>
-              <p className="text-[#333747] text-[15px] font-semibold">
-                We align your website content with audience expectations to
-                improve relevance and engagement.
+              <p className="text-blue-700 text-base">
+                Articles and pages that answer what your audience is actually
+                searching for — not just filler words.
               </p>
             </div>
 
             {/* Card 2 */}
-            <div className="flex flex-col">
+            <div className="bg-white shadow-md rounded-2xl p-8 hover:shadow-xl transition">
               <img
-                src="/images/1.svg"
-                className="w-10 h-10 mb-4"
-                alt="Keyword Strategy"
+                src="https://img.icons8.com/?size=100&id=GpM8YyW4cA1W&format=png&color=1E3A8A"
+                alt="Keyword Research"
+                className="w-12 h-12 mb-6"
               />
-              <h3 className="text-[26px] font-semibold text-[#333747] mb-6">
-                Keyword Strategy for Enhanced Visibility
+              <h3 className="text-2xl font-semibold text-blue-900 mb-4">
+                Keyword Intelligence
               </h3>
-              <p className="text-[#333747] text-[15px] font-semibold ">
-                We analyze and apply high-impact keywords to maximize search
-                reach and relevance.
+              <p className="text-blue-700 text-base">
+                We find the search phrases that really bring customers in — and
+                weave them naturally into your content.
               </p>
             </div>
 
             {/* Card 3 */}
-            <div className="flex flex-col">
+            <div className="bg-white shadow-md rounded-2xl p-8 hover:shadow-xl transition">
               <img
-                src="/images/1.svg"
-                className="w-10 h-10 mb-4"
-                alt="Optimized Site Architecture"
+                src="https://img.icons8.com/?size=100&id=wUd7qM5fXNUm&format=png&color=1E3A8A"
+                alt="Website Structure"
+                className="w-12 h-12 mb-6"
               />
-              <h3 className="text-[26px] font-semibold text-[#333747] mb-6">
-                Optimized Site Architecture for Usability
+              <h3 className="text-2xl font-semibold text-blue-900 mb-4">
+                Clear Structure
               </h3>
-              <p className="text-[#333747] text-[15px] font-semibold">
-                We enhance structural layout to support intuitive navigation and
-                user access.
+              <p className="text-blue-700 text-base">
+                Simple, intuitive site layouts that help both people and search
+                engines understand your business instantly.
               </p>
             </div>
           </div>
+        </div>
+      </section>
 
-          {/* Bottom Section */}
-          <div className="flex flex-col justify-center items-center max-w-5xl mx-auto">
-            <div className="mb-6 text-center">
-              <h3 className="text-[32px] md:text-[40px] font-semibold text-[#333747] mb-2">
-                Increase Your Brand’s Online Reach
-              </h3>
-              <p className="text-lg text-[#333747] mb-4">
-                Request a personalized consultation to learn how our SEO
-                measures can generate sustained organic traffic and strengthen
-                brand visibility.
-              </p>
-            </div>
-
-            <button className="bg-[#207ea0] text-white shadow-md py-3 px-8 mt-5 block mx-auto">
-                <Link to="/contact">Contact Us</Link>
-            </button>
-          </div>
+      {/* Call to Action */}
+      <section className="py-20 px-6">
+        <div className="max-w-3xl mx-auto text-center">
+          <h3 className="text-4xl font-bold text-blue-900 mb-4">
+            Let’s Get You Noticed
+          </h3>
+          <p className="text-lg text-blue-700 mb-8">
+            Ready to rise above the competition? We’ll help you attract the
+            right audience and keep them coming back.
+          </p>
+          <button className="bg-blue-700 hover:bg-blue-800 text-white shadow-lg py-4 px-10 rounded-xl transition font-medium">
+            <Link to="/contact">Talk SEO With Us</Link>
+          </button>
         </div>
       </section>
 

@@ -1,12 +1,7 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardHeader,
-  CardContent,
-  CardFooter,
-} from "@/components/ui/card";
-import { format } from "date-fns";
+import { Card, CardContent } from "@/components/ui/card";
+import { motion } from "framer-motion";
 
 export type SearchResult = {
   id: string;
@@ -38,85 +33,121 @@ export function SearchResults({
 
   if (loading) {
     return (
-      <div className="text-center py-8">
-        <div className="animate-pulse space-y-4">
+      <motion.div
+        className="text-center py-10"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.4 }}>
+        <div className="animate-pulse grid gap-6">
           {[1, 2, 3].map((i) => (
-            <Card key={i} className="bg-gray-100">
-              <CardContent className="flex flex-row p-6">
-                <div className="flex-1">
-                  <div className="h-8 bg-gray-200 rounded w-3/4 mb-4" />
-                  <div className="space-y-2">
-                    <div className="h-4 bg-gray-200 rounded w-1/2" />
-                    <div className="h-4 bg-gray-200 rounded w-1/3" />
-                    <div className="h-4 bg-gray-200 rounded w-2/3" />
+            <motion.div
+              key={i}
+              initial={{ y: 20, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.4, delay: i * 0.1 }}>
+              <Card className="bg-blue-50 border border-blue-100">
+                <CardContent className="flex flex-row p-6 gap-6">
+                  <div className="flex-1 space-y-3">
+                    <div className="h-7 bg-blue-100 rounded w-2/3" />
+                    <div className="h-5 bg-blue-100 rounded w-1/2" />
+                    <div className="h-5 bg-blue-100 rounded w-1/3" />
                   </div>
-                </div>
-                <div className="w-[200px] h-[200px] bg-gray-200 rounded ml-4" />
-              </CardContent>
-            </Card>
+                  <div className="w-[200px] h-[150px] bg-blue-100 rounded" />
+                </CardContent>
+              </Card>
+            </motion.div>
           ))}
         </div>
-      </div>
+      </motion.div>
     );
   }
 
   if (results.length === 0) {
     return (
-      <div className="text-center py-8">
-        <p className="text-gray-600 text-lg">No results found</p>
-        <p className="text-gray-500 mt-2">Try adjusting your search terms</p>
-      </div>
+      <motion.div
+        className="text-center py-10"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}>
+        <motion.p
+          className="text-blue-800 text-xl font-semibold"
+          initial={{ scale: 0.9 }}
+          animate={{ scale: 1 }}
+          transition={{ duration: 0.4, delay: 0.2 }}>
+          No matches available
+        </motion.p>
+        <motion.p
+          className="text-blue-600 mt-2"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.4, delay: 0.4 }}>
+          Please refine or adjust your search terms.
+        </motion.p>
+      </motion.div>
     );
   }
 
   return (
-    <div className="grid gap-6">
-      {results.map((result) => (
-        <Card
+    <motion.div
+      className="grid gap-6"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.6 }}>
+      {results.map((result, index) => (
+        <motion.div
           key={result.id}
-          className="bg-white border border-gray-200 overflow-hidden">
-          <CardContent className="p-6">
-            <div className="flex flex-col md:flex-row">
-              <div className="flex-1">
-                <h3 className="text-2xl font-bold text-gray-800 mb-4">
-                  {result.mark ? (result.mark.length > 30 ? `${result.mark.substring(0, 30)}...` : result.mark) : ''}
-                </h3>
+          initial={{ y: 50, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.6, delay: index * 0.1 }}
+          whileHover={{ y: -2, scale: 1.01 }}>
+          <Card className="bg-white border border-blue-100 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+            <CardContent className="p-6">
+              <div className="flex flex-col md:flex-row gap-6">
+                {/* Left Content */}
+                <div className="flex-1">
+                  <h3 className="text-2xl font-semibold text-blue-900 mb-3">
+                    {result.mark
+                      ? result.mark.length > 30
+                        ? `${result.mark.substring(0, 30)}...`
+                        : result.mark
+                      : "Unnamed Mark"}
+                  </h3>
 
-                <div className="grid grid-cols-1 gap-2 mb-4">
-                  <div className="flex gap-2">
-                    <div className="w-40 font-medium">
-                      International Class(es)
+                  <div className="space-y-2 text-blue-800 text-sm">
+                    <div className="flex">
+                      <span className="w-44 font-medium text-blue-700">
+                        Category
+                      </span>
+                      <span>{result.national_classes || "—"}</span>
                     </div>
-                    <div>{result.national_classes || ''}</div>
+                    <div className="flex">
+                      <span className="w-44 font-medium text-blue-700">
+                        Application ID
+                      </span>
+                      <span>{result.application_number}</span>
+                    </div>
+                    <div className="flex">
+                      <span className="w-44 font-medium text-blue-700">
+                        Holder
+                      </span>
+                      <span>{result.owner_name}</span>
+                    </div>
                   </div>
-                  <div className="flex">
-                    <div className="w-40 font-medium">Application Number</div>
-                    <div>{result.application_number}</div>
-                  </div>
-                  <div className="flex gap-2">
-                    <div className="font-medium">Owner</div>
-                    <div>{result.owner_name}</div>
-                  </div>
+
+                  <Button
+                    asChild
+                    className="bg-blue-600 text-white hover:bg-blue-700 rounded-xl px-6 py-2 mt-4">
+                    <Link
+                      to={`/trademark/${result.id}?q=${encodeURIComponent(
+                        searchQuery
+                      )}`}>
+                      View Trademark
+                    </Link>
+                  </Button>
                 </div>
-                {/*
-                {result.description && (
-                  <p className="text-gray-700 mb-4">{result.description}</p>
-                )} */}
 
-                <Button
-                  asChild
-                  className="bg-[#207ea0] text-white hover:bg-[#207ea0] mt-2">
-                  <Link
-                    to={`/trademark/${result.id}?q=${encodeURIComponent(
-                      searchQuery
-                    )}`}>
-                    More Details
-                  </Link>
-                </Button>
-              </div>
-
-              <div className="md:ml-6 mt-4 md:mt-0 flex-shrink-0">
-                <div className="w-full md:w-[240px] h-[200px] bg-gray-100 border border-gray-200 rounded flex items-center justify-center">
+                {/* Logo/Image */}
+                <div className="md:w-[240px] h-[180px] bg-blue-50 border border-blue-100 rounded-lg flex items-center justify-center">
                   {result.logo_url ? (
                     <img
                       src={result.logo_url}
@@ -124,14 +155,14 @@ export function SearchResults({
                       className="max-w-full max-h-full object-contain p-2"
                     />
                   ) : (
-                    <div className="text-6xl text-gray-400 font-bold">A</div>
+                    <div className="text-5xl text-blue-300 font-bold">Ⓣ</div>
                   )}
                 </div>
               </div>
-            </div>
-          </CardContent>
-        </Card>
+            </CardContent>
+          </Card>
+        </motion.div>
       ))}
-    </div>
+    </motion.div>
   );
 }
