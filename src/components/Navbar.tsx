@@ -11,7 +11,7 @@ import {
 import * as NavigationMenuPrimitive from "@radix-ui/react-navigation-menu";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Menu, X, ChevronDown } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 
 export const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -43,15 +43,15 @@ export const Navbar = () => {
 
   const desktopLinkClasses = isScrolled
     ? "text-sm font-medium tracking-tight text-foreground/80 transition-colors hover:text-primary"
-    : "text-sm font-medium tracking-tight text-white transition-colors hover:text-white/70";
+    : "text-sm font-medium tracking-tight transition-colors";
 
   const triggerClasses = isScrolled
     ? "flex items-center gap-1 text-sm font-medium tracking-tight text-foreground/80 transition-colors hover:text-primary"
-    : "flex items-center gap-1 text-sm font-medium tracking-tight text-white transition-colors hover:text-white/70";
+    : "flex items-center gap-1 text-sm font-medium tracking-tight transition-colors";
 
   const ctaClasses = isScrolled
     ? "px-4 py-2 text-sm font-semibold rounded-full bg-primary text-primary-foreground transition-colors hover:bg-primary/90 border border-black"
-    : "px-4 py-2 text-sm font-semibold rounded-full border border-white text-white transition-colors hover:border-white/70 hover:text-white/70";
+    : "px-4 py-2 text-sm font-semibold rounded-full border border-white text-white transition-colors hover:border-white/70";
 
   const mobileLinkClasses =
     "text-base font-medium text-foreground transition-colors hover:text-primary";

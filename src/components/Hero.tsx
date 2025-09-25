@@ -1,6 +1,6 @@
+import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { motion } from "framer-motion";
 
 const Hero = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -34,152 +34,128 @@ const Hero = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 1 }}
-      className={`relative w-full z-0 flex items-center justify-center transition-all duration-500 ${
-        isIndexPage
-          ? isScrolled
-            ? "h-[70vh] pt-20"
-            : "h-screen pt-20"
-          : "h-[70vh] pt-20"
-      }`}
-      style={{
-        background:
-          "linear-gradient(135deg, #1e3a8a 0%, #2563eb 50%, #60a5fa 100%)",
-      }}>
-      {/* Decorative blurred blobs */}
-      <div className="absolute inset-0 overflow-hidden">
-        <motion.div
-          className="absolute w-72 h-72 bg-blue-400/30 blur-3xl rounded-full -top-10 -left-10"
-          animate={{
-            x: [0, 20, 0],
-            y: [0, -20, 0],
-          }}
-          transition={{
-            duration: 8,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-        />
-        <motion.div
-          className="absolute w-96 h-96 bg-blue-700/20 blur-3xl rounded-full bottom-0 right-0"
-          animate={{
-            x: [0, -30, 0],
-            y: [0, 20, 0],
-          }}
-          transition={{
-            duration: 10,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-        />
-      </div>
+      className={`relative w-full z-0 flex items-center justify-center transition-all duration-500 ${isIndexPage
+        ? isScrolled
+          ? "h-[70vh]"
+          : "h-screen"
+        : "h-[70vh] pt-20"
+        }`}
+    >
+      <div className="relative flex w-full flex-col items-center justify-start px-4 pt-0 sm:px-6">
+        <a
+          href="/blog/introducing-acme-ai"
+          className="flex w-auto items-center space-x-2 rounded-full bg-primary/20 px-2 py-1 ring-1 ring-accent whitespace-pre"
+          style={{ opacity: 1, transform: "none" }}
+        >
 
-      {/* Content wrapper */}
-      <div className="relative max-w-6xl w-full px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-        {/* Left side: Text */}
-        <motion.div
-          className="text-center lg:text-left"
-          initial={{ x: -100, opacity: 0 }}
-          animate={{ x: 0, opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.3 }}>
-          <motion.h1
-            className="text-4xl md:text-6xl lg:text-7xl font-light text-white mb-6 leading-tight"
-            initial={{ y: 50, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.5 }}>
-            Protect What You{" "}
-            <motion.span
-              className="font-semibold text-blue-100"
-              initial={{ scale: 0.8, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              transition={{ duration: 0.6, delay: 0.8 }}>
-              Create
-            </motion.span>
-          </motion.h1>
-
-          <motion.p
-            className="text-lg md:text-xl text-blue-100/90 font-light mb-10 max-w-md mx-auto lg:mx-0 leading-relaxed"
-            initial={{ y: 30, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.7 }}>
-            Your ideas deserve recognition. Safeguard your brand and make your
-            presence undeniable.
-          </motion.p>
-
-          <motion.div
-            className="flex flex-col sm:flex-row justify-center lg:justify-start gap-5"
-            initial={{ y: 40, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.9 }}>
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              transition={{ duration: 0.2 }}>
-              <Link
-                to="/apply"
-                className="group bg-white text-blue-700 font-medium px-7 py-3 rounded-full hover:bg-blue-50 transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-1 ">
-                <span className="group-hover:scale-105 transition-transform duration-300 inline-block">
-                  Start Now
-                </span>
-              </Link>
-            </motion.div>
-
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              transition={{ duration: 0.2 }}>
-              <Link
-                to="/services"
-                className="group border border-white/40 backdrop-blur-sm bg-white/10 text-white font-medium px-7 py-3 rounded-full hover:bg-white/20 hover:border-white/60 transition-all duration-300 min-w-[150px]">
-                <span className="group-hover:scale-105 transition-transform duration-300 inline-block">
-                  View Services
-                </span>
-              </Link>
-            </motion.div>
-          </motion.div>
-        </motion.div>
-
-        {/* Right side: Decorative graphic */}
-        <motion.div
-          className="hidden lg:flex items-center justify-center"
-          initial={{ x: 100, opacity: 0 }}
-          animate={{ x: 0, opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.6 }}>
-          {/* <motion.div
-            className="relative w-72 h-72 bg-gradient-to-tr from-blue-300/40 to-blue-600/40 rounded-3xl backdrop-blur-lg border border-white/20 shadow-2xl flex items-center justify-center p-8"
-            animate={{
-              rotateY: [0, 10, 0],
-              rotateX: [0, 5, 0],
-            }}
-            transition={{
-              duration: 6,
-              repeat: Infinity,
-              ease: "easeInOut",
-            }}> */}
-            <motion.img
-              src="/images/banner_logo.svg" 
-              alt="Brand Protection and Trademark Services"
-              className="w-full h-full object-contain filter drop-shadow-lg rounded-xl"
-              initial={{ scale: 0.8, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              transition={{ duration: 0.8, delay: 1 }}
-              whileHover={{ scale: 1.05 }}
+          <svg
+            width={12}
+            height={12}
+            className="ml-1"
+            viewBox="0 0 12 12"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M8.78141 5.33312L5.20541 1.75712L6.14808 0.814453L11.3334 5.99979L6.14808 11.1851L5.20541 10.2425L8.78141 6.66645H0.666748V5.33312H8.78141Z"
+              fill="hsl(var(--primary))"
             />
-          </motion.div>
-       
-      </div>
-
-      {/* Scroll Indicator */}
-      {isIndexPage && !isScrolled && (
-        <motion.div
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 1.2 }}>
-          <div className="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center">
-            <div className="w-1 h-3 bg-white/50 rounded-full mt-2 animate-pulse" />
+          </svg>
+        </a>
+        <div className="flex w-full max-w-2xl flex-col space-y-4 overflow-hidden pt-20 md:pt-96">
+          <h1
+            className="text-center text-4xl font-medium leading-tight text-foreground sm:text-5xl md:text-6xl"
+            style={{ filter: "blur(0px)", opacity: 1, transform: "none" }}
+          >
+            <span
+              className="inline-block px-1 md:px-2 text-balance font-semibold"
+              style={{ opacity: 1, transform: "none" }}
+            >
+              Initiate Your
+            </span>
+            <span
+              className="inline-block px-1 md:px-2 text-balance font-semibold"
+              style={{ opacity: 1, transform: "none" }}
+            >
+              Trademark
+            </span>
+            <span
+              className="inline-block px-1 md:px-2 text-balance font-semibold"
+              style={{ opacity: 1, transform: "none" }}
+            >
+              Publication Today
+            </span>
+          </h1>
+          <p
+            className="mx-auto max-w-xl text-center text-lg leading-7 text-muted-foreground sm:text-xl sm:leading-9 text-balance"
+            style={{ opacity: 1, transform: "none" }}
+          >
+            Apply now to boost visibility and safeguard your brand with expert support.
+          </p>
+        </div>
+        <div
+          className="mx-auto mt-6 flex w-full max-w-2xl flex-col items-center justify-center space-y-4 sm:flex-row sm:space-x-4 sm:space-y-0"
+          style={{ opacity: 1, transform: "none" }}
+        >
+          <Link
+            to={"/apply"}
+            className="bg-blue-600 hover:bg-blue-700 text-white rounded flex p-2 pr-4 gap-2"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width={24}
+              height={24}
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth={2}
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className="h-6 w-6"
+            >
+              <path d="M7 17l9.2-9.2M17 17V7H7" />
+            </svg>
+            Apply Now
+          </Link>
+          <Link
+            to={"/services"}
+            className="border-2 border-gray-300 hover:border-gray-400 bg-transparent text-gray-700 hover:bg-gray-50 rounded flex p-2 pr-4 gap-2"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width={24}
+              height={24}
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth={2}
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className="h-6 w-6"
+            >
+              <rect width={7} height={7} x={14} y={3} rx={1} />
+              <path d="M10 21V8a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-5a1 1 0 0 0-1-1H3" />
+            </svg>
+            Learn More
+          </Link>
+        </div>
+        <div className="relative border rounded-lg shadow-2xl drop-shadow-2xl w-full max-w-7xl sm:max-w-7xl md:max-w-7xl lg:max-w-5xl xl:max-w-5xl mt-8">
+          <div className="relative group rounded-md p-1 sm:p-2 ring-1 ring-slate-200/50 backdrop-blur-md shadow-xl">
+            <img
+              alt="Hero"
+              loading="lazy"
+              width={1920}
+              height={1080}
+              decoding="async"
+              data-nimg={1}
+              className="transition-all duration-200 ease-out rounded-md border w-full h-[500px] sm:h-[400px] md:h-auto object-cover shadow-lg"
+              style={{ color: "transparent" }}
+              srcSet="/images/hero.avif"
+              src="/images/hero.avif"
+            />
           </div>
-        </motion.div>
-      )}
+        </div>
+      </div>
     </motion.section>
   );
 };
