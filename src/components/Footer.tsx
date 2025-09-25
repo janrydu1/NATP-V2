@@ -55,13 +55,16 @@ export const Footer = () => {
               </ul>
             </div>
             <div>
-              <Link to="/services" className="font-medium hover:underline">
-                <h4 className="font-medium mb-4 text-lg">Our Services</h4>
-              </Link>
+              <h4 className="font-medium mb-4 text-lg">Quick Links</h4>
               <ul className="space-y-3">
                 <li>
                   <Link to="/contact" className="font-medium hover:underline">
                     Contact Us
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/services" className="font-medium hover:underline">
+                    Our Services
                   </Link>
                 </li>
                 <li>
