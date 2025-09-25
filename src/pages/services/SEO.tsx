@@ -27,9 +27,9 @@ export default function SEO() {
           {/* Right - Illustration */}
           <div className="flex justify-center">
             <img
-              src="https://img.icons8.com/?size=200&id=qd6vC0Bepozz&format=png&color=1E3A8A"
+              src="/images/service_seo.png"
               alt="SEO Visibility"
-              className="w-64 h-64"
+              className="h-64"
             />
           </div>
         </div>
@@ -49,11 +49,11 @@ export default function SEO() {
 
           <div className="grid md:grid-cols-3 gap-10">
             {/* Card 1 */}
-            <div className="bg-white shadow-md rounded-2xl p-8 hover:shadow-xl transition">
+            <div className="bg-white shadow-md rounded-2xl p-8 hover:shadow-xl transition flex flex-col items-center text-center">
               <img
-                src="https://img.icons8.com/?size=100&id=8t7rj5pQpWnT&format=png&color=1E3A8A"
+                src="/images/service_content.png"
                 alt="Content Strategy"
-                className="w-12 h-12 mb-6"
+                className="w-20 mb-6"
               />
               <h3 className="text-2xl font-semibold text-blue-900 mb-4">
                 Smart Content
@@ -65,11 +65,11 @@ export default function SEO() {
             </div>
 
             {/* Card 2 */}
-            <div className="bg-white shadow-md rounded-2xl p-8 hover:shadow-xl transition">
+            <div className="bg-white shadow-md rounded-2xl p-8 hover:shadow-xl transition flex flex-col items-center text-center">
               <img
-                src="https://img.icons8.com/?size=100&id=GpM8YyW4cA1W&format=png&color=1E3A8A"
+                src="/images/service_keyword.png"
                 alt="Keyword Research"
-                className="w-12 h-12 mb-6"
+                className="w-20 mb-6"
               />
               <h3 className="text-2xl font-semibold text-blue-900 mb-4">
                 Keyword Intelligence
@@ -81,11 +81,11 @@ export default function SEO() {
             </div>
 
             {/* Card 3 */}
-            <div className="bg-white shadow-md rounded-2xl p-8 hover:shadow-xl transition">
+            <div className="bg-white shadow-md rounded-2xl p-8 hover:shadow-xl transition flex flex-col items-center text-center">
               <img
-                src="https://img.icons8.com/?size=100&id=wUd7qM5fXNUm&format=png&color=1E3A8A"
+                src="/images/service_website.png"
                 alt="Website Structure"
-                className="w-12 h-12 mb-6"
+                className="w-20 mb-6"
               />
               <h3 className="text-2xl font-semibold text-blue-900 mb-4">
                 Clear Structure

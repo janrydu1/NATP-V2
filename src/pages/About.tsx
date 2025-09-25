@@ -11,7 +11,7 @@ export default function About() {
       description:
         "We started with a vision to simplify trademark publishing for new brands.",
       image:
-        "https://img.icons8.com/?size=100&id=OuFPWKwU1Uqx&format=png&color=000000",
+        "/images/about_beginning.png",
     },
     {
       year: "2022",
@@ -19,7 +19,7 @@ export default function About() {
       description:
         "We developed strategies to help brands gain visibility and recognition.",
       image:
-        "https://img.icons8.com/?size=100&id=OuFPWKwU1Uqx&format=png&color=000000",
+        "/images/about_reach.png",
     },
     {
       year: "2023",
@@ -27,7 +27,7 @@ export default function About() {
       description:
         "We introduced smart content creation and marketing to stay ahead.",
       image:
-        "https://img.icons8.com/?size=100&id=OuFPWKwU1Uqx&format=png&color=000000",
+        "/images/about_innovation.svg",
     },
   ];
 
@@ -132,7 +132,7 @@ export default function About() {
                 <img
                   src={item.image}
                   alt={item.title}
-                  className="w-40 h-40 mx-auto md:mx-0 rounded-2xl shadow-lg"
+                  className="w-72 h-50 mx-auto md:mx-0 rounded-2xl "
                 />
               </motion.div>
               <div className="md:w-1/2">

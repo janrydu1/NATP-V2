@@ -144,8 +144,8 @@ const Hero = () => {
           initial={{ x: 100, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.6 }}>
-          <motion.div
-            className="relative w-72 h-72 bg-gradient-to-tr from-blue-300/40 to-blue-600/40 rounded-3xl backdrop-blur-lg border border-white/20 shadow-2xl flex items-center justify-center"
+          {/* <motion.div
+            className="relative w-72 h-72 bg-gradient-to-tr from-blue-300/40 to-blue-600/40 rounded-3xl backdrop-blur-lg border border-white/20 shadow-2xl flex items-center justify-center p-8"
             animate={{
               rotateY: [0, 10, 0],
               rotateX: [0, 5, 0],
@@ -154,12 +154,18 @@ const Hero = () => {
               duration: 6,
               repeat: Infinity,
               ease: "easeInOut",
-            }}>
-            <span className="text-white text-2xl font-medium tracking-wide">
-              Image here
-            </span>
+            }}> */}
+            <motion.img
+              src="/images/banner_logo.svg" 
+              alt="Brand Protection and Trademark Services"
+              className="w-full h-full object-contain filter drop-shadow-lg rounded-xl"
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ duration: 0.8, delay: 1 }}
+              whileHover={{ scale: 1.05 }}
+            />
           </motion.div>
-        </motion.div>
+       
       </div>
 
       {/* Scroll Indicator */}

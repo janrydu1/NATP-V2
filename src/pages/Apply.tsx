@@ -111,20 +111,9 @@ export default function Apply() {
           </motion.div>
 
           <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
-              <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mb-6">
-                <svg
-                  className="w-6 h-6 text-blue-600"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24">
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M13 10V3L4 14h7v7l9-11h-7z"
-                  />
-                </svg>
+            <div className="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow flex flex-col items-center justify-center text-center">
+              <div className="rounded-xl flex items-center justify-center mb-6 w-20">
+                <img src="/images/apply_visibility.png" alt="" />
               </div>
               <h3 className="text-xl font-medium text-slate-900 mb-4">
                 Market Visibility
@@ -135,44 +124,22 @@ export default function Apply() {
               </p>
             </div>
 
-            <div className="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
-              <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mb-6">
-                <svg
-                  className="w-6 h-6 text-blue-600"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24">
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                  />
-                </svg>
+            <div className="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow flex flex-col items-center justify-center text-center">
+              <div className="rounded-xl flex items-center justify-center mb-6 w-20">
+                <img src="/images/apply_trust.png" alt="" />
               </div>
               <h3 className="text-xl font-medium text-slate-900 mb-4">
                 Trust & Authority
               </h3>
               <p className="text-slate-600 font-light leading-relaxed">
                 Demonstrate professional legitimacy and build confidence with
-                potential clients and partners
+                potential clients and partnerships
               </p>
             </div>
 
-            <div className="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
-              <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mb-6">
-                <svg
-                  className="w-6 h-6 text-blue-600"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24">
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
-                  />
-                </svg>
+            <div className="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow flex flex-col items-center justify-center text-center">
+              <div className="rounded-xl flex items-center justify-center mb-6 w-20">
+                <img src="/images/apply_client.png" alt="" />
               </div>
               <h3 className="text-xl font-medium text-slate-900 mb-4">
                 Client Acquisition
@@ -508,19 +475,8 @@ export default function Apply() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
             <div className="text-center">
-              <div className="w-20 h-20 bg-blue-100 rounded-2xl flex items-center justify-center mx-auto mb-8">
-                <svg
-                  className="w-10 h-10 text-blue-600"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24">
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
-                  />
-                </svg>
+              <div className="w-20 h-20 flex items-center justify-center mx-auto mb-8">
+                <img src="/images/apply_submit.png" alt="" />
               </div>
               <h4 className="text-2xl font-medium text-slate-900 mb-6">
                 Submit Application
@@ -532,19 +488,8 @@ export default function Apply() {
             </div>
 
             <div className="text-center">
-              <div className="w-20 h-20 bg-blue-100 rounded-2xl flex items-center justify-center mx-auto mb-8">
-                <svg
-                  className="w-10 h-10 text-blue-600"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24">
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"
-                  />
-                </svg>
+              <div className="w-20 h-20 flex items-center justify-center mx-auto mb-8">
+                <img src="/images/apply_client.png" alt="" />
               </div>
               <h4 className="text-2xl font-medium text-slate-900 mb-6">
                 Expert Review
@@ -556,19 +501,8 @@ export default function Apply() {
             </div>
 
             <div className="text-center">
-              <div className="w-20 h-20 bg-blue-100 rounded-2xl flex items-center justify-center mx-auto mb-8">
-                <svg
-                  className="w-10 h-10 text-blue-600"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24">
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M13 10V3L4 14h7v7l9-11h-7z"
-                  />
-                </svg>
+              <div className="w-20 h-20 flex items-center justify-center mx-auto mb-8">
+                <img src="/images/publishing.png" alt="" />
               </div>
               <h4 className="text-2xl font-medium text-slate-900 mb-6">
                 Live Publication

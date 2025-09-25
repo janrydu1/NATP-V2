@@ -127,9 +127,9 @@ export const Navbar = () => {
                       <span className="text-sm font-semibold text-foreground">
                         Thought Pieces
                       </span>
-                      {/* <span className="text-xs text-foreground/65">
+                      <span className="text-xs text-foreground/65">
                         Sharp storytelling for product launches.
-                      </span> */}
+                      </span>
                     </Link>
                     <Link
                       to="/services/seo"
@@ -137,9 +137,9 @@ export const Navbar = () => {
                       <span className="text-sm font-semibold text-foreground">
                         Findability
                       </span>
-                      {/* <span className="text-xs text-foreground/65">
+                      <span className="text-xs text-foreground/65">
                         Precision optimisation for search visibility.
-                      </span> */}
+                      </span>
                     </Link>
                   </div>
                 </NavigationMenuContent>

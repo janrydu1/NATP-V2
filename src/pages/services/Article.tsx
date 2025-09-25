@@ -26,9 +26,9 @@ export default function Article() {
           {/* Right - Illustration */}
           <div className="flex justify-center">
             <img
-              src="https://img.icons8.com/?size=200&id=ABzO8F09bZGV&format=png&color=1E3A8A"
+              src="/images/service_article.png"
               alt="Brand Storytelling"
-              className="w-64 h-64"
+              className="h-64"
             />
           </div>
         </div>
@@ -47,11 +47,11 @@ export default function Article() {
 
           <div className="grid md:grid-cols-3 gap-12">
             {/* Step 1 */}
-            <div className="bg-white shadow-md rounded-2xl p-8 hover:shadow-xl transition">
+            <div className="bg-white shadow-md rounded-2xl p-8 hover:shadow-xl transition flex flex-col items-center text-center">
               <img
-                src="https://img.icons8.com/?size=100&id=O8RbyUzvztYg&format=png&color=1E3A8A"
+                src="/images/research.png"
                 alt="Research"
-                className="w-12 h-12 mb-6"
+                className="h-12 mb-6"
               />
               <h3 className="text-2xl font-semibold text-blue-900 mb-4">
                 Explore
@@ -63,9 +63,9 @@ export default function Article() {
             </div>
 
             {/* Step 2 */}
-            <div className="bg-white shadow-md rounded-2xl p-8 hover:shadow-xl transition">
+            <div className="bg-white shadow-md rounded-2xl p-8 hover:shadow-xl transition flex flex-col items-center text-center">
               <img
-                src="https://img.icons8.com/?size=100&id=lWmQ8VqjvZlt&format=png&color=1E3A8A"
+                src="/images/drafting.png"
                 alt="Drafting"
                 className="w-12 h-12 mb-6"
               />
@@ -79,9 +79,9 @@ export default function Article() {
             </div>
 
             {/* Step 3 */}
-            <div className="bg-white shadow-md rounded-2xl p-8 hover:shadow-xl transition">
+            <div className="bg-white shadow-md rounded-2xl p-8 hover:shadow-xl transition flex flex-col items-center text-center">
               <img
-                src="https://img.icons8.com/?size=100&id=3vRcs0eFjHhX&format=png&color=1E3A8A"
+                src="/images/publishing.png"
                 alt="Publishing"
                 className="w-12 h-12 mb-6"
               />
@@ -111,7 +111,7 @@ export default function Article() {
 
           <div className="grid md:grid-cols-2 gap-10 text-left">
             <div className="flex gap-4">
-              <img src="/images/2.svg" alt="" className="w-6 h-6 mt-1" />
+              <img src="/images/pointer.png" alt="" className="w-6 h-6 mt-1" />
               <div>
                 <h4 className="text-lg font-semibold text-blue-900">
                   Visibility That Counts
@@ -124,7 +124,7 @@ export default function Article() {
             </div>
 
             <div className="flex gap-4">
-              <img src="/images/2.svg" alt="" className="w-6 h-6 mt-1" />
+              <img src="/images/pointer.png" alt="" className="w-6 h-6 mt-1" />
               <div>
                 <h4 className="text-lg font-semibold text-blue-900">
                   Trust Through Value
@@ -137,7 +137,7 @@ export default function Article() {
             </div>
 
             <div className="flex gap-4">
-              <img src="/images/2.svg" alt="" className="w-6 h-6 mt-1" />
+              <img src="/images/pointer.png" alt="" className="w-6 h-6 mt-1" />
               <div>
                 <h4 className="text-lg font-semibold text-blue-900">
                   Stand Out, Naturally
@@ -150,7 +150,7 @@ export default function Article() {
             </div>
 
             <div className="flex gap-4">
-              <img src="/images/2.svg" alt="" className="w-6 h-6 mt-1" />
+              <img src="/images/pointer.png" alt="" className="w-6 h-6 mt-1" />
               <div>
                 <h4 className="text-lg font-semibold text-blue-900">
                   Smarter Growth
