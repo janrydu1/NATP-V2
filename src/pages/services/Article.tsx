@@ -13,11 +13,11 @@ export default function Article() {
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
           {/* Left - Heading */}
           <div>
-            <h1 className="text-6xl font-extrabold text-blue-900 tracking-tight leading-tight">
+            <h1 className="text-6xl font-extrabold text-blue-700 tracking-tight leading-tight">
               Your Story, <br />
               Our Words
             </h1>
-            <p className="mt-6 text-lg text-blue-700 max-w-md">
+            <p className="mt-6 text-lg text-black max-w-md">
               We craft content that feels human, sharp, and memorable — turning
               your brand into something people want to follow.
             </p>
@@ -37,10 +37,10 @@ export default function Article() {
       {/* Process Section */}
       <section className="py-20 px-6 bg-gradient-to-r from-blue-100 via-white to-blue-50">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-4xl font-semibold text-blue-900 text-center mb-6">
+          <h2 className="text-4xl font-semibold text-blue-700 text-center mb-6">
             How We Bring Ideas to Life
           </h2>
-          <p className="text-center text-blue-700 max-w-2xl mx-auto mb-16">
+          <p className="text-center text-black max-w-2xl mx-auto mb-16">
             Great content doesn’t happen by chance. Here’s how we make sure your
             brand voice stands out in a noisy digital world.
           </p>
@@ -53,10 +53,10 @@ export default function Article() {
                 alt="Research"
                 className="h-12 mb-6"
               />
-              <h3 className="text-2xl font-semibold text-blue-900 mb-4">
+              <h3 className="text-2xl font-semibold text-blue-700 mb-4">
                 Explore
               </h3>
-              <p className="text-blue-700 text-base leading-relaxed">
+              <p className="text-black text-base leading-relaxed">
                 We start by understanding your brand, audience, and competitors.
                 Every article begins with clarity and purpose.
               </p>
@@ -69,10 +69,10 @@ export default function Article() {
                 alt="Drafting"
                 className="w-12 h-12 mb-6"
               />
-              <h3 className="text-2xl font-semibold text-blue-900 mb-4">
+              <h3 className="text-2xl font-semibold text-blue-700 mb-4">
                 Create
               </h3>
-              <p className="text-blue-700 text-base leading-relaxed">
+              <p className="text-black text-base leading-relaxed">
                 Our writers shape stories that connect, inspire, and feel true
                 to your brand’s personality.
               </p>
@@ -85,10 +85,10 @@ export default function Article() {
                 alt="Publishing"
                 className="w-12 h-12 mb-6"
               />
-              <h3 className="text-2xl font-semibold text-blue-900 mb-4">
+              <h3 className="text-2xl font-semibold text-blue-700 mb-4">
                 Amplify
               </h3>
-              <p className="text-blue-700 text-base leading-relaxed">
+              <p className="text-black text-base leading-relaxed">
                 Once ready, we make sure your content gets seen by the right
                 people — with SEO and strategy built in.
               </p>
@@ -100,10 +100,10 @@ export default function Article() {
       {/* Why Content Section */}
       <section className="py-20 px-6">
         <div className="max-w-5xl mx-auto text-center">
-          <h2 className="text-4xl font-semibold text-blue-900 mb-6">
+          <h2 className="text-4xl font-semibold text-blue-700 mb-6">
             Why Content Matters
           </h2>
-          <p className="text-lg text-blue-700 mb-16 max-w-2xl mx-auto">
+          <p className="text-lg text-black mb-16 max-w-2xl mx-auto">
             Strong content builds trust, attracts attention, and grows your
             influence. It’s not just about words — it’s about creating lasting
             impressions.
@@ -113,10 +113,10 @@ export default function Article() {
             <div className="flex gap-4">
               <img src="/images/pointer.png" alt="" className="w-6 h-6 mt-1" />
               <div>
-                <h4 className="text-lg font-semibold text-blue-900">
+                <h4 className="text-lg font-semibold text-blue-700">
                   Visibility That Counts
                 </h4>
-                <p className="text-blue-700">
+                <p className="text-black">
                   Optimized articles put your brand where it matters most:
                   directly in front of your audience.
                 </p>
@@ -126,10 +126,10 @@ export default function Article() {
             <div className="flex gap-4">
               <img src="/images/pointer.png" alt="" className="w-6 h-6 mt-1" />
               <div>
-                <h4 className="text-lg font-semibold text-blue-900">
+                <h4 className="text-lg font-semibold text-blue-700">
                   Trust Through Value
                 </h4>
-                <p className="text-blue-700">
+                <p className="text-black">
                   Sharing useful insights builds credibility and positions you
                   as an industry leader.
                 </p>
@@ -139,10 +139,10 @@ export default function Article() {
             <div className="flex gap-4">
               <img src="/images/pointer.png" alt="" className="w-6 h-6 mt-1" />
               <div>
-                <h4 className="text-lg font-semibold text-blue-900">
+                <h4 className="text-lg font-semibold text-blue-700">
                   Stand Out, Naturally
                 </h4>
-                <p className="text-blue-700">
+                <p className="text-black">
                   Memorable content helps you rise above the noise and show what
                   makes your brand unique.
                 </p>
@@ -152,10 +152,10 @@ export default function Article() {
             <div className="flex gap-4">
               <img src="/images/pointer.png" alt="" className="w-6 h-6 mt-1" />
               <div>
-                <h4 className="text-lg font-semibold text-blue-900">
+                <h4 className="text-lg font-semibold text-blue-700">
                   Smarter Growth
                 </h4>
-                <p className="text-blue-700">
+                <p className="text-black">
                   We combine creativity with strategy so your articles don’t
                   just exist — they perform.
                 </p>

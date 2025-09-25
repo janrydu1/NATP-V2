@@ -113,10 +113,10 @@ export default function Terms() {
 
       {/* Header */}
       <header className="max-w-4xl mx-auto text-center py-16 px-6">
-        <h1 className="text-5xl md:text-6xl font-extrabold text-blue-900 tracking-tight">
+        <h1 className="text-5xl md:text-6xl font-extrabold text-blue-700 tracking-tight">
           Terms & Conditions
         </h1>
-        <p className="mt-4 text-lg md:text-xl text-blue-700 leading-relaxed">
+        <p className="mt-4 text-lg md:text-xl text-black leading-relaxed">
           Review the terms that guide your use of our services, payments, and
           policies. We’ve outlined them clearly so you know your rights and
           obligations.
@@ -158,11 +158,11 @@ export default function Terms() {
               data-section={section.title}
               ref={(el) => (sectionRefs.current[section.title] = el)}
               className="scroll-mt-32 bg-white rounded-2xl shadow-lg p-8 border border-blue-100">
-              <h2 className="text-2xl md:text-3xl font-semibold text-blue-900 mb-3">
+              <h2 className="text-2xl md:text-3xl font-semibold text-blue-700 mb-3">
                 {idx + 1}. {section.title}
               </h2>
               <div
-                className="text-blue-700 text-base leading-7"
+                className="text-black text-base leading-7"
                 dangerouslySetInnerHTML={{ __html: section.content }}
               />
             </section>

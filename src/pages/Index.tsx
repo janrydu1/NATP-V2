@@ -65,7 +65,7 @@ export default function Index() {
         viewport={{ once: true, amount: 0.3 }}
         transition={{ duration: 0.6 }}>
         <motion.h2
-          className="text-3xl lg:text-4xl font-bold mb-4"
+          className="text-3xl lg:text-4xl font-bold mb-4 text-blue-700"
           initial={{ y: 30, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
           viewport={{ once: true }}
@@ -199,7 +199,7 @@ export default function Index() {
       {/* How It Works / Process Flow */}
       <section className="py-20 px-6 bg-blue-50">
         <div className="max-w-5xl mx-auto text-center mb-12">
-          <h2 className="text-3xl lg:text-4xl font-bold mb-4">How It Works</h2>
+          <h2 className="text-3xl lg:text-4xl font-bold mb-4 text-blue-700">How It Works</h2>
           <p className="text-slate-600 text-lg">
             A four-step process to bring your trademark into public view—and
             back it with content.
@@ -248,7 +248,7 @@ export default function Index() {
       {/* Testimonials / Stats */}
       <section className="py-20 px-6 bg-white">
         <div className="max-w-6xl mx-auto text-center mb-12">
-          <h2 className="text-3xl lg:text-4xl font-bold mb-4">
+          <h2 className="text-3xl lg:text-4xl font-bold mb-4 text-blue-700">
             Results That Speak
           </h2>
           <p className="text-slate-600 text-lg">
@@ -270,7 +270,7 @@ export default function Index() {
       {/* FAQs */}
       <section id="faqs" className="py-20 px-6 bg-gray-50">
         <div className="max-w-4xl mx-auto text-center mb-8">
-          <h2 className="text-3xl lg:text-4xl font-bold">
+          <h2 className="text-3xl lg:text-4xl font-bold text-blue-700">
             Frequently Asked Questions
           </h2>
         </div>

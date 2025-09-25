@@ -126,10 +126,10 @@ export default function PrivacyPolicy() {
       <div className="max-w-7xl mx-auto py-12 px-6 lg:px-12">
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto">
-          <h1 className="text-5xl md:text-6xl font-bold text-blue-900 tracking-tight">
+          <h1 className="text-5xl md:text-6xl font-bold text-blue-700 tracking-tight">
             Privacy Policy
           </h1>
-          <p className="mt-4 text-lg text-blue-700 leading-relaxed">
+          <p className="mt-4 text-lg text-black leading-relaxed">
             Learn how we safeguard your personal data and respect your privacy
             across our services.
           </p>
@@ -170,11 +170,11 @@ export default function PrivacyPolicy() {
                 data-section={section.title}
                 ref={(el) => (sectionRefs.current[section.title] = el)}
                 className="scroll-mt-32 bg-white rounded-2xl shadow-lg p-8 border border-blue-100">
-                <h2 className="text-2xl md:text-3xl font-semibold text-blue-900 mb-3">
+                <h2 className="text-2xl md:text-3xl font-semibold text-blue-700 mb-3">
                   {idx + 1}. {section.title}
                 </h2>
                 <div
-                  className="text-blue-700 text-base leading-7"
+                  className="text-black text-base leading-7"
                   dangerouslySetInnerHTML={{ __html: section.content }}
                 />
               </section>

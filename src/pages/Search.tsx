@@ -167,14 +167,14 @@ export default function Search() {
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.8, delay: 0.2 }}>
         <motion.h1
-          className="text-5xl font-bold text-blue-900 mb-6 max-w-3xl mx-auto leading-tight"
+          className="text-5xl font-extrabold text-blue-700 mb-6 max-w-3xl mx-auto leading-tight"
           initial={{ y: 30, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.6, delay: 0.4 }}>
           Explore Our Trademark Database
         </motion.h1>
         <motion.p
-          className="text-xl text-blue-700 mb-12 max-w-2xl mx-auto"
+          className="text-xl text-black mb-12 max-w-2xl mx-auto"
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.6, delay: 0.5 }}>
@@ -222,7 +222,7 @@ export default function Search() {
       {/* Features */}
       <section className="py-20 bg-blue-50">
         <div className="max-w-7xl mx-auto px-4 text-center">
-          <h2 className="text-4xl font-bold text-blue-900 mb-16">
+          <h2 className="text-4xl font-bold text-blue-700 mb-16">
             Why Our Search Stands Out
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -230,10 +230,10 @@ export default function Search() {
               <div
                 key={idx}
                 className="bg-white p-8 rounded-2xl shadow-sm hover:shadow-md border border-blue-100 transition-all">
-                <h3 className="text-xl font-semibold text-blue-900 mb-3">
+                <h3 className="text-xl font-semibold text-blue-700 mb-3">
                   {feature.title}
                 </h3>
-                <p className="text-blue-700 text-base">{feature.description}</p>
+                <p className="text-black text-base">{feature.description}</p>
               </div>
             ))}
           </div>
@@ -245,10 +245,10 @@ export default function Search() {
         <div className="max-w-7xl mx-auto px-4 gap-12">
           {/* Intro */}
           <div>
-            <h2 className="text-4xl font-bold text-blue-900 mb-6">
+            <h2 className="text-4xl font-bold text-blue-700 mb-6">
               Frequently Asked Questions
             </h2>
-            <p className="text-blue-700 mb-8">
+            <p className="text-black mb-8">
               Quick answers to common questions about searching trademarks.
             </p>
           </div>

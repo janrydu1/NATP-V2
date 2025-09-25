@@ -71,7 +71,7 @@ export default function About() {
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.8, delay: 0.2 }}>
         <motion.h1
-          className="text-5xl md:text-6xl font-extrabold text-slate-900 mb-6"
+          className="text-5xl md:text-6xl font-extrabold text-blue-700 mb-6"
           initial={{ y: 30, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.6, delay: 0.4 }}>
@@ -107,7 +107,7 @@ export default function About() {
         viewport={{ once: true }}
         transition={{ duration: 0.8 }}>
         <motion.h2
-          className="text-4xl md:text-5xl font-extrabold text-slate-900 text-center mb-16"
+          className="text-4xl md:text-5xl font-extrabold text-blue-700 text-center mb-16"
           initial={{ y: 30, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
           viewport={{ once: true }}
@@ -145,7 +145,7 @@ export default function About() {
                   {item.title}
                 </motion.h3>
                 <motion.p
-                  className="text-slate-600 text-lg leading-relaxed"
+                  className="text-slate-900 text-lg leading-relaxed"
                   initial={{ y: 20, opacity: 0 }}
                   whileInView={{ y: 0, opacity: 1 }}
                   viewport={{ once: true }}
@@ -160,7 +160,7 @@ export default function About() {
 
       {/* Principles Section */}
       <section className="py-28 px-6 bg-blue-50/50">
-        <h2 className="text-4xl md:text-5xl font-extrabold text-slate-900 text-center mb-16">
+        <h2 className="text-4xl md:text-5xl font-extrabold text-blue-700 text-center mb-16">
           Our Principles
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 max-w-6xl mx-auto">
@@ -200,7 +200,7 @@ export default function About() {
 
       {/* CTA Section */}
       <section className="py-28 px-6 text-center">
-        <h3 className="text-4xl md:text-5xl font-extrabold text-slate-900 mb-6">
+        <h3 className="text-4xl md:text-5xl font-extrabold text-blue-700 mb-6">
           Let’s Build Your Brand Together
         </h3>
         <p className="text-lg md:text-xl text-slate-600 mb-10 max-w-2xl mx-auto">

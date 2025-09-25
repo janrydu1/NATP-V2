@@ -10,10 +10,10 @@ export default function Services() {
 
       {/* Hero Section */}
       <div className="relative flex flex-col items-center justify-center py-24 text-center">
-        <h1 className="text-4xl md:text-6xl font-semibold text-blue-900 mb-6">
+        <h1 className="text-4xl md:text-6xl font-extrabold text-blue-700 mb-6">
           Services Built for Growth
         </h1>
-        <p className="text-blue-600 max-w-2xl mx-auto text-lg md:text-xl leading-relaxed">
+        <p className="text-black max-w-2xl mx-auto text-lg md:text-xl leading-relaxed">
           Simple, powerful solutions that help your brand get noticed and stay
           ahead in a crowded market.
         </p>
@@ -24,10 +24,10 @@ export default function Services() {
         {/* Service Block */}
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div>
-            <h2 className="text-3xl md:text-4xl font-semibold text-blue-900 mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-blue-700 mb-4">
               Trademark Visibility
             </h2>
-            <p className="text-blue-700 text-lg leading-relaxed mb-6">
+            <p className="text-black text-lg leading-relaxed mb-6">
               Put your trademark in the spotlight. We make your brand
               discoverable and trusted by ensuring it’s seen where it matters
               most.
@@ -40,7 +40,7 @@ export default function Services() {
           </div>
           <div>
             <img
-              src="https://plus.unsplash.com/premium_vector-1682301631594-eb2572c47bd5?fm=jpg&q=60&w=1600"
+              src="/images/service_trademark.jpg"
               alt="Trademark Publication"
               className="rounded-2xl shadow-md object-cover"
               onError={(e) => {
@@ -55,7 +55,7 @@ export default function Services() {
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="order-2 md:order-1">
             <img
-              src="https://plus.unsplash.com/premium_vector-1721256358643-00015e00b18d?fm=jpg&q=60&w=1600"
+              src="/images/service_story.png"
               alt="Article Creation"
               className="rounded-2xl shadow-md object-cover"
               onError={(e) => {
@@ -65,10 +65,10 @@ export default function Services() {
             />
           </div>
           <div className="order-1 md:order-2">
-            <h2 className="text-3xl md:text-4xl font-semibold text-blue-900 mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-blue-700 mb-4">
               Storytelling That Connects
             </h2>
-            <p className="text-blue-700 text-lg leading-relaxed mb-6">
+            <p className="text-black text-lg leading-relaxed mb-6">
               Strong brands have strong voices. We craft articles that highlight
               your values, connect with your audience, and spark recognition.
             </p>
@@ -83,10 +83,10 @@ export default function Services() {
         {/* Service Block */}
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div>
-            <h2 className="text-3xl md:text-4xl font-semibold text-blue-900 mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-blue-700 mb-4">
               Smart SEO Strategies
             </h2>
-            <p className="text-blue-700 text-lg leading-relaxed mb-6">
+            <p className="text-black text-lg leading-relaxed mb-6">
               Rise in search rankings and get discovered. Our SEO solutions help
               you appear where your customers are looking.
             </p>
@@ -98,7 +98,7 @@ export default function Services() {
           </div>
           <div>
             <img
-              src="https://plus.unsplash.com/premium_vector-1682310922955-ea5e6f791471?fm=jpg&q=60&w=1600"
+              src="/images/service_seo.png"
               alt="SEO Solutions"
               className="rounded-2xl shadow-md object-cover"
               onError={(e) => {
@@ -144,10 +144,10 @@ export default function Services() {
 
         {/* CTA Section */}
         <div className="text-center py-20">
-          <h2 className="text-4xl md:text-5xl font-semibold text-blue-900 mb-6">
+          <h2 className="text-4xl md:text-5xl font-extrabold text-blue-700 mb-6">
             Let’s Build Something Big
           </h2>
-          <p className="text-blue-700 text-lg max-w-2xl mx-auto mb-10">
+          <p className="text-black text-lg max-w-2xl mx-auto mb-10">
             Start making your brand more visible, trusted, and unforgettable.
           </p>
           <Button

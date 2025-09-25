@@ -13,11 +13,11 @@ export default function SEO() {
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
           {/* Left - Heading */}
           <div>
-            <h1 className="text-5xl md:text-6xl font-extrabold text-blue-900 leading-tight">
+            <h1 className="text-5xl md:text-6xl font-extrabold text-blue-700 leading-tight">
               Be Seen. <br />
               Be Chosen.
             </h1>
-            <p className="mt-6 text-lg text-blue-700 max-w-md">
+            <p className="mt-6 text-lg text-black max-w-md">
               We make sure your business shows up at the exact moment people are
               searching for what you do best. No fluff — just results that
               matter.
@@ -38,10 +38,10 @@ export default function SEO() {
       {/* What We Do Section */}
       <section className="py-20 px-6 bg-gradient-to-r from-blue-100 via-white to-blue-50">
         <div className="max-w-6xl mx-auto text-center">
-          <h2 className="text-4xl font-semibold text-blue-900 mb-6">
+          <h2 className="text-4xl font-semibold text-blue-700 mb-6">
             SEO Made Simple (And Powerful)
           </h2>
-          <p className="text-blue-700 max-w-2xl mx-auto text-lg mb-16">
+          <p className="text-blac7 max-w-2xl mx-auto text-lg mb-16">
             Forget confusing jargon. We focus on strategies that drive real
             visibility, traffic, and trust — helping you climb rankings without
             the guesswork.
@@ -55,10 +55,10 @@ export default function SEO() {
                 alt="Content Strategy"
                 className="w-20 mb-6"
               />
-              <h3 className="text-2xl font-semibold text-blue-900 mb-4">
+              <h3 className="text-2xl font-semibold text-blue-700 mb-4">
                 Smart Content
               </h3>
-              <p className="text-blue-700 text-base">
+              <p className="text-black text-base">
                 Articles and pages that answer what your audience is actually
                 searching for — not just filler words.
               </p>
@@ -71,10 +71,10 @@ export default function SEO() {
                 alt="Keyword Research"
                 className="w-20 mb-6"
               />
-              <h3 className="text-2xl font-semibold text-blue-900 mb-4">
+              <h3 className="text-2xl font-semibold text-blue-700 mb-4">
                 Keyword Intelligence
               </h3>
-              <p className="text-blue-700 text-base">
+              <p className="text-black text-base">
                 We find the search phrases that really bring customers in — and
                 weave them naturally into your content.
               </p>
@@ -87,10 +87,10 @@ export default function SEO() {
                 alt="Website Structure"
                 className="w-20 mb-6"
               />
-              <h3 className="text-2xl font-semibold text-blue-900 mb-4">
+              <h3 className="text-2xl font-semibold text-blue-700 mb-4">
                 Clear Structure
               </h3>
-              <p className="text-blue-700 text-base">
+              <p className="text-black text-base">
                 Simple, intuitive site layouts that help both people and search
                 engines understand your business instantly.
               </p>
@@ -102,10 +102,10 @@ export default function SEO() {
       {/* Call to Action */}
       <section className="py-20 px-6">
         <div className="max-w-3xl mx-auto text-center">
-          <h3 className="text-4xl font-bold text-blue-900 mb-4">
+          <h3 className="text-4xl font-bold text-blue-700 mb-4">
             Let’s Get You Noticed
           </h3>
-          <p className="text-lg text-blue-700 mb-8">
+          <p className="text-lg text-black mb-8">
             Ready to rise above the competition? We’ll help you attract the
             right audience and keep them coming back.
           </p>

@@ -34,10 +34,10 @@ export default function Publication() {
 
       {/* Hero Section */}
       <section className="max-w-6xl mx-auto px-6 py-20 text-center">
-        <h1 className="text-4xl md:text-6xl font-semibold text-blue-900 mb-6">
+        <h1 className="text-4xl md:text-6xl font-extrabold text-blue-700 mb-6">
           Publish Your Trademark with Ease
         </h1>
-        <p className="text-blue-700 text-lg md:text-xl max-w-2xl mx-auto font-light leading-relaxed">
+        <p className="text-black text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
           Make your brand official, boost visibility, and protect your identity
           with our seamless trademark publication service.
         </p>
@@ -46,10 +46,10 @@ export default function Publication() {
       {/* Steps Section */}
       <section className="bg-blue-50 py-20 px-6">
         <div className="max-w-6xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-semibold text-blue-900 mb-6">
+          <h2 className="text-3xl md:text-4xl font-semibold text-blue-700 mb-6">
             Three Simple Steps
           </h2>
-          <p className="text-blue-700 text-lg mb-12 max-w-xl mx-auto font-light">
+          <p className="text-black text-lg mb-12 max-w-xl mx-auto font-light">
             We’ve simplified the process so you can publish your trademark
             without any hassle.
           </p>
@@ -88,10 +88,10 @@ export default function Publication() {
       <section className="py-20 px-6">
         <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <div>
-            <h2 className="text-3xl md:text-4xl font-semibold text-blue-900 leading-snug mb-6">
+            <h2 className="text-3xl md:text-4xl font-semibold text-blue-700 leading-snug mb-6">
               Stay Ahead with Accurate, Updated Data
             </h2>
-            <p className="text-blue-700 text-lg md:text-xl font-light leading-relaxed">
+            <p className="text-black text-lg md:text-xl font-light leading-relaxed">
               We refresh trademark records daily, keeping your brand visible,
               reliable, and competitive in today’s fast-changing marketplace.
             </p>

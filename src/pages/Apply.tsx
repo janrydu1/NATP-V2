@@ -68,17 +68,17 @@ export default function Apply() {
         initial={{ y: 50, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.8, delay: 0.2 }}>
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-600/5 via-indigo-600/10 to-slate-600/5"></div>
+        <div className="absolute inset-0 bg-blue-50"></div>
         <div className="text-center max-w-5xl mx-auto px-6 relative z-10">
           <motion.h1
-            className="text-4xl md:text-6xl lg:text-7xl font-light mb-8 text-slate-900 text-balance leading-tight"
+            className="text-4xl md:text-6xl lg:text-7xl font-extrabold mb-8 text-blue-700 text-balance leading-tight"
             initial={{ y: 30, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.4 }}>
             Elevate Your Brand
           </motion.h1>
           <motion.p
-            className="text-xl md:text-2xl text-slate-600 font-light leading-relaxed max-w-3xl mx-auto"
+            className="text-xl md:text-2xl text-black leading-relaxed max-w-3xl mx-auto"
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.6 }}>
@@ -101,10 +101,10 @@ export default function Apply() {
             whileInView={{ y: 0, opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}>
-            <h2 className="text-3xl md:text-5xl font-light mb-6 text-slate-900 text-balance">
+            <h2 className="text-3xl md:text-5xl font-bold mb-6 text-blue-700 text-balance">
               Why Publication Matters
             </h2>
-            <p className="text-slate-600 text-lg font-light leading-relaxed max-w-3xl mx-auto">
+            <p className="text-black text-lg font-light leading-relaxed max-w-3xl mx-auto">
               Strategic trademark publication amplifies your brand's market
               presence and establishes unparalleled credibility
             </p>
@@ -115,10 +115,10 @@ export default function Apply() {
               <div className="rounded-xl flex items-center justify-center mb-6 w-20">
                 <img src="/images/apply_visibility.png" alt="" />
               </div>
-              <h3 className="text-xl font-medium text-slate-900 mb-4">
+              <h3 className="text-xl font-medium text-blue-700 mb-4">
                 Market Visibility
               </h3>
-              <p className="text-slate-600 font-light leading-relaxed">
+              <p className="text-black font-light leading-relaxed">
                 Maximize your brand's discoverability and establish a commanding
                 presence in your industry
               </p>
@@ -128,10 +128,10 @@ export default function Apply() {
               <div className="rounded-xl flex items-center justify-center mb-6 w-20">
                 <img src="/images/apply_trust.png" alt="" />
               </div>
-              <h3 className="text-xl font-medium text-slate-900 mb-4">
+              <h3 className="text-xl font-medium text-blue-700 mb-4">
                 Trust & Authority
               </h3>
-              <p className="text-slate-600 font-light leading-relaxed">
+              <p className="text-black font-light leading-relaxed">
                 Demonstrate professional legitimacy and build confidence with
                 potential clients and partnerships
               </p>
@@ -141,10 +141,10 @@ export default function Apply() {
               <div className="rounded-xl flex items-center justify-center mb-6 w-20">
                 <img src="/images/apply_client.png" alt="" />
               </div>
-              <h3 className="text-xl font-medium text-slate-900 mb-4">
+              <h3 className="text-xl font-medium text-blue-700 mb-4">
                 Client Acquisition
               </h3>
-              <p className="text-slate-600 font-light leading-relaxed">
+              <p className="text-black font-light leading-relaxed">
                 Attract high-quality prospects through enhanced brand
                 recognition and market positioning
               </p>
@@ -154,7 +154,7 @@ export default function Apply() {
 
         <div className="bg-gradient-to-br from-slate-50 to-blue-50 p-8 md:p-16 rounded-3xl border border-slate-200">
           <div className="text-center mb-12">
-            <h3 className="text-3xl md:text-4xl font-light mb-6 text-slate-900">
+            <h3 className="text-3xl md:text-4xl mb-6 text-blue-700">
               Begin Your Publication Journey
             </h3>
             <p className="text-slate-600 text-lg font-light leading-relaxed max-w-2xl mx-auto">
@@ -465,7 +465,7 @@ export default function Apply() {
 
         <section className="py-24">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-light text-slate-900 mb-6 text-balance">
+            <h2 className="text-3xl md:text-4xl font-bold text-blue-700 mb-6 text-balance">
               Our Streamlined Process
             </h2>
             <p className="text-slate-600 text-lg font-light leading-relaxed max-w-2xl mx-auto">
@@ -478,7 +478,7 @@ export default function Apply() {
               <div className="w-20 h-20 flex items-center justify-center mx-auto mb-8">
                 <img src="/images/apply_submit.png" alt="" />
               </div>
-              <h4 className="text-2xl font-medium text-slate-900 mb-6">
+              <h4 className="text-2xl font-medium text-blue-700 mb-6">
                 Submit Application
               </h4>
               <p className="text-slate-600 font-light leading-relaxed">
@@ -491,7 +491,7 @@ export default function Apply() {
               <div className="w-20 h-20 flex items-center justify-center mx-auto mb-8">
                 <img src="/images/apply_client.png" alt="" />
               </div>
-              <h4 className="text-2xl font-medium text-slate-900 mb-6">
+              <h4 className="text-2xl font-medium text-blue-700 mb-6">
                 Expert Review
               </h4>
               <p className="text-slate-600 font-light leading-relaxed">
@@ -504,7 +504,7 @@ export default function Apply() {
               <div className="w-20 h-20 flex items-center justify-center mx-auto mb-8">
                 <img src="/images/publishing.png" alt="" />
               </div>
-              <h4 className="text-2xl font-medium text-slate-900 mb-6">
+              <h4 className="text-2xl font-medium text-blue-700 mb-6">
                 Live Publication
               </h4>
               <p className="text-slate-600 font-light leading-relaxed">
