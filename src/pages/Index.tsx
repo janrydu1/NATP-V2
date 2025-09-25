@@ -1,11 +1,11 @@
 import { Navbar } from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import { useState } from "react";
-import { Footer } from "@/components/footer";
 import { ChevronUp, ChevronDown } from "lucide-react";
 import { useHashScroll } from "@/hooks/use-hash-scroll";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import { Footer } from "@/components/footer";
 
 export default function Index() {
   useHashScroll();
@@ -199,7 +199,9 @@ export default function Index() {
       {/* How It Works / Process Flow */}
       <section className="py-20 px-6 bg-blue-50">
         <div className="max-w-5xl mx-auto text-center mb-12">
-          <h2 className="text-3xl lg:text-4xl font-bold mb-4 text-blue-700">How It Works</h2>
+          <h2 className="text-3xl lg:text-4xl font-bold mb-4 text-blue-700">
+            How It Works
+          </h2>
           <p className="text-slate-600 text-lg">
             A four-step process to bring your trademark into public view—and
             back it with content.
