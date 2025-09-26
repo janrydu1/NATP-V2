@@ -269,27 +269,27 @@ export default function Admin() {
             <TabsList className="bg-white border border-blue-200 p-1 shadow-sm overflow-x-auto flex-wrap rounded-lg">
               <TabsTrigger
                 value="trademarks"
-                className="data-[state=active]:bg-blue-600 data-[state=active]:text-white rounded-xl font-medium transition-all">
+                className="data-[state=active]:bg-blue-600 data-[state=active]:text-white rounded-lg font-medium transition-all">
                 Marks
               </TabsTrigger>
               <TabsTrigger
                 value="applications"
-                className="data-[state=active]:bg-blue-600 data-[state=active]:text-white rounded-xl font-medium transition-all">
+                className="data-[state=active]:bg-blue-600 data-[state=active]:text-white rounded-lg font-medium transition-all">
                 Requests
               </TabsTrigger>
               <TabsTrigger
                 value="contacts"
-                className="data-[state=active]:bg-blue-600 data-[state=active]:text-white rounded-xl font-medium transition-all">
+                className="data-[state=active]:bg-blue-600 data-[state=active]:text-white rounded-lg font-medium transition-all">
                 Inbox
               </TabsTrigger>
               <TabsTrigger
                 value="articles"
-                className="data-[state=active]:bg-blue-600 data-[state=active]:text-white rounded-xl font-medium transition-all">
+                className="data-[state=active]:bg-blue-600 data-[state=active]:text-white rounded-lg font-medium transition-all">
                 Knowledge Hub
               </TabsTrigger>
               <TabsTrigger
                 value="newsletter_subscriptions"
-                className="data-[state=active]:bg-blue-600 data-[state=active]:text-white rounded-xl font-medium transition-all">
+                className="data-[state=active]:bg-blue-600 data-[state=active]:text-white rounded-lg font-medium transition-all">
                 Subscriptions
               </TabsTrigger>
             </TabsList>
@@ -298,7 +298,7 @@ export default function Admin() {
               {activeTab === "trademarks" && !showBulkUpload && (
                 <Button
                   onClick={handleBulkUpload}
-                  className="bg-blue-700 hover:bg-blue-800 text-white rounded-lg font-medium transition-colors shadow-sm">
+                  className="bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-medium transition-colors shadow-sm">
                   <Upload className="w-4 h-4 mr-2" />
                   Bulk Upload
                 </Button>

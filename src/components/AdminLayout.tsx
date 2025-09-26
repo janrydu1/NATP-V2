@@ -62,9 +62,9 @@ export const AdminLayout = ({ children, title }: AdminLayoutProps) => {
 
   return (
     <SidebarProvider>
-      <div className="h-screen w-full flex bg-gradient-to-r from-blue-50 to-blue-100">
+      <div className=" w-full flex ">
         {/* Sidebar */}
-        <Sidebar className="border-r border-blue-200 bg-gradient-to-b from-blue-800 to-blue-600 text-white shadow-lg">
+        <Sidebar className="border-r border-blue-200 bg-blue-600 text-white">
           <SidebarHeader className="p-6 border-b border-blue-500/30">
             <div className="flex items-center justify-center">
               <img
@@ -168,7 +168,7 @@ export const AdminLayout = ({ children, title }: AdminLayoutProps) => {
             </div>
           </header>
 
-          <main className="flex-1 overflow-auto p-8 bg-gradient-to-b from-blue-50 to-white">
+          <main className="flex-1 overflow-auto">
             {children}
           </main>
         </div>

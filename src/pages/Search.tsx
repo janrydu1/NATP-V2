@@ -33,19 +33,19 @@ export default function Search() {
       title: "Instant Trademark Lookup",
       description:
         "Search by application number or owner name and instantly see published trademarks.",
-      image: "/images/service_trademark.jpg",
+      image: "/images/search_first.jpg",
     },
     {
       title: "Updated Daily",
       description:
         "Our database is refreshed every day to provide the latest trademark information.",
-      image: "/images/service_content.png",
+      image: "/images/search_second.jpg",
     },
     {
       title: "Detailed Insights",
       description:
         "Each result links to comprehensive articles with full trademark details.",
-      image: "/images/service_article.jpg",
+      image: "/images/search_third.jpg",
     },
   ];
 
@@ -118,9 +118,11 @@ export default function Search() {
 
         setResults(filteredResults);
         if (searchSubmitted) {
-          filteredResults.length
-            ? toast.success(`Found ${filteredResults.length} results`)
-            : toast.info("No results found for your search");
+          if (filteredResults.length) {
+            toast.success(`Found ${filteredResults.length} results`);
+          } else {
+            toast.info("No results found for your search");
+          }
         }
       } catch (error) {
         console.error(error);
@@ -366,7 +368,7 @@ export default function Search() {
                     <div className="w-auto overflow-hidden relative rounded-xl">
                       <img
                         alt="feature"
-                        className="aspect-auto h-full w-full object-cover relative border border-zinc-200 rounded-xl shadow-lg transition-opacity duration-500"
+                        className="aspect-auto h-[30rem] w-full object-cover relative border border-zinc-200 rounded-xl shadow-lg transition-opacity duration-500"
                         src={features[activeFeatureIndex].image}
                         style={{
                           opacity: "1",

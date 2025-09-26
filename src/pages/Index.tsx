@@ -3,10 +3,19 @@ import HomeBento from "@/components/HomeBento";
 import { Navbar } from "@/components/Navbar";
 import { useHashScroll } from "@/hooks/use-hash-scroll";
 import { motion } from "framer-motion";
-import { ChevronDown, ChevronUp } from "lucide-react";
+import {
+  ChevronDown,
+  ChevronUp,
+  Eye,
+  Globe,
+  PenTool,
+  TrendingUp,
+} from "lucide-react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Footer } from "@/components/Footer";
+import { BentoCard, BentoGrid } from "@/components/ui/bento-grid";
+import Search from "./Search";
 
 export default function Index() {
   useHashScroll();
@@ -177,9 +186,101 @@ export default function Index() {
           </div>
         </div>
       </div>
-      <section></section>
+
       <section className="bg-slate-100">
-        <HomeBento />
+        {/* <HomeBento /> */}
+        <div className="max-w-7xl mx-auto px-4 relative container py-16">
+          <div className="text-center space-y-4 pb-6 mx-auto">
+            <h2 className="text-sm text-blue-600 font-mono font-medium tracking-wider uppercase">
+              Solution
+            </h2>
+            <h3 className="mx-auto mt-4 max-w-xs text-3xl font-semibold sm:max-w-none sm:text-4xl md:text-5xl">
+              A four-step process to bring your trademark into public view—and
+              back it with content.
+            </h3>
+          </div>
+          <BentoGrid className="max-w-6xl mx-auto md:auto-rows-[18rem] grid-cols-1 md:grid-cols-4 gap-4 mt-16">
+            <BentoCard
+              name="Submit Info"
+              className="md:col-span-2 bg-gradient-to-br from-blue-50 to-blue-100"
+              background={
+                <img
+                  src="/images/service_trademark.jpg"
+                  alt="Trademark Publication"
+                  className="absolute inset-0 w-full h-full object-cover opacity-10"
+                  onError={(e) => {
+                    (e.target as HTMLImageElement).src =
+                      "/images/Trademark Publication.svg";
+                  }}
+                />
+              }
+              Icon={Eye}
+              description="Put your trademark in the spotlight. We make your brand discoverable and trusted by ensuring it's seen where it matters most."
+              href="/services/publication"
+              cta="Explore More"
+            />
+
+            <BentoCard
+              name="Proposal & Approval"
+              className="md:col-span-2 bg-gradient-to-br from-green-50 to-emerald-100"
+              background={
+                <img
+                  src="/images/service_seo.png"
+                  alt="SEO Solutions"
+                  className="absolute inset-0 w-full h-full object-cover opacity-20"
+                  onError={(e) => {
+                    (e.target as HTMLImageElement).src =
+                      "/images/Customized SEO.svg";
+                  }}
+                />
+              }
+              Icon={Globe}
+              description="We send you a proposal. On approval, we start work."
+              href="/services/seo"
+              cta="Explore More"
+            />
+
+            <BentoCard
+              name="Publish + Content"
+              className="md:col-span-3 bg-gradient-to-br from-purple-50 to-violet-100"
+              background={
+                <img
+                  src="/images/service_story.png"
+                  alt="Content Creation"
+                  className="absolute inset-0 w-full h-full object-cover opacity-20"
+                  onError={(e) => {
+                    (e.target as HTMLImageElement).src =
+                      "/images/service_content.png";
+                  }}
+                />
+              }
+              Icon={PenTool}
+              description="We publish your trademark and produce branded content."
+              href="/services/article"
+              cta="Learn More"
+            />
+
+            <BentoCard
+              name="Optimization & Updates"
+              className="md:col-span-1 bg-gradient-to-br from-orange-50 to-amber-100"
+              background={
+                <img
+                  src="https://img.freepik.com/free-photo/female-logo-designer-working-her-tablet-connected-laptop_23-2149119262.jpg?t=st=1758874493~exp=1758878093~hmac=7bae8839f0d76631ca774f9e6b1310706de4a4c16f2b440ae9c89ff51002e577&w=2000"
+                  alt="Content Creation"
+                  className="absolute inset-0 w-full h-full object-cover opacity-20"
+                  onError={(e) => {
+                    (e.target as HTMLImageElement).src =
+                      "/images/service_content.png";
+                  }}
+                />
+              }
+              Icon={TrendingUp}
+              description="Ongoing SEO, edits, and support to keep your brand visible."
+              href="/services/analytics"
+              cta="View Details"
+            />
+          </BentoGrid>
+        </div>
       </section>
 
       {/* Testimonials / Stats */}

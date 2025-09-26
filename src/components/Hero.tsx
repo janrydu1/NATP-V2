@@ -139,8 +139,8 @@ const Hero = () => {
             Learn More
           </Link>
         </div>
-        <div className="relative border rounded-lg shadow-2xl drop-shadow-2xl w-full max-w-7xl sm:max-w-7xl md:max-w-7xl lg:max-w-5xl xl:max-w-5xl mt-8">
-          <div className="relative group rounded-md p-1 sm:p-2 ring-1 ring-slate-200/50 backdrop-blur-md shadow-xl">
+        <div className="relative rounded-lg w-full max-w-7xl sm:max-w-7xl md:max-w-7xl lg:max-w-5xl xl:max-w-5xl mt-8">
+          <div className="relative group rounded-md p-1 sm:p-2 backdrop-blur-md shadow-xl">
             <img
               alt="Hero"
               loading="lazy"
@@ -148,10 +148,10 @@ const Hero = () => {
               height={1080}
               decoding="async"
               data-nimg={1}
-              className="transition-all duration-200 ease-out rounded-md border w-full h-[500px] sm:h-[400px] md:h-auto object-cover shadow-lg"
+              className="transition-all duration-200 ease-out rounded-md w-full h-[500px] sm:h-[400px] md:h-auto object-cover shadow-lg"
               style={{ color: "transparent" }}
-              srcSet="/images/hero.avif"
-              src="/images/hero.avif"
+              srcSet="/images/banner.png"
+              src="/images/banner.png"
             />
           </div>
         </div>

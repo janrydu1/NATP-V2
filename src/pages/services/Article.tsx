@@ -4,6 +4,10 @@ import { Link } from "react-router-dom";
 import { Footer } from "@/components/Footer";
 import { useState, useEffect } from "react";
 import { Search, PenTool, Megaphone } from "lucide-react";
+import { motion } from "framer-motion";
+import { cn } from "@/lib/utils";
+import { AnimatedShinyText } from "@/components/ui/animated-shiny-text";
+import { InteractiveHoverButton } from "@/components/ui/interactive-hover-button";
 
 export default function Article() {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -55,30 +59,260 @@ export default function Article() {
       <Navbar />
 
       {/* Hero Section */}
-      <section className="py-16 px-6">
-        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
-          {/* Left - Heading */}
-          <div>
-            <h1 className="text-6xl font-extrabold text-blue-700 tracking-tight leading-tight">
-              Your Story, <br />
-              Our Words
-            </h1>
-            <p className="mt-6 text-lg text-black max-w-md">
-              We craft content that feels human, sharp, and memorable — turning
-              your brand into something people want to follow.
-            </p>
-          </div>
+      <motion.section
+        className="py-32 px-6 relative overflow-hidden"
+        initial={{ y: 50, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.8, delay: 0.2 }}>
+        <div className="max-w-7xl mx-auto relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 items-center min-h-[600px]">
+            {/* Left side - Text content (3/5 width) */}
+            <motion.div
+              className="lg:col-span-3 space-y-8 text-left"
+              initial={{ x: -50, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              transition={{ duration: 0.6, delay: 0.4 }}>
+              <div
+                className={cn(
+                  "group rounded-full max-w-[16%] border border-black/5 bg-neutral-100 text-base text-white transition-all ease-in hover:cursor-pointer hover:bg-neutral-200 dark:border-white/5 dark:bg-neutral-900 dark:hover:bg-neutral-800"
+                )}>
+                <AnimatedShinyText className="inline-flex items-center justify-center px-4 py-1 transition ease-out hover:text-neutral-600 hover:duration-300 hover:dark:text-neutral-400">
+                  <span>Our Articles</span>
+                </AnimatedShinyText>
+              </div>
+              <motion.h1
+                className="text-5xl md:text-7xl lg:text-8xl font-bold text-black leading-[0.9] mb-8"
+                initial={{ y: 30, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ duration: 0.8, delay: 0.3 }}>
+                Your Story, <span className="text-blue-600">Our Words</span>
+              </motion.h1>
 
-          {/* Right - Illustration */}
-          <div className="flex justify-center">
-            <img
-              src="/images/service_article.png"
-              alt="Brand Storytelling"
-              className="h-64"
-            />
+              <motion.p
+                className="text-lg md:text-xl text-gray-300 mb-8 max-w-2xl leading-relaxed"
+                initial={{ y: 30, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ duration: 0.8, delay: 0.5 }}>
+                We craft content that feels human, sharp, and memorable —
+                turning your brand into something people want to follow.
+              </motion.p>
+
+              {/* <motion.div
+                initial={{ y: 20, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ duration: 0.6, delay: 0.6 }}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}>
+                <InteractiveHoverButton className="bg-blue-500 text-white shadow-lg rounded-xl px-8 py-4 text-lg font-semibold transition-all duration-300">
+                  <Link to="/contact">Contact Us</Link>
+                </InteractiveHoverButton>
+              </motion.div> */}
+            </motion.div>
+
+            {/* Right side  */}
+            <motion.div
+              className="lg:col-span-2 relative h-full flex items-center justify-center"
+              initial={{ x: 50, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              transition={{ duration: 0.6, delay: 0.5 }}>
+              <div className="relative w-full h-[500px] flex items-center justify-center">
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-50/30 via-transparent to-purple-50/30 rounded-3xl"></div>
+                <div className="absolute top-10 right-10 w-32 h-32 bg-gradient-to-br from-blue-400/20 to-purple-400/20 rounded-full blur-2xl"></div>
+                <div className="absolute bottom-10 left-10 w-24 h-24 bg-gradient-to-br from-purple-400/20 to-pink-400/20 rounded-full blur-xl"></div>
+
+                <div className="relative grid grid-cols-2 gap-8 z-10">
+                  <motion.div
+                    className="group relative p-6"
+                    initial={{ scale: 0, rotate: -180 }}
+                    animate={{ scale: 1, rotate: 0 }}
+                    transition={{ duration: 0.8, delay: 0.7 }}
+                    whileHover={{ scale: 1.1, rotate: 5 }}>
+                    <div className="absolute inset-0 bg-gradient-to-br from-slate-500/20 to-gray-600/20 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-500"></div>
+                    <div className="relative bg-gradient-to-br from-slate-500 to-gray-600 p-4 rounded-2xl shadow-lg group-hover:shadow-xl transition-all duration-300">
+                      <svg
+                        className="w-12 h-12 text-white"
+                        fill="currentColor"
+                        viewBox="0 0 24 24">
+                        <path d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z" />
+                      </svg>
+                    </div>
+                  </motion.div>
+
+                  <motion.div
+                    className="group relative p-6"
+                    initial={{ scale: 0, rotate: 180 }}
+                    animate={{ scale: 1, rotate: 0 }}
+                    transition={{ duration: 0.8, delay: 0.9 }}
+                    whileHover={{ scale: 1.1, rotate: -5 }}>
+                    <div className="absolute inset-0 bg-gradient-to-br from-rose-500/20 to-pink-600/20 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-500"></div>
+                    <div className="relative bg-gradient-to-br from-rose-500 to-pink-600 p-4 rounded-2xl shadow-lg group-hover:shadow-xl transition-all duration-300">
+                      <svg
+                        className="w-12 h-12 text-white"
+                        fill="currentColor"
+                        viewBox="0 0 24 24">
+                        <path d="M20.71,7.04C21.1,6.65 21.1,6 20.71,5.63L18.37,3.29C18,2.9 17.35,2.9 16.96,3.29L15.12,5.12L18.87,8.87M3,17.25V21H6.75L17.81,9.93L14.06,6.18L3,17.25Z" />
+                      </svg>
+                    </div>
+                  </motion.div>
+
+                  <motion.div
+                    className="group relative p-6"
+                    initial={{ scale: 0, rotate: -90 }}
+                    animate={{ scale: 1, rotate: 0 }}
+                    transition={{ duration: 0.8, delay: 1.1 }}
+                    whileHover={{ scale: 1.1, rotate: 5 }}>
+                    <div className="absolute inset-0 bg-gradient-to-br from-teal-500/20 to-cyan-600/20 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-500"></div>
+                    <div className="relative bg-gradient-to-br from-teal-500 to-cyan-600 p-4 rounded-2xl shadow-lg group-hover:shadow-xl transition-all duration-300">
+                      <svg
+                        className="w-12 h-12 text-white"
+                        fill="currentColor"
+                        viewBox="0 0 24 24">
+                        <path d="M12,8H4A2,2 0 0,0 2,10V14A2,2 0 0,0 4,16H5V20A1,1 0 0,0 6,21H8A1,1 0 0,0 9,20V16H12L17,20V4L12,8M21.5,12C21.5,13.71 20.54,15.26 19,16V8C20.53,8.75 21.5,10.3 21.5,12Z" />
+                      </svg>
+                    </div>
+                  </motion.div>
+
+                  <motion.div
+                    className="group relative p-6"
+                    initial={{ scale: 0, rotate: 90 }}
+                    animate={{ scale: 1, rotate: 0 }}
+                    transition={{ duration: 0.8, delay: 1.3 }}
+                    whileHover={{ scale: 1.1, rotate: -5 }}>
+                    <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/20 to-purple-600/20 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-500"></div>
+                    <div className="relative bg-gradient-to-br from-indigo-500 to-purple-600 p-4 rounded-2xl shadow-lg group-hover:shadow-xl transition-all duration-300">
+                      <svg
+                        className="w-12 h-12 text-white"
+                        fill="currentColor"
+                        viewBox="0 0 24 24">
+                        <path d="M21.33,12.91C21.42,14.46 20.71,15.95 19.44,16.86L20.21,18.35C20.44,18.8 20.47,19.33 20.27,19.8C20.08,20.27 19.69,20.64 19.21,20.8L18.42,21.05C18.25,21.11 18.06,21.14 17.88,21.14C17.37,21.14 16.89,20.91 16.56,20.5L14.44,18C13.55,17.85 12.71,17.47 12,16.9C11.5,17.05 11,17.13 10.5,17.13C9.62,17.13 8.74,16.86 8,16.35C7.47,15.96 7.05,15.44 6.77,14.85C6.32,14.01 6.1,13.06 6.1,12.1C6.1,11.05 6.32,10 6.77,9.05C7.22,8.1 7.9,7.28 8.77,6.68C9.64,6.08 10.7,5.78 11.77,5.78C12.84,5.78 13.9,6.08 14.77,6.68C15.64,7.28 16.32,8.1 16.77,9.05C17.22,10 17.44,11.05 17.44,12.1C17.44,12.17 17.43,12.25 17.43,12.32L21.33,12.91M15.94,12.1C15.94,10.9 15.56,9.75 14.87,8.8C14.18,7.85 13.24,7.15 12.16,6.8C11.08,6.45 9.92,6.45 8.84,6.8C7.76,7.15 6.82,7.85 6.13,8.8C5.44,9.75 5.06,10.9 5.06,12.1C5.06,13.3 5.44,14.45 6.13,15.4C6.82,16.35 7.76,17.05 8.84,17.4C9.92,17.75 11.08,17.75 12.16,17.4C13.24,17.05 14.18,16.35 14.87,15.4C15.56,14.45 15.94,13.3 15.94,12.1Z" />
+                      </svg>
+                    </div>
+                  </motion.div>
+                </div>
+
+                <motion.div
+                  className="absolute inset-0 pointer-events-none"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 1, delay: 1.5 }}>
+                  <svg className="w-full h-full" viewBox="0 0 400 400">
+                    <defs>
+                      <linearGradient
+                        id="lineGradient"
+                        x1="0%"
+                        y1="0%"
+                        x2="100%"
+                        y2="100%">
+                        <stop
+                          offset="0%"
+                          stopColor="rgb(59, 130, 246)"
+                          stopOpacity="0.3"
+                        />
+                        <stop
+                          offset="50%"
+                          stopColor="rgb(147, 51, 234)"
+                          stopOpacity="0.2"
+                        />
+                        <stop
+                          offset="100%"
+                          stopColor="rgb(236, 72, 153)"
+                          stopOpacity="0.1"
+                        />
+                      </linearGradient>
+                    </defs>
+
+                    <line
+                      x1="120"
+                      y1="120"
+                      x2="280"
+                      y2="120"
+                      stroke="url(#lineGradient)"
+                      strokeWidth="2"
+                      opacity="0.6"
+                    />
+                    <line
+                      x1="200"
+                      y1="80"
+                      x2="200"
+                      y2="320"
+                      stroke="url(#lineGradient)"
+                      strokeWidth="2"
+                      opacity="0.6"
+                    />
+                    <line
+                      x1="120"
+                      y1="280"
+                      x2="280"
+                      y2="280"
+                      stroke="url(#lineGradient)"
+                      strokeWidth="2"
+                      opacity="0.6"
+                    />
+                    <line
+                      x1="140"
+                      y1="140"
+                      x2="260"
+                      y2="260"
+                      stroke="url(#lineGradient)"
+                      strokeWidth="2"
+                      opacity="0.4"
+                    />
+                    <line
+                      x1="260"
+                      y1="140"
+                      x2="140"
+                      y2="260"
+                      stroke="url(#lineGradient)"
+                      strokeWidth="2"
+                      opacity="0.4"
+                    />
+                  </svg>
+                </motion.div>
+
+                <motion.div
+                  className="absolute top-20 left-20 w-2 h-2 bg-blue-400 rounded-full"
+                  animate={{
+                    y: [-10, 10, -10],
+                    opacity: [0.3, 1, 0.3],
+                  }}
+                  transition={{
+                    duration: 3,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                  }}
+                />
+                <motion.div
+                  className="absolute bottom-20 right-20 w-3 h-3 bg-purple-400 rounded-full"
+                  animate={{
+                    y: [10, -10, 10],
+                    opacity: [0.4, 1, 0.4],
+                  }}
+                  transition={{
+                    duration: 4,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                    delay: 1,
+                  }}
+                />
+                <motion.div
+                  className="absolute top-32 right-32 w-1.5 h-1.5 bg-pink-400 rounded-full"
+                  animate={{
+                    x: [-5, 5, -5],
+                    y: [-5, 5, -5],
+                    opacity: [0.2, 0.8, 0.2],
+                  }}
+                  transition={{
+                    duration: 5,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                    delay: 2,
+                  }}
+                />
+              </div>
+            </motion.div>
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Process Section */}
       <section className="py-20 px-6">
