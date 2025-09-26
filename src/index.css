@@ -16,6 +16,9 @@
   body {
     @apply bg-white text-[#000000] antialiased;
   }
+  .theme {
+    --animate-shiny-text: shiny-text 8s infinite;
+  }
 }
 
 @layer components {
@@ -65,4 +68,24 @@
 
 .faq-item {
   @apply border-b border-gray-200 py-4;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@theme inline {
+  @keyframes shiny-text {
+  0%, 90%, 100% {
+    background-position: calc(-100% - var(--shiny-width)) 0;
+    }
+  30%, 60% {
+    background-position: calc(100% + var(--shiny-width)) 0;
+    }
+  }
 }

@@ -1,7 +1,8 @@
 import { Navbar } from "@/components/Navbar";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { Footer } from "@/components/footer";
+import { Footer } from "@/components/Footer";
+import { FileText, CheckCircle, Globe } from "lucide-react";
 
 export default function Publication() {
   const steps = [
@@ -9,22 +10,28 @@ export default function Publication() {
       id: 1,
       title: "Fill Out the Quick Form",
       description:
-        "Share your trademark details in just a few clicks — it’s fast, simple, and secure.",
-      icon: "https://plus.unsplash.com/premium_vector-1682301631594-eb2572c47bd5?fm=jpg&q=60&w=1200",
+        "Share your trademark details in just a few clicks — it's fast, simple, and secure.",
+      icon: <FileText className="w-6 h-6 text-blue-600" />,
+      image:
+        "https://plus.unsplash.com/premium_vector-1682301631594-eb2572c47bd5?fm=jpg&q=60&w=1200",
     },
     {
       id: 2,
       title: "We Verify Your Info",
       description:
         "Our team reviews everything carefully to make sure your details are accurate and ready.",
-      icon: "https://plus.unsplash.com/premium_vector-1721256358643-00015e00b18d?fm=jpg&q=60&w=1200",
+      icon: <CheckCircle className="w-6 h-6 text-blue-600" />,
+      image:
+        "https://plus.unsplash.com/premium_vector-1721256358643-00015e00b18d?fm=jpg&q=60&w=1200",
     },
     {
       id: 3,
       title: "Your Trademark Goes Live",
       description:
         "Once approved, your trademark is published and visible for clients and partners worldwide.",
-      icon: "https://plus.unsplash.com/premium_vector-1682310922955-ea5e6f791471?fm=jpg&q=60&w=1200",
+      icon: <Globe className="w-6 h-6 text-blue-600" />,
+      image:
+        "https://plus.unsplash.com/premium_vector-1682310922955-ea5e6f791471?fm=jpg&q=60&w=1200",
     },
   ];
 
@@ -44,30 +51,28 @@ export default function Publication() {
       </section>
 
       {/* Steps Section */}
-      <section className="bg-blue-50 py-20 px-6">
+      <section className="py-20 px-6">
         <div className="max-w-6xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-semibold text-blue-700 mb-6">
+          <h2 className="text-3xl md:text-4xl font-semibold text-black mb-20">
             Three Simple Steps
           </h2>
-          <p className="text-black text-lg mb-12 max-w-xl mx-auto font-light">
+          {/* <p className="text-black text-lg mb-12 max-w-xl mx-auto font-light">
             We’ve simplified the process so you can publish your trademark
             without any hassle.
-          </p>
+          </p> */}
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
             {steps.map((step) => (
               <div
                 key={step.id}
-                className="flex flex-col items-center bg-white p-8 rounded-2xl shadow-sm hover:shadow-lg transition duration-300">
-                <img
-                  src={step.icon || "/placeholder.svg"}
-                  alt={step.title}
-                  className="h-[100px] mb-6"
-                />
-                <h3 className="text-xl md:text-2xl font-medium text-blue-900 mb-4">
+                className=" bg-white p-8 rounded-2xl transition duration-300">
+                <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center mb-6">
+                  {step.icon}
+                </div>
+                <h3 className="text-xl md:text-2xl font-medium text-blue-600 mb-4 text-start">
                   {step.title}
                 </h3>
-                <p className="text-blue-600 text-base font-light leading-relaxed">
+                <p className="text-black text-base font-light leading-relaxed text-start">
                   {step.description}
                 </p>
               </div>
@@ -77,7 +82,7 @@ export default function Publication() {
           <div className="mt-12">
             <Button
               asChild
-              className="bg-blue-700 hover:bg-blue-800 text-white px-8 py-6 rounded-xl shadow-md transition">
+              className="bg-blue-700 hover:bg-blue-800 text-white px-8 py-6 rounded shadow-md transition">
               <Link to="/apply">Start Your Application</Link>
             </Button>
           </div>

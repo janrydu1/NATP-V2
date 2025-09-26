@@ -1,4 +1,3 @@
-import { Footer } from "@/components/footer";
 import Hero from "@/components/Hero";
 import HomeBento from "@/components/HomeBento";
 import { Navbar } from "@/components/Navbar";
@@ -7,6 +6,7 @@ import { motion } from "framer-motion";
 import { ChevronDown, ChevronUp } from "lucide-react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { Footer } from "@/components/Footer";
 
 export default function Index() {
   useHashScroll();
@@ -69,12 +69,14 @@ export default function Index() {
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
           <div
-            style={{ opacity: 1, filter: "blur(0px)", transform: "translateY(-6px)" }}
-          >
+            style={{
+              opacity: 1,
+              filter: "blur(0px)",
+              transform: "translateY(-6px)",
+            }}>
             <div
               data-slot="card"
-              className="text-card-foreground flex flex-col gap-6 rounded-xl border py-6 bg-background border-none shadow-none"
-            >
+              className="text-card-foreground flex flex-col gap-6 rounded-xl border py-6 bg-background border-none shadow-none">
               <div data-slot="card-content" className="p-6 space-y-4">
                 <div className="w-12 h-12 bg-blue-600/10 rounded-full flex items-center justify-center">
                   <svg
@@ -87,8 +89,7 @@ export default function Index() {
                     strokeWidth={2}
                     strokeLinecap="round"
                     strokeLinejoin="round"
-                    className="lucide lucide-brain w-6 h-6 text-blue-600"
-                  >
+                    className="lucide lucide-brain w-6 h-6 text-blue-600">
                     <path d="M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z" />
                     <path d="M12 5a3 3 0 1 1 5.997.125 4 4 0 0 1 2.526 5.77 4 4 0 0 1-.556 6.588A4 4 0 1 1 12 18Z" />
                     <path d="M15 13a4.5 4.5 0 0 1-3-4 4.5 4.5 0 0 1-3 4" />
@@ -102,18 +103,21 @@ export default function Index() {
                 </div>
                 <h3 className="text-xl font-semibold">Trademark Publishing</h3>
                 <p className="text-muted-foreground">
-                  We manage registry publication so your brand gains formal visibility.
+                  We manage registry publication so your brand gains formal
+                  visibility.
                 </p>
               </div>
             </div>
           </div>
           <div
-            style={{ opacity: 1, filter: "blur(0px)", transform: "translateY(-6px)" }}
-          >
+            style={{
+              opacity: 1,
+              filter: "blur(0px)",
+              transform: "translateY(-6px)",
+            }}>
             <div
               data-slot="card"
-              className="text-card-foreground flex flex-col gap-6 rounded-xl border py-6 bg-background border-none shadow-none"
-            >
+              className="text-card-foreground flex flex-col gap-6 rounded-xl border py-6 bg-background border-none shadow-none">
               <div data-slot="card-content" className="p-6 space-y-4">
                 <div className="w-12 h-12 bg-blue-600/10 rounded-full flex items-center justify-center">
                   <svg
@@ -126,25 +130,27 @@ export default function Index() {
                     strokeWidth={2}
                     strokeLinecap="round"
                     strokeLinejoin="round"
-                    className="lucide lucide-zap w-6 h-6 text-blue-600"
-                  >
+                    className="lucide lucide-zap w-6 h-6 text-blue-600">
                     <path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z" />
                   </svg>
                 </div>
                 <h3 className="text-xl font-semibold">Strategic SEO Growth</h3>
                 <p className="text-muted-foreground">
-                  We optimize content + structure + outreach so your brand gets found.
+                  We optimize content + structure + outreach so your brand gets
+                  found.
                 </p>
               </div>
             </div>
           </div>
           <div
-            style={{ opacity: 1, filter: "blur(0px)", transform: "translateY(-6px)" }}
-          >
+            style={{
+              opacity: 1,
+              filter: "blur(0px)",
+              transform: "translateY(-6px)",
+            }}>
             <div
               data-slot="card"
-              className="text-card-foreground flex flex-col gap-6 rounded-xl border py-6 bg-background border-none shadow-none"
-            >
+              className="text-card-foreground flex flex-col gap-6 rounded-xl border py-6 bg-background border-none shadow-none">
               <div data-slot="card-content" className="p-6 space-y-4">
                 <div className="w-12 h-12 bg-blue-600/10 rounded-full flex items-center justify-center">
                   <svg
@@ -157,23 +163,21 @@ export default function Index() {
                     strokeWidth={2}
                     strokeLinecap="round"
                     strokeLinejoin="round"
-                    className="lucide lucide-shield w-6 h-6 text-blue-600"
-                  >
+                    className="lucide lucide-shield w-6 h-6 text-blue-600">
                     <path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" />
                   </svg>
                 </div>
                 <h3 className="text-xl font-semibold">Brand-aware Content</h3>
                 <p className="text-muted-foreground">
-                  Tailored articles and blog pieces that align with your voice and audience.
+                  Tailored articles and blog pieces that align with your voice
+                  and audience.
                 </p>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <section>
-
-      </section>
+      <section></section>
       <section className="bg-slate-100">
         <HomeBento />
       </section>
@@ -186,15 +190,15 @@ export default function Index() {
               Proven Results
             </h2>
             <h2 className="text-2xl sm:text-3xl md:text-[35px] leading-snug font-bold text-[#333747] text-center md:text-left">
-              Explore our track record in effective brand visibility and registration
-              support.
+              Explore our track record in effective brand visibility and
+              registration support.
             </h2>
           </div>
           <div className="w-full md:w-1/2 space-y-6">
             <p className="text-[#333747] text-base sm:text-lg font-semibold leading-relaxed text-center md:text-left">
               Our services achieve consistently high success rates, securing the
-              visibility your brand requires. Numerous clients have relied on our
-              expertise to strengthen their market presence.
+              visibility your brand requires. Numerous clients have relied on
+              our expertise to strengthen their market presence.
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               <div className="text-center sm:text-left">
@@ -218,20 +222,26 @@ export default function Index() {
         </div>
       </section>
 
-
       {/* FAQs */}
       <section id="faqs" className="py-20 px-6 bg-gray-50">
         <div className="max-w-4xl mx-auto text-center mb-8">
           <h2 className="text-sm text-blue-600 font-mono font-medium tracking-wider uppercase">
-              FAQ
+            FAQ
           </h2>
           <h3 className="mx-auto mt-4 max-w-xs text-3xl font-semibold sm:max-w-none sm:text-4xl md:text-5xl">
-              Frequently Asked Questions
+            Frequently Asked Questions
           </h3>
         </div>
         <div className="max-w-4xl mx-auto space-y-4">
           {faqs.map((faq, i) => (
-            <div key={i} className="bg-white border" style={{ borderRadius: '0.5rem', overflow: 'hidden', marginTop: "13px" }}>
+            <div
+              key={i}
+              className="bg-white border"
+              style={{
+                borderRadius: "0.5rem",
+                overflow: "hidden",
+                marginTop: "13px",
+              }}>
               <div
                 className="flex justify-between items-center p-5 cursor-pointer hover:bg-slate-50 transition"
                 onClick={() => toggleFAQ(i)}>

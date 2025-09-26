@@ -1,14 +1,12 @@
-"use client";
-
 import type React from "react";
 import { useState } from "react";
 import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
 import { Navbar } from "@/components/Navbar";
-import { Footer } from "@/components/footer";
+import { Footer } from "@/components/Footer";
 import { Label } from "@/components/ui/label";
-import { Checkbox } from "@/components/ui/checkbox";
-import { Mail, Send, ArrowRight } from "lucide-react";
+import { Mail, Send, ArrowRight, MapPin, Clock } from "lucide-react";
+import { motion } from "framer-motion";
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -74,143 +72,92 @@ export default function Contact() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-blue-50 via-white to-blue-50 text-slate-800">
+    <div className="min-h-screen text-slate-800">
       <Navbar />
 
-      {/* Hero Section */}
-      <section className="relative text-center py-28 px-6">
-        <h1 className="text-5xl md:text-6xl font-bold text-blue-700 mb-6">
-          Let’s Connect
-        </h1>
-        <p className="text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed">
-          Have a project in mind or simply want to chat? Drop us a message and
-          we’ll get back to you shortly.
-        </p>
+      {/* Hero Header Section */}
+      <section className="mx-auto py-10 px-6 mt-10">
+        <div className="max-w-4xl mx-auto text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="space-y-6">
+            <h1 className="text-3xl md:text-4xl text-blue-700 leading-tight">
+              Contact Us
+            </h1>
+            <p className="text-slate-600 text-lg font-light leading-relaxed max-w-2xl mx-auto">
+              Have questions or need assistance? We're here to help you every
+              step of the way.
+            </p>
+          </motion.div>
+        </div>
       </section>
 
       {/* Contact + Info */}
-      <section className="py-20 px-6">
-        <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16">
-          {/* Info */}
-          <div className="space-y-10">
-            <div className="bg-white shadow-md rounded-2xl p-6 border border-blue-100">
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center">
-                  <Mail className="w-6 h-6 text-blue-600" />
-                </div>
-                <div>
-                  <p className="text-sm text-slate-500">Email us at</p>
-                  <p className="text-lg font-semibold text-blue-700">
-                    support@yourbrand.com
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div>
-              <h3 className="text-xl font-semibold text-blue-700 mb-3">
-                Transparency
-              </h3>
-              <p className="text-slate-600 leading-relaxed">
-                We may share external resources for your benefit, but we are not
-                responsible for their content. Reach out if you ever find
-                something inaccurate or outdated.
-              </p>
-            </div>
-
-            <div>
-              <h3 className="text-xl font-semibold text-blue-700 mb-3">
-                Our Work
-              </h3>
-              <p className="text-slate-600 leading-relaxed">
-                All materials, including visuals and content on this site, are
-                protected. If you’d like to collaborate or request usage
-                permissions, just get in touch.
-              </p>
-            </div>
-          </div>
-
+      <section className="py-10 px-6 -mt-8">
+        <div className="max-w-3xl mx-auto">
           {/* Contact Form */}
-          <div className="bg-white border border-blue-100 rounded-2xl shadow-md p-8">
-            <form onSubmit={handleSubmit} className="space-y-8">
-              <div className="space-y-6">
-                <div>
-                  <Label
-                    htmlFor="name"
-                    className="text-slate-700 font-medium mb-2 block">
-                    Full Name
-                  </Label>
-                  <input
-                    id="name"
-                    name="name"
-                    type="text"
-                    value={formData.name}
-                    onChange={handleChange}
-                    required
-                    className="w-full bg-slate-50 border border-blue-200 rounded-xl px-4 py-3 focus:ring-2 focus:ring-blue-500 outline-none"
-                    placeholder="Jane Doe"
-                  />
-                </div>
-
-                <div>
-                  <Label
-                    htmlFor="email"
-                    className="text-slate-700 font-medium mb-2 block">
-                    Email Address
-                  </Label>
-                  <input
-                    id="email"
-                    name="email"
-                    type="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    required
-                    className="w-full bg-slate-50 border border-blue-200 rounded-xl px-4 py-3 focus:ring-2 focus:ring-blue-500 outline-none"
-                    placeholder="your@email.com"
-                  />
-                </div>
-
-                <div>
-                  <Label
-                    htmlFor="message"
-                    className="text-slate-700 font-medium mb-2 block">
-                    Your Message
-                  </Label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    rows={6}
-                    value={formData.message}
-                    onChange={handleChange}
-                    required
-                    className="w-full bg-slate-50 border border-blue-200 rounded-xl px-4 py-3 focus:ring-2 focus:ring-blue-500 outline-none resize-none"
-                    placeholder="Tell us how we can help..."
-                  />
-                </div>
+          <div className="bg-white border border-blue-100 shadow-md rounded-2xl p-8 mb-12">
+            <form onSubmit={handleSubmit} className="space-y-6">
+              <div>
+                <Label
+                  htmlFor="name"
+                  className="block text-slate-700 font-medium mb-2">
+                  Full Name
+                </Label>
+                <input
+                  id="name"
+                  name="name"
+                  type="text"
+                  value={formData.name}
+                  onChange={handleChange}
+                  required
+                  className="w-full border border-slate-300 text-black placeholder:text-slate-400 rounded-xl px-4 py-3 focus:border-blue-500 outline-none"
+                  placeholder="Jane Doe"
+                />
               </div>
 
-              <div className="flex items-start gap-3">
-                <Checkbox
-                  id="terms"
-                  checked={formData.agreedToTerms}
-                  onCheckedChange={handleCheckboxChange}
-                  className="mt-1 border-blue-400"
-                />
+              <div>
                 <Label
-                  htmlFor="terms"
-                  className="text-sm text-slate-600 leading-relaxed">
-                  I accept the{" "}
-                  <a href="/terms" className="text-blue-600 hover:underline">
-                    terms & privacy policy
-                  </a>
-                  .
+                  htmlFor="email"
+                  className="block text-slate-700 font-medium mb-2">
+                  Email Address
                 </Label>
+                <input
+                  id="email"
+                  name="email"
+                  type="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  required
+                  className="w-full border border-slate-300 text-black placeholder:text-slate-400 rounded-xl px-4 py-3 focus:border-blue-500 outline-none"
+                  placeholder="your@email.com"
+                />
+              </div>
+
+              <div>
+                <Label
+                  htmlFor="message"
+                  className="block text-slate-700 font-medium mb-2">
+                  Your Message
+                </Label>
+                <textarea
+                  id="message"
+                  name="message"
+                  rows={5}
+                  value={formData.message}
+                  onChange={handleChange}
+                  required
+                  className="w-full border border-slate-300 text-black placeholder:text-slate-400 rounded-xl px-4 py-3 focus:border-blue-500 outline-none resize-none"
+                  placeholder="Tell us how we can help..."
+                />
               </div>
 
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-xl font-medium transition disabled:opacity-50 flex items-center justify-center gap-2">
+                className="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-8 py-4 rounded-xl font-medium transition disabled:opacity-50 flex items-center justify-center gap-2 shadow-sm">
                 {isSubmitting ? (
                   "Sending..."
                 ) : (
@@ -220,79 +167,119 @@ export default function Contact() {
                   </>
                 )}
               </button>
+
+              <p className="text-xs text-slate-500 text-center">
+                We usually reply within 24 hours.
+              </p>
             </form>
           </div>
-        </div>
-      </section>
 
-      {/* Newsletter */}
-      <section className="py-20 bg-blue-50">
-        <div className="max-w-3xl mx-auto px-6 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-blue-700 mb-4">
-            Stay Updated
-          </h2>
-          <p className="text-slate-600 mb-10">
-            Subscribe for the latest updates, insights, and resources directly
-            in your inbox.
-          </p>
+          {/* Info Cards */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="bg-white border border-blue-100 shadow-sm rounded-2xl p-6 hover:shadow-md transition">
+              <Mail className="w-6 h-6 text-blue-600 mb-3" />
+              <p className="text-sm text-slate-500">Email</p>
+              <p className="text-blue-700 font-semibold">
+                support@yourbrand.com
+              </p>
+            </div>
 
-          <form
-            onSubmit={async (e) => {
-              e.preventDefault();
+            <div className="bg-white border border-blue-100 shadow-sm rounded-2xl p-6 hover:shadow-md transition">
+              <MapPin className="w-6 h-6 text-blue-600 mb-3" />
+              <p className="text-sm text-slate-500">Office</p>
+              <p className="text-blue-700 font-semibold">Mumbai, India</p>
+            </div>
 
-              if (!newsletterEmail) {
-                toast.error("Please enter your email address");
-                return;
-              }
+            <div className="bg-white border border-blue-100 shadow-sm rounded-2xl p-6 hover:shadow-md transition">
+              <Clock className="w-6 h-6 text-blue-600 mb-3" />
+              <p className="text-sm text-slate-500">Support Hours</p>
+              <p className="text-blue-700 font-semibold">Mon–Fri, 9am–6pm</p>
+            </div>
+          </div>
 
-              try {
-                setIsNewsletterSubmitting(true);
-
-                const { error } = await supabase
-                  .from("newsletter_subscriptions")
-                  .insert([{ email: newsletterEmail }]);
-
-                if (error) throw error;
-
-                toast.success("You're subscribed!");
-                setNewsletterEmail("");
-              } catch (error) {
-                console.error("Newsletter subscription failed:", error);
-                toast.error("Something went wrong. Please try again.");
-              } finally {
-                setIsNewsletterSubmitting(false);
-              }
-            }}
-            className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
-            <input
-              type="email"
-              placeholder="Enter your email"
-              value={newsletterEmail}
-              onChange={(e) => setNewsletterEmail(e.target.value)}
-              className="flex-1 bg-white border border-blue-200 rounded-xl px-6 py-4 text-slate-700 focus:ring-2 focus:ring-blue-500 outline-none"
-            />
-            <button
-              type="submit"
-              disabled={isNewsletterSubmitting}
-              className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-xl font-medium transition disabled:opacity-50 flex items-center justify-center gap-2">
-              {isNewsletterSubmitting ? (
-                "Subscribing..."
-              ) : (
-                <>
-                  Subscribe
-                  <ArrowRight className="w-4 h-4" />
-                </>
-              )}
-            </button>
-          </form>
-
-          <p className="text-xs text-slate-500 mt-6">
-            You can unsubscribe anytime. See our{" "}
+          <p className="text-slate-600 text-sm leading-relaxed mt-8 text-center">
+            We respect your privacy. Shared details will only be used to respond
+            to your inquiry.
             <a href="/terms" className="text-blue-600 hover:underline">
-              terms & privacy policy
+              {" "}
+              Learn more
             </a>
             .
           </p>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section>
+        <div className="bg-blue-50 rounded-xl py-16">
+          <div className="relative container mx-auto px-4 py-16 max-w-7xl">
+            <div className="text-center space-y-4 pb-6 mx-auto">
+              <h2 className="text-sm text-blue-600 font-mono font-medium tracking-wider uppercase">
+                Ready to get started?
+              </h2>
+              <h3 className="mx-auto mt-4 max-w-xs text-3xl font-semibold sm:max-w-none sm:text-4xl md:text-5xl text-blue-700">
+                Subscribe for the latest updates today.
+              </h3>
+            </div>
+            <div className="flex flex-col w-full sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-4 pt-4">
+              <form
+                onSubmit={async (e) => {
+                  e.preventDefault();
+
+                  if (!newsletterEmail) {
+                    toast.error("Please enter your email address");
+                    return;
+                  }
+
+                  try {
+                    setIsNewsletterSubmitting(true);
+
+                    const { error } = await supabase
+                      .from("newsletter_subscriptions")
+                      .insert([{ email: newsletterEmail }]);
+
+                    if (error) throw error;
+
+                    toast.success("You're subscribed!");
+                    setNewsletterEmail("");
+                  } catch (error) {
+                    console.error("Newsletter subscription failed:", error);
+                    toast.error("Something went wrong. Please try again.");
+                  } finally {
+                    setIsNewsletterSubmitting(false);
+                  }
+                }}
+                className="flex flex-col sm:flex-row gap-4 w-full max-w-md">
+                <input
+                  type="email"
+                  placeholder="Enter your email"
+                  value={newsletterEmail}
+                  onChange={(e) => setNewsletterEmail(e.target.value)}
+                  className="flex-1 bg-white border border-blue-200 rounded px-4 py-2 text-slate-700 focus:ring-2 focus:ring-blue-500 outline-none"
+                />
+                <button
+                  type="submit"
+                  disabled={isNewsletterSubmitting}
+                  className="items-center justify-center whitespace-nowrap rounded text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] bg-blue-600 shadow-xs hover:bg-blue-700 h-9 px-4 py-4 w-full sm:w-auto text-white flex gap-2">
+                  {isNewsletterSubmitting ? (
+                    "Subscribing..."
+                  ) : (
+                    <>
+                      <ArrowRight className="h-6 w-6" />
+                      Subscribe for free
+                    </>
+                  )}
+                </button>
+              </form>
+            </div>
+            <p className="text-xs text-slate-500 mt-6 text-center">
+              You can unsubscribe anytime. See our{" "}
+              <a href="/terms" className="text-blue-600 hover:underline">
+                terms & privacy policy
+              </a>
+              .
+            </p>
+          </div>
         </div>
       </section>
 
