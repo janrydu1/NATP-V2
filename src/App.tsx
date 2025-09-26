@@ -14,7 +14,7 @@ import NotFound from "./pages/NotFound";
 import Apply from "./pages/Apply";
 import Publication from "./pages/services/Publication";
 import Article from "./pages/services/Article";
-import Services from "./pages/Services";
+import Services from "./pages/services/Services";
 import SEO from "./pages/services/SEO";
 import TrademarkDetail from "./pages/TrademarkDetail";
 import Admin from "./pages/Admin";

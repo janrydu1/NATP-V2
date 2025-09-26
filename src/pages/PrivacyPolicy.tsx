@@ -1,6 +1,6 @@
 import { Navbar } from "@/components/Navbar";
 import { useEffect, useRef, useState } from "react";
-import { Footer } from "@/components/footer";
+import { Footer } from "@/components/Footer";
 
 export default function PrivacyPolicy() {
   const sections = [
@@ -162,7 +162,7 @@ export default function PrivacyPolicy() {
           </aside>
 
           {/* Content */}
-          <main className="md:col-span-8 lg:col-span-9 space-y-12">
+          <main className="md:col-span-8 lg:col-span-9 space-y-5">
             {sections.map((section, idx) => (
               <section
                 key={idx}
