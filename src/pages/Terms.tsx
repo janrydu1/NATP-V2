@@ -7,12 +7,12 @@ export default function Terms() {
     {
       title: "INTRODUCTION",
       content:
-        "Welcome! These Terms and Conditions (“T&C”) explain the agreement between ATP (the Provider, contact: info@natp-trademark.com) and you (the Customer) when you use or purchase our Prepaid Service. By using our service, you agree to these terms. If you’d like a printable copy, just ask us.",
+        "Welcome! These Terms and Conditions (“T&C”) explain the agreement between ATP Service Inc (the Provider, contact: info@atp-trademark.com) and you (the Customer) when you use or purchase our Prepaid Service. By using our service, you agree to these terms. If you’d like a printable copy, just ask us.",
     },
     {
       title: "DEFINITIONS",
       content:
-        "1.1 Database: Our proprietary system that gathers data from various trademark registers, including national, EU, and international sources.</br>1.2 Prepaid Service: Paid access to secure sections of our Database on natp-trademark.com for three years, starting once we receive your payment.</br>1.3 Service Fee: The upfront cost for accessing the Prepaid Service, as listed in our current offer.</br>1.4 Agreement: The contract between you and us, activated when we receive your Service Fee.",
+        "1.1 Database: Our proprietary system that gathers data from various trademark registers, including national, EU, and international sources.</br>1.2 Prepaid Service: Paid access to secure sections of our Database on atp-trademark.com for three years, starting once we receive your payment.</br>1.3 Service Fee: The upfront cost for accessing the Prepaid Service, as listed in our current offer.</br>1.4 Agreement: The contract between you and us, activated when we receive your Service Fee.",
     },
     {
       title: "SERVICE DESCRIPTION",
@@ -29,7 +29,7 @@ export default function Terms() {
     },
     {
       title: "LIABILITY AND DISCLAIMERS",
-      content: `5.1 Data Integrity: </br><p style="padding-left: 10px;">• Our Database is compiled from third-party sources and provided “as is.” We can’t guarantee it’s always accurate or complete. </p>5.2 Limitation of Liability: </br><p style="padding-left: 10px;">• We’re not responsible for any direct or indirect damages, lost revenue, missed opportunities, or service interruptions from using or not using natp-trademark.com. </p><p style="padding-left: 10px;">• This applies even if we knew about possible issues. </p>`,
+      content: `5.1 Data Integrity: </br><p style="padding-left: 10px;">• Our Database is compiled from third-party sources and provided “as is.” We can’t guarantee it’s always accurate or complete. </p>5.2 Limitation of Liability: </br><p style="padding-left: 10px;">• We’re not responsible for any direct or indirect damages, lost revenue, missed opportunities, or service interruptions from using or not using atp-trademark.com. </p><p style="padding-left: 10px;">• This applies even if we knew about possible issues. </p>`,
     },
     {
       title: "ARTICLE PUBLICATION SERVICE",
@@ -42,7 +42,7 @@ export default function Terms() {
     {
       title: "REFUND POLICY",
       content:
-        "8.1 If you’re not satisfied, you can request a refund within 30 days of payment. Email info@natp-trademark.com with your order details and reason. Refunds follow these T&C and any additional policies. This policy applies only to the services described here.",
+        "8.1 If you’re not satisfied, you can request a refund within 30 days of payment. Email info@atp-trademark.com with your order details and reason. Refunds follow these T&C and any additional policies. This policy applies only to the services described here.",
     },
     {
       title: "GOVERNING LAW AND DISPUTE SETTLEMENT",
@@ -50,7 +50,7 @@ export default function Terms() {
     },
     {
       title: "DATA PRIVACY",
-      content: `10.1 Data Handling: </br><p style="padding-left: 10px;">• Details about how we handle your personal data are in our Privacy Policy. </p>10.2 Policy Access:</br><p style="padding-left: 10px;">• You’ll find a link to our Privacy Policy on natp-trademark.com. Please review it to learn how your data is used. </p>`,
+      content: `10.1 Data Handling: </br><p style="padding-left: 10px;">• Details about how we handle your personal data are in our Privacy Policy. </p>10.2 Policy Access:</br><p style="padding-left: 10px;">• You’ll find a link to our Privacy Policy on atp-trademark.com. Please review it to learn how your data is used. </p>`,
     },
   ];
 

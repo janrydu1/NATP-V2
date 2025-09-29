@@ -154,21 +154,22 @@ export default function Search() {
     {
       question: "What info is included?",
       answer:
-        "Detailed articles, images, owner info, and filing dates for each trademark.",
+        "Each trademark entry includes detailed articles, high-resolution images, owner information, filing dates, application status, and relevant classification details. You can also view historical changes and related documents for comprehensive insights.",
     },
     {
       question: "How to search?",
       answer:
-        "Enter application number, owner, or company name and select Search. Each result links to more info.",
+        "Simply enter an application number, owner name, or company name in the search bar and click Search. You can refine your search using specific keywords or partial matches. Each result provides a direct link to more information, including legal status and related filings.",
     },
     {
       question: "Can I search multiple times?",
-      answer: "Yes, try different terms to get the latest data anytime.",
+      answer:
+        "Yes, you can perform unlimited searches using different terms or criteria. Our database is updated daily, so you always get the latest trademark data. Feel free to experiment with various keywords to find the most relevant results.",
     },
     {
       question: "Need help?",
       answer:
-        "Click Contact to reach our support team for guidance on trademark searches.",
+        "If you need assistance, click Contact to reach our support team. We offer guidance on trademark searches, help with interpreting results, and can provide resources for filing or protecting your brand. Our experts are available to answer any questions you may have.",
     },
   ];
 
@@ -217,7 +218,7 @@ export default function Search() {
         </motion.div>
         <motion.form
           onSubmit={handleSearch}
-          className="flex flex-col sm:flex-row gap-4 justify-center max-w-4xl mx-auto"
+          className="flex flex-col sm:flex-row gap-4 justify-center max-w-5xl mx-auto"
           initial={{ y: 30, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.6, delay: 0.6 }}>

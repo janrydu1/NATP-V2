@@ -24,27 +24,27 @@ export default function Index() {
     {
       question: "What does trademark publication involve?",
       answer:
-        "It’s the step where we publicly announce your trademark in a recognized registry so others can see it and raise objections if needed. This builds legal visibility.",
+        "Trademark publication is the process of formally announcing your trademark in an official registry, making it visible to the public and allowing third parties to review and potentially raise objections. This step is crucial for establishing legal recognition and protection of your brand. It also helps build trust with customers and partners by demonstrating your commitment to brand integrity and compliance.",
     },
     {
       question: "Who crafts the content / articles?",
       answer:
-        "Our content team researches your brand and domain and writes custom pieces that reflect your voice and help your SEO. We don’t reuse templates.",
+        "Our dedicated content team researches your brand, industry, and target audience to create original articles and blog posts tailored to your unique voice and objectives. We never use generic templates; instead, we collaborate closely with you to ensure every piece aligns with your messaging and supports your SEO goals. You’ll have opportunities to review drafts and request revisions to guarantee the content meets your expectations.",
     },
     {
       question: "What SEO services are included?",
       answer:
-        "Keyword planning, on-page optimization, outreach, internal linking, and monitoring. We aim for sustainable organic growth, not just quick wins.",
+        "Our SEO services cover comprehensive keyword research, on-page optimization, technical improvements, outreach for backlinks, internal linking strategies, and ongoing performance monitoring. We focus on building sustainable organic growth by improving your website’s visibility in search engines, driving qualified traffic, and enhancing your brand’s authority online. You’ll receive regular reports and recommendations to maximize results.",
     },
     {
       question: "How to initiate the process?",
       answer:
-        "Fill a simple form with your trademark details. We review and send you a proposal. Once approved, we begin publication + content creation.",
+        "To get started, simply fill out our online form with your trademark details and business information. Our team will review your submission, clarify any questions, and send you a detailed proposal outlining the steps, timeline, and pricing. Once you approve the proposal, we begin the trademark publication and content creation process, keeping you informed at every stage and providing support as needed.",
     },
     {
       question: "Can I request edits later?",
       answer:
-        "Yes. Brands evolve. You can request updates or new content anytime, and we’ll iterate with you.",
+        "Absolutely. We understand that brands evolve and your needs may change over time. You can request updates to published content, new articles, or changes to your trademark information whenever necessary. Our team will work with you to implement edits promptly and ensure your brand stays relevant and accurately represented.",
     },
   ];
 

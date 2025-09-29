@@ -57,14 +57,6 @@ export default function Publication() {
               initial={{ x: -50, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.4 }}>
-              <div
-                className={cn(
-                  "group rounded-full max-w-[20%] border border-black/5 bg-neutral-100 text-base text-white transition-all ease-in hover:cursor-pointer hover:bg-neutral-200 dark:border-white/5 dark:bg-neutral-900 dark:hover:bg-neutral-800"
-                )}>
-                <AnimatedShinyText className="inline-flex items-center justify-center px-4 py-1 transition ease-out hover:text-neutral-600 hover:duration-300 hover:dark:text-neutral-400">
-                  <span>Our Publication</span>
-                </AnimatedShinyText>
-              </div>
               <motion.h1
                 className="text-5xl md:text-7xl lg:text-8xl font-bold text-black leading-[0.9] mb-8"
                 initial={{ y: 30, opacity: 0 }}

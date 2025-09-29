@@ -20,9 +20,9 @@ export const Footer = () => {
             <div>
               <p className="font-medium mb-2">Contact us</p>
               <a
-                href="mailto:info@natp-trademark.com"
+                href="mailto:info@atp-trademark.com"
                 className="text-black break-words">
-                info@natp-trademark.com
+                info@atp-trademark.com
               </a>
             </div>
           </div>
@@ -91,7 +91,7 @@ export const Footer = () => {
         {/* Divider and copyright */}
         <div className="border-t border-white/20 pt-4">
           <div className="flex flex-col md:flex-row justify-between items-center text-sm gap-4 text-center md:text-left">
-            <p>© {currentYear} NATP. All rights reserved.</p>
+            <p>© {currentYear} ATP. All rights reserved.</p>
             <div className="flex gap-6">
               <Link to="/privacy" className="hover:underline">
                 Privacy Policy

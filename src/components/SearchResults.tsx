@@ -116,7 +116,7 @@ export function SearchResults({
                   <div className="space-y-2 text-blue-800 text-sm">
                     <div className="flex">
                       <span className="w-44 font-medium text-blue-700">
-                        Category
+                        Class(es)
                       </span>
                       <span>{result.national_classes || "—"}</span>
                     </div>

@@ -103,41 +103,73 @@ export const Navbar = () => {
                   <div className="w-full min-w-[220px] max-w-[280px] rounded-xl border border-border bg-background shadow-lg p-1">
                     <Link
                       to="/services"
-                      className="flex flex-col gap-1 px-4 py-3 rounded-lg transition-colors hover:bg-secondary">
-                      <span className="text-sm font-semibold text-foreground">
+                      className={`flex flex-col gap-1 px-4 py-3 rounded-lg transition-colors hover:bg-secondary ${
+                        !isScrolled ? "text-black" : ""
+                      }`}>
+                      <span
+                        className={`text-sm font-semibold ${
+                          !isScrolled ? "text-black" : "text-foreground"
+                        }`}>
                         Service Index
                       </span>
-                      <span className="text-xs text-foreground/65">
+                      <span
+                        className={`text-xs ${
+                          !isScrolled ? "text-black/65" : "text-foreground/65"
+                        }`}>
                         A high-level snapshot of our blueprints.
                       </span>
                     </Link>
                     <Link
                       to="/services/publication"
-                      className="flex flex-col gap-1 px-4 py-3 rounded-lg transition-colors hover:bg-secondary">
-                      <span className="text-sm font-semibold text-foreground">
+                      className={`flex flex-col gap-1 px-4 py-3 rounded-lg transition-colors hover:bg-secondary ${
+                        !isScrolled ? "text-black" : ""
+                      }`}>
+                      <span
+                        className={`text-sm font-semibold ${
+                          !isScrolled ? "text-black" : "text-foreground"
+                        }`}>
                         Editorial Programs
                       </span>
-                      <span className="text-xs text-foreground/65">
+                      <span
+                        className={`text-xs ${
+                          !isScrolled ? "text-black/65" : "text-foreground/65"
+                        }`}>
                         Long-form narratives for digital journals.
                       </span>
                     </Link>
                     <Link
                       to="/services/article"
-                      className="flex flex-col gap-1 px-4 py-3 rounded-lg transition-colors hover:bg-secondary">
-                      <span className="text-sm font-semibold text-foreground">
+                      className={`flex flex-col gap-1 px-4 py-3 rounded-lg transition-colors hover:bg-secondary ${
+                        !isScrolled ? "text-black" : ""
+                      }`}>
+                      <span
+                        className={`text-sm font-semibold ${
+                          !isScrolled ? "text-black" : "text-foreground"
+                        }`}>
                         Thought Pieces
                       </span>
-                      <span className="text-xs text-foreground/65">
+                      <span
+                        className={`text-xs ${
+                          !isScrolled ? "text-black/65" : "text-foreground/65"
+                        }`}>
                         Sharp storytelling for product launches.
                       </span>
                     </Link>
                     <Link
                       to="/services/seo"
-                      className="flex flex-col gap-1 px-4 py-3 rounded-lg transition-colors hover:bg-secondary">
-                      <span className="text-sm font-semibold text-foreground">
+                      className={`flex flex-col gap-1 px-4 py-3 rounded-lg transition-colors hover:bg-secondary ${
+                        !isScrolled ? "text-black" : ""
+                      }`}>
+                      <span
+                        className={`text-sm font-semibold ${
+                          !isScrolled ? "text-black" : "text-foreground"
+                        }`}>
                         Findability
                       </span>
-                      <span className="text-xs text-foreground/65">
+                      <span
+                        className={`text-xs ${
+                          !isScrolled ? "text-black/65" : "text-foreground/65"
+                        }`}>
                         Precision optimisation for search visibility.
                       </span>
                     </Link>

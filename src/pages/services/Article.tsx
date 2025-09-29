@@ -17,19 +17,19 @@ export default function Article() {
       text: "Their optimized articles put our brand exactly where it matters most - directly in front of our audience. The visibility we've gained has been incredible, and the trust we've built through valuable content has positioned us as an industry leader.",
       name: "Sarah Johnson",
       role: "Marketing Director",
-      company: "ABC Ltd",
+      company: "Zenta",
     },
     {
       text: "The memorable content they created helped us rise above the noise and truly show what makes our brand unique. They combine creativity with strategy so our articles don't just exist — they perform and deliver real results.",
       name: "Michael Chen",
       role: "Brand Manager",
-      company: "XYZ Inc.",
+      company: "G Focal",
     },
     {
       text: "Strong content truly builds trust, attracts attention, and grows influence. It's not just about words — it's about creating lasting impressions that resonate with our target audience and drive meaningful engagement.",
       name: "Emma Rodriguez",
       role: "Content Strategist",
-      company: "ABC Ltd",
+      company: "KYND",
     },
   ];
 
@@ -69,14 +69,6 @@ export default function Article() {
               initial={{ x: -50, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.4 }}>
-              <div
-                className={cn(
-                  "group rounded-full max-w-[16%] border border-black/5 bg-neutral-100 text-base text-white transition-all ease-in hover:cursor-pointer hover:bg-neutral-200 dark:border-white/5 dark:bg-neutral-900 dark:hover:bg-neutral-800"
-                )}>
-                <AnimatedShinyText className="inline-flex items-center justify-center px-4 py-1 transition ease-out hover:text-neutral-600 hover:duration-300 hover:dark:text-neutral-400">
-                  <span>Our Articles</span>
-                </AnimatedShinyText>
-              </div>
               <motion.h1
                 className="text-5xl md:text-7xl lg:text-8xl font-bold text-black leading-[0.9] mb-8"
                 initial={{ y: 30, opacity: 0 }}
