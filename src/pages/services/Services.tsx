@@ -378,7 +378,8 @@ export default function Services() {
                 Always Fresh
               </h3>
               <p className="text-blue-600">
-                Your trademark data stays updated daily for accuracy and trust.
+                Your trademark data stays updated regularly for accuracy and
+                trust.
               </p>
             </div>
             <div>

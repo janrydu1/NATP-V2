@@ -13,7 +13,7 @@ export const Footer = () => {
             <div className="mb-6">
               <img
                 src="/images/mainLogo.svg"
-                alt="WTP Logo"
+                alt="ATP Service Inc Logo"
                 className="w-44 h-auto"
               />
             </div>

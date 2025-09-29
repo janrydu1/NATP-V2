@@ -47,9 +47,9 @@ export default function About() {
   ];
 
   const stats = [
-    { number: "95%", text: "Satisfied Clients", icon: Star },
-    { number: "100+", text: "Trademarks Published", icon: Award },
-    { number: "10+", text: "Years of Expertise", icon: Zap },
+    { number: "98%+", text: "Satisfied Clients", icon: Star },
+    { number: "10K+", text: "Trademarks Published", icon: Award },
+    { number: "5+", text: "Years of Expertise", icon: Zap },
   ];
 
   return (

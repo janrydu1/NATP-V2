@@ -139,11 +139,11 @@ export function TrademarkArticle({
           {trademark.owner_name}
         </div>
         <div>
-          <span className="font-semibold text-blue-700">Category: </span>
+          <span className="font-semibold text-blue-700">Class(es): </span>
           {trademark.national_classes || "—"}
         </div>
         <div>
-          <span className="font-semibold text-blue-700">US Classes: </span>
+          <span className="font-semibold text-blue-700">US Class(es): </span>
           {trademark.us_classes || "—"}
         </div>
         <div>

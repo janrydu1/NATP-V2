@@ -43,7 +43,7 @@ const Hero = () => {
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
       }}>
-      <div className="absolute inset-0 bg-black/50 backdrop-blur-xl z-10" />
+      <div className="absolute inset-0 bg-black/50 backdrop-blur-lg z-10" />
 
       <div className="relative flex w-full flex-col items-center justify-center px-4 pt-0 sm:px-6 z-20 min-h-full">
         <a
@@ -70,7 +70,7 @@ const Hero = () => {
             <span
               className="inline-block px-1 md:px-2 text-balance font-semibold"
               style={{ opacity: 1, transform: "none" }}>
-              Initiate Your
+              Start Your
             </span>
             <span
               className="inline-block px-1 md:px-2 text-balance font-semibold"
@@ -80,22 +80,28 @@ const Hero = () => {
             <span
               className="inline-block px-1 md:px-2 text-balance font-semibold"
               style={{ opacity: 1, transform: "none" }}>
-              Publication Today
+              Publication Journey
+            </span>
+            <span
+              className="inline-block px-1 md:px-2 text-balance font-semibold"
+              style={{ opacity: 1, transform: "none" }}>
+              Now
             </span>
           </h1>
           <p
-            className="mx-auto max-w-xl text-center text-lg leading-7 text-white sm:text-xl sm:leading-9 text-balance"
+            className="mx-auto max-w-xl text-center text-lg leading-7 text-white/70 sm:text-xl sm:leading-9 text-balance"
             style={{ opacity: 1, transform: "none" }}>
-            Apply now to boost visibility and safeguard your brand with expert
-            support.
+            Get started today to enhance your brand’s visibility and protect it
+            with professional guidance.
           </p>
         </div>
         <div
           className="mx-auto mt-6 flex w-full max-w-2xl flex-col items-center justify-center space-y-4 sm:flex-row sm:space-x-4 sm:space-y-0"
           style={{ opacity: 1, transform: "none" }}>
-          <Link
-            to={"/apply"}
-            className="bg-blue-600 hover:bg-blue-700 text-white rounded flex p-2 pr-4 gap-2">
+            <Link
+            to="/apply"
+            className="bg-blue-600 hover:bg-blue-700 text-white rounded flex items-center p-2 pr-4 gap-2 border-2 border-blue-600 hover:border-blue-700"
+            >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width={24}
@@ -106,14 +112,16 @@ const Hero = () => {
               strokeWidth={2}
               strokeLinecap="round"
               strokeLinejoin="round"
-              className="h-6 w-6">
+              className="h-6 w-6"
+            >
               <path d="M7 17l9.2-9.2M17 17V7H7" />
             </svg>
-            Apply Now
-          </Link>
-          <Link
-            to={"/services"}
-            className="border-2 border-gray-300 hover:border-gray-400 bg-white text-gray-700 hover:bg-gray-50 rounded flex p-2 pr-4 gap-2">
+            Get Started
+            </Link>
+            <Link
+            to="/services"
+            className="border-2 border-gray-300 hover:border-gray-400 bg-white text-gray-700 hover:bg-gray-50 rounded flex items-center p-2 pr-4 gap-2"
+            >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width={24}
@@ -124,12 +132,13 @@ const Hero = () => {
               strokeWidth={2}
               strokeLinecap="round"
               strokeLinejoin="round"
-              className="h-6 w-6">
+              className="h-6 w-6"
+            >
               <rect width={7} height={7} x={14} y={3} rx={1} />
               <path d="M10 21V8a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-5a1 1 0 0 0-1-1H3" />
             </svg>
-            Learn More
-          </Link>
+            Discover More
+            </Link>
         </div>
         {/* <div className="relative rounded-lg w-full max-w-7xl sm:max-w-7xl md:max-w-7xl lg:max-w-5xl xl:max-w-5xl mt-8">
           <div className="relative group rounded-md p-1 sm:p-2  shadow-xl">

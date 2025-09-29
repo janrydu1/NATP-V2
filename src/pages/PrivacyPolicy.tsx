@@ -7,62 +7,62 @@ export default function PrivacyPolicy() {
     {
       title: "Introduction",
       content:
-        "At NATP, we prioritize the confidentiality of your personal information. This Privacy Policy explains how we handle, utilize, and secure data collected through the use of our services.",
+        "Welcome to ATP! Your privacy matters to us. This policy explains how we collect, use, and protect your personal information when you use our services.",
     },
     {
       title: "Information Collection",
       content:
-        "2.1 We collect personal data voluntarily submitted by users, including names, contact details, and payment-related information.</br>2.2 Additional data, such as IP addresses and browsing patterns, may be gathered through automated systems to enhance service performance and ensure system security.",
+        "2.1 We collect information you provide, like your name, contact details, and payment info.</br>2.2 We also gather technical data, such as your IP address and browsing activity, to improve our services and keep everything secure.",
     },
     {
-      title: "Purpose of Data Use",
+      title: "How We Use Your Data",
       content:
-        "3.1 Collected information is used to deliver our services, manage transactions, provide support, and relay essential service communications.</br>3.2 We may also use the data to optimize user experience and adapt our content offerings to user interests.",
+        "3.1 We use your information to deliver our services, process transactions, support you, and send important updates.</br>3.2 We may also use your data to make your experience better and tailor our content to your interests.",
     },
     {
-      title: "Data Sharing and Disclosure",
+      title: "Sharing Your Information",
       content:
-        "4.1 NATP does not engage in selling or leasing customer information to external parties.</br>4.2 Selected third-party providers may receive data for operational support (e.g., payment processors, IT support), subject to strict confidentiality agreements and data protection compliance.</br>4.3 Disclosure of information may be required to meet legal duties or respond to legitimate requests from regulatory or governmental authorities.",
+        "4.1 We don’t sell or rent your personal information to anyone.</br>4.2 Sometimes, we share data with trusted partners (like payment processors or IT support) who help us run our business, but only under strict confidentiality rules.</br>4.3 We may also share information if required by law or to respond to official requests.",
     },
     {
-      title: "Data Security",
+      title: "Keeping Your Data Safe",
       content:
-        "5.1 We apply comprehensive security practices to prevent unauthorized access, misuse, or destruction of your data.</br>5.2 Our infrastructure is routinely assessed for vulnerabilities and protected through encryption and secure protocols.",
+        "5.1 We use strong security measures to protect your data from unauthorized access or misuse.</br>5.2 Our systems are regularly checked for vulnerabilities and secured with encryption and safe protocols.",
     },
     {
       title: "Your Rights",
       content:
-        "6.1 You may request access to, correction of, or deletion of your personal information by contacting info@natp-trademark.com.</br>6.2 You may also exercise your right to object to or limit data processing in accordance with applicable privacy regulations in the United States.",
+        "6.1 You can ask to see, correct, or delete your personal information by contacting info@natp-trademark.com.</br>6.2 You also have the right to limit or object to how we use your data, as allowed by U.S. privacy laws.",
     },
     {
-      title: "Cookies and Tracking Technologies",
+      title: "Cookies and Tracking",
       content:
-        "7.1 NATP utilizes cookies and similar tools to ensure site efficiency, analyze visitor behavior, and enhance user experience.</br>7.2 You may modify cookie settings through your browser; however, doing so may impact certain website functionalities.",
+        "7.1 We use cookies and similar tools to keep our site running smoothly, understand how visitors use it, and improve your experience.</br>7.2 You can change your cookie settings in your browser, but some features may not work as well if you do.",
     },
     {
-      title: "Data Retention",
+      title: "How Long We Keep Your Data",
       content:
-        "8.1 We retain personal data only as long as necessary to fulfill the stated purposes or as required by applicable laws.</br>8.2 Once the data retention period expires, data is securely erased or anonymized.",
+        "8.1 We keep your personal information only as long as needed for our services or as required by law.</br>8.2 When we no longer need it, we securely delete or anonymize your data.",
     },
     {
-      title: "Changes to This Policy",
+      title: "Policy Updates",
       content:
-        "9.1 We may update this policy from time to time. Modifications will be published on our website, and material changes will be communicated directly to users.</br>9.2 Continued use of our services after such updates implies acceptance of the revised Privacy Policy.",
+        "9.1 We may update this policy from time to time. Changes will be posted here, and we’ll let you know about any major updates.</br>9.2 By continuing to use our services after changes, you accept the updated policy.",
     },
     {
-      title: "Protection of Children's Data",
+      title: "Children’s Privacy",
       content:
-        "10.1 Our services are not intended for individuals under 13 years of age, and we do not knowingly collect data from children.",
+        "10.1 Our services aren’t meant for children under 13, and we don’t knowingly collect information from them.",
     },
     {
-      title: "Contact",
+      title: "Contact Us",
       content:
-        "Questions, concerns, or requests related to this Privacy Policy should be directed to info@natp-trademark.com.",
+        "If you have any questions or concerns about this Privacy Policy, please reach out to us at info@natp-trademark.com.",
     },
     {
       title: "Effective Date",
       content:
-        "This Privacy Policy is effective as of January 1, 2025, and complies with applicable U.S. data protection laws.",
+        "This Privacy Policy takes effect on January 1, 2025, and follows U.S. data protection laws.",
     },
   ];
 

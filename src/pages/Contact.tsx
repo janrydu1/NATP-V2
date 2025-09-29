@@ -175,7 +175,7 @@ export default function Contact() {
           </div>
 
           {/* Info Cards */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-2 gap-6">
             <div className="bg-white border border-blue-100 shadow-sm rounded-2xl p-6 hover:shadow-md transition">
               <Mail className="w-6 h-6 text-blue-600 mb-3" />
               <p className="text-sm text-slate-500">Email</p>
@@ -184,16 +184,16 @@ export default function Contact() {
               </p>
             </div>
 
-            <div className="bg-white border border-blue-100 shadow-sm rounded-2xl p-6 hover:shadow-md transition">
+            {/* <div className="bg-white border border-blue-100 shadow-sm rounded-2xl p-6 hover:shadow-md transition">
               <MapPin className="w-6 h-6 text-blue-600 mb-3" />
               <p className="text-sm text-slate-500">Office</p>
               <p className="text-blue-700 font-semibold">Mumbai, India</p>
-            </div>
+            </div> */}
 
             <div className="bg-white border border-blue-100 shadow-sm rounded-2xl p-6 hover:shadow-md transition">
               <Clock className="w-6 h-6 text-blue-600 mb-3" />
               <p className="text-sm text-slate-500">Support Hours</p>
-              <p className="text-blue-700 font-semibold">Mon–Fri, 9am–6pm</p>
+              <p className="text-blue-700 font-semibold">8am-4pm EST</p>
             </div>
           </div>
 
@@ -214,9 +214,9 @@ export default function Contact() {
         <div className="bg-blue-50 rounded-xl py-16">
           <div className="relative container mx-auto px-4 py-16 max-w-7xl">
             <div className="text-center space-y-4 pb-6 mx-auto">
-              <h2 className="text-sm text-blue-600 font-mono font-medium tracking-wider uppercase">
+              {/* <h2 className="text-sm text-blue-600 font-mono font-medium tracking-wider uppercase">
                 Ready to get started?
-              </h2>
+              </h2> */}
               <h3 className="mx-auto mt-4 max-w-xs text-3xl font-semibold sm:max-w-none sm:text-4xl md:text-5xl text-blue-700">
                 Subscribe for the latest updates today.
               </h3>

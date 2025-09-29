@@ -61,17 +61,15 @@ export default function Index() {
       transition={{ duration: 0.6 }}>
       <Navbar />
 
-      {/* Hero / Introduction */}
       <section className="relative overflow-hidden bg-white">
         <Hero />
-        {/* You can overlay a subtle pattern or gradient if desired */}
       </section>
 
       <div className="relative container mx-auto px-4 py-16 max-w-7xl">
         <div className="text-center space-y-4 pb-6 mx-auto">
-          <h2 className="text-sm text-blue-600 font-mono font-medium tracking-wider uppercase">
+          {/* <h2 className="text-sm text-blue-600 font-mono font-medium tracking-wider uppercase">
             Problem
-          </h2>
+          </h2> */}
           <h3 className="mx-auto mt-4 max-w-xs text-2xl font-semibold sm:max-w-none sm:text-4xl md:text-5xl">
             Empowering Brands with Visibility & Protection
           </h3>
@@ -191,9 +189,9 @@ export default function Index() {
         {/* <HomeBento /> */}
         <div className="max-w-7xl mx-auto px-4 relative container py-16">
           <div className="text-center space-y-4 pb-6 mx-auto">
-            <h2 className="text-sm text-blue-600 font-mono font-medium tracking-wider uppercase">
+            {/* <h2 className="text-sm text-blue-600 font-mono font-medium tracking-wider uppercase">
               Solution
-            </h2>
+            </h2> */}
             <h3 className="mx-auto mt-4 max-w-xs text-3xl font-semibold sm:max-w-none sm:text-4xl md:text-5xl">
               A four-step process to bring your trademark into public view—and
               back it with content.
@@ -287,27 +285,24 @@ export default function Index() {
       <section className="bg-white">
         <div className="flex flex-col md:flex-row items-start justify-between gap-10 py-20 px-4 bg-white max-w-5xl mx-auto">
           <div className="w-full md:w-1/2 mb-8 md:mb-0">
-            <h2 className="text-sm text-blue-600 font-mono font-medium tracking-wider uppercase mb-3">
+            {/* <h2 className="text-sm text-blue-600 font-mono font-medium tracking-wider uppercase mb-3">
               Proven Results
-            </h2>
+            </h2> */}
             <h2 className="text-2xl sm:text-3xl md:text-[35px] leading-snug font-bold text-[#333747] text-center md:text-left">
-              Explore our track record in effective brand visibility and
-              registration support.
+              Discover how we've helped brands achieve strong visibility and successful trademark registration.
             </h2>
           </div>
           <div className="w-full md:w-1/2 space-y-6">
             <p className="text-[#333747] text-base sm:text-lg font-semibold leading-relaxed text-center md:text-left">
-              Our services achieve consistently high success rates, securing the
-              visibility your brand requires. Numerous clients have relied on
-              our expertise to strengthen their market presence.
+              We deliver outstanding results, helping brands gain the visibility they need. Many clients trust our expertise to enhance their market impact and secure successful trademark registration.
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               <div className="text-center sm:text-left">
                 <p className="text-4xl sm:text-5xl font-semibold text-[#333747] mb-3">
-                  95%
+                  98%+
                 </p>
                 <p className="text-sm sm:text-base text-[#333747]">
-                  Client satisfaction remains our core commitment.
+                  Our top priority is ensuring every client’s satisfaction.
                 </p>
               </div>
               <div className="text-center sm:text-left">
@@ -315,7 +310,7 @@ export default function Index() {
                   100%
                 </p>
                 <p className="text-sm sm:text-base text-[#333747]">
-                  All trademark publications adhere to strict quality standards.
+                  Every trademark publication meets rigorous quality benchmarks.
                 </p>
               </div>
             </div>
@@ -326,9 +321,9 @@ export default function Index() {
       {/* FAQs */}
       <section id="faqs" className="py-20 px-6 bg-gray-50">
         <div className="max-w-4xl mx-auto text-center mb-8">
-          <h2 className="text-sm text-blue-600 font-mono font-medium tracking-wider uppercase">
+          {/* <h2 className="text-sm text-blue-600 font-mono font-medium tracking-wider uppercase">
             FAQ
-          </h2>
+          </h2> */}
           <h3 className="mx-auto mt-4 max-w-xs text-3xl font-semibold sm:max-w-none sm:text-4xl md:text-5xl">
             Frequently Asked Questions
           </h3>

@@ -56,7 +56,7 @@ export default function Apply() {
           <line x1={12} x2={12} y1={3} y2={15} />
         </svg>
       ),
-      image: "https://img.freepik.com/free-photo/person-using-laptop_53876-95246.jpg?t=st=1758874305~exp=1758877905~hmac=44a4f6f1f5b2d5e77c4e5d2467d877e4828a722a0b468e892c3333c7831d6585&w=2000",
+      image: "/images/search_first.jpg",
     },
     {
       title: "Expert Review",
@@ -77,7 +77,7 @@ export default function Apply() {
           <path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z" />
         </svg>
       ),
-      image: "https://img.freepik.com/free-photo/document-marketing-strategy-business-concept_53876-132234.jpg?t=st=1758874396~exp=1758877996~hmac=7f783200cdc59cd45c9845aee5e08a897dff6c33c90449b9d2a885d30ff16c1c&w=2000",
+      image: "/images/apply_expert.png",
     },
     {
       title: "Live Publication",
@@ -102,7 +102,7 @@ export default function Apply() {
           <path d="M5 18H3" />
         </svg>
       ),
-      image: "https://img.freepik.com/free-photo/e-book-digital-magazine-collection-publishment-download-graphic_53876-132179.jpg?t=st=1758874447~exp=1758878047~hmac=0a8169897449f6a700717665ad8f05ea6bef266aa456975782744d4141ba0131&w=2000",
+      image: "/images/apply_visibility.png",
     },
   ];
 
@@ -510,9 +510,9 @@ export default function Apply() {
           <div>
             <div className="relative container mx-auto px-4 py-16 max-w-7xl">
               <div className="text-center space-y-4 pb-6 mx-auto">
-                <h2 className="text-sm text-blue-600 font-mono font-medium tracking-wider uppercase">
+                {/* <h2 className="text-sm text-blue-600 font-mono font-medium tracking-wider uppercase">
                   How it works
-                </h2>
+                </h2> */}
                 <h3 className="mx-auto mt-4 max-w-xs text-3xl font-semibold sm:max-w-none sm:text-4xl md:text-5xl text-blue-700">
                   Just 3 steps to get started
                 </h3>

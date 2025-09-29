@@ -33,10 +33,10 @@ export default function Search() {
       title: "Instant Trademark Lookup",
       description:
         "Search by application number or owner name and instantly see published trademarks.",
-      image: "/images/search_first.jpg",
+      image: "/images/search_first1.png",
     },
     {
-      title: "Updated Daily",
+      title: "Updated  regularly",
       description:
         "Our database is refreshed every day to provide the latest trademark information.",
       image: "/images/search_second.jpg",
@@ -258,9 +258,9 @@ export default function Search() {
         <div>
           <div className="relative container mx-auto px-4 py-16 max-w-7xl">
             <div className="text-center space-y-4 pb-6 mx-auto">
-              <h2 className="text-sm text-primary font-mono font-medium tracking-wider uppercase">
+              {/* <h2 className="text-sm text-primary font-mono font-medium tracking-wider uppercase">
                 Features
-              </h2>
+              </h2> */}
               <h3 className="mx-auto mt-4 max-w-xs text-3xl font-semibold sm:max-w-none sm:text-4xl md:text-5xl text-blue-700">
                 Why Our Search Stands Out
               </h3>
@@ -368,7 +368,7 @@ export default function Search() {
                     <div className="w-auto overflow-hidden relative rounded-xl">
                       <img
                         alt="feature"
-                        className="aspect-auto h-[30rem] w-full object-cover relative border border-zinc-200 rounded-xl shadow-lg transition-opacity duration-500"
+                        className="aspect-auto h-[45rem] w-full object-cover relative border border-zinc-200 rounded-xl shadow-lg transition-opacity duration-500"
                         src={features[activeFeatureIndex].image}
                         style={{
                           opacity: "1",
@@ -449,9 +449,9 @@ export default function Search() {
       {/* FAQ Section */}
       <section id="faqs" className="py-20 px-6 bg-gray-50">
         <div className="max-w-4xl mx-auto text-center mb-8">
-          <h2 className="text-sm text-blue-600 font-mono font-medium tracking-wider uppercase">
+          {/* <h2 className="text-sm text-blue-600 font-mono font-medium tracking-wider uppercase">
             FAQ
-          </h2>
+          </h2> */}
           <h3 className="mx-auto mt-4 max-w-xs text-3xl font-semibold sm:max-w-none sm:text-4xl md:text-5xl">
             Frequently Asked Questions
           </h3>

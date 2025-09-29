@@ -32,7 +32,7 @@ export default function Publication() {
       id: 3,
       title: "Your Trademark Goes Live",
       description:
-        "Once approved, your trademark is published and visible for clients and partners worldwide.",
+        "Once approved, your trademark is visible and accessible for clients and partners worldwide.",
       icon: <Globe className="w-6 h-6 text-blue-600" />,
       image:
         "https://plus.unsplash.com/premium_vector-1682310922955-ea5e6f791471?fm=jpg&q=60&w=1200",
@@ -336,8 +336,9 @@ export default function Publication() {
               Stay Ahead with Accurate, Updated Data
             </h2>
             <p className="text-black text-lg md:text-xl font-light leading-relaxed">
-              We refresh trademark records daily, keeping your brand visible,
-              reliable, and competitive in today’s fast-changing marketplace.
+              We refresh trademark records regularly, keeping your brand
+              visible, reliable, and competitive in today’s fast-changing
+              marketplace.
             </p>
           </div>
           <div className="bg-blue-100 rounded-2xl p-10 shadow-inner">

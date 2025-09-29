@@ -67,7 +67,7 @@ export const Navbar = () => {
       className={`${
         isScrolled
           ? "sticky top-0 inset-x-0 bg-background/90 backdrop-blur-md border-b border-white/60 shadow-sm "
-          : "absolute top-0 inset-x-0 bg-transparent"
+          : "absolute top-0 inset-x-0 bg-transparent text-white"
       } z-50 w-full transition-all duration-300`}>
       <div className="mx-auto flex h-16 w-full max-w-6xl items-center justify-between px-4 sm:px-6 lg:px-8">
         <motion.div
@@ -75,7 +75,7 @@ export const Navbar = () => {
           animate={{ x: 0, opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.2 }}>
           <Link to="/" className="flex items-center gap-2">
-            logo
+            <h1 className="font-bold">ATP Service Inc</h1>
           </Link>
         </motion.div>
 
@@ -151,7 +151,7 @@ export const Navbar = () => {
             whileHover={{ scale: 1.05 }}
             transition={{ duration: 0.2 }}>
             <Link to="/search" className={desktopLinkClasses}>
-              Resource Hub
+              Database
             </Link>
           </motion.div>
 
@@ -243,7 +243,7 @@ export const Navbar = () => {
                   to="/search"
                   className={mobileLinkClasses}
                   onClick={() => setIsMenuOpen(false)}>
-                  Resource Hub
+                  Database
                 </Link>
 
                 <Link

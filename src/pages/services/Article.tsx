@@ -17,22 +17,19 @@ export default function Article() {
       text: "Their optimized articles put our brand exactly where it matters most - directly in front of our audience. The visibility we've gained has been incredible, and the trust we've built through valuable content has positioned us as an industry leader.",
       name: "Sarah Johnson",
       role: "Marketing Director",
-      company: "Google",
-      logo: "https://cdn.magicui.design/companies/Google.svg",
+      company: "ABC Ltd",
     },
     {
       text: "The memorable content they created helped us rise above the noise and truly show what makes our brand unique. They combine creativity with strategy so our articles don't just exist — they perform and deliver real results.",
       name: "Michael Chen",
       role: "Brand Manager",
-      company: "Microsoft",
-      logo: "https://cdn.magicui.design/companies/Microsoft.svg",
+      company: "XYZ Inc.",
     },
     {
       text: "Strong content truly builds trust, attracts attention, and grows influence. It's not just about words — it's about creating lasting impressions that resonate with our target audience and drive meaningful engagement.",
       name: "Emma Rodriguez",
       role: "Content Strategist",
-      company: "Amazon",
-      logo: "https://cdn.magicui.design/companies/Amazon.svg",
+      company: "ABC Ltd",
     },
   ];
 
@@ -375,9 +372,9 @@ export default function Article() {
       <section id="testimonial-highlight" className="py-20 px-6">
         <div className="relative container mx-auto px-4 py-16 max-w-7xl">
           <div className="text-center space-y-4 pb-6 mx-auto">
-            <h2 className="text-sm text-blue-600 font-mono font-medium tracking-wider uppercase">
+            {/* <h2 className="text-sm text-blue-600 font-mono font-medium tracking-wider uppercase">
               Client Success Stories
-            </h2>
+            </h2> */}
             <h3 className="mx-auto mt-4 max-w-xs text-3xl font-semibold sm:max-w-none sm:text-4xl md:text-5xl">
               What our customers are saying
             </h3>
@@ -414,14 +411,9 @@ export default function Article() {
                           </h4>
 
                           <div className="mt-8">
-                            <img
-                              alt={`${testimonial.company} Logo`}
-                              loading="lazy"
-                              width={0}
-                              height={40}
-                              className="mx-auto w-auto h-[40px] grayscale opacity-30"
-                              src={testimonial.logo}
-                            />
+                            <h1 className="text-2xl font-bold text-gray-900">
+                              {testimonial.company}
+                            </h1>
                           </div>
 
                           <div className="mt-6">
