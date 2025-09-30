@@ -51,7 +51,7 @@ export const Navbar = () => {
 
   const ctaClasses = isScrolled
     ? "px-4 py-2 text-sm font-semibold rounded-full bg-primary text-primary-foreground transition-colors hover:bg-primary/90 border border-black"
-    : "px-4 py-2 text-sm font-semibold rounded-full border border-white text-white transition-colors hover:border-white/70";
+    : "px-4 py-2 text-sm font-semibold rounded-full border border-blue-700 transition-colors hover:border-blue-800 text-blue-700";
 
   const mobileLinkClasses =
     "text-base font-medium text-foreground transition-colors hover:text-primary";
@@ -67,7 +67,7 @@ export const Navbar = () => {
       className={`${
         isScrolled
           ? "sticky top-0 inset-x-0 bg-background/90 backdrop-blur-md border-b border-white/60 shadow-sm "
-          : "absolute top-0 inset-x-0 bg-transparent text-white"
+          : "absolute top-0 inset-x-0 bg-transparent"
       } z-50 w-full transition-all duration-300`}>
       <div className="mx-auto flex h-16 w-full max-w-6xl items-center justify-between px-4 sm:px-6 lg:px-8">
         <motion.div

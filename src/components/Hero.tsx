@@ -35,7 +35,7 @@ const Hero = () => {
       animate={{ opacity: 1 }}
       transition={{ duration: 1 }}
       className={`relative w-full z-0 flex items-center justify-center transition-all duration-500 ${
-        isIndexPage ? (isScrolled ? "h-[70vh]" : "h-screen") : "h-[70vh] pt-20"
+        isIndexPage ? (isScrolled ? "h-[70vh]" : "h-screen") : "h-[70vh] "
       }`}
       style={{
         backgroundImage: "url('/images/banner.png')",
@@ -43,7 +43,7 @@ const Hero = () => {
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
       }}>
-      <div className="absolute inset-0 bg-black/50 backdrop-blur-lg z-10" />
+      <div className="absolute inset-0 backdrop-blur-[2px] z-10" />
 
       <div className="relative flex w-full flex-col items-center justify-center px-4 pt-0 sm:px-6 z-20 min-h-full">
         <a
@@ -65,31 +65,31 @@ const Hero = () => {
         </a>
         <div className="flex w-full max-w-2xl flex-col space-y-4 overflow-hidden text-center">
           <h1
-            className="text-center text-4xl font-medium leading-tight text-white sm:text-5xl md:text-6xl"
+            className="text-center text-4xl font-extrabold leading-tight text-black sm:text-5xl md:text-6xl"
             style={{ filter: "blur(0px)", opacity: 1, transform: "none" }}>
             <span
-              className="inline-block px-1 md:px-2 text-balance font-semibold"
+              className="inline-block px-1 md:px-2 text-balance"
               style={{ opacity: 1, transform: "none" }}>
               Start Your
             </span>
             <span
-              className="inline-block px-1 md:px-2 text-balance font-semibold"
+              className="inline-block px-1 md:px-2 text-balance"
               style={{ opacity: 1, transform: "none" }}>
               Trademark
             </span>
             <span
-              className="inline-block px-1 md:px-2 text-balance font-semibold"
+              className="inline-block px-1 md:px-2 text-balance"
               style={{ opacity: 1, transform: "none" }}>
               Publication Journey
             </span>
             <span
-              className="inline-block px-1 md:px-2 text-balance font-semibold"
+              className="inline-block px-1 md:px-2 text-balance"
               style={{ opacity: 1, transform: "none" }}>
               Now
             </span>
           </h1>
           <p
-            className="mx-auto max-w-xl text-center text-lg leading-7 text-white/70 sm:text-xl sm:leading-9 text-balance"
+            className="mx-auto max-w-xl text-center text-lg leading-7 text-black sm:text-xl sm:leading-9 text-balance"
             style={{ opacity: 1, transform: "none" }}>
             Get started today to enhance your brand’s visibility and protect it
             with professional guidance.
@@ -100,7 +100,7 @@ const Hero = () => {
           style={{ opacity: 1, transform: "none" }}>
             <Link
             to="/apply"
-            className="bg-blue-600 hover:bg-blue-700 text-white rounded flex items-center p-2 pr-4 gap-2 border-2 border-blue-600 hover:border-blue-700"
+            className="bg-blue-600 hover:bg-blue-700 text-white rounded-xl flex items-center p-2 pr-4 gap-2 border-2 border-blue-600 hover:border-blue-700"
             >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -120,7 +120,7 @@ const Hero = () => {
             </Link>
             <Link
             to="/services"
-            className="border-2 border-gray-300 hover:border-gray-400 bg-white text-gray-700 hover:bg-gray-50 rounded flex items-center p-2 pr-4 gap-2"
+            className="border-2 border-gray-800 hover:border-gray-800 bg-black text-white hover:bg-zinc-800 rounded-xl flex items-center p-2 pr-4 gap-2"
             >
             <svg
               xmlns="http://www.w3.org/2000/svg"
