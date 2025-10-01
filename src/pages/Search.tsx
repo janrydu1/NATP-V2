@@ -164,7 +164,7 @@ export default function Search() {
     {
       question: "Can I search multiple times?",
       answer:
-        "Yes, you can perform unlimited searches using different terms or criteria. Our database is updated daily, so you always get the latest trademark data. Feel free to experiment with various keywords to find the most relevant results.",
+        "Yes, you can perform unlimited searches using different terms or criteria. Our database is updated regularly, so you always get the latest trademark data. Feel free to experiment with various keywords to find the most relevant results.",
     },
     {
       question: "Need help?",
