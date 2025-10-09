@@ -35,7 +35,7 @@ const Hero = () => {
       animate={{ opacity: 1 }}
       transition={{ duration: 1 }}
       className={`relative w-full z-0 flex items-center justify-center transition-all duration-500 ${
-        isIndexPage ? (isScrolled ? "h-[70vh]" : "h-screen") : "h-[70vh] "
+        isIndexPage ? (isScrolled ? "h-[70vh]" : "h-screen") : "h-[70vh]"
       }`}
       style={{
         backgroundImage: "url('/images/banner.png')",
@@ -45,7 +45,7 @@ const Hero = () => {
       }}>
       <div className="absolute inset-0 backdrop-blur-[2px] z-10" />
 
-      <div className="relative flex w-full flex-col items-center justify-center px-4 pt-0 sm:px-6 z-20 min-h-full">
+      <div className="relative flex w-full flex-col items-center justify-center px-4 pt-0 sm:px-6 z-20 min-h-full mb-48">
         <a
           href="/blog/introducing-acme-ai"
           className="flex w-auto items-center space-x-2 rounded-full bg-primary/20 px-2 py-1 ring-1 ring-accent whitespace-pre mb-8"
