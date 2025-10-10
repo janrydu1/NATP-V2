@@ -32,7 +32,7 @@ export default function PrivacyPolicy() {
     {
       title: "Your Rights",
       content:
-        "6.1 You can ask to see, correct, or delete your personal information by contacting info@atp-trademark.com.</br>6.2 You also have the right to limit or object to how we use your data, as allowed by U.S. privacy laws.",
+        "6.1 You can ask to see, correct, or delete your personal information by contacting help@atpregistry.com</br>6.2 You also have the right to limit or object to how we use your data, as allowed by U.S. privacy laws.",
     },
     {
       title: "Cookies and Tracking",
@@ -57,7 +57,7 @@ export default function PrivacyPolicy() {
     {
       title: "Contact Us",
       content:
-        "If you have any questions or concerns about this Privacy Policy, please reach out to us at info@natatpp-trademark.com.",
+        "If you have any questions or concerns about this Privacy Policy, please reach out to us at help@atpregistry.com",
     },
     {
       title: "Effective Date",
