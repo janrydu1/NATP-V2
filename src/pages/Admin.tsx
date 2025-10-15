@@ -50,16 +50,15 @@ export default function Admin() {
   useEffect(() => {
     // Listen for tab change events from AdminLayout
     const handleTabChange = (event: CustomEvent<string>) => {
-      setSearchParams({ tab: event.detail });
+      setSearchParams((prev) => {
+        const newParams = new URLSearchParams(prev);
+        newParams.set("tab", event.detail);
+        return newParams;
+      });
     };
 
     window.addEventListener("adminTabChange", handleTabChange as EventListener);
 
-    // Update tab when URL changes
-    const tab = searchParams.get("tab");
-    if (tab) {
-      setSearchParams({ tab });
-    }
     fetchData();
 
     return () => {
@@ -108,7 +107,12 @@ export default function Admin() {
   };
 
   const handleTabChange = (value: string) => {
-    setSearchParams({ tab: value });
+    setSearchParams((prev) => {
+      const newParams = new URLSearchParams(prev);
+      newParams.set("tab", value);
+      newParams.delete("bulkUpload"); // Remove bulkUpload when changing tabs
+      return newParams;
+    });
   };
 
   const handleCreate = () => {

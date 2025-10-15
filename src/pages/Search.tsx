@@ -225,7 +225,7 @@ export default function Search() {
           <Input
             type="text"
             placeholder="Enter application number, owner, or company name..."
-            className="flex-1 h-14 text-blue-900 border-2 border-blue-200 focus:border-blue-500 rounded px-4 shadow-sm"
+            className="flex-1 h-14 text-blue-900 border-2 border-blue-200 focus:border-blue-500 rounded px-4 shadow-sm md:text-lg"
             value={inputValue}
             onChange={(e) => setInputValue(e.target.value)}
           />
@@ -262,7 +262,7 @@ export default function Search() {
               {/* <h2 className="text-sm text-primary font-mono font-medium tracking-wider uppercase">
                 Features
               </h2> */}
-              <h3 className="mx-auto mt-4 max-w-xs text-3xl font-semibold sm:max-w-none sm:text-4xl md:text-5xl text-blue-700">
+              <h3 className="mx-auto mt-20 max-w-xs text-3xl font-semibold sm:max-w-none sm:text-4xl md:text-5xl text-blue-700">
                 Why Our Search Stands Out
               </h3>
             </div>

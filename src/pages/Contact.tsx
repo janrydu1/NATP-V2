@@ -167,6 +167,23 @@ export default function Contact() {
                   </>
                 )}
               </button>
+              <div className="flex items-start space-x-3 p-4 rounded-xl bg-white border border-slate-200 shadow-sm">
+                <input
+                  type="checkbox"
+                  id="agree"
+                  className="mt-1 text-blue-600 focus:ring-blue-500 rounded"
+                  checked={formData.agreedToTerms}
+                  onChange={(e) => handleCheckboxChange(e.target.checked)}
+                />
+                <Label htmlFor="agree" className="text-slate-600 text-sm">
+                  I agree to the{" "}
+                  <a
+                    href="/terms"
+                    className="underline text-blue-600 hover:text-blue-700 font-medium">
+                    Terms of Service
+                  </a>
+                </Label>
+              </div>
 
               <p className="text-xs text-slate-500 text-center">
                 We usually reply within 24 hours.
@@ -260,7 +277,7 @@ export default function Contact() {
                 <button
                   type="submit"
                   disabled={isNewsletterSubmitting}
-                  className="items-center justify-center whitespace-nowrap rounded text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] bg-blue-600 shadow-xs hover:bg-blue-700 h-9 px-4 py-4 w-full sm:w-auto text-white flex gap-2">
+                  className="items-center justify-center whitespace-nowrap rounded text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] bg-blue-600 shadow-xs hover:bg-blue-700 h-9 px-4 py-5 w-full sm:w-auto text-white flex gap-2 border-2 border-blue-600 hover:border-blue-700">
                   {isNewsletterSubmitting ? (
                     "Subscribing..."
                   ) : (

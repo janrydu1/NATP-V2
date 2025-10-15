@@ -193,7 +193,7 @@ export default function Index() {
               Solution
             </h2> */}
             <h3 className="mx-auto mt-4 max-w-xs text-3xl font-semibold sm:max-w-none sm:text-4xl md:text-5xl">
-              A four-step process to bring your trademark into public view—and
+              A four-step process to bring your trademark into public view and
               back it with content.
             </h3>
           </div>
