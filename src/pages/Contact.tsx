@@ -180,7 +180,7 @@ export default function Contact() {
               <Mail className="w-6 h-6 text-blue-600 mb-3" />
               <p className="text-sm text-slate-500">Email</p>
               <p className="text-blue-700 font-semibold">
-                support@yourbrand.com
+                help@atpregistry.com
               </p>
             </div>
 
