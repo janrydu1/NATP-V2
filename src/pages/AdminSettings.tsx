@@ -455,6 +455,7 @@ export default function AdminSettings() {
                 />
               </div>
             </div>
+            
             <DialogFooter>
               <Button
                 variant="outline"
