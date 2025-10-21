@@ -24,27 +24,38 @@ export default function Index() {
     {
       question: "What does trademark publication involve?",
       answer:
-        "Trademark publication is the process of formally announcing your trademark in an official registry, making it visible to the public and allowing third parties to review and potentially raise objections. This step is crucial for establishing legal recognition and protection of your brand. It also helps build trust with customers and partners by demonstrating your commitment to brand integrity and compliance.",
+        "Trademark publication through our private registry showcases your brand to a wider and more relevant audience. This visibility helps your trademark gain recognition, strengthens its presence, and builds familiarity and trust among your ideal target market. Our process is designed to position your brand where it resonates; enhancing awareness and long-term brand value.",
     },
     {
       question: "Who crafts the content / articles?",
       answer:
-        "Our dedicated content team researches your brand, industry, and target audience to create original articles and blog posts tailored to your unique voice and objectives. We never use generic templates; instead, we collaborate closely with you to ensure every piece aligns with your messaging and supports your SEO goals. You’ll have opportunities to review drafts and request revisions to guarantee the content meets your expectations.",
+        "Our content team researches your brand, industry, and audience to create original articles and branded features tailored to your message. We never use templates. Each piece is crafted to reflect your brand identity and engage the right audience. You’ll review and approve drafts to ensure every publication perfectly aligns with your goals and tone.",
     },
     {
       question: "What SEO services are included?",
       answer:
-        "Our SEO services cover comprehensive keyword research, on-page optimization, technical improvements, outreach for backlinks, internal linking strategies, and ongoing performance monitoring. We focus on building sustainable organic growth by improving your website’s visibility in search engines, driving qualified traffic, and enhancing your brand’s authority online. You’ll receive regular reports and recommendations to maximize results.",
+        "Our SEO approach focuses on strategic visibility across search engines and our own publication ecosystem. We optimize your content structure, backlinks, and discoverability; ensuring your brand reaches the right readers and remains visible long-term. You’ll receive regular updates and insights to track performance and audience engagement.",
     },
     {
       question: "How to initiate the process?",
       answer:
-        "To get started, simply fill out our online form with your trademark details and business information. Our team will review your submission, clarify any questions, and send you a detailed proposal outlining the steps, timeline, and pricing. Once you approve the proposal, we begin the trademark publication and content creation process, keeping you informed at every stage and providing support as needed.",
+        "To begin, simply submit your trademark details and brand information through our online form. Our team reviews your submission, clarifies any details, and sends you a proposal outlining the next steps. Once approved, we begin the publication and content creation process, keeping you informed throughout and providing full support at every stage.",
     },
     {
       question: "Can I request edits later?",
       answer:
-        "Absolutely. We understand that brands evolve and your needs may change over time. You can request updates to published content, new articles, or changes to your trademark information whenever necessary. Our team will work with you to implement edits promptly and ensure your brand stays relevant and accurately represented.",
+        "Absolutely. Brands evolve and your publication can evolve with them. You can request updates to published content, add new features, or refine your trademark presentation anytime. Our team ensures every revision keeps your brand relevant, accurate, and aligned with your evolving strategy.",
+    },
+    {
+      question: "Where is my trademark displayed?",
+      answer:
+        "Your brand is published within our curated private registry; a network designed for visibility, credibility, and audience relevance. It allows your trademark to be seen by businesses, investors, and readers within your industry segment, building recognition and long-term recall.",
+    },
+    {
+      question:
+        "How does private publication differ from official registration?",
+      answer:
+        "While official registration secures legal ownership, private publication focuses on recognition and awareness. Our process amplifies your brand’s presence and connects it to audiences who matter; ensuring your trademark is not just protected, but remembered.",
     },
   ];
 
@@ -71,8 +82,12 @@ export default function Index() {
             Problem
           </h2> */}
           <h3 className="mx-auto mt-4 max-w-xs text-2xl font-semibold sm:max-w-none sm:text-4xl md:text-5xl">
-            Empowering Brands with Visibility & Protection
+            Empowering Brands to Publish. Protect. Grow.
           </h3>
+          <p className="mx-auto pt-2">
+            Expert-driven publication, optimization, and branded content - built
+            to strengthen your trademark visibility and safeguard your identity.
+          </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
           <div
@@ -110,8 +125,8 @@ export default function Index() {
                 </div>
                 <h3 className="text-xl font-semibold">Trademark Publishing</h3>
                 <p className="text-muted-foreground">
-                  We manage registry publication so your brand gains formal
-                  visibility.
+                  We manage the full publication process, ensuring your
+                  trademark gains verified visibility in the official registry.
                 </p>
               </div>
             </div>
@@ -143,8 +158,8 @@ export default function Index() {
                 </div>
                 <h3 className="text-xl font-semibold">Strategic SEO Growth</h3>
                 <p className="text-muted-foreground">
-                  We optimize content + structure + outreach so your brand gets
-                  found.
+                  We refine your structure, content, and outreach to make sure
+                  your brand gets found; and stays found.
                 </p>
               </div>
             </div>
@@ -174,10 +189,10 @@ export default function Index() {
                     <path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" />
                   </svg>
                 </div>
-                <h3 className="text-xl font-semibold">Brand-aware Content</h3>
+                <h3 className="text-xl font-semibold">Brand-Aligned Content</h3>
                 <p className="text-muted-foreground">
-                  Tailored articles and blog pieces that align with your voice
-                  and audience.
+                  We craft authentic articles and narratives that amplify your
+                  trademark story and connect with your audience.
                 </p>
               </div>
             </div>
@@ -193,9 +208,12 @@ export default function Index() {
               Solution
             </h2> */}
             <h3 className="mx-auto mt-4 max-w-xs text-3xl font-semibold sm:max-w-none sm:text-4xl md:text-5xl">
-              A four-step process to bring your trademark into public view and
-              back it with content.
+              Our Four-Step Process
             </h3>
+            <p>
+              From submission to visibility - a seamless path to publish and
+              protect your brand.
+            </p>
           </div>
           <BentoGrid className="max-w-6xl mx-auto md:auto-rows-[18rem] grid-cols-1 md:grid-cols-4 gap-4 mt-16">
             <BentoCard
@@ -213,7 +231,7 @@ export default function Index() {
                 />
               }
               Icon={Eye}
-              description="Put your trademark in the spotlight. We make your brand discoverable and trusted by ensuring it's seen where it matters most."
+              description="Provide your trademark details. We ensure your brand is discoverable and visible where it matters most."
               href="/services/publication"
               cta="Explore More"
             />
@@ -233,7 +251,7 @@ export default function Index() {
                 />
               }
               Icon={Globe}
-              description="We send you a proposal. On approval, we start work."
+              description="We prepare your tailored publication plan. Once approved, we move straight to execution."
               href="/services/seo"
               cta="Explore More"
             />
@@ -253,7 +271,7 @@ export default function Index() {
                 />
               }
               Icon={PenTool}
-              description="We publish your trademark and produce branded content."
+              description="Your trademark is formally published - supported by original branded content to enhance reach and recognition."
               href="/services/article"
               cta="Learn More"
             />
@@ -273,7 +291,7 @@ export default function Index() {
                 />
               }
               Icon={TrendingUp}
-              description="Ongoing SEO, edits, and support to keep your brand visible."
+              description="We monitor, update, and optimize your trademark presence for sustained visibility and growth."
               href="/services/analytics"
               cta="View Details"
             />
@@ -289,12 +307,15 @@ export default function Index() {
               Proven Results
             </h2> */}
             <h2 className="text-2xl sm:text-3xl md:text-[35px] leading-snug font-bold text-[#333747] text-center md:text-left">
-              Discover how we've helped brands achieve strong visibility and successful trademark registration.
+              Building Trusted Visibility for Every Brand
             </h2>
           </div>
           <div className="w-full md:w-1/2 space-y-6">
             <p className="text-[#333747] text-base sm:text-lg font-semibold leading-relaxed text-center md:text-left">
-              We deliver outstanding results, helping brands gain the visibility they need. Many clients trust our expertise to enhance their market impact and secure successful trademark registration.
+              Our focus is simple — delivering clarity, visibility, and
+              protection for your brand. Clients rely on our expertise to
+              strengthen their market presence and secure successful trademark
+              publication with measurable results.
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               <div className="text-center sm:text-left">
@@ -302,7 +323,8 @@ export default function Index() {
                   98%+
                 </p>
                 <p className="text-sm sm:text-base text-[#333747]">
-                  Our top priority is ensuring every client’s satisfaction.
+                  Client satisfaction achieved through transparent process and
+                  consistent support.
                 </p>
               </div>
               <div className="text-center sm:text-left">
@@ -310,7 +332,8 @@ export default function Index() {
                   100%
                 </p>
                 <p className="text-sm sm:text-base text-[#333747]">
-                  Every trademark publication meets rigorous quality benchmarks.
+                  Every publication meets rigorous verification and quality
+                  standards.
                 </p>
               </div>
             </div>
@@ -324,9 +347,15 @@ export default function Index() {
           {/* <h2 className="text-sm text-blue-600 font-mono font-medium tracking-wider uppercase">
             FAQ
           </h2> */}
-          <h3 className="mx-auto mt-4 max-w-xs text-3xl font-semibold sm:max-w-none sm:text-4xl md:text-5xl">
-            Frequently Asked Questions
+          <h3 className="mx-auto mt-4 mb-5 max-w-xs text-3xl font-semibold sm:max-w-none sm:text-4xl md:text-5xl">
+            Your Questions, Answered.
           </h3>
+          <span>We believe transparency builds trust.</span>
+          <p className="pt-2">
+            Here’s everything you need to know about how our private trademark
+            publication works; from visibility and content creation to updates
+            and SEO support.
+          </p>
         </div>
         <div className="max-w-4xl mx-auto space-y-4">
           {faqs.map((faq, i) => (
@@ -360,15 +389,18 @@ export default function Index() {
       <section className="py-20 px-6 bg-blue-600 text-white text-center">
         <div className="max-w-3xl mx-auto">
           <h2 className="text-3xl lg:text-4xl font-bold mb-4">
-            Ready to Elevate Your Brand?
+            Ready to Publish. Protect. Grow.
           </h2>
           <p className="mb-8 text-lg">
-            Let’s start your trademark journey and build long-term visibility.
+            Start your trademark publication journey today and let your brand
+            reach the audience it deserves. Our private registry and expert
+            content approach ensure your brand stands out. Visible, credible,
+            and unforgettable
           </p>
           <Link
             to="/contact"
             className="inline-block bg-white text-blue-700 hover:bg-slate-100 transition px-8 py-3 rounded font-semibold">
-            Get In Touch
+            Start Now
           </Link>
         </div>
       </section>

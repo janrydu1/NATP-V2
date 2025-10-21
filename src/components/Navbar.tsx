@@ -132,7 +132,7 @@ export const Navbar = () => {
             whileHover={{ scale: 1.05 }}
             transition={{ duration: 0.2 }}>
             <Link to="/about" className={desktopLinkClasses}>
-              About
+              Who We Are
             </Link>
           </motion.div>
 
@@ -140,7 +140,7 @@ export const Navbar = () => {
             <NavigationMenuList>
               <NavigationMenuItem>
                 <NavigationMenuPrimitive.Trigger className={triggerClasses}>
-                  Capabilities
+                  Services
                   <ChevronDown className="h-3 w-3" />
                 </NavigationMenuPrimitive.Trigger>
                 <NavigationMenuContent className="left-0 top-0 w-full data-[motion^=from-]:animate-in data-[motion^=to-]:animate-out data-[motion^=from-]:fade-in data-[motion^=to-]:fade-out data-[motion=from-end]:slide-in-from-right-52 data-[motion=from-start]:slide-in-from-left-52 data-[motion=to-end]:slide-out-to-right-52 data-[motion=to-start]:slide-out-to-left-52 md:absolute md:w-auto">
@@ -154,13 +154,14 @@ export const Navbar = () => {
                         className={`text-sm font-semibold ${
                           !isScrolled ? "text-black" : "text-foreground"
                         }`}>
-                        Service Index
+                        Service Overview
                       </span>
                       <span
                         className={`text-xs ${
                           !isScrolled ? "text-black/65" : "text-foreground/65"
                         }`}>
-                        A high-level snapshot of our blueprints.
+                        A concise look at how we publish, protect, and promote
+                        your trademarks.
                       </span>
                     </Link>
                     <Link
@@ -172,13 +173,14 @@ export const Navbar = () => {
                         className={`text-sm font-semibold ${
                           !isScrolled ? "text-black" : "text-foreground"
                         }`}>
-                        Editorial Programs
+                        Editorial Support
                       </span>
                       <span
                         className={`text-xs ${
                           !isScrolled ? "text-black/65" : "text-foreground/65"
                         }`}>
-                        Long-form narratives for digital journals.
+                        Professional copy and journal-ready narratives for
+                        publication.
                       </span>
                     </Link>
                     <Link
@@ -190,13 +192,14 @@ export const Navbar = () => {
                         className={`text-sm font-semibold ${
                           !isScrolled ? "text-black" : "text-foreground"
                         }`}>
-                        Thought Pieces
+                        Insights
                       </span>
                       <span
                         className={`text-xs ${
                           !isScrolled ? "text-black/65" : "text-foreground/65"
                         }`}>
-                        Sharp storytelling for product launches.
+                        Strategic commentary and best practices for brand
+                        owners.
                       </span>
                     </Link>
                     <Link
@@ -208,13 +211,14 @@ export const Navbar = () => {
                         className={`text-sm font-semibold ${
                           !isScrolled ? "text-black" : "text-foreground"
                         }`}>
-                        Findability
+                        Search Optimization
                       </span>
                       <span
                         className={`text-xs ${
                           !isScrolled ? "text-black/65" : "text-foreground/65"
                         }`}>
-                        Precision optimisation for search visibility.
+                        Targeted strategies to increase discoverability across
+                        digital platforms.
                       </span>
                     </Link>
                   </div>
@@ -227,7 +231,7 @@ export const Navbar = () => {
             whileHover={{ scale: 1.05 }}
             transition={{ duration: 0.2 }}>
             <Link to="/search" className={desktopLinkClasses}>
-              Database
+              Trademark Database
             </Link>
           </motion.div>
 
@@ -235,7 +239,7 @@ export const Navbar = () => {
             whileHover={{ scale: 1.05 }}
             transition={{ duration: 0.2 }}>
             <Link to="/contact" className={desktopLinkClasses}>
-              Connect
+              Contact
             </Link>
           </motion.div>
 
@@ -244,7 +248,7 @@ export const Navbar = () => {
             whileTap={{ scale: 0.95 }}
             transition={{ duration: 0.2 }}>
             <Link to="/apply" className={ctaClasses}>
-              Join Now
+              Start Now
             </Link>
           </motion.div>
         </motion.div>
@@ -328,37 +332,37 @@ export const Navbar = () => {
                   to="/about"
                   className={mobileLinkClasses}
                   onClick={() => setIsMenuOpen(false)}>
-                  About
+                  Who We Are
                 </Link>
 
                 <div className="space-y-3">
                   <p className="text-sm font-semibold uppercase tracking-[0.32em] text-foreground/60">
-                    Capabilities
+                    Services
                   </p>
                   <div className="space-y-3 pl-3">
                     <Link
                       to="/services"
                       className={mobileSubLinkClasses}
                       onClick={() => setIsMenuOpen(false)}>
-                      Service Index
+                      Service Overview
                     </Link>
                     <Link
                       to="/services/publication"
                       className={mobileSubLinkClasses}
                       onClick={() => setIsMenuOpen(false)}>
-                      Editorial Programs
+                      Editorial Support
                     </Link>
                     <Link
                       to="/services/article"
                       className={mobileSubLinkClasses}
                       onClick={() => setIsMenuOpen(false)}>
-                      Thought Pieces
+                      Insights
                     </Link>
                     <Link
                       to="/services/seo"
                       className={mobileSubLinkClasses}
                       onClick={() => setIsMenuOpen(false)}>
-                      Findability
+                      Search Optimization
                     </Link>
                   </div>
                 </div>
@@ -367,21 +371,21 @@ export const Navbar = () => {
                   to="/search"
                   className={mobileLinkClasses}
                   onClick={() => setIsMenuOpen(false)}>
-                  Database
+                  Trademark Database
                 </Link>
 
                 <Link
                   to="/contact"
                   className={mobileLinkClasses}
                   onClick={() => setIsMenuOpen(false)}>
-                  Connect
+                  Contact
                 </Link>
 
                 <Link
                   to="/apply"
                   className="mt-2 rounded-full bg-primary px-6 py-3 text-center text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
                   onClick={() => setIsMenuOpen(false)}>
-                  Join Now
+                  Start Now
                 </Link>
               </div>
             </div>

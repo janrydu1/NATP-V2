@@ -63,45 +63,39 @@ const Hero = () => {
             />
           </svg>
         </a>
-        <div className="flex w-full max-w-2xl flex-col space-y-4 overflow-hidden text-center">
+        <div className="flex w-full max-w-3xl flex-col space-y-4 overflow-hidden text-center">
           <h1
             className="text-center text-4xl font-extrabold leading-tight text-black sm:text-5xl md:text-6xl"
             style={{ filter: "blur(0px)", opacity: 1, transform: "none" }}>
             <span
               className="inline-block px-1 md:px-2 text-balance"
               style={{ opacity: 1, transform: "none" }}>
-              Start Your
+              Publish.
             </span>
             <span
               className="inline-block px-1 md:px-2 text-balance"
               style={{ opacity: 1, transform: "none" }}>
-              Trademark
+              Protect.
             </span>
             <span
               className="inline-block px-1 md:px-2 text-balance"
               style={{ opacity: 1, transform: "none" }}>
-              Publication Journey
-            </span>
-            <span
-              className="inline-block px-1 md:px-2 text-balance"
-              style={{ opacity: 1, transform: "none" }}>
-              Now
+              Grow.
             </span>
           </h1>
           <p
             className="mx-auto max-w-xl text-center text-lg leading-7 text-black sm:text-xl sm:leading-9 text-balance"
             style={{ opacity: 1, transform: "none" }}>
-            Get started today to enhance your brand’s visibility and protect it
-            with professional guidance.
+            Strengthen your trademark visibility and build lasting brand
+            protection with expert publication support.
           </p>
         </div>
         <div
           className="mx-auto mt-6 flex w-full max-w-2xl flex-col items-center justify-center space-y-4 sm:flex-row sm:space-x-4 sm:space-y-0"
           style={{ opacity: 1, transform: "none" }}>
-            <Link
+          <Link
             to="/apply"
-            className="bg-blue-600 hover:bg-blue-700 text-white rounded-xl flex items-center p-2 pr-4 gap-2 border-2 border-blue-600 hover:border-blue-700"
-            >
+            className="bg-blue-600 hover:bg-blue-700 text-white rounded-xl flex items-center p-2 pr-4 gap-2 border-2 border-blue-600 hover:border-blue-700">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width={24}
@@ -112,16 +106,14 @@ const Hero = () => {
               strokeWidth={2}
               strokeLinecap="round"
               strokeLinejoin="round"
-              className="h-6 w-6"
-            >
+              className="h-6 w-6">
               <path d="M7 17l9.2-9.2M17 17V7H7" />
             </svg>
-            Get Started
-            </Link>
-            <Link
+            Start Now
+          </Link>
+          <Link
             to="/services"
-            className="border-2 border-gray-800 hover:border-gray-800 bg-black text-white hover:bg-zinc-800 rounded-xl flex items-center p-2 pr-4 gap-2"
-            >
+            className="border-2 border-gray-800 hover:border-gray-800 bg-black text-white hover:bg-zinc-800 rounded-xl flex items-center p-2 pr-4 gap-2">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width={24}
@@ -132,13 +124,12 @@ const Hero = () => {
               strokeWidth={2}
               strokeLinecap="round"
               strokeLinejoin="round"
-              className="h-6 w-6"
-            >
+              className="h-6 w-6">
               <rect width={7} height={7} x={14} y={3} rx={1} />
               <path d="M10 21V8a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-5a1 1 0 0 0-1-1H3" />
             </svg>
-            Discover More
-            </Link>
+            Explore More
+          </Link>
         </div>
         {/* <div className="relative rounded-lg w-full max-w-7xl sm:max-w-7xl md:max-w-7xl lg:max-w-5xl xl:max-w-5xl mt-8">
           <div className="relative group rounded-md p-1 sm:p-2  shadow-xl">
