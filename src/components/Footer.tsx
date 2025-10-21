@@ -59,7 +59,7 @@ export const Footer = () => {
               <span className="font-extrabold text-3xl">ATP</span>
             </div>
             <p className="text-sm text-muted-foreground mb-6 mt-2">
-              Your trusted partner in trademark publication and protection.
+              Dedicated to helping brands publish, protect, and grow.
             </p>
 
             <div>

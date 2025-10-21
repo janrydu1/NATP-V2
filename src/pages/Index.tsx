@@ -387,7 +387,7 @@ export default function Index() {
 
       {/* Final CTA */}
       <section className="py-20 px-6 bg-blue-600 text-white text-center">
-        <div className="max-w-3xl mx-auto">
+        <div className="max-w-5xl mx-auto">
           <h2 className="text-3xl lg:text-4xl font-bold mb-4">
             Ready to Publish. Protect. Grow.
           </h2>
