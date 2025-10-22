@@ -140,7 +140,7 @@ export const Footer = () => {
         </div>
 
         {/* Divider and copyright */}
-        <div className="border-t border-white/20 pt-4">
+        <div className="border-t border-zinc-400 pt-4">
           <div className="flex flex-col md:flex-row justify-between items-center text-sm gap-4 text-center md:text-left">
             <p>© {currentYear} ATP. All rights reserved.</p>
             <div className="flex gap-6">
