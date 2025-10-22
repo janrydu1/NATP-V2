@@ -24,30 +24,41 @@ export default function About() {
       year: "2021",
       title: "Our Beginning",
       description:
-        "We started with a vision to simplify trademark publishing for new brands.",
-      image:
-        "/images/about_start.png",
+        "We started with a vision to simplify trademark publication for emerging brands. From day one, our mission has been to help businesses gain visibility and make their identity known to the right audience.",
+      image: "/images/about_start.png",
     },
     {
       year: "2022",
       title: "Expanding Reach",
       description:
-        "We developed strategies to help brands gain visibility and recognition.",
-      image:
-        "/images/about_expanding.png",
+        "We introduced structured publication programs that combine visibility, storytelling, and engagement; allowing brands to build recognition beyond registration.",
+      image: "/images/about_expanding.png",
     },
     {
       year: "2023",
       title: "Innovation First",
       description:
-        "We introduced smart content creation and marketing to stay ahead.",
-      image:
-        "/images/about_first.png",
+        "We developed advanced content and marketing strategies to strengthen brand presence within our private registry. By integrating design, narrative, and discoverability, we ensured that every brand we represent could stand out and stay relevant.",
+      image: "/images/about_first.png",
+    },
+    {
+      year: "2024",
+      title: "Building the Private Registry",
+      description:
+        "We launched the ATP Private Registry. A dedicated network that presents brands and trademarks to targeted, industry-relevant audiences. This step transformed trademark publication into an active visibility strategy rather than a passive listing.",
+      image: "/images/about_2024.png",
+    },
+    {
+      year: "Today",
+      title: "Continuing the Mission",
+      description:
+        "Today, ATP helps brands publish, protect, and grow through curated visibility and intelligent content strategy. Our focus remains the same: empowering brands to be remembered for what they stand for.",
+      image: "/images/about_2025.png",
     },
   ];
 
   const stats = [
-    { number: "98%+", text: "Satisfied Clients", icon: Star },
+    { number: "98%+", text: "Client Satisfaction Rate", icon: Star },
     { number: "10K+", text: "Trademarks Published", icon: Award },
     { number: "5+", text: "Years of Expertise", icon: Zap },
   ];
@@ -75,28 +86,30 @@ export default function About() {
               transition={{ duration: 0.6, delay: 0.4 }}>
               <div
                 className={cn(
-                  "group rounded-full max-w-[25%] border border-black/5 bg-neutral-100 text-base text-white transition-all ease-in hover:cursor-pointer hover:bg-neutral-200 dark:border-white/5 dark:bg-neutral-900 dark:hover:bg-neutral-800"
+                  "group rounded-full max-w-[15%] border border-black/5 bg-neutral-100 text-base text-white transition-all ease-in hover:cursor-pointer hover:bg-neutral-200 dark:border-white/5 dark:bg-neutral-900 dark:hover:bg-neutral-800"
                 )}>
                 <AnimatedShinyText className="inline-flex items-center justify-center px-4 py-1 transition ease-out hover:text-neutral-600 hover:duration-300 hover:dark:text-neutral-400">
-                  <span>About Our Company</span>
+                  <span>About ATP</span>
                 </AnimatedShinyText>
               </div>
               <motion.h1
-                className="text-5xl md:text-7xl lg:text-8xl font-bold text-black leading-[0.9] mb-8"
+                className="text-5xl md:text-5xl lg:text-6xl font-bold text-black leading-[0.9] mb-8"
                 initial={{ y: 30, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.8, delay: 0.3 }}>
-                Empowering <span className="text-blue-600">Brands</span> to
-                Shine
+                Empowering Brands{" "}
+                <span className="text-blue-600">to Be Seen. </span> to
+                Recognized. Remembered.
               </motion.h1>
 
               <motion.p
-                className="text-lg md:text-xl text-gray-300 mb-8 max-w-2xl leading-relaxed"
+                className="text-lg md:text-xl text-gray-400 mb-8 max-w-2xl leading-relaxed"
                 initial={{ y: 30, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.8, delay: 0.5 }}>
-                Simplifying Trademark Publishing and brand marketing so your
-                business can grow with confidence.
+                We simplify private trademark publication and brand positioning
+                — helping your business grow with visibility, trust, and
+                confidence.
               </motion.p>
 
               <motion.div
@@ -452,7 +465,8 @@ export default function About() {
               By the Numbers
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Our commitment to excellence speaks through the results we deliver
+              Our commitment to precision and quality shows through measurable
+              results.
             </p>
           </div>
 
@@ -554,11 +568,15 @@ export default function About() {
               <span className="text-primary">Together</span>
             </h3>
             <p className="text-lg md:text-xl text-muted-foreground mb-10 max-w-2xl mx-auto text-pretty">
-              Connect with our team and discover how we can help your business
-              grow and get noticed.
+              Connect with our team and discover how our private publication
+              process can help your brand grow, gain recognition, and get
+              noticed.
             </p>
             <InteractiveHoverButton className="bg-blue-600 text-white shadow-md rounded">
               <Link to="/contact">Contact Us</Link>
+            </InteractiveHoverButton>
+            <InteractiveHoverButton className="bg-blue-600 text-white shadow-md rounded ml-10">
+              <Link to="/services/publication">Request Publication</Link>
             </InteractiveHoverButton>
           </motion.div>
         </div>
