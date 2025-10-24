@@ -116,19 +116,19 @@ export function SearchResults({
                   <div className="space-y-2 text-blue-800 text-sm">
                     <div className="flex">
                       <span className="w-44 font-medium text-blue-700">
-                        Class(es)
+                        Class
                       </span>
                       <span>{result.national_classes || "—"}</span>
                     </div>
                     <div className="flex">
                       <span className="w-44 font-medium text-blue-700">
-                        Application ID
+                        Application #
                       </span>
                       <span>{result.application_number}</span>
                     </div>
                     <div className="flex">
                       <span className="w-44 font-medium text-blue-700">
-                        Holder
+                        Owners
                       </span>
                       <span>{result.owner_name}</span>
                     </div>
@@ -141,7 +141,7 @@ export function SearchResults({
                       to={`/trademark/${result.id}?q=${encodeURIComponent(
                         searchQuery
                       )}`}>
-                      View Trademark
+                      Explore More
                     </Link>
                   </Button>
                 </div>

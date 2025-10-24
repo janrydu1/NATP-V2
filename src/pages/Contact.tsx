@@ -87,8 +87,7 @@ export default function Contact() {
               Contact Us
             </h1>
             <p className="text-slate-600 text-lg font-light leading-relaxed max-w-2xl mx-auto">
-              Have questions or need assistance? We're here to help you every
-              step of the way.
+              Have questions or need assistance? Our team is here to help you at every step.
             </p>
           </motion.div>
         </div>
@@ -194,23 +193,25 @@ export default function Contact() {
           {/* Info Cards */}
           <div className="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-2 gap-6">
             <div className="bg-white border border-blue-100 shadow-sm rounded-2xl p-6 hover:shadow-md transition">
-              <Mail className="w-6 h-6 text-blue-600 mb-3" />
-              <p className="text-sm text-slate-500">Email</p>
+              <div className="flex items-center gap-3 mb-3">
+                <div className="flex-shrink-0">
+                  <Mail className="w-6 h-6 text-blue-600" />
+                </div>
+                <p className="text-sm font-bold text-slate-500">Email</p>
+              </div>
               <p className="text-blue-700 font-semibold">
                 help@atpregistry.com
               </p>
             </div>
 
-            {/* <div className="bg-white border border-blue-100 shadow-sm rounded-2xl p-6 hover:shadow-md transition">
-              <MapPin className="w-6 h-6 text-blue-600 mb-3" />
-              <p className="text-sm text-slate-500">Office</p>
-              <p className="text-blue-700 font-semibold">Mumbai, India</p>
-            </div> */}
-
             <div className="bg-white border border-blue-100 shadow-sm rounded-2xl p-6 hover:shadow-md transition">
-              <Clock className="w-6 h-6 text-blue-600 mb-3" />
-              <p className="text-sm text-slate-500">Support Hours</p>
-              <p className="text-blue-700 font-semibold">8am-4pm EST</p>
+              <div className="flex items-center gap-3 mb-3">
+                <div className="flex-shrink-0">
+                  <Clock className="w-6 h-6 text-blue-600" />
+                </div>
+                <p className="text-sm font-bold text-slate-500">Support Hours</p>
+              </div>
+              <p className="text-blue-700 font-semibold">8am-4pm EST (Mon to Fri)</p>
             </div>
           </div>
 
@@ -237,6 +238,10 @@ export default function Contact() {
               <h3 className="mx-auto mt-4 max-w-xs text-3xl font-semibold sm:max-w-none sm:text-4xl md:text-5xl text-blue-700">
                 Subscribe for the latest updates today.
               </h3>
+              <p>
+                Stay informed with new insights, brand visibility tips, and
+                exclusive updates from ATP.
+              </p>
             </div>
             <div className="flex flex-col w-full sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-4 pt-4">
               <form
@@ -292,7 +297,11 @@ export default function Contact() {
             <p className="text-xs text-slate-500 mt-6 text-center">
               You can unsubscribe anytime. See our{" "}
               <a href="/terms" className="text-blue-600 hover:underline">
-                terms & privacy policy
+                terms
+              </a>
+              <span> and </span>
+              <a href="/privacy" className="text-blue-600 hover:underline">
+                privacy policy.
               </a>
               .
             </p>

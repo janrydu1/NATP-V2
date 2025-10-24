@@ -40,13 +40,13 @@ export default function SEO() {
               </motion.h1>
 
               <motion.p
-                className="text-lg md:text-xl text-gray-300 mb-8 max-w-2xl leading-relaxed"
+                className="text-lg md:text-xl text-gray-400 mb-8 max-w-2xl leading-relaxed"
                 initial={{ y: 30, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.8, delay: 0.5 }}>
-                We make sure your business shows up at the exact moment people
-                are searching for what you do best. No fluff — just results that
-                matter.
+                We make sure your brand appears at the exact moment people are
+                searching for what you do best. No fluff, just visibility that
+                gets results.
               </motion.p>
             </motion.div>
 
@@ -270,43 +270,58 @@ export default function SEO() {
           <div className="grid md:grid-cols-3 gap-10">
             {/* Card 1 */}
             <div className="bg-white rounded-2xl p-8 transition">
-              <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center mb-6">
-                <FileText className="w-6 h-6 text-blue-600" />
+              <div className="max-w-xl h-max mb-8 overflow-hidden rounded-xl shadow-lg">
+                <img
+                  src="/images/seo_1.png"
+                  alt="Smart Content"
+                  className="w-full h-full object-cover"
+                />
               </div>
               <h3 className="text-2xl font-semibold text-blue-700 mb-4 text-start">
                 Smart Content
               </h3>
               <p className="text-black text-base text-start">
-                Articles and pages that answer what your audience is actually
-                searching for — not just filler words.
+                We make sure your brand appears at the exact moment people are
+                searching for what you do best. No fluff, just visibility that
+                gets results.
               </p>
             </div>
 
             {/* Card 2 */}
             <div className="bg-white rounded-2xl p-8 transition">
-              <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center mb-6">
-                <Search className="w-6 h-6 text-blue-600" />
+              <div className="max-w-xl h-max mb-7 overflow-hidden rounded-xl shadow-lg">
+                <img
+                  src="/images/seo_2.png"
+                  alt="Keyword Intelligence"
+                  className="w-full h-full object-cover"
+                />
               </div>
               <h3 className="text-2xl font-semibold text-blue-700 mb-4 text-start">
                 Keyword Intelligence
               </h3>
               <p className="text-black text-base text-start">
-                We find the search phrases that really bring customers in — and
-                weave them naturally into your content.
+                We identify search terms that bring real customers and blend
+                them naturally into your content. Our approach ensures that
+                people and search engines understand your brand the same way.
               </p>
             </div>
 
             {/* Card 3 */}
             <div className="bg-white rounded-2xl p-8 transition">
-              <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center mb-6">
-                <Layout className="w-6 h-6 text-blue-600" />
+              <div className="max-w-xl h-max mb-6 overflow-hidden rounded-xl shadow-lg">
+                <img
+                  src="/images/seo_3.png"
+                  alt="Clear Structure"
+                  className="w-full h-full object-cover"
+                />
               </div>
               <h3 className="text-2xl font-semibold text-blue-700 mb-4 text-start">
                 Clear Structure
               </h3>
               <p className="text-black text-base text-start">
-                Simple, intuitive site layouts that help both people and search
-                engines understand your business instantly.
+                We build layouts that are intuitive for visitors and optimized
+                for search visibility. Simple design, clean navigation, and
+                precise metadata make your site easy to find and explore.
               </p>
             </div>
           </div>
@@ -320,8 +335,8 @@ export default function SEO() {
             Let’s Get You Noticed
           </h3>
           <p className="text-lg text-white mb-8">
-            Ready to rise above the competition? We’ll help you attract the
-            right audience and keep them coming back.
+            Ready to rise above the competition? We’ll help your brand attract
+            the right audience and stay visible where it matters most.
           </p>
           <button className="bg-white text-blue-700 hover:bg-slate-100 px-8 py-3 rounded font-semibold transition">
             <Link to="/contact">Talk SEO With Us</Link>

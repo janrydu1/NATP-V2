@@ -1,68 +1,69 @@
 import { Navbar } from "@/components/Navbar";
 import { useEffect, useRef, useState } from "react";
 import { Footer } from "@/components/Footer";
+import { Link } from "react-router-dom";
 
 export default function PrivacyPolicy() {
   const sections = [
     {
       title: "Introduction",
       content:
-        "Welcome to ATP Servic Inc! Your privacy matters to us. This policy explains how we collect, use, and protect your personal information when you use our services.",
+        "Welcome to <b>ATP Service Inc.</b> </br>Your privacy is important to us. This policy explains how we collect, use, store and protect your personal information when you use our website, services, or related tools",
     },
     {
       title: "Information Collection",
       content:
-        "2.1 We collect information you provide, like your name, contact details, and payment info.</br>2.2 We also gather technical data, such as your IP address and browsing activity, to improve our services and keep everything secure.",
+        "2.1 We collect personal information that you provide directly to us, such as your name, email address, contact details and business information.</br>2.2 We also gather limited technical data (like your IP address, browser type and interaction data) to maintain service functionality and improve user experience.",
     },
     {
       title: "How We Use Your Data",
       content:
-        "3.1 We use your information to deliver our services, process transactions, support you, and send important updates.</br>3.2 We may also use your data to make your experience better and tailor our content to your interests.",
+        "3.1 We use your data to operate and improve our services, communicate with you and process inquiries or transactions.</br>3.2 We may also use your information to personalize your experience, share relevant updates and provide content aligned with your interests.",
     },
     {
       title: "Sharing Your Information",
       content:
-        "4.1 We don’t sell or rent your personal information to anyone.</br>4.2 Sometimes, we share data with trusted partners (like payment processors or IT support) who help us run our business, but only under strict confidentiality rules.</br>4.3 We may also share information if required by law or to respond to official requests.",
+        "4.1 We do not sell, rent, or trade your personal information.</br>4.2 We may share limited data with <b>trusted service providers</b> (for example, payment processors, email delivery platforms, or technical partners) who help us operate our services; always under strict confidentiality agreements.</br>4.3 We may also disclose information if required by law or to comply with legal obligations.",
     },
     {
       title: "Keeping Your Data Safe",
       content:
-        "5.1 We use strong security measures to protect your data from unauthorized access or misuse.</br>5.2 Our systems are regularly checked for vulnerabilities and secured with encryption and safe protocols.",
+        "5.1 We apply strong administrative, technical and physical safeguards to protect your personal information against unauthorized access, alteration, or misuse.</br>5.2 Our systems are regularly reviewed for vulnerabilities and secured using encryption and other industry-standard safety measures.",
     },
     {
       title: "Your Rights",
       content:
-        "6.1 You can ask to see, correct, or delete your personal information by contacting help@atpregistry.com</br>6.2 You also have the right to limit or object to how we use your data, as allowed by U.S. privacy laws.",
+        "6.1 You may request access to, correction of, or deletion of your personal data at any time by contacting <b>help@atpregistry.com.</b></br>6.2 You also have the right to restrict or object to how your data is used, in accordance with applicable privacy laws.",
     },
     {
       title: "Cookies and Tracking",
       content:
-        "7.1 We use cookies and similar tools to keep our site running smoothly, understand how visitors use it, and improve your experience.</br>7.2 You can change your cookie settings in your browser, but some features may not work as well if you do.",
+        "7.1 We use cookies and similar technologies to ensure the proper functioning of our site, analyze performance and enhance usability.</br>7.2You can manage or disable cookies through your browser settings, but please note that some features may not function as intended if cookies are disabled.",
     },
     {
       title: "How Long We Keep Your Data",
       content:
-        "8.1 We keep your personal information only as long as needed for our services or as required by law.</br>8.2 When we no longer need it, we securely delete or anonymize your data.",
+        "8.1 We retain your personal information only as long as necessary to fulfill the purposes described in this policy or as required by law.</br>8.2 When information is no longer needed, it is securely deleted or anonymized.",
     },
     {
       title: "Policy Updates",
       content:
-        "9.1 We may update this policy from time to time. Changes will be posted here, and we’ll let you know about any major updates.</br>9.2 By continuing to use our services after changes, you accept the updated policy.",
+        "9.1 We may revise this Privacy Policy from time to time. Updates will be posted on this page with a new effective date.</br>9.2 By continuing to use our services after an update, you acknowledge and accept the revised version.",
     },
     {
       title: "Children’s Privacy",
       content:
-        "10.1 Our services aren’t meant for children under 13, and we don’t knowingly collect information from them.",
+        "10.1 Our services are not directed toward individuals under the age of 13.</br>10.2 We do not knowingly collect or store personal data from children. If we become aware of such collection, we will promptly delete the data.",
     },
     {
       title: "Contact Us",
       content:
-        "If you have any questions or concerns about this Privacy Policy, please reach out to us at help@atpregistry.com",
+        "If you have any questions or concerns regarding this Privacy Policy or how we handle your data, please contact us at: <b>📧 help@atpregistry.com</b>",
     },
     {
       title: "Effective Date",
       content:
-        "This Privacy Policy takes effect on January 1, 2025, and follows U.S. data protection laws.",
+        "This Privacy Policy is effective as of <b>January 1, 2025</b> and complies with applicable <b>U.S. data protection laws.</b>",
     },
   ];
 
@@ -136,33 +137,9 @@ export default function PrivacyPolicy() {
         </div>
 
         {/* Layout */}
-        <div className="mt-20 grid grid-cols-1 md:grid-cols-12 gap-10">
-          {/* Sidebar */}
-          <aside className="md:col-span-4 lg:col-span-3">
-            <div className="sticky top-28 bg-white/70 backdrop-blur-md border border-blue-200 rounded-2xl shadow-md p-6">
-              <h2 className="text-blue-900 font-semibold text-lg mb-4">
-                Quick Navigation
-              </h2>
-              <ul className="space-y-2">
-                {sections.map((section, idx) => (
-                  <li key={idx}>
-                    <button
-                      onClick={() => handleClick(section.title)}
-                      className={`w-full text-left px-4 py-2 rounded-lg transition-all duration-300 text-sm font-medium ${
-                        activeSection.title === section.title
-                          ? "bg-blue-600 text-white shadow"
-                          : "text-blue-700 hover:bg-blue-100"
-                      }`}>
-                      {section.title}
-                    </button>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </aside>
-
+        <div className="max-w-5xl mx-auto gap-10 px-6 pb-16 mt-20">
           {/* Content */}
-          <main className="md:col-span-8 lg:col-span-9 space-y-5">
+          <main className="space-y-5">
             {sections.map((section, idx) => (
               <section
                 key={idx}
@@ -180,6 +157,13 @@ export default function PrivacyPolicy() {
               </section>
             ))}
           </main>
+          <div className="flex justify-center mt-8">
+            <Link
+              to="/contact"
+              className="inline-flex items-center justify-center bg-blue-600 hover:bg-blue-700 text-white text-lg font-bold px-4 py-2 shadow-lg transition-colors rounded-[8px]">
+              Contact Support
+            </Link>
+          </div>
         </div>
       </div>
 

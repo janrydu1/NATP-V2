@@ -5,52 +5,60 @@ import { Footer } from "@/components/Footer";
 export default function Terms() {
   const sections = [
     {
-      title: "INTRODUCTION",
+      title: "Introduction",
       content:
-        "Welcome! These Terms and Conditions (\"T&C\") explain the agreement between ATP Service Inc (the Provider, contact: help@atpregistry.com) and you (the Customer) when you use or purchase our Prepaid Service. By using our service, you agree to these terms. If you'd like a printable copy, just ask us.",
+        "Welcome to <b>ATP Service Inc. DBA ATP.</b> </br>These Terms and Conditions (“Terms”) govern the agreement between <b>ATP</b> (“we,” “us,” or “the Provider”) and <b>you</b> (“the Customer” or “you”). </br>By using our services or purchasing any paid access (the “Service”), you acknowledge and agree to these Terms. </br>For questions, contact us at <b>help@atpregistry.com.</b>",
     },
     {
-      title: "DEFINITIONS",
+      title: "Definitions",
       content:
-        "2.1 Database: Our proprietary system that gathers data from various trademark registers, including national, EU, and international sources.</br>2.2 Prepaid Service: Paid access to secure sections of our Database on atpregistry.com for three years, starting once we receive your payment.</br>2.3 Service Fee: The upfront cost for accessing the Prepaid Service, as listed in our current offer.</br>2.4 Agreement: The contract between you and us, activated when we receive your Service Fee.",
+        "<b>2.1 Database:</b> Our proprietary system that compiles trademark data from national and international public sources.</br><b>2.2 Filing Fee:</b> The upfront payment required to access the Service, as specified in our current offer.</br><b>2.3 Agreement:</b> The legally binding contract between you and ATP, effective once payment is received.",
     },
     {
-      title: "SERVICE DESCRIPTION",
-      content: `3.1 Scope: </br><p style="padding-left: 10px;">• You get access to premium content in our Database. </p><p style="padding-left: 10px;">• Service lasts for three years after payment. </p>3.2 Exclusivity: <p style="padding-left: 10px;">• Only these T&C apply to our agreement. </p><p style="padding-left: 10px;">• Other terms from you or third parties don't apply. </p>3.3 Modifications: <p style="padding-left: 10px;">• We may update these T&C, but we'll notify you in writing first. </p><p style="padding-left: 10px;">• Changes take effect once we've let you know and you acknowledge them.</p> `,
+      title: "Service Description",
+      content: `<b>3.1 Scope:</b> </br><p style="padding-left: 10px;">•	You gain access to premium content and trademark publication tools in our Database. </p><p style="padding-left: 10px;">•	Access remains valid for the duration specified in your service plan (typically three years).</p><b>3.2 Exclusivity:</b> <p style="padding-left: 10px;">•	Only these Terms apply to our agreement. </p><p style="padding-left: 10px;">•	Terms from your side or third parties are not binding unless accepted by us in writing. </p><b>3.3 Modifications: </b><p style="padding-left: 10px;">•	We may update or adjust these Terms periodically, but we’ll always notify you in advance.</p><p style="padding-left: 10px;">•	Changes take effect once communicated and acknowledged.</p>`,
     },
     {
-      title: "PAYMENT CONDITIONS",
+      title: "Payment Conditions",
       content:
-        "4.1 You'll get access to the service only after you've paid the Service Fee in full.</br>4.2 Please pay by bank transfer or check to our specified account. Your access starts once we receive your payment.",
+        "4.1 Access to the Service is granted only after full payment of the Service Fee.</br>4.2 Payments can be made by bank transfer, check, or other accepted methods. Your access becomes active once your payment is confirmed.",
     },
     {
-      title: "RIGHT OF WITHDRAWAL",
-      content: `5.1 Contract Formation: </br><p style="padding-left: 10px;">• The agreement is binding once you pay the Service Fee in response to our offer. </p>5.2 Withdrawal Period: <p style="padding-left: 10px;">• You can cancel within seven days of payment, no questions asked. </p><p style="padding-left: 10px;">• The agreement starts as soon as you pay. </p>`,
+      title: "Right of Withdrawal",
+      content: `<b>5.1 Contract Formation: </b></br><p style="padding-left: 10px;">The agreement becomes binding once you accept our offer and pay the Service Fee. </p><b>5.2 Withdrawal Period:</b> <p style="padding-left: 10px;">• You may cancel your purchase within seven (7) days of payment for a full refund, no questions asked.
+ </p><p style="padding-left: 10px;">• After this period, the contract remains valid for the agreed term. </p>`,
     },
     {
-      title: "LIABILITY AND DISCLAIMERS",
-      content: `6.1 Data Integrity: </br><p style="padding-left: 10px;">• Our Database is compiled from third-party sources and provided "as is." We can't guarantee it's always accurate or complete. </p>6.2 Limitation of Liability: </br><p style="padding-left: 10px;">• We're not responsible for any direct or indirect damages, lost revenue, missed opportunities, or service interruptions. </p><p style="padding-left: 10px;">• This applies even if we knew about possible issues. </p>`,
+      title: "Liability and Disclaimers",
+      content: `<b>6.1 Data Integrity: </b></br><p style="padding-left: 10px;">Our Database aggregates trademark data from public sources and is provided “as is.”</br>
+While we aim for accuracy, we cannot guarantee completeness or real-time precision.
+ </p><b>6.2 Limitation of Liability: </b></br><p style="padding-left: 10px;">We are not responsible for indirect damages, loss of profit, or service interruptions.</br>
+This limitation applies even if we were aware of potential issues.
+ </p>`,
     },
     {
-      title: "ARTICLE PUBLICATION SERVICE",
-      content: `7.1 Overview: </br><p style="padding-left: 10px;">• After payment, we may offer to publish an article highlighting your brand's achievements. </p>7.2 Purpose: </br><p style="padding-left: 10px;">• This helps showcase and strengthen your brand's reputation. </p>7.3 Editorial Rights: </br><p style="padding-left: 10px;">• We may edit submitted content for clarity and consistency, but won't change the facts. </p>7.4 Disclaimer: </br><p style="padding-left: 10px;">• We're not liable for any damages related to this optional service. </p>`,
+      title: "Article Publication Service",
+      content: `<b>7.1 Overview: </b></br><p style="padding-left: 10px;">After payment, you may choose to have a custom article published highlighting your trademark or brand story. </p><b>7.2 Purpose: </b></br><p style="padding-left: 10px;">This optional service is designed to help increase visibility and support your brand reputation.
+</p><b>7.3 Editorial Rights: </b></br><p style="padding-left: 10px;">We may edit submitted materials for clarity, accuracy, and consistency but will not alter the meaning or intent.</p><b>7.4 Disclaimer: </b></br><p style="padding-left: 10px;">We are not liable for any damages arising from optional editorial or publication services.</p>`,
     },
     {
-      title: "DURATION AND TERMINATION",
-      content: `8.1 Contract Period: </br><p style="padding-left: 10px;">• The agreement ends automatically after one year and can't be terminated early for ordinary reasons. </p>8.2 Termination for Cause: </br><p style="padding-left: 10px;">• Either party can end the agreement immediately if there's a serious breach. </p><p style="padding-left: 10px;">• The breaching party should be given a chance to fix issues within a reasonable time. </p><p style="padding-left: 10px;">• If it's unreasonable to continue, immediate termination is allowed. </p>`,
+      title: "Duration and Termination",
+      content: `<b>8.1 Term: </b></br><p style="padding-left: 10px;">The agreement remains in force for the duration defined in your service plan and renews only by mutual agreement. </p><b>8.2 Termination for Cause: </b></br><p>Either party may terminate the contract immediately if: </p><p style="padding-left: 10px;">• A serious breach of terms occurs, or </p><p style="padding-left: 10px;">• Continuation becomes commercially unreasonable. The breaching party will be given reasonable notice and opportunity to remedy the issue where possible.
+ </p>`,
     },
     {
-      title: "REFUND POLICY",
+      title: "Refund Policy",
       content:
-        "9.1 If you're not satisfied, you can request a refund within 30 days of payment. Email help@atpregistry.com with your order details and reason. Refunds follow these T&C and any additional policies. This policy applies only to the services described here.",
+        "9.1 If you are not satisfied, you may request a refund within <b>30 days</b> of payment by contacting <b>help@atpregistry.com.</b></br>9.2 Refunds apply solely to eligible prepaid services and follow the conditions stated in these Terms.",
     },
     {
-      title: "GOVERNING LAW AND DISPUTE SETTLEMENT",
-      content: `10.1 Jurisdiction: </br><p style="padding-left: 10px;">• Our agreement and these T&C are governed by United States law. </p>10.2 Dispute Resolution: </br><p style="padding-left: 10px;">• We'll try to resolve any issues amicably. </p><p style="padding-left: 10px;">• If that doesn't work, legal action can be taken in a competent court. </p>`,
+      title: "Governing Law and Dispute Resolution",
+      content: `10.1 This Agreement and these Terms are governed by the laws of the <b>United States.</b></br>10.2 We aim to resolve disputes amicably. </br>If a resolution cannot be reached, either party may pursue legal action in a competent U.S. court.
+`,
     },
     {
-      title: "DATA PRIVACY",
-      content: `11.1 Data Handling: </br><p style="padding-left: 10px;">• Details about how we handle your personal data are in our Privacy Policy. </p>11.2 Policy Access:</br><p style="padding-left: 10px;">• You'll find a link to our Privacy Policy on atpregistry.com. Please review it to learn how your data is used. </p>`,
+      title: "Data Privacy",
+      content: `<b>11.1 Data Handling: </b></br><p style="padding-left: 10px;">Information you provide is handled according to our Privacy Policy. </p><b>11.2 Policy Access:</b></br><p style="padding-left: 10px;">You can review our Privacy Policy at any time to understand how your data is collected, stored and used. </p>`,
     },
   ];
 
@@ -118,39 +126,15 @@ export default function Terms() {
         </h1>
         <p className="mt-4 text-lg md:text-xl text-black leading-relaxed">
           Review the terms that guide your use of our services, payments, and
-          policies. We’ve outlined them clearly so you know your rights and
-          obligations.
+          policies. We’ve outlined them clearly so you understand your rights
+          and obligations.
         </p>
       </header>
 
       {/* Main layout */}
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-10 px-6 pb-16">
-        {/* Sidebar */}
-        <aside className="md:col-span-4 lg:col-span-3">
-          <div className="sticky top-28 bg-white/70 backdrop-blur-lg border border-blue-200 rounded-2xl shadow-md p-6">
-            <h2 className="text-blue-900 font-semibold text-lg mb-4">
-              Quick Navigation
-            </h2>
-            <ul className="space-y-2">
-              {sections.map((section, idx) => (
-                <li key={idx}>
-                  <button
-                    onClick={() => handleClick(section.title)}
-                    className={`w-full text-left px-4 py-2 rounded-lg transition-all duration-300 text-sm font-medium ${
-                      activeSection.title === section.title
-                        ? "bg-blue-600 text-white shadow"
-                        : "text-blue-700 hover:bg-blue-100"
-                    }`}>
-                    {section.title}
-                  </button>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </aside>
-
+      <div className="max-w-5xl mx-auto gap-10 px-6 pb-16">
         {/* Content */}
-        <main className="md:col-span-8 lg:col-span-9 space-y-5">
+        <main className="space-y-5">
           {sections.map((section, idx) => (
             <section
               key={idx}

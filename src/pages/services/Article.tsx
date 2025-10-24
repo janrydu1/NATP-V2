@@ -14,19 +14,19 @@ export default function Article() {
 
   const testimonials = [
     {
-      text: "Their optimized articles put our brand exactly where it matters most - directly in front of our audience. The visibility we've gained has been incredible, and the trust we've built through valuable content has positioned us as an industry leader.",
+      text: "Their editorial support placed our brand exactly where it mattered most. The visibility and trust we gained through their work helped position us as a leader in our field.",
       name: "Sarah Johnson",
       role: "Marketing Director",
       company: "Zenta",
     },
     {
-      text: "The memorable content they created helped us rise above the noise and truly show what makes our brand unique. They combine creativity with strategy so our articles don't just exist — they perform and deliver real results.",
+      text: "The content ATP created helped us stand out and communicate what makes our brand unique. Their mix of creative writing and smart positioning gave every article real purpose and impact.",
       name: "Michael Chen",
       role: "Brand Manager",
       company: "G Focal",
     },
     {
-      text: "Strong content truly builds trust, attracts attention, and grows influence. It's not just about words — it's about creating lasting impressions that resonate with our target audience and drive meaningful engagement.",
+      text: "Good content builds trust, great content moves people. ATP understood our audience and created pieces that truly resonated and left a lasting impression.",
       name: "Emma Rodriguez",
       role: "Content Strategist",
       company: "KYND",
@@ -78,12 +78,12 @@ export default function Article() {
               </motion.h1>
 
               <motion.p
-                className="text-lg md:text-xl text-gray-300 mb-8 max-w-2xl leading-relaxed"
+                className="text-lg md:text-xl text-gray-400 mb-8 max-w-2xl leading-relaxed"
                 initial={{ y: 30, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.8, delay: 0.5 }}>
-                We craft content that feels human, sharp, and memorable —
-                turning your brand into something people want to follow.
+                We create content that feels human, sharp and memorable, helping
+                your brand stand out and stay relevant in a fast-moving world.
               </motion.p>
 
               {/* <motion.div
@@ -316,44 +316,56 @@ export default function Article() {
 
           <div className="grid md:grid-cols-3 gap-12">
             {/* Step 1 */}
-            <div className="bg-white rounded-2xl p-8 transition">
-              <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center mb-6">
-                <Search className="w-6 h-6 text-blue-600" />
+            <div className="bg-white rounded-2xl transition">
+              <div className="max-w-xl h-max mb-8 overflow-hidden rounded-xl shadow-lg">
+                <img
+                  src="/images/article_1.png"
+                  alt="Smart Content"
+                  className="w-full h-full object-cover"
+                />
               </div>
-              <h3 className="text-2xl font-semibold text-blue-700 mb-4">
+              <h3 className="text-2xl font-semibold text-blue-700 mb-4 text-start">
                 Explore
               </h3>
-              <p className="text-black text-base leading-relaxed">
-                We start by understanding your brand, audience, and competitors.
-                Every article begins with clarity and purpose.
+              <p className="text-black text-base text-start">
+                We begin by understanding your brand, audience and goals. Every
+                project starts with solid research and a clear creative vision.
               </p>
             </div>
 
             {/* Step 2 */}
-            <div className="bg-white rounded-2xl p-8 transition">
-              <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center mb-6">
-                <PenTool className="w-6 h-6 text-blue-600" />
+            <div className="bg-white rounded-2xl transition">
+              <div className="max-w-xl h-max mb-8 overflow-hidden rounded-xl shadow-lg">
+                <img
+                  src="/images/article_2.png"
+                  alt="Smart Content"
+                  className="w-full h-full object-cover"
+                />
               </div>
-              <h3 className="text-2xl font-semibold text-blue-700 mb-4">
+              <h3 className="text-2xl font-semibold text-blue-700 mb-4 text-start">
                 Create
               </h3>
-              <p className="text-black text-base leading-relaxed">
-                Our writers shape stories that connect, inspire, and feel true
-                to your brand's personality.
+              <p className="text-black text-base text-start">
+                Our writers craft stories that connect with your audience and
+                reflect your brand’s authentic voice. Each  designed to
+                inspire, inform and engage.
               </p>
             </div>
 
             {/* Step 3 */}
-            <div className="bg-white rounded-2xl p-8 transition">
-              <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center mb-6">
-                <Megaphone className="w-6 h-6 text-blue-600" />
+            <div className="bg-white rounded-2xl transition">
+              <div className="max-w-xl h-max mb-8 overflow-hidden rounded-xl shadow-lg">
+                <img
+                  src="/images/article_3.png"
+                  alt="Smart Content"
+                  className="w-full h-full object-cover"
+                />
               </div>
-              <h3 className="text-2xl font-semibold text-blue-700 mb-4">
+              <h3 className="text-2xl font-semibold text-blue-700 mb-4 text-start">
                 Amplify
               </h3>
-              <p className="text-black text-base leading-relaxed">
-                Once ready, we make sure your content gets seen by the right
-                people — with SEO and strategy built in.
+              <p className="text-black text-base leading-relaxed text-start">
+                When your content is ready, we make sure it reaches the right people through tailored visibility and thoughtful promotion.
               </p>
             </div>
           </div>
@@ -368,7 +380,7 @@ export default function Article() {
               Client Success Stories
             </h2> */}
             <h3 className="mx-auto mt-4 max-w-xs text-3xl font-semibold sm:max-w-none sm:text-4xl md:text-5xl">
-              What our customers are saying
+              What Our Clients Are Saying
             </h3>
           </div>
 
@@ -489,13 +501,13 @@ export default function Article() {
             Ready to Elevate Your Voice?
           </h2>
           <p className="text-lg mb-8">
-            Let's create content that speaks louder, shines brighter, and
-            actually moves people.
+            Let’s create content that speaks clearly, connects deeply and drives
+            recognition that lasts.
           </p>
           <Button
             asChild
             className="bg-white text-blue-700 font-semibold px-8 py-6 rounded shadow-md hover:bg-blue-100 transition">
-            <Link to="/apply">Start Your Journey</Link>
+            <Link to="/apply">Start Now</Link>
           </Button>
         </div>
       </section>

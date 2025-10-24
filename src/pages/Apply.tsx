@@ -38,7 +38,7 @@ export default function Apply() {
     {
       title: "Submit Application",
       description:
-        "Complete our comprehensive form with your trademark details and business information",
+        "Fill out the form with your trademark and business information.",
       icon: (
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -61,7 +61,7 @@ export default function Apply() {
     {
       title: "Expert Review",
       description:
-        "Our specialists verify all information and optimize your submission for maximum impact",
+        "Our specialists verify all details and optimize your submission for maximum visibility.",
       icon: (
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -82,7 +82,7 @@ export default function Apply() {
     {
       title: "Live Publication",
       description:
-        "Your trademark goes live in our premium database, instantly boosting your brand visibility",
+        "Your trademark goes live in our premium private registry, instantly boosting your brand’s reach.",
       icon: (
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -159,8 +159,8 @@ export default function Apply() {
               Begin Your Publication Journey
             </h3>
             <p className="text-slate-600 text-lg font-light leading-relaxed max-w-2xl mx-auto">
-              Complete our streamlined application to initiate your trademark
-              publication process
+              Complete our streamlined form to start your trademark publication
+              process with ATP.
             </p>
           </div>
 
@@ -297,7 +297,7 @@ export default function Apply() {
                 <Label
                   htmlFor="application-number"
                   className="text-slate-700 font-semibold">
-                  Application Number (Optional)
+                  Application Number
                 </Label>
                 <Input
                   id="application-number"
@@ -467,7 +467,7 @@ export default function Apply() {
                 id="message"
                 value={formData.message}
                 className="min-h-[140px] rounded-xl bg-white border border-slate-200 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-100 transition placeholder:text-slate-400"
-                placeholder="Share any additional details about your trademark..."
+                placeholder="Share any extra details about your trademark or publication goals"
                 onChange={(e) =>
                   setFormData((prev) => ({ ...prev, message: e.target.value }))
                 }
@@ -514,7 +514,7 @@ export default function Apply() {
                   How it works
                 </h2> */}
                 <h3 className="mx-auto mt-4 max-w-xs text-3xl font-semibold sm:max-w-none sm:text-4xl md:text-5xl text-blue-700">
-                  Just 3 steps to get started
+                  Just 3 Steps to Get Started
                 </h3>
               </div>
               <section id="features">

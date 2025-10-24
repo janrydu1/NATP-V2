@@ -35,12 +35,12 @@ export default function Services() {
               </motion.h1>
 
               <motion.p
-                className="text-lg md:text-xl text-gray-300 mb-8 max-w-2xl leading-relaxed"
+                className="text-lg md:text-xl text-gray-400 mb-8 max-w-2xl leading-relaxed"
                 initial={{ y: 30, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.8, delay: 0.5 }}>
-                Simple, powerful solutions that help your brand get noticed and
-                stay ahead in a crowded market.
+                Clear, effective solutions designed to help your brand gain
+                visibility, earn trust, and stay ahead in a competitive market.
               </motion.p>
             </motion.div>
 
@@ -272,7 +272,7 @@ export default function Services() {
                 />
               }
               Icon={Eye}
-              description="Put your trademark in the spotlight. We make your brand discoverable and trusted by ensuring it's seen where it matters most."
+              description="Put your trademark in front of the right audience. We manage publication across our private registry to ensure your brand gains recognition where it matters most; building visibility and lasting recall."
               href="/services/publication"
               cta="Explore More"
             />
@@ -292,7 +292,7 @@ export default function Services() {
                 />
               }
               Icon={Search}
-              description="Rise in search rankings and get discovered. Our SEO solutions help you appear where your customers are looking."
+              description="We optimize your brand’s discoverability through structured content, outreach, and search performance. Our integrated SEO framework connects your trademark with audiences actively looking for brands like yours."
               href="/services/seo"
               cta="Explore More"
             />
@@ -312,7 +312,9 @@ export default function Services() {
                 />
               }
               Icon={PenTool}
-              description="Strong brands have strong voices. We craft articles that highlight your values, connect with your audience, and spark recognition."
+              description="Powerful stories build powerful brands.
+Our editorial team creates original content that captures your values, speaks your audience’s language and strengthens recognition.
+"
               href="/services/article"
               cta="Learn More"
             />
@@ -332,7 +334,9 @@ export default function Services() {
                 />
               }
               Icon={TrendingUp}
-              description="Data-driven insights to track your brand's performance and growth opportunities."
+              description="Understand how your brand performs across our publication network.
+We deliver data-driven insights that track engagement, visibility and growth opportunities.
+"
               href="/services/analytics"
               cta="View Details"
             />
@@ -352,7 +356,9 @@ export default function Services() {
                 />
               }
               Icon={Globe}
-              description="Expand your trademark protection and brand presence across international markets."
+              description="Expand your visibility beyond borders.
+Our platform connects your trademark with international audiences and industry segments; increasing recognition across global markets.
+"
               href="/services/global"
               cta="Get Started"
             />
@@ -370,8 +376,7 @@ export default function Services() {
                 Always Fresh
               </h3>
               <p className="text-blue-600">
-                Your trademark data stays updated regularly for accuracy and
-                trust.
+                Your trademark data and content stay continuously updated for accuracy, trust and long-term relevance.
               </p>
             </div>
             <div>
@@ -379,7 +384,7 @@ export default function Services() {
                 Dedicated Support
               </h3>
               <p className="text-blue-600">
-                Our team is here whenever you need help or guidance.
+                Our team is here whenever you need guidance; from submission to publication and beyond.
               </p>
             </div>
             <div>
@@ -387,7 +392,7 @@ export default function Services() {
                 Continuous Growth
               </h3>
               <p className="text-blue-600">
-                We refine strategies and content so your brand keeps improving.
+                We refine content and strategy to ensure your brand keeps evolving, adapting, and standing out.
               </p>
             </div>
           </div>
@@ -396,16 +401,22 @@ export default function Services() {
         {/* CTA Section */}
         <div className="">
           <div className="text-center py-20">
-            <h2 className="text-4xl md:text-5xl font-extrabold text-blue-700 mb-6">
+            <h1 className="text-4xl md:text-5xl font-extrabold text-blue-700 mb-6">Ready to Begin?</h1>
+            <h2 className="text-4xl md:text-5xl font-extrabold text-black mb-6">
               Let's Build Something Big
             </h2>
-            <p className="text-black text-lg max-w-2xl mx-auto mb-10">
-              Start making your brand more visible, trusted, and unforgettable.
+            <p className="text-gray-400 text-[16px] max-w-2xl mx-auto mb-10">
+              Start growing your brand with a publication strategy that delivers visibility, recognition, and trust.
             </p>
             <Button
               asChild
               className="bg-blue-700 hover:bg-blue-800 text-white px-8 py-6 rounded shadow-lg">
               <Link to="/apply">Get Started</Link>
+            </Button>
+            <Button
+              asChild
+              className="bg-blue-700 hover:bg-blue-800 text-white px-8 py-6 rounded shadow-lg ml-10">
+              <Link to="/contact">Contact Us</Link>
             </Button>
           </div>
         </div>

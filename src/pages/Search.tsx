@@ -32,20 +32,20 @@ export default function Search() {
     {
       title: "Instant Trademark Lookup",
       description:
-        "Search by application number or owner name and instantly see published trademarks.",
+        "Quickly search by application number, owner name, or company name and access results instantly.",
       image: "/images/search_first1.png",
     },
     {
-      title: "Updated  regularly",
+      title: "Updated Regularly",
       description:
-        "Our database is refreshed every day to provide the latest trademark information.",
-      image: "/images/search_second.jpg",
+        "Our system runs on a continuously refreshed dataset, giving you the most current trademark information.",
+      image: "/images/search_second.png",
     },
     {
       title: "Detailed Insights",
       description:
-        "Each result links to comprehensive articles with full trademark details.",
-      image: "/images/search_third.jpg",
+        "Each result links to detailed records with background data, visuals, and related documents.",
+      image: "/images/search_third.png",
     },
   ];
 
@@ -154,22 +154,22 @@ export default function Search() {
     {
       question: "What info is included?",
       answer:
-        "Each trademark entry includes detailed articles, high-resolution images, owner information, filing dates, application status, and relevant classification details. You can also view historical changes and related documents for comprehensive insights.",
+        "Our listings contain detailed trademark data, filing information, class details, and visual assets.",
     },
     {
       question: "How to search?",
       answer:
-        "Simply enter an application number, owner name, or company name in the search bar and click Search. You can refine your search using specific keywords or partial matches. Each result provides a direct link to more information, including legal status and related filings.",
+        "Enter an application number, owner, or company name, then click Search. Our database will match your query and display all related results.",
     },
     {
       question: "Can I search multiple times?",
       answer:
-        "Yes, you can perform unlimited searches using different terms or criteria. Our database is updated regularly, so you always get the latest trademark data. Feel free to experiment with various keywords to find the most relevant results.",
+        "Yes. The database is updated regularly, so repeated searches may return newer data as new trademarks are published",
     },
     {
       question: "Need help?",
       answer:
-        "If you need assistance, click Contact to reach our support team. We offer guidance on trademark searches, help with interpreting results, and can provide resources for filing or protecting your brand. Our experts are available to answer any questions you may have.",
+        "If you have questions or need assistance, contact our support team at help@atpregistry.com. We’ll be happy to guide you through your search or provide more details.",
     },
   ];
 
@@ -211,8 +211,8 @@ export default function Search() {
               initial={{ y: 20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.6 }}>
-              Instantly find trademarks and discover opportunities to protect
-              and grow your brand.
+              Instantly find trademarks and discover new opportunities to
+              protect and grow your brand.
             </motion.p>
           </div>
         </motion.div>

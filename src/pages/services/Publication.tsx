@@ -14,28 +14,25 @@ export default function Publication() {
       id: 1,
       title: "Fill Out the Quick Form",
       description:
-        "Share your trademark details in just a few clicks — it's fast, simple, and secure.",
-      icon: <FileText className="w-6 h-6 text-blue-600" />,
+        "Share your trademark information in just a few clicks. The process is fast, secure, and designed to get your brand publication-ready.",
       image:
-        "https://plus.unsplash.com/premium_vector-1682301631594-eb2572c47bd5?fm=jpg&q=60&w=1200",
+        "/images/publish_1.png",
     },
     {
       id: 2,
       title: "We Verify Your Info",
       description:
-        "Our team reviews everything carefully to make sure your details are accurate and ready.",
-      icon: <CheckCircle className="w-6 h-6 text-blue-600" />,
+        "Our team reviews all details carefully to ensure accuracy and consistency before publication.",
       image:
-        "https://plus.unsplash.com/premium_vector-1721256358643-00015e00b18d?fm=jpg&q=60&w=1200",
+        "/images/publish_2.png",
     },
     {
       id: 3,
       title: "Your Trademark Goes Live",
       description:
-        "Once approved, your trademark is visible and accessible for clients and partners worldwide.",
-      icon: <Globe className="w-6 h-6 text-blue-600" />,
+        "Once approved, your trademark is added to our private registry and made accessible to relevant audiences worldwide.",
       image:
-        "https://plus.unsplash.com/premium_vector-1682310922955-ea5e6f791471?fm=jpg&q=60&w=1200",
+        "/images/publish_3.png",
     },
   ];
 
@@ -67,12 +64,12 @@ export default function Publication() {
               </motion.h1>
 
               <motion.p
-                className="text-lg md:text-xl text-gray-300 mb-8 max-w-2xl leading-relaxed"
+                className="text-lg md:text-xl text-gray-400 mb-8 max-w-2xl leading-relaxed"
                 initial={{ y: 30, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.8, delay: 0.5 }}>
-                Make your brand official, boost visibility, and protect your
-                identity with our seamless trademark publication service.
+                Make your brand visible, trusted, and ready to grow through our
+                seamless private trademark publication service.
               </motion.p>
             </motion.div>
 
@@ -297,8 +294,8 @@ export default function Publication() {
               <div
                 key={step.id}
                 className=" bg-white p-8 rounded-2xl transition duration-300">
-                <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center mb-6">
-                  {step.icon}
+                <div className="flex items-center justify-center mb-6">
+                  <img src={step.image} alt={step.title} className="border rounded-xl border-blue-600 shadow-lg" />
                 </div>
                 <h3 className="text-xl md:text-2xl font-medium text-blue-600 mb-4 text-start">
                   {step.title}
@@ -314,7 +311,7 @@ export default function Publication() {
             <Button
               asChild
               className="bg-blue-700 hover:bg-blue-800 text-white px-8 py-6 rounded shadow-md transition">
-              <Link to="/apply">Start Your Application</Link>
+              <Link to="/apply">Start Now</Link>
             </Button>
           </div>
         </div>
@@ -328,15 +325,16 @@ export default function Publication() {
               Stay Ahead with Accurate, Updated Data
             </h2>
             <p className="text-black text-lg md:text-xl font-light leading-relaxed">
-              We refresh trademark records regularly, keeping your brand
-              visible, reliable, and competitive in today’s fast-changing
-              marketplace.
+              We refresh and maintain trademark data regularly to keep your
+              brand visible, relevant, and competitive in an ever-changing
+              market. Every publication is reviewed to ensure your brand stays
+              discoverable and properly represented.
             </p>
           </div>
           <div className="bg-blue-100 rounded-2xl p-10 shadow-inner">
             <p className="text-blue-800 font-medium text-lg leading-relaxed">
-              “Up-to-date trademark information means your brand is always ready
-              to be discovered. We make sure nothing slips through the cracks.”
+              “Up-to-date trademark information keeps your brand in front of the
+              right audience. We make sure nothing is overlooked.”
             </p>
           </div>
         </div>
