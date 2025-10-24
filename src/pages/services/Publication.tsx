@@ -2,11 +2,7 @@ import { Navbar } from "@/components/Navbar";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { Footer } from "@/components/Footer";
-import { FileText, CheckCircle, Globe } from "lucide-react";
-import { InteractiveHoverButton } from "@/components/ui/interactive-hover-button";
-import { AnimatedShinyText } from "@/components/ui/animated-shiny-text";
 import { motion } from "framer-motion";
-import { cn } from "@/lib/utils";
 
 export default function Publication() {
   const steps = [
@@ -15,24 +11,21 @@ export default function Publication() {
       title: "Fill Out the Quick Form",
       description:
         "Share your trademark information in just a few clicks. The process is fast, secure, and designed to get your brand publication-ready.",
-      image:
-        "/images/publish_1.png",
+      image: "/images/publish_1.png",
     },
     {
       id: 2,
       title: "We Verify Your Info",
       description:
         "Our team reviews all details carefully to ensure accuracy and consistency before publication.",
-      image:
-        "/images/publish_2.png",
+      image: "/images/publish_2.png",
     },
     {
       id: 3,
       title: "Your Trademark Goes Live",
       description:
         "Once approved, your trademark is added to our private registry and made accessible to relevant audiences worldwide.",
-      image:
-        "/images/publish_3.png",
+      image: "/images/publish_3.png",
     },
   ];
 
@@ -280,7 +273,7 @@ export default function Publication() {
 
       {/* Steps Section */}
       <section className="py-20 px-6">
-        <div className="max-w-6xl mx-auto text-center">
+        <div className="max-w-7xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-semibold text-black mb-20">
             Three Simple Steps
           </h2>
@@ -289,20 +282,16 @@ export default function Publication() {
             without any hassle.
           </p> */}
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10 w-full">
             {steps.map((step) => (
               <div
                 key={step.id}
-                className=" bg-white p-8 rounded-2xl transition duration-300">
-                <div className="flex items-center justify-center mb-6">
-                  <img src={step.image} alt={step.title} className="border rounded-xl border-blue-600 shadow-lg" />
-                </div>
-                <h3 className="text-xl md:text-2xl font-medium text-blue-600 mb-4 text-start">
-                  {step.title}
-                </h3>
-                <p className="text-black text-base font-light leading-relaxed text-start">
-                  {step.description}
-                </p>
+                className=" bg-white rounded-2xl transition duration-300 w-[100%] h-full">
+                <img
+                  src={step.image}
+                  alt={step.title}
+                  className="border rounded-2xl border-blue-600 shadow-lg w-full"
+                />
               </div>
             ))}
           </div>
