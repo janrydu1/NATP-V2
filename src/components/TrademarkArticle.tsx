@@ -24,6 +24,9 @@ export type TrademarkDetail = {
   keywords?: string[];
   articleContent?: string | null;
   articleTitle?: string | null;
+  legal_entity_type?: string;
+  mark_drawing_type?: string;
+  mark_type?: string;
 };
 
 interface TrademarkArticleProps {
@@ -156,7 +159,7 @@ export function TrademarkArticle({
                   <div className="font-semibold text-blue-600 uppercase tracking-wide">
                     <span>Legal Entity Type: </span>
                     <span className="text-blue-900 font-medium">
-                      LIMITED LIABILITY COMPANY
+                      {trademark.legal_entity_type || "—"}
                     </span>
                   </div>
 
@@ -196,14 +199,14 @@ export function TrademarkArticle({
                   <div className="font-semibold text-blue-600 uppercase tracking-wide">
                     <span>Mark Type: </span>
                     <span className="text-blue-900 font-medium">
-                      Trademark
+                     {trademark.mark_type || "—"}
                     </span>
                   </div>
 
                   <div className="font-semibold text-blue-600 uppercase tracking-wide">
                     <span>Mark Drawing Type: </span>
                     <span className="text-blue-900 font-medium">
-                      4 - STANDARD CHARACTER MARK
+                      {trademark.mark_drawing_type || "—"}
                     </span>
                   </div>
                 </div>

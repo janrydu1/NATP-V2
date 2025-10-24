@@ -155,6 +155,21 @@ export default function Admin() {
     },
     { name: "keywords", label: "Keywords", type: "text" as const },
     { name: "logo_url", label: "Logo URL", type: "text" as const },
+    {
+      name: "legal_entity_type",
+      label: "Legal Entity Type",
+      type: "text" as const,
+    },
+    {
+      name: "mark_type",
+      label: "Mark Type",
+      type: "text" as const,
+    },
+    {
+      name: "mark_drawing_type",
+      label: "Mark Drawing Type",
+      type: "text" as const,
+    },
   ];
 
   const applicationFields = [

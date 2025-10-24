@@ -45,6 +45,9 @@ export const TrademarkForm = () => {
     application_date: "",
     logo_url: "",
     keywords: [] as string[],
+    legal_entity_type: "",
+    mark_type: "",
+    mark_drawing_type: "",
   });
   const descriptionRef = useRef<HTMLTextAreaElement>(null);
   const [selectionStart, setSelectionStart] = useState(0);
@@ -75,6 +78,7 @@ export const TrademarkForm = () => {
             .single();
 
           if (error) throw error;
+          console.log("Fetched trademark data:", data);
 
           if (data) {
             setFormData({
@@ -88,13 +92,16 @@ export const TrademarkForm = () => {
               application_date: data.application_date || "",
               logo_url: data.logo_url || "",
               keywords: data.keywords || [],
+              legal_entity_type: data.legal_entity_type || "",
+              mark_type: data.mark_type || "",
+              mark_drawing_type: data.mark_drawing_type || "",
             });
           }
-        } catch (error: any) {
+        } catch (error: unknown) {
           console.error("Error fetching trademark:", error);
+          const errorMessage = error instanceof Error ? error.message : "Unknown error";
           toast.error(
-            "Failed to load trademark data: " +
-              (error.message || "Unknown error")
+            "Failed to load trademark data: " + errorMessage
           );
         } finally {
           setLoading(false);
@@ -319,6 +326,9 @@ export const TrademarkForm = () => {
         application_date: formData.application_date || null,
         logo_url: logoUrl || null,
         keywords: formData.keywords.length > 0 ? formData.keywords : null, // Store keywords as an array
+        legal_entity_type: formData.legal_entity_type || null,
+        mark_type: formData.mark_type || null,
+        mark_drawing_type: formData.mark_drawing_type || null,
       };
 
       console.log("Saving trademark with data:", trademarkData);
@@ -497,6 +507,52 @@ export const TrademarkForm = () => {
               name="us_classes"
               value={formData.us_classes}
               onChange={handleChange}
+              className="bg-white border-blue-200 focus:border-blue-500 focus:ring-blue-500 rounded-lg"
+            />
+          </div>
+
+          <div className="space-y-2">
+            <Label
+              htmlFor="legal_entity_type"
+              className="text-blue-700 font-medium">
+              Legal Entity Type
+            </Label>
+            <Input
+              id="legal_entity_type"
+              name="legal_entity_type"
+              value={formData.legal_entity_type}
+              onChange={handleChange}
+              placeholder="e.g., Corporation, LLC, Individual"
+              className="bg-white border-blue-200 focus:border-blue-500 focus:ring-blue-500 rounded-lg"
+            />
+          </div>
+
+          <div className="space-y-2">
+            <Label htmlFor="mark_type" className="text-blue-700 font-medium">
+              Mark Type
+            </Label>
+            <Input
+              id="mark_type"
+              name="mark_type"
+              value={formData.mark_type}
+              onChange={handleChange}
+              placeholder="e.g., Trademark, Service Mark"
+              className="bg-white border-blue-200 focus:border-blue-500 focus:ring-blue-500 rounded-lg"
+            />
+          </div>
+
+          <div className="space-y-2">
+            <Label
+              htmlFor="mark_drawing_type"
+              className="text-blue-700 font-medium">
+              Mark Drawing Type
+            </Label>
+            <Input
+              id="mark_drawing_type"
+              name="mark_drawing_type"
+              value={formData.mark_drawing_type}
+              onChange={handleChange}
+              placeholder="e.g., Standard Character Claim, Stylized/Design, Sound Mark"
               className="bg-white border-blue-200 focus:border-blue-500 focus:ring-blue-500 rounded-lg"
             />
           </div>
