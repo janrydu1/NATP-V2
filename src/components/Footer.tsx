@@ -67,7 +67,7 @@ export const Footer = () => {
               <a
                 href="mailto:help@atpregistry.com"
                 className="text-black break-words flex items-center gap-2">
-                <Mail size={16} />
+                <Mail size={16} className="flex items-center"/>
                 help@atpregistry.com
               </a>
             </div>
@@ -117,11 +117,6 @@ export const Footer = () => {
                 <li>
                   <Link to="/about" className="font-medium hover:underline">
                     About ATP
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/services" className="font-medium hover:underline">
-                    Our Services
                   </Link>
                 </li>
                 <li>

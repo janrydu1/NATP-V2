@@ -11,7 +11,7 @@ export default function Publication() {
       title: "Fill Out the Quick Form",
       description:
         "Share your trademark information in just a few clicks. The process is fast, secure, and designed to get your brand publication-ready.",
-      image: "/images/publish_1.png",
+      image: "/images/publish_1.jpg",
     },
     {
       id: 2,

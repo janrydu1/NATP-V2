@@ -5,8 +5,6 @@ import { Footer } from "@/components/Footer";
 import { BentoCard, BentoGrid } from "@/components/ui/bento-grid";
 import { Eye, PenTool, Search, TrendingUp, Globe } from "lucide-react";
 import { motion } from "framer-motion";
-import { AnimatedShinyText } from "@/components/ui/animated-shiny-text";
-import { cn } from "@/lib/utils";
 
 export default function Services() {
   return (
@@ -31,7 +29,7 @@ export default function Services() {
                 initial={{ y: 30, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.8, delay: 0.3 }}>
-                Services <span className="text-blue-600">Built</span> for Growth
+                Services <span className="text-green-600">Built</span> for Growth
               </motion.h1>
 
               <motion.p
@@ -316,7 +314,7 @@ export default function Services() {
 Our editorial team creates original content that captures your values, speaks your audience’s language and strengthens recognition.
 "
               href="/services/article"
-              cta="Learn More"
+              cta="Explore More"
             />
 
             <BentoCard
@@ -338,7 +336,7 @@ Our editorial team creates original content that captures your values, speaks yo
 We deliver data-driven insights that track engagement, visibility and growth opportunities.
 "
               href="/services/analytics"
-              cta="View Details"
+              cta="Explore More"
             />
 
             <BentoCard
@@ -360,7 +358,7 @@ We deliver data-driven insights that track engagement, visibility and growth opp
 Our platform connects your trademark with international audiences and industry segments; increasing recognition across global markets.
 "
               href="/services/global"
-              cta="Get Started"
+              cta="Explore More"
             />
           </BentoGrid>
         </div>
@@ -405,13 +403,13 @@ Our platform connects your trademark with international audiences and industry s
             <h2 className="text-4xl md:text-5xl font-extrabold text-black mb-6">
               Let's Build Something Big
             </h2>
-            <p className="text-gray-400 text-[16px] max-w-2xl mx-auto mb-10">
+            <p className="text-gray-400 text-[16px] max-w-3xl mx-auto mb-10">
               Start growing your brand with a publication strategy that delivers visibility, recognition, and trust.
             </p>
             <Button
               asChild
               className="bg-blue-700 hover:bg-blue-800 text-white px-8 py-6 rounded shadow-lg">
-              <Link to="/apply">Get Started</Link>
+              <Link to="/apply">Start Now</Link>
             </Button>
             <Button
               asChild

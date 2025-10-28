@@ -74,7 +74,7 @@ export default function Article() {
                 initial={{ y: 30, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.8, delay: 0.3 }}>
-                Your Story, <span className="text-blue-600">Our Words</span>
+                Your Story, <span className="text-purple-600">Our Words</span>
               </motion.h1>
 
               <motion.p
@@ -305,8 +305,8 @@ export default function Article() {
 
       {/* Process Section */}
       <section className="py-20 px-6">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-4xl font-semibold text-black text-center mb-20">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-5xl font-semibold text-black text-center mb-20">
             How We Bring Ideas to Life
           </h2>
           {/* <p className="text-center text-black max-w-2xl mx-auto mb-16">
@@ -314,59 +314,59 @@ export default function Article() {
             brand voice stands out in a noisy digital world.
           </p> */}
 
-          <div className="grid md:grid-cols-3 gap-12">
+          <div className="grid md:grid-cols-3 gap-20">
             {/* Step 1 */}
             <div className="bg-white rounded-2xl transition">
-              <div className="max-w-xl h-max mb-8 overflow-hidden rounded-xl shadow-lg">
+              <div className="w-[400px] h-full mb-8 overflow-hidden rounded-2xl shadow-lg border-2 border-dashed p-2 border-blue-600">
                 <img
                   src="/images/article_1.png"
                   alt="Smart Content"
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover rounded-xl"
                 />
               </div>
-              <h3 className="text-2xl font-semibold text-blue-700 mb-4 text-start">
+              {/* <h3 className="text-2xl font-semibold text-blue-700 mb-4 text-start">
                 Explore
               </h3>
               <p className="text-black text-base text-start">
                 We begin by understanding your brand, audience and goals. Every
                 project starts with solid research and a clear creative vision.
-              </p>
+              </p> */}
             </div>
 
             {/* Step 2 */}
             <div className="bg-white rounded-2xl transition">
-              <div className="max-w-xl h-max mb-8 overflow-hidden rounded-xl shadow-lg">
+              <div className="w-[400px] h-full mb-8 overflow-hidden rounded-2xl shadow-lg border-2 border-dashed p-2 border-purple-500">
                 <img
                   src="/images/article_2.png"
                   alt="Smart Content"
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover rounded-xl"
                 />
               </div>
-              <h3 className="text-2xl font-semibold text-blue-700 mb-4 text-start">
+              {/* <h3 className="text-2xl font-semibold text-blue-700 mb-4 text-start">
                 Create
               </h3>
               <p className="text-black text-base text-start">
                 Our writers craft stories that connect with your audience and
                 reflect your brand’s authentic voice. Each  designed to
                 inspire, inform and engage.
-              </p>
+              </p> */}
             </div>
 
             {/* Step 3 */}
             <div className="bg-white rounded-2xl transition">
-              <div className="max-w-xl h-max mb-8 overflow-hidden rounded-xl shadow-lg">
+              <div className="w-[400px] h-full mb-8 overflow-hidden rounded-2xl shadow-lg border-2 border-dashed p-2 border-green-800">
                 <img
                   src="/images/article_3.png"
                   alt="Smart Content"
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover rounded-xl"
                 />
               </div>
-              <h3 className="text-2xl font-semibold text-blue-700 mb-4 text-start">
+              {/* <h3 className="text-2xl font-semibold text-blue-700 mb-4 text-start">
                 Amplify
               </h3>
               <p className="text-black text-base leading-relaxed text-start">
                 When your content is ready, we make sure it reaches the right people through tailored visibility and thoughtful promotion.
-              </p>
+              </p> */}
             </div>
           </div>
         </div>

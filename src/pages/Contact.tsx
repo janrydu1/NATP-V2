@@ -218,11 +218,6 @@ export default function Contact() {
           <p className="text-slate-600 text-sm leading-relaxed mt-8 text-center">
             We respect your privacy. Shared details will only be used to respond
             to your inquiry.
-            <a href="/terms" className="text-blue-600 hover:underline">
-              {" "}
-              Learn more
-            </a>
-            .
           </p>
         </div>
       </section>
@@ -301,7 +296,7 @@ export default function Contact() {
               </a>
               <span> and </span>
               <a href="/privacy" className="text-blue-600 hover:underline">
-                privacy policy.
+                privacy policy
               </a>
               .
             </p>

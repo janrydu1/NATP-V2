@@ -29,12 +29,12 @@ export default function Index() {
     {
       question: "Who crafts the content / articles?",
       answer:
-        "Our content team researches your brand, industry, and audience to create original articles and branded features tailored to your message. We never use templates. Each piece is crafted to reflect your brand identity and engage the right audience. You’ll review and approve drafts to ensure every publication perfectly aligns with your goals and tone.",
+        "Our content team researches your brand, industry, and audience to create original articles and branded features tailored to your message. We never use templates. Each piece is crafted to reflect your brand identity and engage the right audience.",
     },
     {
       question: "What SEO services are included?",
       answer:
-        "Our SEO approach focuses on strategic visibility across search engines and our own publication ecosystem. We optimize your content structure, backlinks, and discoverability; ensuring your brand reaches the right readers and remains visible long-term. You’ll receive regular updates and insights to track performance and audience engagement.",
+        "Our SEO approach focuses on strategic visibility across search engines and our own publication ecosystem. We optimize your content structure, backlinks, and discoverability; ensuring your brand reaches the right readers and remains visible long-term.",
     },
     {
       question: "How to initiate the process?",
@@ -126,7 +126,7 @@ export default function Index() {
                 <h3 className="text-xl font-semibold">Trademark Publishing</h3>
                 <p className="text-muted-foreground">
                   We manage the full publication process, ensuring your
-                  trademark gains verified visibility in the official registry.
+                  trademark gains verified visibility in our private registry.
                 </p>
               </div>
             </div>
@@ -273,7 +273,7 @@ export default function Index() {
               Icon={PenTool}
               description="Your trademark is formally published - supported by original branded content to enhance reach and recognition."
               href="/services/article"
-              cta="Learn More"
+              cta="Explore More"
             />
 
             <BentoCard
@@ -293,7 +293,7 @@ export default function Index() {
               Icon={TrendingUp}
               description="We monitor, update, and optimize your trademark presence for sustained visibility and growth."
               href="/services/analytics"
-              cta="View Details"
+              cta="Explore More"
             />
           </BentoGrid>
         </div>

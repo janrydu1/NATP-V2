@@ -32,7 +32,7 @@ export default function SEO() {
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.8, delay: 0.3 }}>
                 Be Seen.{" "}
-                <span className="text-blue-600">
+                <span className="text-orange-600">
                   {" "}
                   <br />
                   Be Chosen.
@@ -257,8 +257,8 @@ export default function SEO() {
 
       {/* What We Do Section */}
       <section className="py-20 px-6">
-        <div className="max-w-6xl mx-auto text-center">
-          <h2 className="text-4xl font-semibold text-black mb-20">
+        <div className="max-w-7xl mx-auto text-center">
+          <h2 className="text-5xl font-semibold text-black mb-20">
             SEO Made Simple (And Powerful)
           </h2>
           {/* <p className="text-black max-w-2xl mx-auto text-lg mb-16">
@@ -267,62 +267,62 @@ export default function SEO() {
             the guesswork.
           </p> */}
 
-          <div className="grid md:grid-cols-3 gap-10">
+          <div className="grid md:grid-cols-3 gap-56 justify-items-center">
             {/* Card 1 */}
-            <div className="bg-white rounded-2xl p-8 transition">
-              <div className="max-w-xl h-max mb-8 overflow-hidden rounded-xl shadow-lg">
+            <div className="bg-white rounded-full p-8 transition">
+              <div className="w-[450px] h-max mb-8 overflow-hidden rounded-3xl shadow-xl ">
                 <img
                   src="/images/seo_1.png"
                   alt="Smart Content"
                   className="w-full h-full object-cover"
                 />
               </div>
-              <h3 className="text-2xl font-semibold text-blue-700 mb-4 text-start">
+              {/* <h3 className="text-2xl font-semibold text-blue-700 mb-4 text-start">
                 Smart Content
               </h3>
               <p className="text-black text-base text-start">
                 We make sure your brand appears at the exact moment people are
                 searching for what you do best. No fluff, just visibility that
                 gets results.
-              </p>
+              </p> */}
             </div>
 
             {/* Card 2 */}
             <div className="bg-white rounded-2xl p-8 transition">
-              <div className="max-w-xl h-max mb-7 overflow-hidden rounded-xl shadow-lg">
+              <div className="w-[450px] h-max mb-7 overflow-hidden rounded-3xl shadow-xl">
                 <img
                   src="/images/seo_2.png"
                   alt="Keyword Intelligence"
                   className="w-full h-full object-cover"
                 />
               </div>
-              <h3 className="text-2xl font-semibold text-blue-700 mb-4 text-start">
+              {/* <h3 className="text-2xl font-semibold text-blue-700 mb-4 text-start">
                 Keyword Intelligence
               </h3>
               <p className="text-black text-base text-start">
                 We identify search terms that bring real customers and blend
                 them naturally into your content. Our approach ensures that
                 people and search engines understand your brand the same way.
-              </p>
+              </p> */}
             </div>
 
             {/* Card 3 */}
             <div className="bg-white rounded-2xl p-8 transition">
-              <div className="max-w-xl h-max mb-6 overflow-hidden rounded-xl shadow-lg">
+              <div className="w-[450px] h-max mb-6 overflow-hidden rounded-3xl shadow-xl">
                 <img
                   src="/images/seo_3.png"
                   alt="Clear Structure"
                   className="w-full h-full object-cover"
                 />
               </div>
-              <h3 className="text-2xl font-semibold text-blue-700 mb-4 text-start">
+              {/* <h3 className="text-2xl font-semibold text-blue-700 mb-4 text-start">
                 Clear Structure
               </h3>
               <p className="text-black text-base text-start">
                 We build layouts that are intuitive for visitors and optimized
                 for search visibility. Simple design, clean navigation, and
                 precise metadata make your site easy to find and explore.
-              </p>
+              </p> */}
             </div>
           </div>
         </div>

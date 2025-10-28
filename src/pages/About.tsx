@@ -52,7 +52,7 @@ export default function About() {
       year: "Today",
       title: "Continuing the Mission",
       description:
-        "Today, ATP helps brands publish, protect, and grow through curated visibility and intelligent content strategy. Our focus remains the same: empowering brands to be remembered for what they stand for.",
+        "Today, ATP helps brands publish, protect, and grow through curated visibility and intelligent content strategy. Our focus remains the same: Empowering brands to be remembered for what they stand for.",
       image: "/images/about_2025.png",
     },
   ];
@@ -98,7 +98,7 @@ export default function About() {
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.8, delay: 0.3 }}>
                 Empowering Brands{" "}
-                <span className="text-blue-600">to Be Seen. </span> to
+                <span className="text-blue-600">to Be Seen. </span>
                 Recognized. Remembered.
               </motion.h1>
 
@@ -350,9 +350,6 @@ export default function About() {
               </AnimatedShinyText>
             </div>
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold text-black">
-            Our Story
-          </h2>
         </motion.div>
 
         <div className="relative">
@@ -576,7 +573,7 @@ export default function About() {
               <Link to="/contact">Contact Us</Link>
             </InteractiveHoverButton>
             <InteractiveHoverButton className="bg-blue-600 text-white shadow-md rounded ml-10">
-              <Link to="/services/publication">Request Publication</Link>
+              <Link to="/apply">Start Now</Link>
             </InteractiveHoverButton>
           </motion.div>
         </div>

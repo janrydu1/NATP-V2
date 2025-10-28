@@ -149,42 +149,42 @@ export function TrademarkArticle({
               {/* Info Grid */}
               <div className="lg:col-span-1">
                 <div className="grid grid-cols-1 gap-6 text-lg">
-                  <div className="font-semibold text-blue-600 uppercase tracking-wide">
+                  <div className="font-semibold text-blue-600 tracking-wide">
                     <span>Owner(s): </span>
                     <span className="text-blue-900 font-medium">
                       {trademark.owner_name}
                     </span>
                   </div>
 
-                  <div className="font-semibold text-blue-600 uppercase tracking-wide">
+                  <div className="font-semibold text-blue-600 tracking-wide">
                     <span>Legal Entity Type: </span>
                     <span className="text-blue-900 font-medium">
                       {trademark.legal_entity_type || "—"}
                     </span>
                   </div>
 
-                  <div className="font-semibold text-blue-600 uppercase tracking-wide">
+                  <div className="font-semibold text-blue-600 tracking-wide">
                     <span>Class(es): </span>
                     <span className="text-blue-900 font-medium">
                       {trademark.national_classes || "—"}
                     </span>
                   </div>
 
-                  <div className="font-semibold text-blue-600 uppercase tracking-wide">
+                  <div className="font-semibold text-blue-600 tracking-wide">
                     <span>US Class(es): </span>
                     <span className="text-blue-900 font-medium">
                       {trademark.us_classes || "—"}
                     </span>
                   </div>
 
-                  <div className="font-semibold text-blue-600 uppercase tracking-wide">
+                  <div className="font-semibold text-blue-600 tracking-wide">
                     <span>Application #: </span>
                     <span className="text-blue-900 font-medium">
                       {trademark.application_number || "—"}
                     </span>
                   </div>
 
-                  <div className="font-semibold text-blue-600 uppercase tracking-wide">
+                  <div className="font-semibold text-blue-600 tracking-wide">
                     <span>Filing Date: </span>
                     <span className="text-blue-900 font-medium">
                       {trademark.application_date
@@ -196,14 +196,14 @@ export function TrademarkArticle({
                     </span>
                   </div>
 
-                  <div className="font-semibold text-blue-600 uppercase tracking-wide">
+                  <div className="font-semibold text-blue-600 tracking-wide">
                     <span>Mark Type: </span>
                     <span className="text-blue-900 font-medium">
                      {trademark.mark_type || "—"}
                     </span>
                   </div>
 
-                  <div className="font-semibold text-blue-600 uppercase tracking-wide">
+                  <div className="font-semibold text-blue-600 tracking-wide">
                     <span>Mark Drawing Type: </span>
                     <span className="text-blue-900 font-medium">
                       {trademark.mark_drawing_type || "—"}
@@ -310,9 +310,9 @@ export function TrademarkArticle({
                   Make your brand stand out with tailored publication and visibility programs.
                 </p>
                 <Link
-                  to="/contact"
+                  to="/apply"
                   className="bg-blue-600 hover:bg-blue-700 transition text-white py-3 px-6 rounded-xl shadow">
-                  Get in Touch
+                  Start Now
                 </Link>
               </div>
             </div>
