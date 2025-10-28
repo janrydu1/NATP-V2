@@ -337,7 +337,7 @@ export default function Article() {
             <div className="bg-white rounded-2xl transition">
               <div className="w-[400px] h-full mb-8 overflow-hidden rounded-2xl shadow-lg border-2 border-dashed p-2 border-purple-500">
                 <img
-                  src="/images/article_2.png"
+                  src="/images/image.png"
                   alt="Smart Content"
                   className="w-full h-full object-cover rounded-xl"
                 />
@@ -356,7 +356,7 @@ export default function Article() {
             <div className="bg-white rounded-2xl transition">
               <div className="w-[400px] h-full mb-8 overflow-hidden rounded-2xl shadow-lg border-2 border-dashed p-2 border-green-800">
                 <img
-                  src="/images/article_3.png"
+                  src="/images/article_3.jpg"
                   alt="Smart Content"
                   className="w-full h-full object-cover rounded-xl"
                 />

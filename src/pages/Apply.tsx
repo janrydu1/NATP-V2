@@ -297,7 +297,7 @@ export default function Apply() {
                 <Label
                   htmlFor="application-number"
                   className="text-slate-700 font-semibold">
-                  Application Number
+                  Application Number (Optional)
                 </Label>
                 <Input
                   id="application-number"
@@ -337,12 +337,12 @@ export default function Apply() {
             <div className="grid md:grid-cols-2 gap-6">
               <div className="space-y-2">
                 <Label htmlFor="class" className="text-slate-700 font-semibold">
-                  International Classes (Optional)
+                  International Class(es) (Optional)
                 </Label>
                 <Input
                   id="class"
                   value={formData.class}
-                  placeholder="e.g., 35, 42"
+                  placeholder="e.g., 001, 042"
                   className="h-12 rounded-xl bg-white border border-slate-200 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-100 transition placeholder:text-slate-400"
                   onChange={(e) =>
                     setFormData((prev) => ({ ...prev, class: e.target.value }))
@@ -353,7 +353,7 @@ export default function Apply() {
                 <Label
                   htmlFor="us_class"
                   className="text-slate-700 font-semibold">
-                  US Classes (Optional)
+                  US Class(es) (Optional)
                 </Label>
                 <Input
                   id="us_class"
@@ -393,7 +393,7 @@ export default function Apply() {
                 <Input
                   id="city"
                   value={formData.city}
-                  placeholder="New York, London, Mumbai"
+                  placeholder="New York, London, Toronto"
                   className="h-12 rounded-xl bg-white border border-slate-200 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-100 transition placeholder:text-slate-400"
                   onChange={(e) =>
                     setFormData((prev) => ({ ...prev, city: e.target.value }))
@@ -409,7 +409,7 @@ export default function Apply() {
                 <Input
                   id="country"
                   value={formData.country}
-                  placeholder="United States, India, United Kingdom"
+                  placeholder="United States, Canada, United Kingdom"
                   className="h-12 rounded-xl bg-white border border-slate-200 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-100 transition placeholder:text-slate-400"
                   onChange={(e) =>
                     setFormData((prev) => ({

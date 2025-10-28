@@ -403,7 +403,7 @@ Our platform connects your trademark with international audiences and industry s
             <h2 className="text-4xl md:text-5xl font-extrabold text-black mb-6">
               Let's Build Something Big
             </h2>
-            <p className="text-gray-400 text-[16px] max-w-3xl mx-auto mb-10">
+            <p className="text-gray-700 text-[16px] max-w-3xl mx-auto mb-10">
               Start growing your brand with a publication strategy that delivers visibility, recognition, and trust.
             </p>
             <Button

@@ -21,11 +21,11 @@ export default function Terms() {
     {
       title: "Payment Conditions",
       content:
-        "4.1 Access to the Service is granted only after full payment of the Service Fee.</br>4.2 Payments can be made by bank transfer, check, or other accepted methods. Your access becomes active once your payment is confirmed.",
+        "4.1 Access to the Service is granted only after full payment of the Service Fee.</br>4.2 Payments may be made via wire transfer, check, or other accepted methods. Your access becomes active once your payment is confirmed.",
     },
     {
       title: "Right of Withdrawal",
-      content: `<b>5.1 Contract Formation: </b></br><p style="padding-left: 10px;">The agreement becomes binding once you accept our offer and pay the Service Fee. </p><b>5.2 Withdrawal Period:</b> <p style="padding-left: 10px;">• You may cancel your purchase within seven (7) days of payment for a full refund, no questions asked.
+      content: `<b>5.1 Contract Formation: </b></br><p style="padding-left: 10px;">The agreement becomes binding once you accept our offer and pay the Service Fee. </p><b>5.2 Withdrawal Period:</b> <p style="padding-left: 10px;">• You may cancel your purchase within <b>seven (7) days</b> of payment for a full refund, no questions asked.
  </p><p style="padding-left: 10px;">• After this period, the contract remains valid for the agreed term. </p>`,
     },
     {

@@ -23,7 +23,7 @@ export default function PrivacyPolicy() {
     {
       title: "Sharing Your Information",
       content:
-        "4.1 We do not sell, rent, or trade your personal information.</br>4.2 We may share limited data with <b>trusted service providers</b> (for example, payment processors, email delivery platforms, or technical partners) who help us operate our services; always under strict confidentiality agreements.</br>4.3 We may also disclose information if required by law or to comply with legal obligations.",
+        "4.1 We do <b>not</b> sell, rent, or trade your personal information.</br>4.2 We may share limited data with <b>trusted service providers</b> (for example, payment processors, email delivery platforms, or technical partners) who help us operate our services; always under strict confidentiality agreements.</br>4.3 We may also disclose information if required by law or to comply with legal obligations.",
     },
     {
       title: "Keeping Your Data Safe",
@@ -38,7 +38,7 @@ export default function PrivacyPolicy() {
     {
       title: "Cookies and Tracking",
       content:
-        "7.1 We use cookies and similar technologies to ensure the proper functioning of our site, analyze performance and enhance usability.</br>7.2You can manage or disable cookies through your browser settings, but please note that some features may not function as intended if cookies are disabled.",
+        "7.1 We use cookies and similar technologies to ensure the proper functioning of our site, analyze performance and enhance usability.</br>7.2 You can manage or disable cookies through your browser settings, but please note that some features may not function as intended if cookies are disabled.",
     },
     {
       title: "How Long We Keep Your Data",
@@ -131,8 +131,7 @@ export default function PrivacyPolicy() {
             Privacy Policy
           </h1>
           <p className="mt-4 text-lg text-black leading-relaxed">
-            Learn how we safeguard your personal data and respect your privacy
-            across our services.
+            Learn how we safeguard your personal data and ensure transparency across our services.
           </p>
         </div>
 
@@ -161,7 +160,7 @@ export default function PrivacyPolicy() {
             <Link
               to="/contact"
               className="inline-flex items-center justify-center bg-blue-600 hover:bg-blue-700 text-white text-lg font-bold px-4 py-2 shadow-lg transition-colors rounded-[8px]">
-              Contact Support
+              Contact Us
             </Link>
           </div>
         </div>
