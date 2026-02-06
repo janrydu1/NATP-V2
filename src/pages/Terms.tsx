@@ -7,16 +7,16 @@ export default function Terms() {
     {
       title: "Introduction",
       content:
-        "Welcome to <b>ATP Service Inc. DBA ATP.</b> </br>These Terms and Conditions (“Terms”) govern the agreement between <b>ATP</b> (“we,” “us,” or “the Provider”) and <b>you</b> (“the Customer” or “you”). </br>By using our services or purchasing any paid access (the “Service”), you acknowledge and agree to these Terms. </br>For questions, contact us at <b>help@atpregistry.com.</b>",
+        "Welcome to <b>ATP Registration Inc. DBA ATP.</b> </br>These Terms and Conditions (“Terms”) govern the agreement between <b>ATP</b> (“we,” “us,” or “the Provider”) and <b>you</b> (“the Customer” or “you”). </br>By using our services or purchasing any paid access (the “Service”), you acknowledge and agree to these Terms. </br>For questions, contact us at <b>help@atpregistry.com.</b>",
     },
     {
       title: "Definitions",
       content:
-        "<b>2.1 Database:</b> Our proprietary system that compiles trademark data from national and international public sources.</br><b>2.2 Filing Fee:</b> The upfront payment required to access the Service, as specified in our current offer.</br><b>2.3 Agreement:</b> The legally binding contract between you and ATP, effective once payment is received.",
+        "<b>2.1 Database:</b> Our proprietary system that compiles trademark data from national and international public sources.</br><b>2.2 Publication service Fee:</b> The upfront payment required to access the Service, as specified in our current offer.</br><b>2.3 Agreement:</b> The legally binding contract between you and ATP, effective once payment is received.",
     },
     {
       title: "Service Description",
-      content: `<b>3.1 Scope:</b> </br><p style="padding-left: 10px;">•	You gain access to premium content and trademark publication tools in our Database. </p><p style="padding-left: 10px;">•	Access remains valid for the duration specified in your service plan (typically three years).</p><b>3.2 Exclusivity:</b> <p style="padding-left: 10px;">•	Only these Terms apply to our agreement. </p><p style="padding-left: 10px;">•	Terms from your side or third parties are not binding unless accepted by us in writing. </p><b>3.3 Modifications: </b><p style="padding-left: 10px;">•	We may update or adjust these Terms periodically, but we’ll always notify you in advance.</p><p style="padding-left: 10px;">•	Changes take effect once communicated and acknowledged.</p>`,
+      content: `<b>3.1 Scope:</b> </br><p style="padding-left: 10px;">•	You gain access to premium content and trademark publication tools in our Database. </p><p style="padding-left: 10px;">•	Access remains valid for the duration specified in your service plan (typically one year).</p><b>3.2 Exclusivity:</b> <p style="padding-left: 10px;">•	Only these Terms apply to our agreement. </p><p style="padding-left: 10px;">•	Terms from your side or third parties are not binding unless accepted by us in writing. </p><b>3.3 Modifications: </b><p style="padding-left: 10px;">•	We may update or adjust these Terms periodically, but we’ll always notify you in advance.</p><p style="padding-left: 10px;">•	Changes take effect once communicated and acknowledged.</p>`,
     },
     {
       title: "Payment Conditions",

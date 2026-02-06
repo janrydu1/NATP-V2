@@ -8,7 +8,7 @@ export default function PrivacyPolicy() {
     {
       title: "Introduction",
       content:
-        "Welcome to <b>ATP Service Inc.</b> </br>Your privacy is important to us. This policy explains how we collect, use, store and protect your personal information when you use our website, services, or related tools",
+        "Welcome to <b>ATP</b> </br>Your privacy is important to us. This policy explains how we collect, use, store and protect your personal information when you use our website, services, or related tools",
     },
     {
       title: "Information Collection",
@@ -63,7 +63,7 @@ export default function PrivacyPolicy() {
     {
       title: "Effective Date",
       content:
-        "This Privacy Policy is effective as of <b>January 1, 2025</b> and complies with applicable <b>U.S. data protection laws.</b>",
+        "This Privacy Policy is effective as of <b>January 1, 2026</b> and complies with applicable <b>U.S. data protection laws.</b>",
     },
   ];
 
