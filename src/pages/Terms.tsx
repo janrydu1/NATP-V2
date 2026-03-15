@@ -7,7 +7,7 @@ export default function Terms() {
     {
       title: "Introduction",
       content:
-        "Welcome to <b>ATP Registration Inc. DBA ATP.</b> </br>These Terms and Conditions (“Terms”) govern the agreement between <b>ATP</b> (“we,” “us,” or “the Provider”) and <b>you</b> (“the Customer” or “you”). </br>By using our services or purchasing any paid access (the “Service”), you acknowledge and agree to these Terms. </br>For questions, contact us at <b>help@atpregistry.com.</b>",
+        "Welcome to <b>ATP Service Inc. DBA ATP.</b> </br>These Terms and Conditions (“Terms”) govern the agreement between <b>ATP</b> (“we,” “us,” or “the Provider”) and <b>you</b> (“the Customer” or “you”). </br>By using our services or purchasing any paid access (the “Service”), you acknowledge and agree to these Terms. </br>For questions, contact us at <b>help@atpregistry.com.</b>",
     },
     {
       title: "Definitions",
